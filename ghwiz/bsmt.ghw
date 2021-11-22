@@ -1,0 +1,17 @@
+            </Wall>
+            <Basement isExposedSurface="true" exposedSurfacePerimeter="20.9093" id="1">
+                <Label>Foundation - 1</Label>
+                <Configuration type="BCCB" subtype="8" overlap="0.0701">BCCB_8</Configuration>
+                <OpeningUpstairs code="4" value="1.5598">
+                    <English>User specified</English>
+                    <French>Spécifié par l'utilisateur</French>
+                </OpeningUpstairs>
+                <RoomType code="6">
+                    <English>Utility Room</English>
+                    <French>Pièce Utilitaire</French>
+                </RoomType>
+                <Floor>
+                    <Construction isBelowFrostline="true" hasIntegralFooting="false" heatedFloor="false">
+                        <AddedToSlab rValue="0" nominalInsulation="0">User specified</AddedToSlab>
+                        <FloorsAbove idref="Code 6" rValue="0.7057" nominalInsulation="0">4231000660</FloorsAbove>
+                    </Construction>
