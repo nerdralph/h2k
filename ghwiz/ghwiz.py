@@ -10,21 +10,19 @@ SF_PER_SM = FT_PER_M ** 2
 #    tree.find(path).attrib["value"] = value
 
 if len(sys.argv) < 3:
-    print(sys.argv[0], "FacingDirection YearBuilt operim oarea")
+    print(sys.argv[0], "FacingDirection YearBuilt operim oarea fileid")
     sys.exit()
 
 FacingDirection=sys.argv[1]
 YearBuilt=sys.argv[2]
 operim=float(sys.argv[3])
 oarea=float(sys.argv[4])
-
-fileid="22RDD00067"
+fileid=sys.argv[5]
 
 #t = ET.parse("template.h2k")
 t = ET.parse("tmpl-oil.h2k")
 
-t.find("./ProgramInformation/File").attrib["evaluationDate"] = "2021-11-17"
-#t.find("./ProgramInformation/File/Identification").text = "22RDD00067"
+t.find("./ProgramInformation/File").attrib["evaluationDate"] = "2021-11-18"
 t.find("./ProgramInformation/File/Identification").text = fileid
 t.find("./House/Specifications/FacingDirection").attrib["code"] = FacingDirection
 t.find("./House/Specifications/YearBuilt").attrib["value"] = YearBuilt
