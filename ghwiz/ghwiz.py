@@ -10,21 +10,20 @@ SF_PER_SM = FT_PER_M ** 2
 #    tree.find(path).attrib["value"] = value
 
 if len(sys.argv) < 3:
-    print(sys.argv[0], "FacingDirection YearBuilt operim oarea fileid")
+    print(sys.argv[0], "YearBuilt operim oarea fileid")
     sys.exit()
 
-FacingDirection=sys.argv[1]
-YearBuilt=sys.argv[2]
-operim=float(sys.argv[3])
-oarea=float(sys.argv[4])
-fileid=sys.argv[5]
+YearBuilt=sys.argv[1]
+operim=float(sys.argv[2])
+oarea=float(sys.argv[3])
+fileid=sys.argv[3]
 
 #t = ET.parse("template.h2k")
 t = ET.parse("tmpl-oil.h2k")
 
 t.find("./ProgramInformation/File").attrib["evaluationDate"] = "2021-11-18"
 t.find("./ProgramInformation/File/Identification").text = fileid
-t.find("./House/Specifications/FacingDirection").attrib["code"] = FacingDirection
+#t.find("./House/Specifications/FacingDirection").attrib["code"] = FacingDirection
 t.find("./House/Specifications/YearBuilt").attrib["value"] = YearBuilt
 
 # calculate foundation and main floor area converted to metric
