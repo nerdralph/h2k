@@ -40,7 +40,7 @@ t.find(".House/NaturalAirInfiltration/Specifications/House").attrib["volume"] = 
 # calculate highest ceiling height
 # template has 4' pony, so add 4.5 + 1' to wall height
 highest_ceiling = (4.5 +1)/FT_PER_M + wall_height_m 
-t.find(".House/NaturalAirInfiltration/Specifications/BuildingSite").attrib["highestCeiling"] = str(volume)
+t.find(".House/NaturalAirInfiltration/Specifications/BuildingSite").attrib["highestCeiling"] = str(highest_ceiling)
 m = t.find("House/Components/Ceiling/Measurements")
 m.attrib["length"] = str(operim/FT_PER_M)
 m.attrib["area"] = str(main_area)
