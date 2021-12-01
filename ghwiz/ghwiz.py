@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+import os
 import sys
 import xml.etree.ElementTree as ET
 
@@ -10,21 +11,21 @@ SF_PER_SM = FT_PER_M ** 2
 #    tree.find(path).attrib["value"] = value
 
 if len(sys.argv) < 3:
-    print(sys.argv[0], "YearBuilt operim oarea fileid")
+    print(sys.argv[0], "wall-height operim oarea fileid")
     sys.exit()
 
-YearBuilt=sys.argv[1]
+# wall height in metres
+wall_height_m=float(sys.argv[1])/FT_PER_M
 operim=float(sys.argv[2])
 oarea=float(sys.argv[3])
-fileid=sys.argv[3]
+fileid=sys.argv[4]
 
-#t = ET.parse("template.h2k")
 t = ET.parse("tmpl-oil.h2k")
 
-t.find("./ProgramInformation/File").attrib["evaluationDate"] = "2021-11-18"
+#t.find("./ProgramInformation/File").attrib["evaluationDate"] = "2021-11-18"
 t.find("./ProgramInformation/File/Identification").text = fileid
 #t.find("./House/Specifications/FacingDirection").attrib["code"] = FacingDirection
-t.find("./House/Specifications/YearBuilt").attrib["value"] = YearBuilt
+#t.find("./House/Specifications/YearBuilt").attrib["value"] = YearBuilt
 
 # calculate foundation and main floor area converted to metric
 main_area=(oarea-operim/2+1)/SF_PER_SM
@@ -34,12 +35,20 @@ hfa.attrib["aboveGrade"] = str(main_area)
 hfa.attrib["belowGrade"] = str(bsmt_area)
 
 # calculate volume 7.75ft bsmt + header + 8ft main flr
-volume=(7.75/FT_PER_M * bsmt_area) + (1 + 8)/FT_PER_M * main_area;
+volume=((7.75 + 1)/FT_PER_M * bsmt_area) + wall_height_m * main_area;
 t.find(".House/NaturalAirInfiltration/Specifications/House").attrib["volume"] = str(volume)
+# calculate highest ceiling height
+# template has 4' pony, so add 4.5 + 1' to wall height
+highest_ceiling = (4.5 +1)/FT_PER_M + wall_height_m 
+t.find(".House/NaturalAirInfiltration/Specifications/BuildingSite").attrib["highestCeiling"] = str(volume)
 m = t.find("House/Components/Ceiling/Measurements")
 m.attrib["length"] = str(operim/FT_PER_M)
 m.attrib["area"] = str(main_area)
+m = t.find("House/Components/Wall/Measurements")
+m.attrib["height"] = str(wall_height_m) 
+m.attrib["perimeter"] = str((operim-4)/FT_PER_M)
 
 #t.write("ghwiz-out.h2k", "UTF-8", True)
 t.write(fileid + ".h2k", "UTF-8", True)
+os.system("unix2dos " + fileid + ".h2k")
 
