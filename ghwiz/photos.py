@@ -19,6 +19,7 @@ for name in zf.namelist():
     file_count += 1
     suffix = "-" + str(file_count)
 
-os.symlink(path + FileID + ".jpg", "../../" + FileID + ".jpg")
+house = path + FileID + ".jpg"
+os.link(house, "../../" + FileID + ".jpg")
 os.remove(zipname)
 
