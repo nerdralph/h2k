@@ -1,0 +1,46 @@
+            <Type2 shadingInF280Cooling="AccountedFor">
+                <AirHeatPump>
+                    <EquipmentInformation energystar="true" CCASHP="true" AHRI="9999999">
+                        <Manufacturer>Carrier</Manufacturer>
+                        <Model>38MGRQ30</Model>
+                    </EquipmentInformation>
+                    <Equipment crankcaseHeater="60" numberOfHeads="3">
+                        <Type code="3">
+                            <English>Mini-split ductless</English>
+                            <French>Petit système bibloc sans conduits</French>
+                        </Type>
+                        <Function code="2">
+                            <English>Heating/Cooling</English>
+                            <French>Chauffage/climatisation</French>
+                        </Function>
+                    </Equipment>
+                    <Specifications>
+                        <OutputCapacity code="1" value="8.206" uiUnits="btu/hr">
+                            <English>User-Specified</English>
+                            <French>Spécifiée par l'utilisateur</French>
+                        </OutputCapacity>
+                        <HeatingEfficiency isCop="false" value="8.7" />
+                        <CoolingEfficiency isCop="false" value="23.8" />
+                    </Specifications>
+                    <Temperature>
+                        <CutoffType code="2" value="-22">
+                            <English>Restricted</English>
+                            <French>Restreint</French>
+                        </CutoffType>
+                        <RatingType code="1" value="8.3333">
+                            <English>8.3 C (47 F)</English>
+                            <French>8.3 C (47 F)</French>
+                        </RatingType>
+                    </Temperature>
+                    <CoolingParameters sensibleHeatRatio="0.76" openableWindowArea="0">
+                        <FansAndPump flowRate="324.9148" hasEnergyEfficientMotor="false">
+                            <Mode code="1">
+                                <English>Auto</English>
+                                <French>Auto</French>
+                            </Mode>
+                            <Power isCalculated="true" />
+                        </FansAndPump>
+                    </CoolingParameters>
+                    <ColdClimateHeatPump heatingEfficiency="10" coolingEfficiency="23.8" capacity="8.206" uiUnits="btu/hr" cop="2.04" capacityMaintenance="100" />
+                </AirHeatPump>
+            </Type2>
