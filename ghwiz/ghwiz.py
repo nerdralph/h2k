@@ -60,10 +60,17 @@ m.attrib["area"] = str(bsmt_area)
 # H2K errror if perim <= 4*sqrt(area)
 m.attrib["perimeter"] = str(math.sqrt(bsmt_area)*4 + 0.2)
 
+# debug
+#t.write("out.h2k", "UTF-8", True)
+#sys.exit(0)
+
 # write prepared h2k file
 outfile = "../../" + fileid + ".h2k"
 t.write(outfile, "UTF-8", True)
 os.system("unix2dos " + outfile)
+
+# extract photos
+os.system("./photos.py " + fileid)
 
 # copy stick-framed 2x6 house specs
 os.system("cp 2x6-house.txt " + "../../" + fileid + "/" + fileid + "-house-data.txt")
