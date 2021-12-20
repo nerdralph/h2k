@@ -17,7 +17,7 @@ t = ET.parse(e_file)
 
 cchp_search = "grep -i '" + mfr + ".*" + model + "' ccashp.tsv|grep -v Ducted"
 d = os.popen(cchp_search).read().split('\t')
-(ahri, size_kw, hspf, cop, seer) = d[1], str(float(d[9])/3.412), d[10], d[11], d[14]
+(ahri, size_kw, hspf, cop, seer) = d[1], str(float(d[9])/3412), d[10], d[11], d[14]
 
 e = t.find("./ProgramInformation/Information")
 
@@ -41,7 +41,8 @@ ei.find("Model").text = model
 ahp.find("Equipment").attrib["numberOfHeads"] = heads
 specs = ahp.find("Specifications")
 specs.find("OutputCapacity").attrib["value"] = size_kw
-specs.find("HeatingEfficiency").attrib["value"] = hspf
+# HeatingEfficiency is HSPF V, so divide by 1.15
+specs.find("HeatingEfficiency").attrib["value"] = str(float(hspf)/1.15)
 specs.find("CoolingEfficiency").attrib["value"] = seer
 cchp = ahp.find("ColdClimateHeatPump")
 cchp.attrib["heatingEfficiency"] = hspf
