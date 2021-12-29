@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# extract energy evaluation photos from zip, then remove zip
 
 import os, sys
 import zipfile
