@@ -5,7 +5,7 @@ import math, os, sys
 import xml.etree.ElementTree as ET
 
 if len(sys.argv) < 4:
-    print(sys.argv[0], "E-file mfr model heads")
+    print(sys.argv[0], "E-file.h2k mfr model heads")
     sys.exit()
 
 e_file = sys.argv[1]
@@ -54,6 +54,6 @@ hc = t.find("./House/HeatingCooling")
 hc.remove(hc.find("Type2"))
 hc.append(type2)
 
-outfile = "MSHP-E.h2k"
+outfile = e_file
 t.write(outfile, "UTF-8", True)
 
