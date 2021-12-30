@@ -1,6 +1,8 @@
 #!/usr/bin/python
 
-from datetime import date
+import photos
+
+#from datetime import date
 import math, os, sys
 import xml.etree.ElementTree as ET
 
@@ -11,9 +13,14 @@ if len(sys.argv) < 3:
 d_file = sys.argv[1]
 fileid = sys.argv[2]
 
+# extract photos
+#os.system("./photos.py " + fileid)
+ymd = photos.extract(fileid)
+
 t = ET.parse(d_file)
 
-t.find("./ProgramInformation/File").attrib["evaluationDate"] = date.today().isoformat()
+#t.find("./ProgramInformation/File").attrib["evaluationDate"] = date.today().isoformat()
+t.find("./ProgramInformation/File").attrib["evaluationDate"] = ymd
 t.find("./ProgramInformation/File/PreviousFileId").text = \
     t.find("./ProgramInformation/File/Identification").text
 t.find("./ProgramInformation/File/Identification").text = fileid
@@ -28,5 +35,3 @@ t.getroot().remove(t.find("./EnergyUpgrades"))
 outfile = fileid + ".h2k"
 t.write(outfile, "UTF-8", True)
 
-# extract photos
-os.system("./photos.py " + fileid)
