@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+import photos
+
 import math, os, sys
 import xml.etree.ElementTree as ET
 
@@ -18,16 +20,19 @@ fileid=sys.argv[4]
 #template="tmpl-oil.h2k"
 template=sys.argv[5] + ".h2k"
 
-storeys = 2 if wall_height_m > 4 else 1
-
-# for semis subtract 1/2 of the common-wall length from the area
+# extract photos
+ymd = photos.extract(fileid)
 
 t = ET.parse(template)
 
-#t.find("./ProgramInformation/File").attrib["evaluationDate"] = "2021-11-18"
+t.find("./ProgramInformation/File").attrib["evaluationDate"] = ymd
 t.find("./ProgramInformation/File/Identification").text = fileid
 #t.find("./House/Specifications/FacingDirection").attrib["code"] = FacingDirection
 #t.find("./House/Specifications/YearBuilt").attrib["value"] = YearBuilt
+
+storeys = 2 if wall_height_m > 4 else 1
+# code 1 = 1 storey, 3 = 2 storey
+t.find("./House/Specifications/Storeys").attrib["code"] = "1" if storeys == 1 else "3"
 
 # calculate foundation and main floor area converted to metric
 main_area=(oarea-operim/2+1)/SF_PER_SM
@@ -68,9 +73,6 @@ m.attrib["perimeter"] = str(math.sqrt(bsmt_area)*4 + 0.2)
 outfile = "../../" + fileid + ".h2k"
 t.write(outfile, "UTF-8", True)
 os.system("unix2dos " + outfile)
-
-# extract photos
-os.system("./photos.py " + fileid)
 
 # copy stick-framed 2x6 house specs
 os.system("cp 2x6-house.txt " + "../../" + fileid + "/" + fileid + "-house-data.txt")
