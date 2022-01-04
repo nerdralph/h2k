@@ -20,10 +20,26 @@ fileid=sys.argv[4]
 #template="tmpl-oil.h2k"
 template=sys.argv[5] + ".h2k"
 
+# sample appointment text:
+# 4 Janet Dr, Beaver Bank, NS B4G 1C4 Suzanne Wilman & Nancy Wilman 902-403-5850
+info = input("client info: ")
+(street, city, rest) = info.split(',')
+(prov, postal, name, tel) = rest[1:3], rest[4:11], rest[12:-13],rest[-12:]
+
 # extract photos
 ymd = photos.extract(fileid)
 
 t = ET.parse(template)
+
+c = t.find("./ProgramInformation/Client")
+c.find("Name/First").text = name.split(' ')[0]
+c.find("Name/Last").text = name.split(' ')[1]
+c.find("Telephone").text = tel
+sa = c.find("StreetAddress")
+sa.find("Street").text = street
+sa.find("City").text = city
+# province set in h2k template
+sa.find("PostalCode").text = postal
 
 t.find("./ProgramInformation/File").attrib["evaluationDate"] = ymd
 t.find("./ProgramInformation/File/Identification").text = fileid
