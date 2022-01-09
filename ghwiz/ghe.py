@@ -14,7 +14,6 @@ d_file = sys.argv[1]
 fileid = sys.argv[2]
 
 # extract photos
-#os.system("./photos.py " + fileid)
 ymd = photos.extract(fileid)
 
 t = ET.parse(d_file)
