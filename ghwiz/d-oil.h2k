@@ -257,7 +257,7 @@
                         <French>Valeurs d'essai de dépressurisation</French>
                     </AirTightnessTest>
                 </House>
-                <BlowerTest airChangeRate="3.51" leakageArea="678.0549" isCgsbTest="false" guarded="false" isCalculated="false">
+                <BlowerTest airChangeRate="3.51" leakageArea="678.0535" isCgsbTest="false" guarded="false" isCalculated="false">
                     <Pressure code="1">
                         <English>10 Pa</English>
                         <French>10 Pa</French>
@@ -402,7 +402,7 @@
                         <English>Auto</English>
                         <French>Auto</French>
                     </Mode>
-                    <Power isCalculated="true" low="0" high="194" />
+                    <Power isCalculated="true" low="0" high="203.7" />
                 </FansAndPump>
                 <Boiler>
                     <EquipmentInformation energystar="false">
@@ -419,7 +419,7 @@
                         </EquipmentType>
                     </Equipment>
                     <Specifications sizingFactor="1.1" efficiency="87" isSteadyState="true" pilotLight="0" flueDiameter="0">
-                        <OutputCapacity code="2" value="10" uiUnits="btu/hr">
+                        <OutputCapacity code="2" value="10.5" uiUnits="btu/hr">
                             <English>Calculated</English>
                             <French>Calculé</French>
                         </OutputCapacity>
@@ -452,7 +452,7 @@
                 <Label>Main floor</Label>
                 <Construction corners="4" intersections="4">
                     <Type idref="Code 1" rValue="2.9918" nominalInsulation="3.2421">1211301121</Type>
-                    <LintelType idref="Code 3">100</LintelType>
+                    <LintelType idref="Code 4">100</LintelType>
                 </Construction>
                 <Measurements height="2.4384" perimeter="41.248" />
                 <FacingDirection code="1">
@@ -473,7 +473,7 @@
                             <Window number="1" er="11.4793" shgc="0.5209" frameHeight="41" frameAreaFraction="0.3311" edgeOfGlassFraction="0.4226" centreOfGlassFraction="0.2462" adjacentEnclosedSpace="false" id="29">
                                 <Label>Window - 2</Label>
                                 <Construction energyStar="false">
-                                    <Type idref="Code 5" rValue="0.3264">200004</Type>
+                                    <Type idref="Code 6" rValue="0.3264">200004</Type>
                                 </Construction>
                                 <Measurements height="965.2" width="304.8" headerHeight="0" overhangWidth="0">
                                     <Tilt code="1" value="90">
@@ -502,7 +502,7 @@
                             <Window number="1" er="11.4793" shgc="0.6098" frameHeight="41" frameAreaFraction="0.208" edgeOfGlassFraction="0.2771" centreOfGlassFraction="0.5149" adjacentEnclosedSpace="false" id="28">
                                 <Label>Window - 1</Label>
                                 <Construction energyStar="false">
-                                    <Type idref="Code 5" rValue="0.336">200004</Type>
+                                    <Type idref="Code 6" rValue="0.336">200004</Type>
                                 </Construction>
                                 <Measurements height="965.2" width="609.6" headerHeight="0" overhangWidth="0">
                                     <Tilt code="1" value="90">
@@ -521,7 +521,7 @@
                     <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="7">
                         <Label>East-West1</Label>
                         <Construction energyStar="false">
-                            <Type idref="Code 5" rValue="0.3403">200004</Type>
+                            <Type idref="Code 6" rValue="0.3403">200004</Type>
                         </Construction>
                         <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
@@ -538,7 +538,7 @@
                     <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="9">
                         <Label>East-West2</Label>
                         <Construction energyStar="false">
-                            <Type idref="Code 5" rValue="0.3376">200004</Type>
+                            <Type idref="Code 6" rValue="0.3376">200004</Type>
                         </Construction>
                         <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
@@ -555,7 +555,7 @@
                     <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="30">
                         <Label>East-West3</Label>
                         <Construction energyStar="false">
-                            <Type idref="Code 5" rValue="0.3376">200004</Type>
+                            <Type idref="Code 6" rValue="0.3376">200004</Type>
                         </Construction>
                         <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
@@ -572,7 +572,7 @@
                     <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="34">
                         <Label>East-West4</Label>
                         <Construction energyStar="false">
-                            <Type idref="Code 5" rValue="0.3376">200004</Type>
+                            <Type idref="Code 6" rValue="0.3376">200004</Type>
                         </Construction>
                         <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
@@ -589,7 +589,7 @@
                     <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="35">
                         <Label>East-West5</Label>
                         <Construction energyStar="false">
-                            <Type idref="Code 5" rValue="0.3376">200004</Type>
+                            <Type idref="Code 6" rValue="0.3376">200004</Type>
                         </Construction>
                         <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
@@ -606,7 +606,7 @@
                     <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="14">
                         <Label>Northern1 (NW-NE)</Label>
                         <Construction energyStar="false">
-                            <Type idref="Code 5" rValue="0.3376">200004</Type>
+                            <Type idref="Code 6" rValue="0.3376">200004</Type>
                         </Construction>
                         <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
@@ -623,7 +623,7 @@
                     <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="23">
                         <Label>Northern2 (NW-NE)</Label>
                         <Construction energyStar="false">
-                            <Type idref="Code 5" rValue="0.3403">200004</Type>
+                            <Type idref="Code 6" rValue="0.3403">200004</Type>
                         </Construction>
                         <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
@@ -640,7 +640,7 @@
                     <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="31">
                         <Label>Northern3 (NW-NE)</Label>
                         <Construction energyStar="false">
-                            <Type idref="Code 5" rValue="0.3403">200004</Type>
+                            <Type idref="Code 6" rValue="0.3403">200004</Type>
                         </Construction>
                         <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
@@ -657,7 +657,7 @@
                     <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="36">
                         <Label>Northern4 (NW-NE)</Label>
                         <Construction energyStar="false">
-                            <Type idref="Code 5" rValue="0.3403">200004</Type>
+                            <Type idref="Code 6" rValue="0.3403">200004</Type>
                         </Construction>
                         <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
@@ -674,7 +674,7 @@
                     <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="37">
                         <Label>Northern5 (NW-NE)</Label>
                         <Construction energyStar="false">
-                            <Type idref="Code 5" rValue="0.3403">200004</Type>
+                            <Type idref="Code 6" rValue="0.3403">200004</Type>
                         </Construction>
                         <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
@@ -691,7 +691,7 @@
                     <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="26">
                         <Label>SE-SW1</Label>
                         <Construction energyStar="false">
-                            <Type idref="Code 5" rValue="0.3403">200004</Type>
+                            <Type idref="Code 6" rValue="0.3403">200004</Type>
                         </Construction>
                         <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
@@ -708,7 +708,7 @@
                     <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="27">
                         <Label>SE-SW2</Label>
                         <Construction energyStar="false">
-                            <Type idref="Code 5" rValue="0.3376">200004</Type>
+                            <Type idref="Code 6" rValue="0.3376">200004</Type>
                         </Construction>
                         <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
@@ -725,7 +725,7 @@
                     <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="33">
                         <Label>SE-SW3</Label>
                         <Construction energyStar="false">
-                            <Type idref="Code 5" rValue="0.3376">200004</Type>
+                            <Type idref="Code 6" rValue="0.3376">200004</Type>
                         </Construction>
                         <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
@@ -742,7 +742,7 @@
                     <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="38">
                         <Label>SE-SW4</Label>
                         <Construction energyStar="false">
-                            <Type idref="Code 5" rValue="0.3376">200004</Type>
+                            <Type idref="Code 6" rValue="0.3376">200004</Type>
                         </Construction>
                         <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
@@ -759,7 +759,7 @@
                     <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="40">
                         <Label>SE-SW5</Label>
                         <Construction energyStar="false">
-                            <Type idref="Code 5" rValue="0.3376">200004</Type>
+                            <Type idref="Code 6" rValue="0.3376">200004</Type>
                         </Construction>
                         <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
@@ -776,7 +776,7 @@
                     <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="25">
                         <Label>South1</Label>
                         <Construction energyStar="false">
-                            <Type idref="Code 5" rValue="0.3403">200004</Type>
+                            <Type idref="Code 6" rValue="0.3403">200004</Type>
                         </Construction>
                         <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
@@ -793,7 +793,7 @@
                     <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="24">
                         <Label>South2</Label>
                         <Construction energyStar="false">
-                            <Type idref="Code 5" rValue="0.3376">200004</Type>
+                            <Type idref="Code 6" rValue="0.3376">200004</Type>
                         </Construction>
                         <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
@@ -810,7 +810,7 @@
                     <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="32">
                         <Label>South3</Label>
                         <Construction energyStar="false">
-                            <Type idref="Code 5" rValue="0.3376">200004</Type>
+                            <Type idref="Code 6" rValue="0.3376">200004</Type>
                         </Construction>
                         <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
@@ -827,7 +827,7 @@
                     <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="41">
                         <Label>South4</Label>
                         <Construction energyStar="false">
-                            <Type idref="Code 5" rValue="0.3376">200004</Type>
+                            <Type idref="Code 6" rValue="0.3376">200004</Type>
                         </Construction>
                         <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
@@ -857,13 +857,13 @@
                 <Floor>
                     <Construction isBelowFrostline="true" hasIntegralFooting="false" heatedFloor="false">
                         <AddedToSlab rValue="0.0018" nominalInsulation="0.0018">User specified</AddedToSlab>
-                        <FloorsAbove idref="Code 6" rValue="0.9834" nominalInsulation="0">4231002760</FloorsAbove>
+                        <FloorsAbove idref="Code 7" rValue="0.9834" nominalInsulation="0">4231002760</FloorsAbove>
                     </Construction>
-                    <Measurements isRectangular="false" area="98.8405" perimeter="40.233" />
+                    <Measurements isRectangular="false" area="0" perimeter="0" />
                 </Floor>
                 <Wall hasPonyWall="true">
                     <Construction corners="4">
-                        <InteriorAddedInsulation idref="Code 7" nominalInsulation="2.11">
+                        <InteriorAddedInsulation idref="Code 8" nominalInsulation="2.11">
                             <Description>230201</Description>
                             <Composite>
                                 <Section rank="1" percentage="100" rsi="1.7329" nominalRsi="2.11" />
@@ -875,8 +875,8 @@
                                 <Section rank="1" percentage="100" rsi="0.0018" nominalRsi="0.0018" />
                             </Composite>
                         </ExteriorAddedInsulation>
-                        <Lintels idref="Code 4">Bsmnt Lintel</Lintels>
-                        <PonyWallType idref="Code 8" nominalInsulation="3.2421">
+                        <Lintels idref="Code 5">Bsmnt Lintel</Lintels>
+                        <PonyWallType idref="Code 9" nominalInsulation="3.2421">
                             <Description>1211301121</Description>
                             <Composite>
                                 <Section rank="1" percentage="100" rsi="2.8703" nominalRsi="3.2421" />
@@ -889,7 +889,7 @@
                     <FloorHeader adjacentEnclosedSpace="false" id="3">
                         <Label>BW hdr-01</Label>
                         <Construction>
-                            <Type idref="Code 9" rValue="3.8504" nominalInsulation="3.52">1800300120</Type>
+                            <Type idref="Code 10" rValue="3.8504" nominalInsulation="3.52">1800300120</Type>
                         </Construction>
                         <Measurements height="0.23" perimeter="40.232" />
                         <FacingDirection code="1">
@@ -928,6 +928,13 @@
                     </TankLocation>
                 </Primary>
             </HotWater>
+            <Floor adjacentEnclosedSpace="true" id="42">
+                <Label>Floor - 1</Label>
+                <Construction>
+                    <Type idref="Code 3" rValue="5.0579" nominalInsulation="5.3242">3231L06B00</Type>
+                </Construction>
+                <Measurements area="0" length="0" />
+            </Floor>
         </Components>
     </House>
     <Codes>
@@ -1011,9 +1018,55 @@
                 </Code>
             </Standard>
         </Ceiling>
+        <Floor>
+            <Standard>
+                <Code id="Code 3" value="3231L06B00" nominalRValue="5.3242">
+                    <Label>3231L06B00</Label>
+                    <Description>3231L06B00</Description>
+                    <Layers>
+                        <StructureType code="2">
+                            <English>Wood frame</English>
+                            <French>Ossature de bois</French>
+                        </StructureType>
+                        <ComponentTypeSize code="3">
+                            <English>38x235 mm (2x10 in)</English>
+                            <French>38x235 (2x10)</French>
+                        </ComponentTypeSize>
+                        <Spacing code="1">
+                            <English>400 mm (16 in)</English>
+                            <French>400 mm (16 po)</French>
+                        </Spacing>
+                        <InsulationLayer1 code="L">
+                            <English>RSI 5.46 @ 241 mm (R 31 @ 9.5'') batt</English>
+                            <French>RSI 5.46 @ 241 mm (R 31 @ 9.5'') natte</French>
+                        </InsulationLayer1>
+                        <InsulationLayer2 code="0">
+                            <English>None</English>
+                            <French>Aucun</French>
+                        </InsulationLayer2>
+                        <Interior code="6">
+                            <English>Wood</English>
+                            <French>Bois</French>
+                        </Interior>
+                        <Sheathing code="B">
+                            <English>Gypsum sheathing 12.7 mm (1/2 in)</English>
+                            <French>Revêt. plaque de plâtre 12.7 mm (1/2 po)</French>
+                        </Sheathing>
+                        <Exterior code="0">
+                            <English>None</English>
+                            <French>Aucun</French>
+                        </Exterior>
+                        <DropFraming code="0">
+                            <English>No</English>
+                            <French>Non</French>
+                        </DropFraming>
+                    </Layers>
+                </Code>
+            </Standard>
+        </Floor>
         <Lintel>
             <Standard>
-                <Code id="Code 3" value="100" nominalRValue="0">
+                <Code id="Code 4" value="100" nominalRValue="0">
                     <Label>100</Label>
                     <Description>100</Description>
                     <Layers>
@@ -1031,7 +1084,7 @@
                         </Insulation>
                     </Layers>
                 </Code>
-                <Code id="Code 4" value="100" nominalRValue="0">
+                <Code id="Code 5" value="100" nominalRValue="0">
                     <Label>100</Label>
                     <Description>Bsmnt Lintel</Description>
                     <Layers>
@@ -1053,7 +1106,7 @@
         </Lintel>
         <Window>
             <Standard>
-                <Code id="Code 5" value="200004" nominalRValue="0">
+                <Code id="Code 6" value="200004" nominalRValue="0">
                     <Label>200004</Label>
                     <Description>200004</Description>
                     <Layers>
@@ -1087,7 +1140,7 @@
         </Window>
         <FloorsAbove>
             <Standard>
-                <Code id="Code 6" value="4231002760" nominalRValue="0">
+                <Code id="Code 7" value="4231002760" nominalRValue="0">
                     <Label>4231002760</Label>
                     <Description>4231002760</Description>
                     <Layers>
@@ -1133,7 +1186,7 @@
         </FloorsAbove>
         <BasementWall>
             <Standard>
-                <Code id="Code 7" value="230201" nominalRValue="2.11">
+                <Code id="Code 8" value="230201" nominalRValue="2.11">
                     <Label>230201</Label>
                     <Description>230201</Description>
                     <Layers>
@@ -1167,7 +1220,7 @@
         </BasementWall>
         <CrawlspaceWall>
             <Standard>
-                <Code id="Code 8" value="1211301121" nominalRValue="3.2421">
+                <Code id="Code 9" value="1211301121" nominalRValue="3.2421">
                     <Label>1211301121</Label>
                     <Description>1211301121</Description>
                     <Layers>
@@ -1213,7 +1266,7 @@
         </CrawlspaceWall>
         <FloorHeader>
             <Standard>
-                <Code id="Code 9" value="1800300120" nominalRValue="3.52">
+                <Code id="Code 10" value="1800300120" nominalRValue="3.52">
                     <Label>1800300120</Label>
                     <Description>1800300120</Description>
                     <Layers>
@@ -1384,7 +1437,7 @@
                 <ClientName value=", " />
                 <Telephone value="" />
                 <FloorArea value="207.0" />
-                <Footprint value="98.8" />
+                <Footprint value="108.8" />
                 <FurnaceType value="Direct vent, non-condensing boiler" />
                 <FurSSEff value="87" />
                 <FurnaceFuel value="Oil" />
@@ -1407,16 +1460,16 @@
                 <TMAIN value="21" />
                 <HSEVOL value="517.3771" />
                 <AIR50P value="3.51" />
-                <LEAKAR value="678.0535" />
+                <LEAKAR value="678.0522" />
                 <CenVentSysType value="Heat recovery ventilator (HRV)" />
                 <Registration value="EXPERT_VERSN" />
                 <ProgramName value="HOT2000 11.11" />
-                <EGHFconElec value="7541.6" />
+                <EGHFconElec value="7544.8" />
                 <EGHFconNGas value="0" />
-                <EGHFconOil value="1693.6" />
+                <EGHFconOil value="1714.3" />
                 <EGHFconProp value="0" />
-                <EGHFconTotal value="92392.8" />
-                <EGHSpaceEnergy value="49643.2" />
+                <EGHFconTotal value="93203.6" />
+                <EGHSpaceEnergy value="50454.1" />
                 <EGHFcostElec value="0.000000000" />
                 <EGHFcostNGas value="0.000000000" />
                 <EGHFcostOil value="0.000000000" />
@@ -1424,8 +1477,8 @@
                 <EGHFcostTotal value="0.000000000" />
                 <EGHCritNatACH value="0.11" />
                 <EGHCritTotACH value="0.32" />
-                <EGHHLAir value="13845.1" />
-                <EGHHLFound value="27108.1" />
+                <EGHHLAir value="13845.8" />
+                <EGHHLFound value="27127.0" />
                 <EGHHLCeiling value="5435.8" />
                 <EGHHLWalls value="11694.5" />
                 <EGHHLWinDoor value="20381.9" />
@@ -1444,19 +1497,19 @@
                 <UGRCeilIns value="6.04" />
                 <UGRFndIns value="2.44" />
                 <UGRWallIns value="2.99" />
-                <UGRFconElec value="7541.6" />
+                <UGRFconElec value="7544.8" />
                 <UGRFconNGas value="0" />
-                <UGRFconOil value="1693.6" />
+                <UGRFconOil value="1714.3" />
                 <UGRFconProp value="0" />
-                <UGRFconTotal value="92392.8" />
+                <UGRFconTotal value="93203.6" />
                 <UGRFcostElec value="0" />
                 <UGRFcostNGas value="0" />
                 <UGRFcostOil value="0" />
                 <UGRFcostProp value="0" />
                 <UGRFcostTotal value="0" />
                 <UGRAir50Pa value="3.51" />
-                <UGRHLAir value="13845.1" />
-                <UGRHLFound value="27108.1" />
+                <UGRHLAir value="13845.8" />
+                <UGRHLFound value="27127.0" />
                 <UGRHLCeiling value="5435.8" />
                 <UGRHLWalls value="11694.5" />
                 <UGRHLWinDoor value="20381.9" />
@@ -1467,19 +1520,19 @@
                 <Info2 value="ENS" />
                 <Info3 value="" />
                 <Info4 value="" />
-                <EGHFurnaceAEC value="48854.3" />
-                <UGRFurnaceAEC value="48854.3" />
-                <EGHDesHtLoss value="9019.1" />
-                <UGRDesHtLoss value="9019.1" />
-                <EGHFurSeasEff value="83.5" />
-                <UGRFurSeasEff value="83.5" />
+                <EGHFurnaceAEC value="49653.6" />
+                <UGRFurnaceAEC value="49653.6" />
+                <EGHDesHtLoss value="9125.0" />
+                <UGRDesHtLoss value="9125.0" />
+                <EGHFurSeasEff value="83.4" />
+                <UGRFurSeasEff value="83.4" />
                 <UCenVentSysType value="Heat recovery ventilator (HRV)" />
                 <UGRCritNatACH value="0.11" />
                 <UGRCritTotACH value="0.32" />
-                <EGHHLExposedFlr value="0.0" />
-                <UGRHLExposedFlr value="0.0" />
-                <EGHInExposedFlr value="0" />
-                <UGRInExposedFlr value="0" />
+                <EGHHLExposedFlr value="690.9" />
+                <UGRHLExposedFlr value="690.9" />
+                <EGHInExposedFlr value="5.06" />
+                <UGRInExposedFlr value="5.06" />
                 <PreviousFileID value="" />
                 <MailAddr value="" />
                 <MailCity value="" />
@@ -1536,14 +1589,14 @@
                 <UGRIndFurnaceFu value="" />
                 <ESTAR value="EGH" />
                 <FurnaceModel value="" />
-                <EGHHEATFconsE value="789" />
+                <EGHHEATFconsE value="801" />
                 <EGHHEATFconsG value="0" />
-                <EGHHEATFconsO value="48854" />
+                <EGHHEATFconsO value="49654" />
                 <EGHHEATFconsP value="0" />
                 <EGHHEATFconsW value="0" />
-                <UGRHEATFconsE value="789" />
+                <UGRHEATFconsE value="801" />
                 <UGRHEATFconsG value="0" />
-                <UGRHEATFconsO value="48854" />
+                <UGRHEATFconsO value="49654" />
                 <UGRHEATFconsP value="0" />
                 <UGRHEATFconsW value="0" />
                 <FURDCMOTOR value="0" />
@@ -1618,8 +1671,8 @@
                 <UGRsDHWsysFuel value="Not Applicable" />
                 <UGRsDHWHPtype value="" />
                 <UGRsDHWHPcop value="0" />
-                <EXPOSEDFLOOR value="" />
-                <UGEXPOSEDFLOOR value="" />
+                <EXPOSEDFLOOR value="100;30.2" />
+                <UGEXPOSEDFLOOR value="100;30.2" />
                 <MURBHSESTAR value="0" />
                 <MURBWOODEPA value="0" />
                 <MURBASHPESTAR value="0" />
@@ -1638,7 +1691,7 @@
                 <Info8 value="" />
                 <Info9 value="" />
                 <Info10 value="PF" />
-                <TYPE1CAPACITY value="10000" />
+                <TYPE1CAPACITY value="10500.0" />
                 <pDHWESTAR value="N/A" />
                 <sDHWESTAR value="N/A" />
                 <UGRpDHWESTAR value="N/A" />
@@ -1656,8 +1709,8 @@
                 <NUMSOLSYS value="1" />
                 <TOTCSIA value="0" />
                 <LARGESTCSIA value="0" />
-                <ERSRating value="92" />
-                <UGRERSRating value="92" />
+                <ERSRating value="93" />
+                <UGRERSRating value="93" />
                 <ERSEnergyIntensity value="0.46" />
                 <UGRERSEnergyIntensity value="0.46" />
                 <ERSGHG value="10.3" />
@@ -1672,12 +1725,12 @@
                 <ERSRenewableElec value="0.0" />
                 <ERSRenewableSolar value="0.0" />
                 <ERSSpaceCoolEnergy value="0.0" />
-                <ERSWaterHeatingEnergy value="16388.8" />
+                <ERSWaterHeatingEnergy value="16388.7" />
                 <ERSVentilationEnergy value="738.0" />
                 <ERSLightApplianceEnergy value="11694.2" />
                 <ERSOtherElecEnergy value="13928.4" />
                 <UGRERSSpaceCoolEnergy value="0.0" />
-                <UGRERSWaterHeatingEnergy value="16388.8" />
+                <UGRERSWaterHeatingEnergy value="16388.7" />
                 <UGRERSVentilationEnergy value="738.0" />
                 <UGRERSLightApplianceEnergy value="11694.2" />
                 <UGRERSOtherElecEnergy value="13928.4" />
@@ -1692,10 +1745,10 @@
                 <ERSHLDoor value="1160.8" />
                 <UGRERSHLWindow value="19221.1" />
                 <UGRERSHLDoor value="1160.8" />
-                <UGRSpaceEnergy value="49643.2" />
+                <UGRSpaceEnergy value="50454.1" />
                 <Qwarn value="24.79" />
                 <Qtot value="45.31" />
-                <NLA value="1.65" />
+                <NLA value="1.61" />
                 <DataSet value="SOC" />
                 <EGHFconWoodGJ value="0.0" />
                 <BuildingType value="House" />
@@ -1707,7 +1760,7 @@
                 <ElecAutoChrgStation value="FALSE" />
                 <EIDEF value="100;0.0" />
                 <UGREIDEF value="100;0.0" />
-                <AUXENERGY value="41456" />
+                <AUXENERGY value="42064" />
                 <ERSRefHouseGHG value="9.9" />
                 <UnitsConnectedDWHR value="0" />
                 <NumBuildingStoreys value="0" />
@@ -1722,17 +1775,17 @@
                 <UGRpDrawPattern value="" />
                 <UGRsDrawPattern value="" />
                 <ROCToReferenceRatioEnergyStar value="5.6" />
-                <NLR value="1.228" />
+                <NLR value="1.199" />
                 <Guarded value="false" />
                 <InScopeOfNBC value="True" />
-                <NBCAnnualEnegyConsumption value="66.770025768" />
-                <NBCHouseEnergyTarget value="61.898714888" />
-                <OverallImprovement value="60.82" />
-                <EnvelopeImprovement value="67.55" />
+                <NBCAnnualEnegyConsumption value="67.580877904" />
+                <NBCHouseEnergyTarget value="62.633354940" />
+                <OverallImprovement value="61.55" />
+                <EnvelopeImprovement value="68.31" />
                 <PeakCoolingValidation value="False" />
                 <EnergyPerformanceTier value="0.0" />
-                <TEDI value="56.759250080858797437161163135" />
-                <MEUI value="91.41076499646872350911779202" />
+                <TEDI value="57.591755856487185805815672745" />
+                <MEUI value="92.5208531415343124691966486" />
                 <GHGI value="25" />
                 <ElgNbcCmp value="false" />
                 <NumWinU105 value="0" />
@@ -1758,8 +1811,8 @@
                 <NumberOfHeads value="0" />
                 <UGRNumberOfHeads value="0" />
                 <numHPWHMurb value="0.0" />
-                <ExposedFloorDEF value="" />
-                <UGRExposedFloorDEF value="" />
+                <ExposedFloorDEF value="108;30.2" />
+                <UGRExposedFloorDEF value="108;30.2" />
                 <RefHseHDD value="0" />
                 <PrimaryDHWTankVolume value="9.0922" />
                 <SecondaryDHWTankVolume value="0" />
@@ -1858,7 +1911,7 @@
                 <HOCApplied value="False" />
                 <ERSTotalConsGHG value="10.3" />
                 <ERSTotalRenewableGHG value="0.0" />
-                <ERSDesCoolLoss value="3246.9" />
+                <ERSDesCoolLoss value="3256.8" />
                 <UGRERSRenewableProd value="0.0" />
                 <UGRERSRenewableElec value="0.0" />
                 <UGRERSRenewableSolar value="0.0" />
@@ -1878,7 +1931,7 @@
                 <ROCApplianceLoad value="" />
                 <ROCLightingLoad value="" />
                 <ROCOtherElectricalLoad value="" />
-                <UtilizedSolarGains value="13593.52" />
+                <UtilizedSolarGains value="13664.36" />
                 <NumBuildingStoreys value="0" />
                 <CommonSpaceElecCons value="0.0" />
                 <EAphone value="902-401-7056" />

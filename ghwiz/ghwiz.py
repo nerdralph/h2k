@@ -8,17 +8,23 @@ import xml.etree.ElementTree as ET
 FT_PER_M = 3.28084
 SF_PER_SM = FT_PER_M ** 2
 
-if len(sys.argv) < 4:
-    print(sys.argv[0], "wall-height operim oarea fileid template")
+if len(sys.argv) < 6:
+    print(sys.argv[0], "fileid template.h2k wall-height operim barea [tadelta]")
     sys.exit()
 
+args = sys.argv
+fileid = args.pop(1)
+template = args.pop(1)
 # wall height in metres
-wall_height_m=float(sys.argv[1])/FT_PER_M
-operim=float(sys.argv[2])
-oarea=float(sys.argv[3])
-fileid=sys.argv[4]
-#template="tmpl-oil.h2k"
-template=sys.argv[5] + ".h2k"
+wall_height_m = float(args.pop(1))/FT_PER_M
+# outside wall perimeter
+operim = float(args.pop(1))
+# basement exterior area
+barea = float(args.pop(1))
+# top floor exterior area difference from barea
+ta_delta = float(args.pop(1))/SF_PER_SM if len(args) > 1 else 0
+
+t = ET.parse(template)
 
 # sample appointment text:
 # 4 Janet Dr, Beaver Bank, NS B4G 1C4 Suzanne Wilman & Nancy Wilman 902-403-5850
@@ -28,8 +34,6 @@ info = input("client info: ")
 
 # extract photos
 ymd = photos.extract(fileid)
-
-t = ET.parse(template)
 
 c = t.find("./ProgramInformation/Client")
 c.find("Name/First").text = name.split(' ')[0]
@@ -41,42 +45,54 @@ sa.find("City").text = city
 # province set in h2k template
 sa.find("PostalCode").text = postal
 
-t.find("./ProgramInformation/File").attrib["evaluationDate"] = ymd
-t.find("./ProgramInformation/File/Identification").text = fileid
+t.find("ProgramInformation/File").attrib["evaluationDate"] = ymd
+t.find("ProgramInformation/File/Identification").text = fileid
 #t.find("./House/Specifications/FacingDirection").attrib["code"] = FacingDirection
 #t.find("./House/Specifications/YearBuilt").attrib["value"] = YearBuilt
 
 storeys = 2 if wall_height_m > 4 else 1
 # code 1 = 1 storey, 3 = 2 storey
-t.find("./House/Specifications/Storeys").attrib["code"] = "1" if storeys == 1 else "3"
+t.find("House/Specifications/Storeys").attrib["code"] = "1" if storeys == 1 else "3"
 
 # calculate foundation and main floor area converted to metric
-main_area=(oarea-operim/2+1)/SF_PER_SM
-bsmt_area=(oarea-operim+4)/SF_PER_SM
-hfa = t.find("./House/Specifications/HeatedFloorArea")
+main_area=(barea-operim/2+1)/SF_PER_SM
+bsmt_area=(barea-operim+4)/SF_PER_SM
+hfa = t.find("House/Specifications/HeatedFloorArea")
 hfa.attrib["aboveGrade"] = str(main_area * storeys)
 hfa.attrib["belowGrade"] = str(bsmt_area)
 
 # calculate volume 7.75ft bsmt + header + 8ft main flr
-volume=((7.75 + 1)/FT_PER_M * bsmt_area) + wall_height_m * main_area;
-t.find(".House/NaturalAirInfiltration/Specifications/House").attrib["volume"] = str(volume)
+volume = ((7.75 + 1)/FT_PER_M * bsmt_area) + wall_height_m * main_area;
+# adjust for different top floor area with 8' ceiling and 1' floor
+volume += ta_delta *  9/FT_PER_M
+t.find("House/NaturalAirInfiltration/Specifications/House").attrib["volume"] = str(volume)
 # calculate highest ceiling height
 # template has 4' pony, so add 4.5 + 1' to wall height
 highest_ceiling = (4.5 +1)/FT_PER_M + wall_height_m 
-t.find(".House/NaturalAirInfiltration/Specifications/BuildingSite").attrib["highestCeiling"] = str(highest_ceiling)
+t.find("House/NaturalAirInfiltration/Specifications/BuildingSite").attrib["highestCeiling"] = str(highest_ceiling)
 
-m = t.find("House/Components/Ceiling/Measurements")
+hc = t.find("House/Components")
+ef = hc.find("Floor")
+if ta_delta > 0:
+    # configure exposed floor
+    ef.find("Measurements").attrib["area"] = str(ta_delta)
+    ef.find("Measurements").attrib["length"] = str(math.sqrt(ta_delta))
+else:
+    hc.remove(ef)
+
+m = hc.find("Ceiling/Measurements")
 m.attrib["length"] = str(operim/FT_PER_M)
-m.attrib["area"] = str(main_area)
+ceiling_area = main_area if ta_delta < 0 else main_area + ta_delta
+m.attrib["area"] = str(ceiling_area)
 
-m = t.find("House/Components/Wall/Measurements")
+m = hc.find("Wall/Measurements")
 m.attrib["height"] = str(wall_height_m) 
 m.attrib["perimeter"] = str((operim-4)/FT_PER_M)
 
 # calculate foundation perim & area
 bsmt_perim = (operim-8)/FT_PER_M
-t.find("House/Components/Basement").attrib["exposedSurfacePerimeter"] = str(bsmt_perim)
-m = t.find("House/Components/Basement/Floor/Measurements")
+hc.find("Basement").attrib["exposedSurfacePerimeter"] = str(bsmt_perim)
+m = hc.find("Basement/Floor/Measurements")
 m.attrib["area"] = str(bsmt_area)
 # H2K errror if perim <= 4*sqrt(area)
 m.attrib["perimeter"] = str(math.sqrt(bsmt_area)*4 + 0.2)
