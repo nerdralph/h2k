@@ -13,10 +13,30 @@ if len(sys.argv) < 3:
 d_file = sys.argv[1]
 fileid = sys.argv[2]
 
+t = ET.parse(d_file)
+
+v = t.find("Program/Version").attrib["build"]
+print (d_file + " version " + v)
+
+YHZ_CODE = "166"
+CURRENT_VER = "21119"
+if v != CURRENT_VER:
+    pi = t.find("ProgramInformation")
+    pi.find("Weather").attrib["library"] = "Wth2020.dir"
+    pi.find("Weather/Location").attrib["code"] = YHZ_CODE
+    pijo = pi.find("Justifications/Other")
+    pijo.attrib["selected"] = "true"
+    pijo.text = "v11.11b35 update"
+    t.find("FuelCosts").attrib["includeCostCalculations"] = "false"
+    t.find("FuelCosts").attrib["library"] = "FuelLib.flc"
+    print("Set weather and FCL for upgrade to " + CURRENT_VER)
+    print("Open " + d_file + " in H2K and save to complete upgrade.")
+    t.write("../../" + d_file, "UTF-8", True)
+    os.remove(d_file)
+    sys.exit(1)
+
 # extract photos
 ymd = photos.extract(fileid)
-
-t = ET.parse(d_file)
 
 #t.find("./ProgramInformation/File").attrib["evaluationDate"] = date.today().isoformat()
 t.find("./ProgramInformation/File").attrib["evaluationDate"] = ymd
@@ -31,6 +51,6 @@ t.getroot().remove(t.find("./AllResults"))
 t.find("./Program").remove(t.find("./Program/Results"))
 t.getroot().remove(t.find("./EnergyUpgrades"))
 
-outfile = fileid + ".h2k"
+outfile = "../../" + fileid + ".h2k"
 t.write(outfile, "UTF-8", True)
 
