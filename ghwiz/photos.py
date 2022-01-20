@@ -41,4 +41,7 @@ def extract(file_id: str) -> str:
 
 
 if __name__ == "__main__":
-    print (extract(sys.argv[1]))
+    if len(sys.argv) == 2:
+        print (extract(sys.argv[1]))
+    else:
+        print( sys.argv[0] + " FILEID")
