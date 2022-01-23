@@ -107,5 +107,7 @@ t.write(outfile, "UTF-8", True)
 os.system("unix2dos " + outfile)
 
 # copy stick-framed 2x6 house specs
-os.system("cp 2x6-house.txt " + "../../" + fileid + "/" + fileid + "-house-data.txt")
+house_data = "../../" + fileid  + "/" + fileid + "-house-data.txt"
+os.system("cp 2x6-house.txt " + house_data)
+os.system("echo " + info + ">>" + house_data)
 
