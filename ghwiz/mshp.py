@@ -1,7 +1,9 @@
 #!/usr/bin/python
 # configure mini-split heat pumps for E files
+# uses NRCan CSV list converted to TSV
+# https://oee.nrcan.gc.ca/pml-lmp/index.cfm?language_langue=en&action=app.search-recherche&appliance=ASHP2_GH
 
-import csv, math, os, sys
+import math, os, sys
 import xml.etree.ElementTree as ET
 
 if len(sys.argv) < 3:
@@ -15,13 +17,11 @@ heads = sys.argv[3]
 t = ET.parse(e_file)
 
 # tsv field list: 
-# Product group	AHRI  No.	Brand Name	Series Name/Product Line (if applicable)	Outdoor Unit Model	System type	Indoor Type/ Ducting Configuration	Indoor Unit - Model Number  (Evaporator and/or Air Handler)	Furnace Model Number (if applicable)	Rated heating capacity 8.3°C/47°F  Btu/hour 	HSPF  (Region IV)  Btu/(W⋅h)	COP at Max. Capacity  -15°C/5°F	Capacity Maintenance %  (Max -15°C/5°F ÷ Rated 8.3°C/47°F) Btu/hour 	Rated Cooling Capacity 35°C/95°F   Btu/hour	SEER  Btu/(W⋅h)	Grant amount
+# Brand	Outside model	Inside model	Furnace model	HSPF (Region IV)	Rated heating capacity (Btu/hour)	Grant amount	AHRI / Verification reference	AHRI Classification	Series name/product line (if applicable)	SEER	Rated cooling capacity (Btu/hour)	Coefficient of Performance (COP) at -15 °C (5 °F) (at maximum capacity)	Capacity Maintenance %  (Max -15°C/5°F ÷ Rated 8.3°C/47°F)
 cchp_search = "grep -i '" + ahri + "' ccashp.tsv|grep -v Ducted"
-d = os.popen(cchp_search).read().split('\t')
-(mfr, model, size_kw, hspf, cop, seer) = d[2], d[4], str(float(d[9])/3412), d[10], d[11], d[14]
-#cchp_search = "grep -i '" + mfr + ".*" + model + "' ccashp.csv"
-#row = os.popen(cchp_search).read()
-#cols = next([row])
+#d = os.popen(cchp_search).read().split('\t')
+d = os.popen(cchp_search).read().rstrip('\n').split('\t')
+(mfr, model, size_kw, hspf, seer, cop, fraction) = d[0], d[1], str(float(d[5])/3412), d[4], d[10], d[12], d[13]
 #(ahri, size_kw, hspf, cop, seer) = cols[9], str(float(cols[5])/3412), cols[4], cols[13], cols[12] 
 
 e = t.find("./ProgramInformation/Information")
@@ -54,6 +54,7 @@ cchp.attrib["heatingEfficiency"] = hspf
 cchp.attrib["coolingEfficiency"] = seer
 cchp.attrib["capacity"] = size_kw
 cchp.attrib["cop"] = cop
+cchp.attrib["capacityMaintenance"] = fraction
 
 hc = t.find("./House/HeatingCooling")
 hc.remove(hc.find("Type2"))
