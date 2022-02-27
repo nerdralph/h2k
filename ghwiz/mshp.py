@@ -30,9 +30,10 @@ info = ET.Element("Info", {"code": "Info. 5"})
 info.text = "MSHP-" + heads
 e.append(info)
 
-info = ET.Element("Info", {"code": "Info. 6"})
-info.text = mfr + "; ARHI " + ahri + "; " + model 
-e.append(info)
+# GHG instructions are to use Info 6 when more than 1 ccASHP system is installed
+#info = ET.Element("Info", {"code": "Info. 6"})
+#info.text = mfr + "; AHRI " + ahri + "; " + model 
+#e.append(info)
 
 #print(info, info.attrib, info.text)
 
