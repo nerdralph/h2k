@@ -7,7 +7,7 @@ import math, os, sys
 import xml.etree.ElementTree as ET
 
 if len(sys.argv) < 3:
-    print(sys.argv[0], "E-file.h2k AHRI heads")
+    print(sys.argv[0], "E-file.h2k AHRI heads|0(ducted)")
     sys.exit()
 
 e_file = sys.argv[1]
@@ -18,22 +18,25 @@ t = ET.parse(e_file)
 
 # tsv field list: 
 # Brand	Outside model	Inside model	Furnace model	HSPF (Region IV)	Rated heating capacity (Btu/hour)	Grant amount	AHRI / Verification reference	AHRI Classification	Series name/product line (if applicable)	SEER	Rated cooling capacity (Btu/hour)	Coefficient of Performance (COP) at -15 °C (5 °F) (at maximum capacity)	Capacity Maintenance %  (Max -15°C/5°F ÷ Rated 8.3°C/47°F)
-cchp_search = "grep -i '" + ahri + "' ccashp.tsv|grep -v Ducted"
+cchp_search = "grep '" + ahri + "' ccashp.tsv"
 #d = os.popen(cchp_search).read().split('\t')
 d = os.popen(cchp_search).read().rstrip('\n').split('\t')
-(mfr, model, size_kw, hspf, seer, cop, fraction) = d[0], d[1], str(float(d[5])/3412), d[4], d[10], d[12], d[13]
+# 1 kW = 3412 BTU/hr
+(mfr, model, head_mdl, size_kw, hspf, seer, cop, fraction) = \
+    d[0], d[1], d[2], str(float(d[5])/3412), d[4], d[10], d[12], d[13]
 #(ahri, size_kw, hspf, cop, seer) = cols[9], str(float(cols[5])/3412), cols[4], cols[13], cols[12] 
 
 e = t.find("./ProgramInformation/Information")
 
 info = ET.Element("Info", {"code": "Info. 5"})
-info.text = "MSHP-" + heads
+info.text = "NEEP;MSHP-" + heads
 e.append(info)
 
 # GHG instructions are to use Info 6 when more than 1 ccASHP system is installed
-#info = ET.Element("Info", {"code": "Info. 6"})
-#info.text = mfr + "; AHRI " + ahri + "; " + model 
-#e.append(info)
+# but ENS wants all heat pumps in Info 6
+info = ET.Element("Info", {"code": "Info. 6"})
+info.text = mfr + ";AHRI-" + ahri + ';' + model + ';' + head_mdl 
+e.append(info)
 
 #print(info, info.attrib, info.text)
 
@@ -47,8 +50,9 @@ ei.find("Model").text = model
 ahp.find("Equipment").attrib["numberOfHeads"] = heads
 specs = ahp.find("Specifications")
 specs.find("OutputCapacity").attrib["value"] = size_kw
-# HeatingEfficiency is HSPF V, so divide by 1.15
-specs.find("HeatingEfficiency").attrib["value"] = str(float(hspf)/1.15)
+# HeatingEfficiency is COP
+# NEEP adjustment formula ~= COP @-15C * 1.39
+specs.find("HeatingEfficiency").attrib["value"] = str(float(cop)*1.39)
 specs.find("CoolingEfficiency").attrib["value"] = seer
 cchp = ahp.find("ColdClimateHeatPump")
 cchp.attrib["heatingEfficiency"] = hspf

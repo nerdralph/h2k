@@ -19,7 +19,7 @@
                             <English>User-Specified</English>
                             <French>Spécifiée par l'utilisateur</French>
                         </OutputCapacity>
-                        <HeatingEfficiency isCop="false" value="8.7" />
+                        <HeatingEfficiency isCop="true" value="8.7" />
                         <CoolingEfficiency isCop="false" value="23.8" />
                     </Specifications>
                     <Temperature>
