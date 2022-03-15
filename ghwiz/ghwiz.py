@@ -30,7 +30,10 @@ t = ET.parse(template)
 # 4 Janet Dr, Beaver Bank, NS B4G 1C4 Suzanne Wilman & Nancy Wilman 902-403-5850
 info = input("client info: ")
 (street, city, rest) = info.split(',')
-(prov, postal, name, tel) = rest[1:3], rest[4:11], rest[12:-13],rest[-12:]
+# skip over prov if present - set in h2k template
+if rest[0:3] == " NS":
+    rest = rest[3:]
+(postal, name, tel) = rest[1:8], rest[9:-10],rest[-12:]
 
 # extract photos
 ymd = photos.extract(fileid)
@@ -61,13 +64,13 @@ hfa = t.find("House/Specifications/HeatedFloorArea")
 hfa.attrib["aboveGrade"] = str(main_area * storeys)
 hfa.attrib["belowGrade"] = str(bsmt_area)
 
-# calculate volume 7.75ft bsmt + header + 8ft main flr
+# calculate volume 7.75ft bsmt + 1' header + 8ft main flr
 volume = ((7.75 + 1)/FT_PER_M * bsmt_area) + wall_height_m * main_area;
 # adjust for different top floor area with 8' ceiling and 1' floor
 volume += ta_delta *  9/FT_PER_M
 t.find("House/NaturalAirInfiltration/Specifications/House").attrib["volume"] = str(volume)
 # calculate highest ceiling height
-# template has 4' pony, so add 4.5 + 1' to wall height
+# template has 4' pony, so add 4.5 + 1' header to wall height
 highest_ceiling = (4.5 +1)/FT_PER_M + wall_height_m 
 t.find("House/NaturalAirInfiltration/Specifications/BuildingSite").attrib["highestCeiling"] = str(highest_ceiling)
 
@@ -94,8 +97,8 @@ bsmt_perim = (operim-8)/FT_PER_M
 hc.find("Basement").attrib["exposedSurfacePerimeter"] = str(bsmt_perim)
 m = hc.find("Basement/Floor/Measurements")
 m.attrib["area"] = str(bsmt_area)
-# H2K errror if perim <= 4*sqrt(area)
-m.attrib["perimeter"] = str(math.sqrt(bsmt_area)*4 + 0.2)
+# H2K errror if perim <= 4*sqrt(area), common ratio is 1.05x
+m.attrib["perimeter"] = str(math.sqrt(bsmt_area)*4 * 1.05)
 
 # debug
 #t.write("out.h2k", "UTF-8", True)
