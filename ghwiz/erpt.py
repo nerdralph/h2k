@@ -20,8 +20,8 @@ print("Hi " + c.find("Name/First").text.capitalize() + ",\r\n")
 print("I finished working on your file " + e_file +".\r\n")
 
 tsv = t.find("Program/Results/Tsv")
-i5 = tsv.find("Info5").attrib["value"]
-if ("MSHP" in i5):
+i5 = tsv.find("Info5")
+if ( i5 != None and "MSHP" in i5.attrib["value"] ):
     ashp = t.find("House/HeatingCooling/Type2/AirHeatPump")
     ei = ashp.find("EquipmentInformation")
     (mfr, model) = (ei.find("Manufacturer").text.capitalize(), ei.find("Model").text)
@@ -38,6 +38,6 @@ percent = round((1.0 - float(newach)/float(oldach)) * 100, 1)
 print("The blower door test result was " + newach + " ACH, an improvement of ", end='')
 print(str(percent) + "% over the last result of " + oldach + ".\r\n")
 
-print("You'll be sent an email in the coming days with a new homeowner info sheet with the updated details for your house.\r\n")
+print("You'll be sent an email in the coming days including a new homeowner info sheet with the updated details for your house.\r\n")
 print("-Ralph")
 
