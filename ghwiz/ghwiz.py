@@ -26,6 +26,9 @@ ta_delta = float(args.pop(1))/SF_PER_SM if len(args) > 1 else 0
 
 t = ET.parse(template)
 
+# extract photos
+ymd = photos.extract(fileid)
+
 # sample appointment text:
 # 4 Janet Dr, Beaver Bank, NS B4G 1C4 Suzanne Wilman & Nancy Wilman 902-403-5850
 info = input("client info: ")
@@ -34,9 +37,6 @@ info = input("client info: ")
 if rest[0:3] == " NS":
     rest = rest[3:]
 (postal, name, tel) = rest[1:8], rest[9:-10],rest[-12:]
-
-# extract photos
-ymd = photos.extract(fileid)
 
 c = t.find("./ProgramInformation/Client")
 c.find("Name/First").text = name.split(' ')[0]
@@ -107,7 +107,7 @@ m.attrib["perimeter"] = str(math.sqrt(bsmt_area)*4 * 1.05)
 # write prepared h2k file
 outfile = "../../" + fileid + ".h2k"
 t.write(outfile, "UTF-8", True)
-os.system("unix2dos " + outfile)
+#os.system("unix2dos " + outfile)
 
 # copy stick-framed 2x6 house specs
 house_data = "../../" + fileid  + "/" + fileid + "-house-data.txt"

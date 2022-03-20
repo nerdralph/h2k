@@ -11,11 +11,11 @@ import zipfile
 
 # extract photos & return ISO8601 date of first photo
 def extract(file_id: str) -> str:
-    path = "../../" + file_id + "/"
-    os.mkdir(path)
-    
     zipname = "Photos-001.zip"
     zf = zipfile.ZipFile(zipname)
+
+    path = "../../" + file_id + "/"
+    os.mkdir(path)
     
     file_count = 0
     suffix = ""
