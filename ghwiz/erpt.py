@@ -38,6 +38,6 @@ percent = round((1.0 - float(newach)/float(oldach)) * 100, 1)
 print("The blower door test result was " + newach + " ACH, an improvement of ", end='')
 print(str(percent) + "% over the last result of " + oldach + ".\r\n")
 
-print("You'll be sent an email in the coming days with a new homeowner info sheet with the full details of my assessment.\r\n")
+print("You'll be sent an email in the coming days with a new homeowner info sheet with the updated details for your house.\r\n")
 print("-Ralph")
 
