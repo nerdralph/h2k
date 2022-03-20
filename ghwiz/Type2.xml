@@ -1,6 +1,6 @@
             <Type2 shadingInF280Cooling="AccountedFor">
                 <AirHeatPump>
-                    <EquipmentInformation energystar="true" CCASHP="true" AHRI="9999999">
+                    <EquipmentInformation energystar="false" CCASHP="true" AHRI="9999999">
                         <Manufacturer>Carrier</Manufacturer>
                         <Model>38MGRQ30</Model>
                     </EquipmentInformation>
