@@ -10,9 +10,9 @@ if len(sys.argv) != 2:
     print(sys.argv[0], "E-file")
     sys.exit()
 
-e_file = sys.argv[1] + ".h2k"
+e_file = sys.argv[1]
 
-t = ET.parse(e_file)
+t = ET.parse(e_file + ".h2k")
 pi = t.find("./ProgramInformation")
 c = pi.find("Client")
 print("Hi " + c.find("Name/First").text.capitalize() + ",\r\n")
@@ -36,7 +36,7 @@ newach = tsv.find("AIR50P").attrib["value"]
 percent = round((1.0 - float(newach)/float(oldach)) * 100, 1)
 
 print("The blower door test result was " + newach + " ACH, an improvement of ", end='')
-print(str(percent) + "% over the last result of " + oldach + ".")
+print(str(percent) + "% over the last result of " + oldach + ".\r\n")
 
 print("You'll be sent an email in the coming days with a new homeowner info sheet with the full details of my assessment.\r\n")
 print("-Ralph")
