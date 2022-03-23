@@ -1,18 +1,21 @@
 #!/usr/bin/env python
 # fill NRCan form from D h2k file
 
-from datetime import date
+import datetime as dt
 
 import PyPDF2 as P2
 from PyPDF2.generic import BooleanObject, NameObject, IndirectObject
 import sys
 import xml.etree.ElementTree as ET
 
-if len(sys.argv) != 2:
-    print(sys.argv[0], "D.h2k")
+if len(sys.argv) < 2:
+    print(sys.argv[0], "D.h2k [+days]")
     sys.exit()
 
 t = ET.parse(sys.argv[1])
+
+# date form ddelta days in the future (default 0)
+ddelta = int(sys.argv[2]) if len(sys.argv) == 3 else 0
 
 pi = t.find("ProgramInformation")
 #c.find("StreetAddress/Street").text
@@ -60,9 +63,13 @@ for element in field_map.keys():
             fieldvalues[f] = value
             break
 
-# house file number = TextField1[0]
-# fieldvalues["TextField1[0]"]  = "22RDE999999"
-fieldvalues["Date_3[0]"] = date.today().isoformat()
+# house file number = TextField1[0] in NRCan auth form 
+fieldvalues["TextField1[0]"]  = "22RDE00"
+td = dt.timedelta(days=ddelta)
+d = (dt.date.today() + td).isoformat()
+fieldvalues["Date[0]"] = d
+fieldvalues["Date_2[0]"] = d
+fieldvalues["Date_3[0]"] = d
 fieldvalues["Signature_3[0]"] = "Ralph Doncaster"
 print("fieldvalues: ")
 print(fieldvalues)
