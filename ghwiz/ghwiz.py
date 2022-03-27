@@ -66,7 +66,11 @@ bsmt_area_sm=(barea-operim+4)/SF_PER_SM
 bperim_m = (operim-8)/FT_PER_M
 # assume top perim change of 3 * sqrt ta_delta, corrected for inside area
 # consider sign since ta_delta can be negative
-ta_sign = math.sqrt(pow(ta_delta,2))/ta_delta
+if ta_delta != 0:
+    ta_sign = math.sqrt(pow(ta_delta,2))/ta_delta
+else:
+    ta_sign = 1
+
 ta_sqrt = math.sqrt(abs(ta_delta))
 tad_in_sm = (abs(ta_delta) - ta_sqrt)/SF_PER_SM
 tp_delta_m = math.sqrt(abs(tad_in_sm)) * 3 * ta_sign
@@ -94,7 +98,8 @@ else:
     hc.remove(ef)
 
 m = hc.find("Ceiling/Measurements")
-m.attrib["length"] = str(operim/FT_PER_M)
+# eave length
+m.attrib["length"] = str((operim/FT_PER_M)/2)
 ceiling_area_sm = main_area_sm if ta_delta < 0 else main_area_sm + tad_in_sm * ta_sign
 m.attrib["area"] = str(ceiling_area_sm)
 
