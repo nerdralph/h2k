@@ -29,7 +29,10 @@ d = os.popen(cchp_search).read().rstrip('\n').split('\t')
 e = t.find("./ProgramInformation/Information")
 
 info = ET.Element("Info", {"code": "Info. 5"})
-info.text = "NEEP;MSHP-" + heads
+if (int(heads) > 0):
+    info.text = "NEEP;MSHP-" + heads
+else:
+    info.text = "NEEP;CENTRAL-HP" + heads
 e.append(info)
 
 # GHG instructions are to use Info 6 when more than 1 ccASHP system is installed
