@@ -29,10 +29,11 @@ d = os.popen(cchp_search).read().rstrip('\n').split('\t')
 e = t.find("./ProgramInformation/Information")
 
 info = ET.Element("Info", {"code": "Info. 5"})
+# no NEEP until spreadsheet and/or H2K is fixed
 if (int(heads) > 0):
-    info.text = "NEEP;MSHP-" + heads
+    info.text = "MSHP-" + heads
 else:
-    info.text = "NEEP;CENTRAL-HP" + heads
+    info.text = "CENTRAL-HP"
 e.append(info)
 
 # GHG instructions are to use Info 6 when more than 1 ccASHP system is installed
@@ -53,9 +54,8 @@ ei.find("Model").text = model
 ahp.find("Equipment").attrib["numberOfHeads"] = heads
 specs = ahp.find("Specifications")
 specs.find("OutputCapacity").attrib["value"] = size_kw
-# HeatingEfficiency is COP
-# NEEP adjustment formula ~= COP @-15C * 1.39
-specs.find("HeatingEfficiency").attrib["value"] = str(float(cop)*1.39)
+# use ASHP HSPF/SEER until NEEP spreadsheet or H2K is fixed for ccHP
+specs.find("HeatingEfficiency").attrib["value"] = str(float(hspf)/1.15)
 specs.find("CoolingEfficiency").attrib["value"] = seer
 cchp = ahp.find("ColdClimateHeatPump")
 cchp.attrib["heatingEfficiency"] = hspf
