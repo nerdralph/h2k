@@ -31,7 +31,7 @@ if barea < 0:
 # top floor exterior area difference from barea
 ta_delta = float(args.pop(1)) if len(args) > 1 else 0
 # above foundation perimeter if different than fperim
-afl_perim = float(args.pop(1)) if len(args) == 1 else operim
+afl_perim = float(args.pop(1)) if len(args) > 1 else operim
 
 t = ET.parse(template)
 
