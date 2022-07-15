@@ -8,6 +8,8 @@ while (<STDIN>) {
         $prev_id = (split /\(/,<STDIN>)[0];
         $cmd = 'sed -i \'s/sFileID value="/sFileID value="';
         system( $cmd . $prev_id . "/' $d.h2k\n"); 
+        $tag = "PreviousFileId";
+        system("sed -i \"s#$tag /#$tag>$prev_id</$tag#\" $d.h2k\n");
         print ("$d - added prev. ID $prev_id\n");
     }
 }
