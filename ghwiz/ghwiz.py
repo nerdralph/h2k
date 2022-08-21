@@ -85,18 +85,29 @@ if ta_delta != 0:
 else:
     ta_sign = 1
 
+hc = t.find("House/Components")
+if hc.find("Basement"):
+    FTYPE = "Basement"
+    # 7.75ft bsmt + 1' header
+    BSMT_HT = 8.75
+elif hc.find("Slab"):
+    FTYPE = "Slab"
+    BSMT_HT = 0
+else:
+    print("unrecognized template foundation type")
+    sys.exit()
+
 # ta_delta is exterior area so reduce by sqrt for rough interior area
 ta_sqrt = math.sqrt(abs(ta_delta))
 tad_in_sm = (ta_delta - ta_sqrt * ta_sign)/SF_PER_SM
 hfa = t.find("House/Specifications/HeatedFloorArea")
 above_grade_sm = (main_area_sm * storeys) + tad_in_sm
 hfa.attrib["aboveGrade"] = str(above_grade_sm)
-hfa.attrib["belowGrade"] = str(bsmt_area_sm)
-hd.write("\nheated floor area sf above grade: " + str(round(above_grade_sm * SF_PER_SM))
-            + " below grade: " + str(round(bsmt_area_sm * SF_PER_SM)))
+if FTYPE == "Basement":
+    hfa.attrib["belowGrade"] = str(bsmt_area_sm)
+hd.write("\nheated floor area sf: " + str(round(above_grade_sm * SF_PER_SM)) )
 
-# calculate volume 7.75ft bsmt + 1' header + 8ft main flr
-volume = ((7.75 + 1)/FT_PER_M * bsmt_area_sm) + wall_height_m * main_area_sm
+volume = (BSMT_HT/FT_PER_M * bsmt_area_sm) + wall_height_m * main_area_sm
 # adjust for different top floor area with 8' ceiling and 1' floor
 volume += tad_in_sm *  9/FT_PER_M
 t.find("House/NaturalAirInfiltration/Specifications/House").attrib["volume"] = str(volume)
@@ -109,7 +120,6 @@ hd.write("\nhouse volume cf: " + str(round(volume * SF_PER_SM * FT_PER_M)))
 #t.find("House/NaturalAirInfiltration/Specifications/BuildingSite").attrib["highestCeiling"] =
 # str(highest_ceiling)
 
-hc = t.find("House/Components")
 ef = hc.find("Floor")
 if ta_delta > 0:
     # configure exposed floor
@@ -140,17 +150,23 @@ hd.write("\nwall height, perim: " +
             ", " + str(mperim_in_m * FT_PER_M))
 
 # calculate foundation perim & area
-hc.find("Basement").attrib["exposedSurfacePerimeter"] = str(bperim_in_m)
-m = hc.find("Basement/Floor/Measurements")
+m = hc.find(FTYPE + "/Floor/Measurements")
 m.attrib["area"] = str(bsmt_area_sm)
-# H2K errror if perim <= 4*sqrt(area), common ratio is 1.05x
-# relevant for semis and multiple foundations
-bfp_m = math.sqrt(bsmt_area_sm)*4 * 1.05
-m.attrib["perimeter"] = str(bfp_m)
-hd.write("\nfoundation floor area, perim, exp. surface perim: " +
-            str(round(bsmt_area_sm * SF_PER_SM )) +
-            ", " + str(round(bfp_m * FT_PER_M)) +
-            ", " + str(round(bperim_in_m * FT_PER_M)))
+if FTYPE == "Basement":
+    #m = hc.find("Basement/Floor/Measurements")
+    hc.find("Basement").attrib["exposedSurfacePerimeter"] = str(bperim_in_m)
+    # H2K errror if perim <= 4*sqrt(area), common ratio is 1.05x
+    # relevant for semis and multiple foundations
+    bfp_m = math.sqrt(bsmt_area_sm)*4 * 1.05
+    m.attrib["perimeter"] = str(bfp_m)
+
+if FTYPE == "Slab":
+    #m = hc.find("Slab/Floor/Measurements")
+    m.attrib["perimeter"] = str(bperim_in_m)
+
+hd.write("\nfoundation floor area, perimeter:" +
+         str(round(bsmt_area_sm * SF_PER_SM )) +
+         ", " + str(round(bperim_in_m * FT_PER_M)))
 
 # debug
 #t.write("out.h2k", "UTF-8", True)
