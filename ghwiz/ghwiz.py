@@ -36,7 +36,21 @@ afl_perim = float(args.pop(1)) if len(args) > 1 else operim
 t = ET.parse(template)
 
 # extract photos
+# ymd = "1999-04-01"
 ymd = photos.extract(fileid)
+
+ea = ET.parse(fileid[:4] + ".xml").getroot()
+pi = t.find("ProgramInformation")
+f = pi.find("File")
+f.extend(ea)
+f.attrib["evaluationDate"] = ymd
+f.find("Identification").text = fileid
+#t.find("./House/Specifications/FacingDirection").attrib["code"] = FacingDirection
+#t.find("./House/Specifications/YearBuilt").attrib["value"] = YearBuilt
+
+# for debug mode when not using photos.py
+# path = "../../" + fileid + "/"
+# os.mkdir(path)
 
 # sample appointment text:
 # 123 Main St, Dartmouth, NS B1H 0H0 John MacDonald 902-555-1212
@@ -53,7 +67,7 @@ os.system("cp 2x6-house.txt " + house_data)
 hd = open(house_data, 'a')
 hd.write(info)
 
-c = t.find("./ProgramInformation/Client")
+c = pi.find("Client")
 c.find("Name/First").text = name.split(' ')[0]
 c.find("Name/Last").text = name.split(' ')[1]
 c.find("Telephone").text = tel
@@ -62,11 +76,6 @@ sa.find("Street").text = street
 sa.find("City").text = city
 # province set in h2k template
 sa.find("PostalCode").text = postal
-
-t.find("ProgramInformation/File").attrib["evaluationDate"] = ymd
-t.find("ProgramInformation/File/Identification").text = fileid
-#t.find("./House/Specifications/FacingDirection").attrib["code"] = FacingDirection
-#t.find("./House/Specifications/YearBuilt").attrib["value"] = YearBuilt
 
 storeys = 2 if wall_height_m > 4 else 1
 # code 1 = 1 storey, 3 = 2 storey
