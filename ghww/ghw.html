@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AAN query</title>
+  </head>
+  <body style="background-color:LightSkyBlue;">
+    <h1 style="color:DarkGreen;">Solar Si</h1>
+    <p>Helping Nova Scotia save energy.</p>
+    <p>H2K Greener Homes Wizard</p>
+    <form action="/cgi-bin/ghw.py" method="get" id="aanq">
+    File ID:<input name="fileID" minlength="10"><br>
+    8-digit AAN: <input name="AAN" type="tel" minlength="8" maxlength="8" size=8 pattern="[0-9]+" onblur="findAAN(this.value)"><br>
+    template*: <input name="template" required> fperim*: <input name="fperim" required> farea*: <input name="farea" required>
+    aflht: <input name="aflht"> ta_delta: <input name="ta_delta"> afl_perim: <input name="afl_perim"><br>
+    Name First*: <input name="First" required> Last*: <input name="Last" required><br>
+    Telephone:<input type="tel" name="Telephone"><br>
+    AAN data: <output name="aanData"></output><br>
+    Street: <output name="street"></output><br>
+    Postal Code: <input name="postal" readonly><br>
+    Weather: <input name="weather" readonly><br>
+    <input type="submit" value="Create H2K file">
+    </form>
+	<script src="aan.js"></script>
+  </body>
+</html>
+
