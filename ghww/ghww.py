@@ -15,18 +15,26 @@ SF_PER_SM = FT_PER_M ** 2
 # f = foundation, t = top floor, outside measurements
 
 form = cgi.FieldStorage()
-print(form)
 
 fileid = form.getvalue("fileID")
+
+house_data = "ghww.log"
+hd = open(house_data, 'a')
+hd.write("\nStart " + fileid) 
+hd.write("\nARGS=" + os.getenv("QUERY_STRING"))
+
+outfile = fileid + ".h2k"
+print("Content-Type: application/octet-stream")
+print('Content-Disposition: attachment; filename="' + outfile + '"\n')
+
 AAN = form.getvalue("AAN")
 template = form.getvalue("template") + ".h2k"
-print("using template: " + template)
 
 # outside foundation perimeter
 operim = float(form.getvalue("fperim"))/FT_PER_M
 
 # foundation footprint (exterior) area
-farea = float(form.getvalue("farea"))/FT_PER_M
+farea = float(form.getvalue("farea"))
 # use html5 min 1
 if farea < 1:
     print("Invalid foundation area ", farea)
@@ -47,7 +55,8 @@ else:
 
 jd = requests.get("https://www.thedatazone.ca/resource/a859-xvcs.json?aan=" + AAN).json()[0]
 
-t = ET.parse(template)
+tf = open(template, "rb")
+t = ET.parse(tf, ET.XMLParser(encoding="utf-8"))
 
 # extract photos
 ymd = "1999-04-01"
@@ -75,9 +84,6 @@ street = jd["address_num"] + ' ' + jd["address_street"] + ' ' + jd["address_suff
 # copy stick-framed 2x6 house specs
 #house_data = "../../" + fileid  + "/" + fileid + "-house-data.txt"
 #os.system("cp 2x6-house.txt " + house_data)
-house_data = "ghww.log"
-hd = open(house_data, 'a')
-hd.write("Start " + fileid + '\n')
 hd.write(json.dumps(jd))
 
 c = pi.find("Client")
@@ -202,5 +208,5 @@ hd.write("\nfoundation floor area, perimeter:" +
 
 # write prepared h2k file
 #outfile = "../../" + fileid + ".h2k"
-outfile = fileid + ".h2k"
-t.write(outfile, "UTF-8", True)
+#t.write(outfile, "UTF-8", True)
+t.write(sys.stdout, "UTF-8", True)
