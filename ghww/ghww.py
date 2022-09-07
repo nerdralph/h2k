@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # Ralph Doncaster 2021, 2022
 # Greener Homes wizard web version: creates H2K house models from templates
 
@@ -18,7 +18,7 @@ form = cgi.FieldStorage()
 
 fileid = form.getvalue("fileID")
 
-house_data = "ghww.log"
+house_data = "/tmp/ghww.log"
 hd = open(house_data, 'a')
 hd.write("\nStart " + fileid) 
 hd.write("\nARGS=" + os.getenv("QUERY_STRING"))
@@ -62,10 +62,10 @@ t = ET.parse(tf, ET.XMLParser(encoding="utf-8"))
 ymd = "1999-04-01"
 #ymd = photos.extract(fileid)
 
-ea = ET.parse(fileid[:4] + ".xml").getroot()
+so = ET.parse(fileid[:2] + ".xml").getroot()
 pi = t.find("ProgramInformation")
 f = pi.find("File")
-f.extend(ea)
+f.extend(so)
 f.attrib["evaluationDate"] = ymd
 f.find("Identification").text = fileid
 f.find("TaxNumber").text = AAN
@@ -209,4 +209,5 @@ hd.write("\nfoundation floor area, perimeter:" +
 # write prepared h2k file
 #outfile = "../../" + fileid + ".h2k"
 #t.write(outfile, "UTF-8", True)
-t.write(sys.stdout, "UTF-8", True)
+sys.stdout.flush()
+t.write(sys.stdout.buffer, encoding="UTF-8", xml_declaration=True)
