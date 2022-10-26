@@ -31,7 +31,7 @@ AAN = form.getvalue("AAN")
 template = form.getvalue("template") + ".h2k"
 
 # outside foundation perimeter
-operim = float(form.getvalue("fperim"))/FT_PER_M
+operim = float(form.getvalue("fperim"))
 
 # foundation footprint (exterior) area
 farea = float(form.getvalue("farea"))
@@ -44,22 +44,19 @@ if farea < 1:
 wall_height_m = float(form.getvalue("aflht",0))/FT_PER_M
 
 # top floor exterior area difference from farea
-#ta_delta = float(args.pop(1)) if len(args) > 1 else 0
 ta_delta = float(form.getvalue("ta_delta",0))
+
 # above foundation perimeter if different than fperim
-#afl_perim = float(args.pop(1)) if len(args) > 1 else operim
-if "afl_perim" in form:
-    afl_perim = float(form.getvalue("afl_perim"))
-else:
-    afl_perim = operim
+afl_perim = float(form.getvalue("afl_perim", operim))
 
 jd = requests.get("https://www.thedatazone.ca/resource/a859-xvcs.json?aan=" + AAN).json()[0]
 
-tf = open(template, "rb")
-t = ET.parse(tf, ET.XMLParser(encoding="utf-8"))
+#tf = open(template, "rb")
+#t = ET.parse(tf, ET.XMLParser(encoding="utf-8"))
+t = ET.parse(template)
 
 # extract photos
-ymd = "1999-04-01"
+ymd = "2022-09-06"
 #ymd = photos.extract(fileid)
 
 so = ET.parse(fileid[:2] + ".xml").getroot()
@@ -90,6 +87,12 @@ c = pi.find("Client")
 c.find("Name/First").text = form.getvalue("First")
 c.find("Name/Last").text = form.getvalue("Last")
 c.find("Telephone").text = form.getvalue("Telephone")
+
+pii = pi.find("Information")
+info = ET.Element("Info", {"code": "Info. 7"})
+info.text = "NSPI;;" + form.getvalue("email", "") + ";N"
+pii.append(info)
+
 sa = c.find("StreetAddress")
 sa.find("Street").text = street
 sa.find("City").text = jd["address_city"]
