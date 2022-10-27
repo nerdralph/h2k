@@ -250,7 +250,7 @@
                         <French>Valeurs d'essai de dépressurisation</French>
                     </AirTightnessTest>
                 </House>
-                <BlowerTest airChangeRate="3.51" leakageArea="678.0466" isCgsbTest="false" guarded="false" isCalculated="false">
+                <BlowerTest airChangeRate="3.51" leakageArea="678.0452" isCgsbTest="false" guarded="false" isCalculated="false">
                     <Pressure code="1">
                         <English>10 Pa</English>
                         <French>10 Pa</French>
@@ -485,7 +485,7 @@
                         </Construction>
                         <Measurements height="2.032" width="1.2192" />
                         <Components>
-                            <Window number="1" er="11.4793" shgc="0.5209" frameHeight="41" frameAreaFraction="0.3311" edgeOfGlassFraction="0.4226" centreOfGlassFraction="0.2462" adjacentEnclosedSpace="false" id="29">
+                            <Window number="1" er="11.4793" shgc="0.5209" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="29">
                                 <Label>Window - 2</Label>
                                 <Construction energyStar="false">
                                     <Type idref="Code 6" rValue="0.3264">200004</Type>
@@ -514,7 +514,7 @@
                         </Construction>
                         <Measurements height="2.032" width="0.8636" />
                         <Components>
-                            <Window number="1" er="11.4793" shgc="0.6098" frameHeight="41" frameAreaFraction="0.208" edgeOfGlassFraction="0.2771" centreOfGlassFraction="0.5149" adjacentEnclosedSpace="false" id="28">
+                            <Window number="1" er="11.4793" shgc="0.6098" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="28">
                                 <Label>Window - 1</Label>
                                 <Construction energyStar="false">
                                     <Type idref="Code 6" rValue="0.336">200004</Type>
@@ -533,7 +533,7 @@
                             </Window>
                         </Components>
                     </Door>
-                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="7">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="7">
                         <Label>East-West1</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 6" rValue="0.3403">200004</Type>
@@ -550,7 +550,7 @@
                             <French>Ouest</French>
                         </FacingDirection>
                     </Window>
-                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="9">
+                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="9">
                         <Label>East-West2</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 6" rValue="0.3376">200004</Type>
@@ -567,7 +567,7 @@
                             <French>Ouest</French>
                         </FacingDirection>
                     </Window>
-                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="30">
+                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="30">
                         <Label>East-West3</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 6" rValue="0.3376">200004</Type>
@@ -584,7 +584,7 @@
                             <French>Ouest</French>
                         </FacingDirection>
                     </Window>
-                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="34">
+                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="34">
                         <Label>East-West4</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 6" rValue="0.3376">200004</Type>
@@ -601,7 +601,7 @@
                             <French>Ouest</French>
                         </FacingDirection>
                     </Window>
-                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="35">
+                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="35">
                         <Label>East-West5</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 6" rValue="0.3376">200004</Type>
@@ -618,7 +618,58 @@
                             <French>Ouest</French>
                         </FacingDirection>
                     </Window>
-                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="14">
+                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="51">
+                        <Label>East-West6</Label>
+                        <Construction energyStar="false">
+                            <Type idref="Code 6" rValue="0.3376">200004</Type>
+                        </Construction>
+                        <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
+                            <Tilt code="1" value="90">
+                                <English>Vertical</English>
+                                <French>Verticale</French>
+                            </Tilt>
+                        </Measurements>
+                        <Shading curtain="1" shutterRValue="0" />
+                        <FacingDirection code="7">
+                            <English>West</English>
+                            <French>Ouest</French>
+                        </FacingDirection>
+                    </Window>
+                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="52">
+                        <Label>East-West7</Label>
+                        <Construction energyStar="false">
+                            <Type idref="Code 6" rValue="0.3376">200004</Type>
+                        </Construction>
+                        <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
+                            <Tilt code="1" value="90">
+                                <English>Vertical</English>
+                                <French>Verticale</French>
+                            </Tilt>
+                        </Measurements>
+                        <Shading curtain="1" shutterRValue="0" />
+                        <FacingDirection code="7">
+                            <English>West</English>
+                            <French>Ouest</French>
+                        </FacingDirection>
+                    </Window>
+                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="53">
+                        <Label>East-West8</Label>
+                        <Construction energyStar="false">
+                            <Type idref="Code 6" rValue="0.3376">200004</Type>
+                        </Construction>
+                        <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
+                            <Tilt code="1" value="90">
+                                <English>Vertical</English>
+                                <French>Verticale</French>
+                            </Tilt>
+                        </Measurements>
+                        <Shading curtain="1" shutterRValue="0" />
+                        <FacingDirection code="7">
+                            <English>West</English>
+                            <French>Ouest</French>
+                        </FacingDirection>
+                    </Window>
+                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="14">
                         <Label>Northern1 (NW-NE)</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 6" rValue="0.3376">200004</Type>
@@ -635,7 +686,7 @@
                             <French>Nord</French>
                         </FacingDirection>
                     </Window>
-                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="23">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="23">
                         <Label>Northern2 (NW-NE)</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 6" rValue="0.3403">200004</Type>
@@ -652,7 +703,7 @@
                             <French>Nord</French>
                         </FacingDirection>
                     </Window>
-                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="31">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="31">
                         <Label>Northern3 (NW-NE)</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 6" rValue="0.3403">200004</Type>
@@ -669,7 +720,7 @@
                             <French>Nord</French>
                         </FacingDirection>
                     </Window>
-                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="36">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="36">
                         <Label>Northern4 (NW-NE)</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 6" rValue="0.3403">200004</Type>
@@ -686,7 +737,7 @@
                             <French>Nord</French>
                         </FacingDirection>
                     </Window>
-                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="37">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="37">
                         <Label>Northern5 (NW-NE)</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 6" rValue="0.3403">200004</Type>
@@ -703,7 +754,7 @@
                             <French>Nord</French>
                         </FacingDirection>
                     </Window>
-                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="43">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="43">
                         <Label>Northern6 (NW-NE)</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 6" rValue="0.3403">200004</Type>
@@ -720,7 +771,7 @@
                             <French>Nord</French>
                         </FacingDirection>
                     </Window>
-                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="44">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="44">
                         <Label>Northern7 (NW-NE)</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 6" rValue="0.3403">200004</Type>
@@ -737,7 +788,7 @@
                             <French>Nord</French>
                         </FacingDirection>
                     </Window>
-                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="45">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="45">
                         <Label>Northern8 (NW-NE)</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 6" rValue="0.3403">200004</Type>
@@ -754,211 +805,7 @@
                             <French>Nord</French>
                         </FacingDirection>
                     </Window>
-                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="26">
-                        <Label>SE-SW1</Label>
-                        <Construction energyStar="false">
-                            <Type idref="Code 6" rValue="0.3403">200004</Type>
-                        </Construction>
-                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
-                            <Tilt code="1" value="90">
-                                <English>Vertical</English>
-                                <French>Verticale</French>
-                            </Tilt>
-                        </Measurements>
-                        <Shading curtain="1" shutterRValue="0" />
-                        <FacingDirection code="2">
-                            <English>Southeast</English>
-                            <French>Sud-est</French>
-                        </FacingDirection>
-                    </Window>
-                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="27">
-                        <Label>SE-SW2</Label>
-                        <Construction energyStar="false">
-                            <Type idref="Code 6" rValue="0.3376">200004</Type>
-                        </Construction>
-                        <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
-                            <Tilt code="1" value="90">
-                                <English>Vertical</English>
-                                <French>Verticale</French>
-                            </Tilt>
-                        </Measurements>
-                        <Shading curtain="1" shutterRValue="0" />
-                        <FacingDirection code="2">
-                            <English>Southeast</English>
-                            <French>Sud-est</French>
-                        </FacingDirection>
-                    </Window>
-                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="33">
-                        <Label>SE-SW3</Label>
-                        <Construction energyStar="false">
-                            <Type idref="Code 6" rValue="0.3376">200004</Type>
-                        </Construction>
-                        <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
-                            <Tilt code="1" value="90">
-                                <English>Vertical</English>
-                                <French>Verticale</French>
-                            </Tilt>
-                        </Measurements>
-                        <Shading curtain="1" shutterRValue="0" />
-                        <FacingDirection code="2">
-                            <English>Southeast</English>
-                            <French>Sud-est</French>
-                        </FacingDirection>
-                    </Window>
-                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="38">
-                        <Label>SE-SW4</Label>
-                        <Construction energyStar="false">
-                            <Type idref="Code 6" rValue="0.3376">200004</Type>
-                        </Construction>
-                        <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
-                            <Tilt code="1" value="90">
-                                <English>Vertical</English>
-                                <French>Verticale</French>
-                            </Tilt>
-                        </Measurements>
-                        <Shading curtain="1" shutterRValue="0" />
-                        <FacingDirection code="2">
-                            <English>Southeast</English>
-                            <French>Sud-est</French>
-                        </FacingDirection>
-                    </Window>
-                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="40">
-                        <Label>SE-SW5</Label>
-                        <Construction energyStar="false">
-                            <Type idref="Code 6" rValue="0.3376">200004</Type>
-                        </Construction>
-                        <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
-                            <Tilt code="1" value="90">
-                                <English>Vertical</English>
-                                <French>Verticale</French>
-                            </Tilt>
-                        </Measurements>
-                        <Shading curtain="1" shutterRValue="0" />
-                        <FacingDirection code="2">
-                            <English>Southeast</English>
-                            <French>Sud-est</French>
-                        </FacingDirection>
-                    </Window>
-                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="46">
-                        <Label>SE-SW6</Label>
-                        <Construction energyStar="false">
-                            <Type idref="Code 6" rValue="0.3376">200004</Type>
-                        </Construction>
-                        <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
-                            <Tilt code="1" value="90">
-                                <English>Vertical</English>
-                                <French>Verticale</French>
-                            </Tilt>
-                        </Measurements>
-                        <Shading curtain="1" shutterRValue="0" />
-                        <FacingDirection code="2">
-                            <English>Southeast</English>
-                            <French>Sud-est</French>
-                        </FacingDirection>
-                    </Window>
-                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="47">
-                        <Label>SE-SW7</Label>
-                        <Construction energyStar="false">
-                            <Type idref="Code 6" rValue="0.3376">200004</Type>
-                        </Construction>
-                        <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
-                            <Tilt code="1" value="90">
-                                <English>Vertical</English>
-                                <French>Verticale</French>
-                            </Tilt>
-                        </Measurements>
-                        <Shading curtain="1" shutterRValue="0" />
-                        <FacingDirection code="2">
-                            <English>Southeast</English>
-                            <French>Sud-est</French>
-                        </FacingDirection>
-                    </Window>
-                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="48">
-                        <Label>SE-SW8</Label>
-                        <Construction energyStar="false">
-                            <Type idref="Code 6" rValue="0.3376">200004</Type>
-                        </Construction>
-                        <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
-                            <Tilt code="1" value="90">
-                                <English>Vertical</English>
-                                <French>Verticale</French>
-                            </Tilt>
-                        </Measurements>
-                        <Shading curtain="1" shutterRValue="0" />
-                        <FacingDirection code="2">
-                            <English>Southeast</English>
-                            <French>Sud-est</French>
-                        </FacingDirection>
-                    </Window>
-                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="25">
-                        <Label>South1</Label>
-                        <Construction energyStar="false">
-                            <Type idref="Code 6" rValue="0.3403">200004</Type>
-                        </Construction>
-                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
-                            <Tilt code="1" value="90">
-                                <English>Vertical</English>
-                                <French>Verticale</French>
-                            </Tilt>
-                        </Measurements>
-                        <Shading curtain="1" shutterRValue="0" />
-                        <FacingDirection code="1">
-                            <English>South</English>
-                            <French>Sud</French>
-                        </FacingDirection>
-                    </Window>
-                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="24">
-                        <Label>South2</Label>
-                        <Construction energyStar="false">
-                            <Type idref="Code 6" rValue="0.3376">200004</Type>
-                        </Construction>
-                        <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
-                            <Tilt code="1" value="90">
-                                <English>Vertical</English>
-                                <French>Verticale</French>
-                            </Tilt>
-                        </Measurements>
-                        <Shading curtain="1" shutterRValue="0" />
-                        <FacingDirection code="1">
-                            <English>South</English>
-                            <French>Sud</French>
-                        </FacingDirection>
-                    </Window>
-                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="32">
-                        <Label>South3</Label>
-                        <Construction energyStar="false">
-                            <Type idref="Code 6" rValue="0.3376">200004</Type>
-                        </Construction>
-                        <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
-                            <Tilt code="1" value="90">
-                                <English>Vertical</English>
-                                <French>Verticale</French>
-                            </Tilt>
-                        </Measurements>
-                        <Shading curtain="1" shutterRValue="0" />
-                        <FacingDirection code="1">
-                            <English>South</English>
-                            <French>Sud</French>
-                        </FacingDirection>
-                    </Window>
-                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="41">
-                        <Label>South4</Label>
-                        <Construction energyStar="false">
-                            <Type idref="Code 6" rValue="0.3376">200004</Type>
-                        </Construction>
-                        <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
-                            <Tilt code="1" value="90">
-                                <English>Vertical</English>
-                                <French>Verticale</French>
-                            </Tilt>
-                        </Measurements>
-                        <Shading curtain="1" shutterRValue="0" />
-                        <FacingDirection code="1">
-                            <English>South</English>
-                            <French>Sud</French>
-                        </FacingDirection>
-                    </Window>
-                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="49">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="49">
                         <Label>Northern9 (NW-NE)</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 6" rValue="0.3403">200004</Type>
@@ -975,12 +822,12 @@
                             <French>Nord</French>
                         </FacingDirection>
                     </Window>
-                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="50">
-                        <Label>SE-SW9</Label>
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="26">
+                        <Label>SE-SW1</Label>
                         <Construction energyStar="false">
-                            <Type idref="Code 6" rValue="0.3376">200004</Type>
+                            <Type idref="Code 6" rValue="0.3403">200004</Type>
                         </Construction>
-                        <Measurements height="762" width="914.4" headerHeight="2.6396" overhangWidth="0.4115">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                                 <English>Vertical</English>
                                 <French>Verticale</French>
@@ -992,63 +839,148 @@
                             <French>Sud-est</French>
                         </FacingDirection>
                     </Window>
-                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="51">
-                        <Label>East-West6</Label>
+                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="27">
+                        <Label>SE-SW2</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 6" rValue="0.3376">200004</Type>
                         </Construction>
-                        <Measurements height="762" width="914.4" headerHeight="2.6396" overhangWidth="0.4115">
+                        <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                                 <English>Vertical</English>
                                 <French>Verticale</French>
                             </Tilt>
                         </Measurements>
                         <Shading curtain="1" shutterRValue="0" />
-                        <FacingDirection code="7">
-                            <English>West</English>
-                            <French>Ouest</French>
+                        <FacingDirection code="2">
+                            <English>Southeast</English>
+                            <French>Sud-est</French>
                         </FacingDirection>
                     </Window>
-                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="52">
-                        <Label>East-West7</Label>
+                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="33">
+                        <Label>SE-SW3</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 6" rValue="0.3376">200004</Type>
                         </Construction>
-                        <Measurements height="762" width="914.4" headerHeight="2.6396" overhangWidth="0.4115">
+                        <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                                 <English>Vertical</English>
                                 <French>Verticale</French>
                             </Tilt>
                         </Measurements>
                         <Shading curtain="1" shutterRValue="0" />
-                        <FacingDirection code="7">
-                            <English>West</English>
-                            <French>Ouest</French>
+                        <FacingDirection code="2">
+                            <English>Southeast</English>
+                            <French>Sud-est</French>
                         </FacingDirection>
                     </Window>
-                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="53">
-                        <Label>East-West8</Label>
+                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="38">
+                        <Label>SE-SW4</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 6" rValue="0.3376">200004</Type>
                         </Construction>
-                        <Measurements height="762" width="914.4" headerHeight="2.6396" overhangWidth="0.4115">
+                        <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                                 <English>Vertical</English>
                                 <French>Verticale</French>
                             </Tilt>
                         </Measurements>
                         <Shading curtain="1" shutterRValue="0" />
-                        <FacingDirection code="7">
-                            <English>West</English>
-                            <French>Ouest</French>
+                        <FacingDirection code="2">
+                            <English>Southeast</English>
+                            <French>Sud-est</French>
                         </FacingDirection>
                     </Window>
-                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="54">
-                        <Label>South5</Label>
+                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="40">
+                        <Label>SE-SW5</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 6" rValue="0.3376">200004</Type>
                         </Construction>
-                        <Measurements height="762" width="914.4" headerHeight="2.6396" overhangWidth="0.4115">
+                        <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
+                            <Tilt code="1" value="90">
+                                <English>Vertical</English>
+                                <French>Verticale</French>
+                            </Tilt>
+                        </Measurements>
+                        <Shading curtain="1" shutterRValue="0" />
+                        <FacingDirection code="2">
+                            <English>Southeast</English>
+                            <French>Sud-est</French>
+                        </FacingDirection>
+                    </Window>
+                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="46">
+                        <Label>SE-SW6</Label>
+                        <Construction energyStar="false">
+                            <Type idref="Code 6" rValue="0.3376">200004</Type>
+                        </Construction>
+                        <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
+                            <Tilt code="1" value="90">
+                                <English>Vertical</English>
+                                <French>Verticale</French>
+                            </Tilt>
+                        </Measurements>
+                        <Shading curtain="1" shutterRValue="0" />
+                        <FacingDirection code="2">
+                            <English>Southeast</English>
+                            <French>Sud-est</French>
+                        </FacingDirection>
+                    </Window>
+                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="47">
+                        <Label>SE-SW7</Label>
+                        <Construction energyStar="false">
+                            <Type idref="Code 6" rValue="0.3376">200004</Type>
+                        </Construction>
+                        <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
+                            <Tilt code="1" value="90">
+                                <English>Vertical</English>
+                                <French>Verticale</French>
+                            </Tilt>
+                        </Measurements>
+                        <Shading curtain="1" shutterRValue="0" />
+                        <FacingDirection code="2">
+                            <English>Southeast</English>
+                            <French>Sud-est</French>
+                        </FacingDirection>
+                    </Window>
+                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="48">
+                        <Label>SE-SW8</Label>
+                        <Construction energyStar="false">
+                            <Type idref="Code 6" rValue="0.3376">200004</Type>
+                        </Construction>
+                        <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
+                            <Tilt code="1" value="90">
+                                <English>Vertical</English>
+                                <French>Verticale</French>
+                            </Tilt>
+                        </Measurements>
+                        <Shading curtain="1" shutterRValue="0" />
+                        <FacingDirection code="2">
+                            <English>Southeast</English>
+                            <French>Sud-est</French>
+                        </FacingDirection>
+                    </Window>
+                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="50">
+                        <Label>SE-SW9</Label>
+                        <Construction energyStar="false">
+                            <Type idref="Code 6" rValue="0.3376">200004</Type>
+                        </Construction>
+                        <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
+                            <Tilt code="1" value="90">
+                                <English>Vertical</English>
+                                <French>Verticale</French>
+                            </Tilt>
+                        </Measurements>
+                        <Shading curtain="1" shutterRValue="0" />
+                        <FacingDirection code="2">
+                            <English>Southeast</English>
+                            <French>Sud-est</French>
+                        </FacingDirection>
+                    </Window>
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="25">
+                        <Label>South1</Label>
+                        <Construction energyStar="false">
+                            <Type idref="Code 6" rValue="0.3403">200004</Type>
+                        </Construction>
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                                 <English>Vertical</English>
                                 <French>Verticale</French>
@@ -1060,12 +992,80 @@
                             <French>Sud</French>
                         </FacingDirection>
                     </Window>
-                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="41" frameAreaFraction="0.1876" edgeOfGlassFraction="0.2525" centreOfGlassFraction="0.5598" adjacentEnclosedSpace="false" id="55">
+                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="24">
+                        <Label>South2</Label>
+                        <Construction energyStar="false">
+                            <Type idref="Code 6" rValue="0.3376">200004</Type>
+                        </Construction>
+                        <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
+                            <Tilt code="1" value="90">
+                                <English>Vertical</English>
+                                <French>Verticale</French>
+                            </Tilt>
+                        </Measurements>
+                        <Shading curtain="1" shutterRValue="0" />
+                        <FacingDirection code="1">
+                            <English>South</English>
+                            <French>Sud</French>
+                        </FacingDirection>
+                    </Window>
+                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="32">
+                        <Label>South3</Label>
+                        <Construction energyStar="false">
+                            <Type idref="Code 6" rValue="0.3376">200004</Type>
+                        </Construction>
+                        <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
+                            <Tilt code="1" value="90">
+                                <English>Vertical</English>
+                                <French>Verticale</French>
+                            </Tilt>
+                        </Measurements>
+                        <Shading curtain="1" shutterRValue="0" />
+                        <FacingDirection code="1">
+                            <English>South</English>
+                            <French>Sud</French>
+                        </FacingDirection>
+                    </Window>
+                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="41">
+                        <Label>South4</Label>
+                        <Construction energyStar="false">
+                            <Type idref="Code 6" rValue="0.3376">200004</Type>
+                        </Construction>
+                        <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
+                            <Tilt code="1" value="90">
+                                <English>Vertical</English>
+                                <French>Verticale</French>
+                            </Tilt>
+                        </Measurements>
+                        <Shading curtain="1" shutterRValue="0" />
+                        <FacingDirection code="1">
+                            <English>South</English>
+                            <French>Sud</French>
+                        </FacingDirection>
+                    </Window>
+                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="54">
+                        <Label>South5</Label>
+                        <Construction energyStar="false">
+                            <Type idref="Code 6" rValue="0.3376">200004</Type>
+                        </Construction>
+                        <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
+                            <Tilt code="1" value="90">
+                                <English>Vertical</English>
+                                <French>Verticale</French>
+                            </Tilt>
+                        </Measurements>
+                        <Shading curtain="1" shutterRValue="0" />
+                        <FacingDirection code="1">
+                            <English>South</English>
+                            <French>Sud</French>
+                        </FacingDirection>
+                    </Window>
+                    <Window number="1" er="11.4793" shgc="0.6245" frameHeight="0" frameAreaFraction="0" edgeOfGlassFraction="0" centreOfGlassFraction="0" adjacentEnclosedSpace="false" id="55">
                         <Label>South6</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 6" rValue="0.3376">200004</Type>
                         </Construction>
-                        <Measurements height="762" width="914.4" headerHeight="2.6396" overhangWidth="0.4115">
+                        <Measurements height="762.0001" width="914.4001" headerHeight="2.6396" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                                 <English>Vertical</English>
                                 <French>Verticale</French>
@@ -1144,7 +1144,7 @@
             </Basement>
             <HotWater id="17">
                 <Label>Domestic Hot Water</Label>
-                <Primary hasDrainWaterHeatRecovery="false" insulatingBlanket="0.0176" combinedFlue="false" flueDiameter="0" energyStar="false" ecoEnergy="false" userDefinedPilot="false" connectedUnitsDwhr="0" pilotEnergy="52.9975">
+                <Primary hasDrainWaterHeatRecovery="false" insulatingBlanket="0.0176" combinedFlue="false" flueDiameter="0" energyStar="false" ecoEnergy="false" userDefinedPilot="false" connectedUnitsDwhr="0" pilotEnergy="99.9938">
                     <EquipmentInformation>
                         <Manufacturer>Greener Homes wizard</Manufacturer>
                         <Model>Greener Homes wizard</Model>
@@ -1157,7 +1157,7 @@
                         <English>Tankless coil</English>
                         <French>Serpentin sans réservoir</French>
                     </TankType>
-                    <TankVolume code="7" value="0">
+                    <TankVolume code="7" value="222.7584">
                         <English>Not applicable</English>
                         <French>Sans objet</French>
                     </TankVolume>
@@ -1533,6 +1533,7 @@
     </Codes>
     <EnergyUpgrades>
         <Settings>
+            <HotWater cost="0" priority="0" />
             <PhotovoltaicGeneration cost="0" priority="0" />
         </Settings>
         <Components>
@@ -1552,6 +1553,110 @@
                     </System>
                 </PhotovoltaicSystems>
             </Generation>
+            <BaseLoads basementFractionOfInternalGains="0.15" commonSpaceElectricalConsumption="0" id="20">
+                <Label>Base Loads</Label>
+                <Occupancy isOccupied="true">
+                    <Adults occupants="2" atHome="50" />
+                    <Children occupants="1" atHome="50" />
+                    <Infants occupants="0" atHome="0" />
+                </Occupancy>
+                <Summary electricalAppliances="6.2997" lighting="2.6" otherElectric="9.7" exteriorUse="0.9" hotWaterLoad="189.2118" />
+                <WaterUsage temperature="55" otherHotWaterUse="2.92" lowFlushToilets="0">
+                    <BathroomFaucets code="2" value="8.3" numberPerOccupantPerDay="1.33">
+                        <English>Standard 8.3 L/min (2.2 US gpm)</English>
+                        <French>Débit standard 8.3 L/min (2,2 gal/min)</French>
+                    </BathroomFaucets>
+                    <Shower averageDuration="6.5" numberPerOccupantPerWeek="5.2" totalDurationPerDay="14.4857">
+                        <Temperature code="1" value="41">
+                            <English>Warm 41°C (106°F)</English>
+                            <French>Tempérée 41°C (106°F)</French>
+                        </Temperature>
+                        <FlowRate code="2" value="9.5">
+                            <English>Standard 9.5 L/min (2.5 US gpm)</English>
+                            <French>Standard 9.5 L/min (2.5 ÉU gpm)</French>
+                        </FlowRate>
+                    </Shower>
+                    <ClothesWasher numberPerOccupantPerWeek="1.9">
+                        <RatedValues code="1" ratedWaterConsumptionPerCycle="54" ratedAnnualEnergyConsumption="197">
+                            <English>Default</English>
+                            <French>Par défaut</French>
+                        </RatedValues>
+                        <Temperature code="0">
+                            <English>Hot</English>
+                            <French>Chaude</French>
+                        </Temperature>
+                    </ClothesWasher>
+                    <DishWasher numberPerOccupantPerWeek="1.37">
+                        <RatedValues code="1" ratedWaterConsumptionPerCycle="19" ratedAnnualEnergyConsumption="260">
+                            <English>Default</English>
+                            <French>Par défaut</French>
+                        </RatedValues>
+                    </DishWasher>
+                </WaterUsage>
+                <ElectricalUsage otherLoad="9.7" averageExteriorUse="0.9">
+                    <ClothesDryer percentageOfWasherLoads="71.4">
+                        <EnergySource code="1">
+                            <English>Electric</English>
+                            <French>Électricité</French>
+                        </EnergySource>
+                        <RatedValue code="1" value="916">
+                            <English>Default</English>
+                            <French>Défaut</French>
+                        </RatedValue>
+                        <Location code="1">
+                            <English>Main Floor</English>
+                            <French>Plancher Principal</French>
+                        </Location>
+                    </ClothesDryer>
+                    <Stove>
+                        <EnergySource code="1">
+                            <English>Electric</English>
+                            <French>Électricité</French>
+                        </EnergySource>
+                        <RatedValue code="1" value="565">
+                            <English>Default</English>
+                            <French>Par défaut</French>
+                        </RatedValue>
+                    </Stove>
+                    <Refrigerator code="1" value="639">
+                        <English>Default</English>
+                        <French>Par défaut</French>
+                    </Refrigerator>
+                    <InteriorLighting code="1" value="2.6">
+                        <English>&lt; 25% CFL or LED</English>
+                        <French>&lt; 25% LFC ou DEL </French>
+                    </InteriorLighting>
+                </ElectricalUsage>
+            </BaseLoads>
+            <HotWater id="17">
+                <Label>Domestic Hot Water</Label>
+                <Primary hasDrainWaterHeatRecovery="false" insulatingBlanket="0.0176" combinedFlue="false" flueDiameter="0" energyStar="false" ecoEnergy="false" userDefinedPilot="false" connectedUnitsDwhr="0">
+                    <EquipmentInformation>
+                        <Manufacturer>Greener Homes wizard</Manufacturer>
+                        <Model>Greener Homes wizard</Model>
+                    </EquipmentInformation>
+                    <EnergySource code="1">
+                        <English>Electricity</English>
+                        <French>Électricité</French>
+                    </EnergySource>
+                    <TankType code="2">
+                        <English>Conventional tank</English>
+                        <French>Réservoir classique</French>
+                    </TankType>
+                    <TankVolume code="4" value="189.3001">
+                        <English>189.3 L, 41.6 Imp, 50 US gal</English>
+                        <French>189.3 L, 41.6 imp, 50 gal ÉU</French>
+                    </TankVolume>
+                    <EnergyFactor code="1" value="0.8217" inputCapacity="0" isUniform="false">
+                        <English>Use defaults</English>
+                        <French>Valeurs par défaut</French>
+                    </EnergyFactor>
+                    <TankLocation code="2">
+                        <English>Basement</English>
+                        <French>Sous-sol</French>
+                    </TankLocation>
+                </Primary>
+            </HotWater>
         </Components>
         <GreenerHomes basementSlabInsulated="false" moistureProofCrawlSpace="false" waterproofing="false" roofingMembrane="false" minR10ContinuousExposedFloors="false" backwaterValve="false" sumpPump="false" smartThermostats="false" />
     </EnergyUpgrades>
@@ -1642,6 +1747,159 @@
             </Fuel>
         </Wood>
     </FuelCosts>
+    <AllResults>
+        <Results type="AllUpgrades" sha256="E8981AF18F0BB726CFA150A2B0AE954201D15403B7D1F23FDFED015E1B124F75">
+            <Labels>
+                <English>House-----All Upgrades</English>
+                <French xml:lang="fr">House-----Toutes les Améliorations</French>
+            </Labels>
+            <Annual>
+                <Consumption total="67.111452750">
+                    <Electrical baseload="25.622644531" airConditioning="0.000000000" appliance="8.277837113" lighting="3.416397142" heatPump="0.000000000" spaceHeating="0.707834108" spaceCooling="0.000000000" ventilation="0.708112172" total="22.982833372">
+                        <HotWater dhw="16.750948318" primary="0.000000000" secondary="0.000000000" />
+                    </Electrical>
+                    <NaturalGas baseload="0.000000000" appliance="0.000000000" hotWater="0.000000000" spaceHeating="0.000000000" total="0.000000000" />
+                    <Oil baseload="0.000000000" hotWater="0.000000000" spaceHeating="44.128668620" total="44.128668620" />
+                    <Propane baseload="0.000000000" appliance="0.000000000" hotWater="0.000000000" spaceHeating="0.000000000" total="0.000000000" />
+                    <Wood baseload="0.000000000" hotWater="0.000000000" spaceHeating="0.000000000" total="0.000000000" />
+                    <SpaceHeating primary="44.128609375" secondary="0.000000000" total="44.836437500" />
+                    <HotWater primary="16.750960938" secondary="0.000000000" total="16.750960938" />
+                    <SupplementalHeating system1="0.000000000" system2="0.000000000" system3="0.000000000" system4="0.000000000" system5="0.000000000" />
+                </Consumption>
+                <HotWaterDemand base="13.345628906" primary="16.750960938" secondary="0.000000000" />
+                <Load basementHeating="0.000000000" basementCooling="0.000000000" grossHeating="81.056632812" auxiliaryEnergy="37194.507812500" />
+                <HeatLoss total="81.056640691" ceiling="5.443139160" mainWalls="10.558109375" windows="31.352877441" doors="1.160817993" exposedFloors="0.005751775" crawlspace="0.000000000" slab="0.000000000" basementBelowGradeWall="15.537659180" basementAboveGradeWall="2.327326172" basementFloorHeaders="1.466491333" ponyWall="7.427557617" floorsAboveBasement="8.904342773" airLeakageAndNaturalVentilation="5.776910645">
+                    <MainFloor door="1.160817993">
+                        <Windows south="6.3231" southEast="7.721" east="0" northEast="0" north="10.4032" northWest="0" west="6.9057" southWest="0" />
+                    </MainFloor>
+                    <Basement door="0.000000000">
+                        <Windows south="0" southEast="0" east="0" northEast="0" north="0" northWest="0" west="0" southWest="0" />
+                    </Basement>
+                    <Crawlspace door="0.000000000">
+                        <Windows south="0" southEast="0" east="0" northEast="0" north="0" northWest="0" west="0" southWest="0" />
+                    </Crawlspace>
+                </HeatLoss>
+                <AirChangeRate natural="0.018954368" total="0.073934600" />
+                <UtilizedSolarGains value="17.445236328" />
+                <ActualFuelCosts electrical="0.000000000" naturalGas="0.000000000" oil="0.000000000" propane="0.000000000" wood="0.000000000" />
+            </Annual>
+            <Monthly>
+                <FractionOfTimeHeatingSystemNotOperating january="0.66913" february="0.69870" march="0.78732" april="0.87932" may="0.96821" june="0.99815" july="1.00000" august="1.00000" september="0.99788" october="0.94752" november="0.84487" december="0.73646" />
+                <SolarHotWaterEnergyContribution january="0.00000" february="0.00000" march="0.00000" april="0.00000" may="0.00000" june="0.00000" july="0.00000" august="0.00000" september="0.00000" october="0.00000" november="0.00000" december="0.00000" />
+                <ElectricalConsumption>
+                    <ImsOrP9HeatingHours january="0.00000" february="0.00000" march="0.00000" april="0.00000" may="0.00000" june="0.00000" july="0.00000" august="0.00000" september="0.00000" october="0.00000" november="0.00000" december="0.00000" />
+                    <Gross january="3.92511" february="3.54955" march="3.87291" april="3.66214" may="3.67868" june="3.47950" july="3.55523" august="3.53971" september="3.43662" october="3.62681" november="3.61561" december="3.84764" />
+                </ElectricalConsumption>
+                <Gains>
+                    <UtilizedInternal january="2399.57813" february="2184.06215" march="2452.69069" april="2405.36366" may="2511.36324" june="2154.21968" july="723.54228" august="809.16844" september="2164.88368" october="2476.01226" november="2352.81364" december="2404.33432" />
+                    <UtilizedSolar january="2334.38009" february="2574.91887" march="2892.99503" april="2186.32621" may="1425.65196" june="412.30325" july="19.62501" august="31.11371" september="445.03342" october="1635.35561" november="1661.67023" december="1825.86384" />
+                    <CrawlspaceSolar january="0.00000" february="0.00000" march="0.00000" april="0.00000" may="0.00000" june="0.00000" july="0.00000" august="0.00000" september="0.00000" october="0.00000" november="0.00000" december="0.00000" />
+                </Gains>
+                <UtilizedAuxiliaryHeatRequired january="8582.28936" february="7058.98876" march="5506.19404" april="3031.67148" may="819.31576" june="49.06312" july="0.10931" august="0.24763" september="55.66514" october="1355.93869" november="3899.12295" december="6835.90063" />
+                <Temperatures>
+                    <CrawlSpace january="0.00000" february="0.00000" march="0.00000" april="0.00000" may="0.00000" june="0.00000" july="0.00000" august="0.00000" september="0.00000" october="0.00000" november="0.00000" december="0.00000" />
+                    <Attic january="-2.96556" february="-2.10137" march="2.36531" april="8.29757" may="14.37414" june="19.01833" july="22.59385" august="21.68274" september="17.57031" october="11.11689" november="5.97490" december="0.89066" />
+                </Temperatures>
+                <Load>
+                    <PhotoVoltaicUtilized january="0.81882" february="1.18594" march="1.94220" april="2.28174" may="2.53387" june="2.53376" july="2.63784" august="2.43592" september="1.89602" october="1.27098" november="0.68624" december="0.58334" />
+                    <PhotoVoltaicAvailable january="0.81882" february="1.18594" march="1.94220" april="2.28174" may="2.53387" june="2.53376" july="2.63784" august="2.43592" september="1.89602" october="1.27098" november="0.68624" december="0.58334" />
+                    <WindUtilized january="0.00000" february="0.00000" march="0.00000" april="0.00000" may="0.00000" june="0.00000" july="0.00000" august="0.00000" september="0.00000" october="0.00000" november="0.00000" december="0.00000" />
+                    <WindAvailable january="0.00000" february="0.00000" march="0.00000" april="0.00000" may="0.00000" june="0.00000" july="0.00000" august="0.00000" september="0.00000" october="0.00000" november="0.00000" december="0.00000" />
+                    <GrossThermal january="13316.24758" february="11817.96919" march="10851.87894" april="7623.36120" may="4756.33064" june="2615.58587" july="743.27660" august="840.52979" september="2665.58217" october="5467.30656" november="7913.60698" december="11066.09863" />
+                    <Basement>
+                        <Heating january="2619.35799" february="2150.95363" march="1676.60941" april="924.98527" may="249.76687" june="14.95576" july="0.00000" august="0.00000" september="16.96846" october="413.59198" november="1188.23092" december="2083.77607" />
+                        <Cooling january="0.00000" february="0.00000" march="0.00000" april="0.00000" may="0.00000" june="0.00000" july="0.00000" august="0.00000" september="0.00000" october="0.00000" november="0.00000" december="0.00000" />
+                    </Basement>
+                </Load>
+                <HeatLoss>
+                    <Ceiling january="1058.43440" february="920.03118" march="812.74588" april="521.94256" may="259.28405" june="43.78384" july="-119.54532" august="-77.55418" september="108.36722" october="409.40408" november="625.53626" december="880.70914" />
+                    <MainWalls january="1861.97156" february="1631.45095" march="1459.94166" april="994.49340" may="556.99244" june="233.00651" july="34.72663" august="72.06960" september="290.98880" october="750.07812" november="1115.09599" december="1557.29425" />
+                    <Doors january="194.00395" february="172.28727" march="157.79768" april="109.39339" may="65.79842" june="33.07380" july="13.54367" august="16.82849" september="37.54517" october="82.09585" november="116.75339" december="161.69695" />
+                    <ExposedFloors january="0.96128" february="0.85367" march="0.78188" april="0.54204" may="0.32603" june="0.16388" july="0.06711" august="0.08338" september="0.18603" october="0.40678" november="0.57851" december="0.80120" />
+                    <Crawlspace january="0.00000" february="0.00000" march="0.00000" april="0.00000" may="0.00000" june="0.00000" july="0.00000" august="0.00000" september="0.00000" october="0.00000" november="0.00000" december="0.00000" />
+                    <Slab january="0.00000" february="0.00000" march="0.00000" april="0.00000" may="0.00000" june="0.00000" july="0.00000" august="0.00000" september="0.00000" october="0.00000" november="0.00000" december="0.00000" />
+                    <Basement>
+                        <AboveGrade january="2002.74532" february="1744.19433" march="1538.66315" april="1015.46307" may="547.40433" june="241.56992" july="66.99509" august="119.74259" september="329.81112" october="782.67306" november="1169.84804" december="1662.26598" />
+                        <BelowGrade january="1819.48106" february="1700.48852" march="1781.69444" april="1519.18933" may="1293.10035" june="1071.46579" july="1060.45203" august="914.88972" september="761.25382" october="879.65757" november="1171.17156" december="1564.81531" />
+                        <AboveGradeWall january="0.00000" february="0.00000" march="0.00000" april="0.00000" may="0.00000" june="0.00000" july="0.00000" august="0.00000" september="0.00000" october="0.00000" november="0.00000" december="0.00000" />
+                        <FloorHeaders january="0.00000" february="0.00000" march="0.00000" april="0.00000" may="0.00000" june="0.00000" july="0.00000" august="0.00000" september="0.00000" october="0.00000" november="0.00000" december="0.00000" />
+                        <PonyWall january="0.00000" february="0.00000" march="0.00000" april="0.00000" may="0.00000" june="0.00000" july="0.00000" august="0.00000" september="0.00000" october="0.00000" november="0.00000" december="0.00000" />
+                        <FloorsAbove january="822.16924" february="925.50997" march="1159.12583" april="1064.26754" may="965.33131" june="659.73590" july="439.66789" august="352.34292" september="453.85368" october="673.40406" november="671.79676" december="717.13563" />
+                        <AirLeakageAndMechanicalVentilation january="1138.73989" february="995.30612" march="838.25060" april="507.69914" may="256.25668" june="99.22227" july="12.23632" august="27.80516" september="123.36150" october="345.64009" november="561.19695" december="871.19554" />
+                    </Basement>
+                </HeatLoss>
+                <Factors>
+                    <MainFloors>
+                        <SolarUtilization january="0.89395" february="0.79644" march="0.67397" april="0.62946" may="0.40744" june="0.11985" july="0.00537" august="0.00853" september="0.13158" october="0.58253" november="0.89514" december="0.93967" />
+                        <GainLoadRatio january="0.31472" february="0.43205" march="0.63851" april="0.80906" may="1.75371" june="7.70653" july="185.28903" august="116.29404" september="6.99174" october="1.08909" november="0.42454" december="0.29539" />
+                        <MassGainRatio january="1.84355" february="1.34492" march="1.12152" april="1.34131" may="1.37584" june="1.35419" july="1.31656" august="1.31996" september="1.37747" october="1.71481" november="2.50968" december="2.47753" />
+                        <InternalGainsUtilization january="15.60387" february="14.24270" march="13.77835" april="15.07480" may="16.71809" june="19.76179" july="4.57415" august="4.67411" september="19.06042" october="15.49980" november="16.15621" december="16.58677" />
+                    </MainFloors>
+                    <Basement>
+                        <SolarUtilization january="0.00000" february="0.00000" march="0.00000" april="0.00000" may="0.00000" june="0.00000" july="0.00000" august="0.00000" september="0.00000" october="0.00000" november="0.00000" december="0.00000" />
+                        <GainLoadRatio january="0.00000" february="0.00000" march="0.00000" april="0.00000" may="0.00000" june="0.00000" july="0.00000" august="0.00000" september="0.00000" october="0.00000" november="0.00000" december="0.00000" />
+                        <MassGainRatio january="0.00000" february="0.00000" march="0.00000" april="0.00000" may="0.00000" june="0.00000" july="0.00000" august="0.00000" september="0.00000" october="0.00000" november="0.00000" december="0.00000" />
+                    </Basement>
+                </Factors>
+                <AirChangeRate>
+                    <Natural january="0.03908" february="0.03838" march="0.03123" april="0.02151" may="0.01171" june="0.00559" july="0.00197" august="0.00255" september="0.00651" october="0.01499" november="0.02315" december="0.03205" />
+                    <Total january="0.09406" february="0.09336" march="0.08616" april="0.07647" may="0.06669" june="0.06058" july="0.05697" august="0.05751" september="0.06151" october="0.06997" november="0.07815" december="0.08704" />
+                </AirChangeRate>
+            </Monthly>
+            <Other designHeatLossRate="8609.900390625" designCoolLossRate="4720.511230469" seasonalHeatEfficiency="82.955181599">
+                <Ventilation roomCountCapacity="60.000000000" noLimitCapacity="60.000000000" minimumAirChangeRate="0.417490453" equivalentLeakageArea="0.067804254" />
+                <FanEnergyConsumption>
+                    <Hrv heatingHours="0.607178040" neitherHours="0.100934807" coolingHours="0.000000000" />
+                    <Heating heatingHours="0.707834778" neitherHours="0.000000000" coolingHours="0.000000000" />
+                    <AirConditioning heatingHours="0.000000000" neitherHours="0.000000000" coolingHours="0.000000000" />
+                    <HrvOrExhaust heatingHours="0.607177450" neitherHours="0.100934715" coolingHours="0.000000000" total="0.708112172" />
+                    <SpaceHeating heatingHours="0.707834108" neitherHours="0.000000000" coolingHours="0.000000000" total="0.707834108" />
+                    <SpaceCooling heatingHours="0.000000000" neitherHours="0.000000000" coolingHours="0.000000000" total="0.000000000" />
+                </FanEnergyConsumption>
+                <GrossArea ceiling="104.014801025" doors="4.232250214" exposedFloors="0.092899993" slab="0.000000000" ponyWall="48.309581757" buildingSurfaceArea="403.454315186" houseVolumeWithoutCrawlspace="517.377075195">
+                    <MainFloors mainWalls="100.580596924">
+                        <Windows>
+                            <South grossArea="5.398699760" rsiValue="0.337309003" />
+                            <SouthEast grossArea="6.606440067" rsiValue="0.338035434" />
+                            <East grossArea="0.000000000" rsiValue="0.000000000" />
+                            <NorthEast grossArea="0.000000000" rsiValue="0.000000000" />
+                            <North grossArea="8.954821587" rsiValue="0.340060622" />
+                            <NorthWest grossArea="0.000000000" rsiValue="0.000000000" />
+                            <West grossArea="5.909667015" rsiValue="0.338083833" />
+                            <SouthWest grossArea="0.000000000" rsiValue="0.000000000" />
+                        </Windows>
+                        <Door grossArea="4.232250214" rsiValue="1.139610410" />
+                    </MainFloors>
+                    <Basement aboveGrade="9.058052063" belowGrade="36.232185364" floorSlab="92.902992249" floorHeader="12.263201714" floorsAbove="92.902992249">
+                        <Windows>
+                            <South grossArea="0.000000000" rsiValue="0.000000000" />
+                            <SouthEast grossArea="0.000000000" rsiValue="0.000000000" />
+                            <East grossArea="0.000000000" rsiValue="0.000000000" />
+                            <NorthEast grossArea="0.000000000" rsiValue="0.000000000" />
+                            <North grossArea="0.000000000" rsiValue="0.000000000" />
+                            <NorthWest grossArea="0.000000000" rsiValue="0.000000000" />
+                            <West grossArea="0.000000000" rsiValue="0.000000000" />
+                            <SouthWest grossArea="0.000000000" rsiValue="0.000000000" />
+                        </Windows>
+                        <Door grossArea="0.000000000" rsiValue="0.000000000" />
+                    </Basement>
+                    <Crawlspace wall="0.000000000" floor="0.000000000" floorHeader="0.000000000">
+                        <Windows>
+                            <South grossArea="0.000000000" rsiValue="0.000000000" />
+                            <SouthEast grossArea="0.000000000" rsiValue="0.000000000" />
+                            <East grossArea="0.000000000" rsiValue="0.000000000" />
+                            <NorthEast grossArea="0.000000000" rsiValue="0.000000000" />
+                            <North grossArea="0.000000000" rsiValue="0.000000000" />
+                            <NorthWest grossArea="0.000000000" rsiValue="0.000000000" />
+                            <West grossArea="0.000000000" rsiValue="0.000000000" />
+                            <SouthWest grossArea="0.000000000" rsiValue="0.000000000" />
+                        </Windows>
+                        <Door grossArea="0.000000000" rsiValue="0.000000000" />
+                    </Crawlspace>
+                </GrossArea>
+            </Other>
+        </Results>
+    </AllResults>
     <Program class="ca.nrcan.gc.OEE.ERS.ErsProgram">
         <Labels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
             <English>EnerGuide Rating System</English>
@@ -1685,5 +1943,108 @@
                 <Community>N/A</Community>
             </GreenerHomes>
         </Options>
+        <Results xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <Ers>
+                <UGRCeilingsERSRating value="" />
+                <UGRCeilingCathFlatERSRating value="" />
+                <UGRWallsERSRating value="" />
+                <UGRFoundationERSRating value="" />
+                <UGRWindowsERSRating value="" />
+                <UGRDoorsERSRating value="" />
+                <UGRExposedFloorERSRating value="" />
+                <UGRAirTightnessERSRating value="" />
+                <UGRHeatingERSRating value="" />
+                <UGRCoolingERSRating value="" />
+                <UGRHotWaterERSRating value="" />
+                <UGRVentilationERSRating value="" />
+                <UGRGenerationERSRating value="" />
+                <HOCUGRCeilingsERSRating value="" />
+                <HOCUGRCeilingCathFlatERSRating value="" />
+                <HOCUGRWallsERSRating value="" />
+                <HOCUGRFoundationERSRating value="" />
+                <HOCUGRWindowsERSRating value="" />
+                <HOCUGRDoorsERSRating value="" />
+                <HOCUGRExposedFloorERSRating value="" />
+                <HOCUGRAirTightnessERSRating value="" />
+                <HOCUGRHeatingERSRating value="" />
+                <HOCUGRCoolingERSRating value="" />
+                <HOCUGRHotWaterERSRating value="" />
+                <HOCUGRVentilationERSRating value="" />
+                <HOCUGRGenerationERSRating value="" />
+                <HOCERSHLAir value="" />
+                <HOCERSHLFound value="" />
+                <HOCERSHLCeiling value="" />
+                <HOCERSHLWalls value="" />
+                <HOCERSHLWinDoor value="" />
+                <HOCERSHLWindow value="" />
+                <HOCERSHLDoor value="" />
+                <HOCERSHLExposedFlr value="" />
+                <HOCUGRERSHLAir value="" />
+                <HOCUGRERSHLFound value="" />
+                <HOCUGRERSHLCeiling value="" />
+                <HOCUGRERSHLWalls value="" />
+                <HOCUGRERSHLWinDoor value="" />
+                <HOCUGRERSHLWindow value="" />
+                <HOCUGRERSHLDoor value="" />
+                <HOCUGRERSHLExposedFlr value="" />
+                <HOCERSSpaceHeatEnergy value="" />
+                <HOCERSSpaceCoolEnergy value="" />
+                <HOCERSWaterHeatingEnergy value="" />
+                <HOCERSVentilationEnergy value="" />
+                <HOCERSLightApplianceEnergy value="" />
+                <HOCERSOtherElecEnergy value="" />
+                <HOCUGRERSSpaceHeatEnergy value="" />
+                <HOCUGRERSSpaceCoolEnergy value="" />
+                <HOCUGRERSWaterHeatingEnergy value="" />
+                <HOCUGRERSVentilationEnergy value="" />
+                <HOCUGRERSLightApplianceEnergy value="" />
+                <HOCUGRERSOtherElecEnergy value="" />
+                <ERSPVAvailableEnergy value="0.0" />
+                <UGRERSPVAvailableEnergy value="0.0" />
+                <HOCERSconElec value="" />
+                <HOCERSconNGas value="" />
+                <HOCERSconOil value="" />
+                <HOCERSconProp value="" />
+                <HOCERSconWood value="" />
+                <HOCNumberOfOccupants value="" />
+                <HOCThermostatHeatingDaytime value="" />
+                <HOCThermostatHeatingNighttime value="" />
+                <HOCCoolingSeasonMonths value="" />
+                <HOCThermostatCooling value="" />
+                <HOCLightingEnergySaver value="" />
+                <HOCAppliancesEnergySaver value="" />
+                <HOCClothesWasherEnergySaver value="" />
+                <HOCApplied value="" />
+                <ERSTotalConsGHG value="0.0" />
+                <ERSTotalRenewableGHG value="0.0" />
+                <ERSDesCoolLoss value="0.0" />
+                <UGRERSRenewableProd value="0.0" />
+                <UGRERSRenewableElec value="0.0" />
+                <UGRERSRenewableSolar value="0.0" />
+                <SOCHotWaterLoad value="0.0" />
+                <ROCHotWaterLoad value="" />
+                <HOCApplianceLoad value="" />
+                <HOCLightingLoad value="" />
+                <HOCOtherElectricalLoad value="" />
+                <ThermostatHeatingNighttime value="0.0" />
+                <CoolingSeasonMonths value="0.0" />
+                <ThermostatCooling value="0.0" />
+                <SOCApplianceLoad value="0.0" />
+                <SOCLightingLoad value="0.0" />
+                <SOCOtherElectricalLoad value="0.0" />
+                <HotWaterTemperature value="0.0" />
+                <HOCHotWaterLoad value="" />
+                <ROCApplianceLoad value="" />
+                <ROCLightingLoad value="" />
+                <ROCOtherElectricalLoad value="" />
+                <UtilizedSolarGains value="0.0" />
+                <NumBuildingStoreys value="0" />
+                <CommonSpaceElecCons value="0.0" />
+                <EAphone value="" />
+                <SOphone value="" />
+                <EAextension value="" />
+                <SOextension value="" />
+            </Ers>
+        </Results>
     </Program>
 </HouseFile>
