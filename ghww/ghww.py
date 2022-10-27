@@ -92,6 +92,9 @@ pii = pi.find("Information")
 info = ET.Element("Info", {"code": "Info. 7"})
 info.text = "NSPI;;" + form.getvalue("email", "") + ";N"
 pii.append(info)
+info = ET.Element("Info", {"code": "Info. 8"})
+info.text = "model template made with Greener Homes Wizard github.com/nerdralph/h2k/"
+pii.append(info)
 
 sa = c.find("StreetAddress")
 sa.find("Street").text = street
