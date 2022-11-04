@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AAN query</title>
+    <title>GHWiz</title>
   </head>
   <body style="background-color:LightSkyBlue;">
     <h1 style="color:DarkGreen;">Solar Si</h1>
@@ -10,11 +10,10 @@
     <p>H2K Greener Homes Wizard</p>
     <form action="/cgi-bin/ghww.py" method="get" id="aanq">
     File ID:<input name="fileID" minlength="10"><br>
-    8-digit AAN: <input name="AAN" type="tel" minlength="8" maxlength="8" size=8 pattern="[0-9]+" onblur="findAAN(this.value)"><br>
-    template*: <input name="template" required> fperim*: <input name="fperim" required> farea*: <input name="farea" required>
+    8-digit AAN: <input name="AAN" type="tel" minlength="8" maxlength="8" size=8 pattern="[0-9]+" onblur="findAAN(this.value)"> template*: <input name="template" required><br>
+    interior dimensions mperim*: <input name="mperim" required> marea*: <input name="marea" required>
     aflht: <input name="aflht"> ta_delta: <input name="ta_delta"> afl_perim: <input name="afl_perim"><br>
-    Name First*: <input name="First" required> Last*: <input name="Last" required><br>
-    Telephone:<input type="tel" name="Telephone"><br>
+    Name First*: <input name="First" required> Last*: <input name="Last" required> Telephone:<input type="tel" name="Telephone"> email:<input type="email" name="email" size=30><br>
     AAN data: <output name="aanData"></output><br>
     Street: <output name="street"></output><br>
     Postal Code: <input name="postal" readonly><br>
