@@ -46,22 +46,22 @@
         </File>
         <Client>
             <Name>
-                <First>$First</First>
-                <Last>$Last</Last>
+                <First></First>
+                <Last></Last>
             </Name>
-            <Telephone>$Telephone</Telephone>
+            <Telephone></Telephone>
             <StreetAddress>
-                <Street>$Street</Street>
-                <City>$City</City>
+                <Street></Street>
+                <City></City>
                 <Province>NOVA SCOTIA</Province>
-                <PostalCode>$PostalCode</PostalCode>
+                <PostalCode></PostalCode>
             </StreetAddress>
             <MailingAddress>
                 <Name />
-                <Street>$Street</Street>
-                <City>$City</City>
+                <Street></Street>
+                <City></City>
                 <Province>NOVA SCOTIA</Province>
-                <PostalCode>$PostalCode</PostalCode>
+                <PostalCode></PostalCode>
             </MailingAddress>
         </Client>
         <Justifications nameplateEfficiency="false" combustionTestEfficiency="false" heatingCorrection="false" achCorrection="false" twoBlowerDoors="false" over18Months="false">
