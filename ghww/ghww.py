@@ -6,6 +6,7 @@
 
 import cgi, json, math, os, sys
 import requests
+import subprocess
 import xml.etree.ElementTree as ET
 
 FT_PER_M = 3.28084
@@ -29,7 +30,7 @@ print("Content-Type: application/octet-stream")
 print('Content-Disposition: attachment; filename="' + outfile + '"\n')
 
 AAN = form.getvalue("AAN")
-template = form.getvalue("template") + ".h2k"
+template = form.getvalue("template") + ".xml"
 
 # main floor interior perimeter
 mperim = float(form.getvalue("mperim"))
@@ -48,8 +49,9 @@ afl_perim = float(form.getvalue("afl_perim", mperim))
 
 jd = requests.get("https://www.thedatazone.ca/resource/a859-xvcs.json?aan=" + AAN).json()[0]
 
-#t = ET.parse(tf, ET.XMLParser(encoding="utf-8"))
 t = ET.parse(template)
+# xml = subprocess.check_output(["filepp", template])
+# t = ET.ElementTree(ET.fromstring(xml))
 
 # set evaluation date
 ymd = "2022-09-12"
