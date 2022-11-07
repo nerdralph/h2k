@@ -1773,6 +1773,7 @@
             <WaterConservation LowFlushToilets="0" LowFlushToiletsUpgrade="0" />
             <RURComments xml:space="preserve">
 #include "RURC.xml"
+                <HotWaterSystem>Boilers with a tankless coil have minimal insulation, and very high heat losses.  An electric water heater will be much more efficient.  There is no Greener Homes Grant payment for installing an electric water heater.</HotWaterSystem>
             </RURComments>
             <GreenerHomes basementSlabInsulated="false" moistureProofCrawlSpace="false" waterproofing="false" roofingMembrane="false" minR10ContinuousExposedFloors="false" backwaterValve="false" sumpPump="false" smartThermostats="false" remoteCommunities="false" evaluationCost="199">
                 <Community>N/A</Community>
