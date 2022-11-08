@@ -4,4 +4,4 @@
 all: de.xml db.xml
 
 %.xml: %.xt
-	filepp $< > $@
+	filepp -m for.pm $< > $@

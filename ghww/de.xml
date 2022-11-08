@@ -35,12 +35,6 @@
                 <French>Logement privé</French>
             </Ownership>
             <TaxNumber />
-            <EnteredBy>Ralph Doncaster</EnteredBy>
-            <UserTelephone />
-            <UserExtension />
-            <CompanyTelephone />
-            <CompanyExtension />
-            <Company>Amerispec</Company>
             <BuilderName />
             <HomeownerAuthorizationId />
         </File>
@@ -100,7 +94,7 @@
                 <English>One storey</English>
                 <French>Un étage</French>
             </Storeys>
-            <FacingDirection code="2">
+            <FacingDirection code="_FRONT_">
                 <English>Southeast</English>
                 <French>Sud-est</French>
             </FacingDirection>

@@ -49,9 +49,16 @@ afl_perim = float(form.getvalue("afl_perim", mperim))
 
 jd = requests.get("https://www.thedatazone.ca/resource/a859-xvcs.json?aan=" + AAN).json()[0]
 
-t = ET.parse(template)
-# xml = subprocess.check_output(["filepp", template])
-# t = ET.ElementTree(ET.fromstring(xml))
+#t = ET.parse(template)
+
+FRONT = int(form.getvalue("FacingDirection"))
+PP_DEFS = ["-D_FRONT_=" + str(FRONT),
+    "-D_RIGHT_=" + str((FRONT + 2) %8),
+    "-D_BACK_=" + str((FRONT + 4) %8),
+    "-D_LEFT_=" + str((FRONT + 6) %8)]
+
+xml = subprocess.check_output(["filepp"] + PP_DEFS + [template])
+t = ET.ElementTree(ET.fromstring(xml))
 
 # set evaluation date
 ymd = "2022-09-12"

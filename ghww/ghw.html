@@ -10,7 +10,20 @@
     <p>H2K Greener Homes Wizard</p>
     <form action="/cgi-bin/ghww.py" method="get" id="aanq">
     File ID:<input name="fileID" minlength="10"><br>
-    8-digit AAN: <input name="AAN" type="tel" minlength="8" maxlength="8" size=8 pattern="[0-9]+" onblur="findAAN(this.value)"> template*: <input name="template" required><br>
+    8-digit AAN: <input name="AAN" type="tel" minlength="8" maxlength="8" size=8 pattern="[0-9]+" onblur="findAAN(this.value)">
+    template*: <input name="template" required>
+    house front faces
+    <select name="FacingDirection">
+      <option value="1">south</option>
+      <option value="2">southeast</option>
+      <option value="3">east</option>
+      <option value="4">northeast</option>
+      <option value="5">north</option>
+      <option value="6">northwest</option>
+      <option value="7">west</option>
+      <option value="8">southwest</option>
+    </select>
+    <br>
     interior dimensions mperim*: <input name="mperim" required> marea*: <input name="marea" required>
     aflht: <input name="aflht"> ta_delta: <input name="ta_delta"> afl_perim: <input name="afl_perim"><br>
     Name First*: <input name="First" required> Last*: <input name="Last" required> Telephone:<input type="tel" name="Telephone"> email:<input type="email" name="email" size=30><br>

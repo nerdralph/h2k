@@ -94,7 +94,7 @@
                 <English>One storey</English>
                 <French>Un étage</French>
             </Storeys>
-            <FacingDirection code="2">
+            <FacingDirection code="_FRONT_">
                 <English>Southeast</English>
                 <French>Sud-est</French>
             </FacingDirection>
