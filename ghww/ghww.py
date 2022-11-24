@@ -51,11 +51,15 @@ jd = requests.get("https://www.thedatazone.ca/resource/a859-xvcs.json?aan=" + AA
 
 #t = ET.parse(template)
 
+# 1=south, counter-clockwise to 8=southwest; see ghww.html FacingDirection
+def dir(code):
+    return str(((code - 1) % 8) + 1)
+
 FRONT = int(form.getvalue("FacingDirection"))
-PP_DEFS = ["-D_FRONT_=" + str(FRONT),
-    "-D_RIGHT_=" + str((FRONT + 2) %8),
-    "-D_BACK_=" + str((FRONT + 4) %8),
-    "-D_LEFT_=" + str((FRONT + 6) %8)]
+PP_DEFS = ["-D_FRONT_=" + dir(FRONT),
+    "-D_RIGHT_=" + dir(FRONT + 2),
+    "-D_BACK_=" + dir(FRONT + 4),
+    "-D_LEFT_=" + dir(FRONT + 6)]
 
 xml = subprocess.check_output(["filepp"] + PP_DEFS + [template])
 t = ET.ElementTree(ET.fromstring(xml))
