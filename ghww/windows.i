@@ -2,7 +2,7 @@
                     <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="5COUNT">
                         <Label>front COUNT</Label>
                         <Construction energyStar="false">
-                            <Type idref="Code 5" rValue="0.3403">200004</Type>
+                            <Type idref="Code 6" rValue="0.3403">200004</Type>
                         </Construction>
                         <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
