@@ -5,6 +5,7 @@
 #import photos
 
 import cgi, json, math, os, sys
+from datetime import date
 import requests
 import subprocess
 import xml.etree.ElementTree as ET
@@ -64,8 +65,8 @@ PP_DEFS = ["-D_FRONT_=" + dir(FRONT),
 xml = subprocess.check_output(["filepp"] + PP_DEFS + [template])
 t = ET.ElementTree(ET.fromstring(xml))
 
-# set evaluation date
-ymd = "2022-09-12"
+# set default evaluation date 
+ymd = date.today().isoformat()
 
 # load SO+EA info template
 so = ET.parse(fileid[:4] + ".xml").getroot()
@@ -77,11 +78,10 @@ f.find("Identification").text = fileid
 f.find("TaxNumber").text = AAN
 
 hs = t.find("House/Specifications")
-#hs.find("FacingDirection").attrib["code"] = FacingDirection
-hs.find("YearBuilt").attrib["value"] = jd["year_built"]
+hs.find("YearBuilt").attrib["value"] = jd.get("year_built", "0")
 
 # 123 Main St
-street = jd["address_num"] + ' ' + jd["address_street"] + ' ' + jd.get("address_suffix","")
+street = jd["address_num"] + ' ' + jd["address_street"] + ' ' + jd.get("address_suffix", "")
 
 # copy stick-framed 2x6 house specs
 #house_data = "../../" + fileid  + "/" + fileid + "-house-data.txt"
