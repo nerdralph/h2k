@@ -10,20 +10,16 @@ function gFEBN(name) {
 // get postal code & weather station for given AAN JSON data from thedatazone.ca
 function getLocationData(d) {
     gFEBN("aanData").value = JSON.stringify(d);
-    const SA = d["address_num"] + " " + d["address_street"] + " " + d["address_suffix"];
+    const SA = d["address_num"] + " " + d["address_street"];
     gFEBN("street").value = SA;
     const WKID4326 = d["x_coord"] + "," + d["y_coord"];
     const f = new FormData(document.getElementById("aanq"));
     console.log(document.getElementById("aanq"));
-    //for (const [key, val] of f) {
-    //    console.log(key + ": " + val);
-    //}
 
     var q = "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?&f=json&SingleLine=" + SA + "&location=" + WKID4326 + "&maxLocations=1";
     console.log(q);
     fetch(q)
         .then(response => response.json())
-        //.then(data => Id_addr.innerHTML += "<br>" + JSON.stringify(data));
         .then(data => {
             console.log(JSON.stringify(data));
             // postal code is after the 3rd comma in address
