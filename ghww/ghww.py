@@ -81,7 +81,7 @@ hs = t.find("House/Specifications")
 hs.find("YearBuilt").attrib["value"] = jd["year_built"]
 
 # 123 Main St
-street = jd["address_num"] + ' ' + jd["address_street"] + ' ' + jd["address_suffix"]
+street = jd["address_num"] + ' ' + jd["address_street"] + ' ' + jd.get("address_suffix","")
 
 # copy stick-framed 2x6 house specs
 #house_data = "../../" + fileid  + "/" + fileid + "-house-data.txt"
