@@ -108,7 +108,12 @@ sa.find("City").text = jd["address_city"]
 sa.find("PostalCode").text = form.getvalue("postal")
 
 # wc = weather codes
-wc = {"GREENWOOD": "165", "HALIFAX INTL": "166", "SHEARWATER": "169"}
+# todo add region codes NB=7, NS=8
+wc = {"GREENWOOD": "165",
+      "HALIFAX INTL": "166",
+      "MONCTON INTL": "141",
+      "SHEARWATER": "169",
+      "SYDNEY": "170"}
 pi.find("Weather/Location").attrib["code"] = wc[form.getvalue("weather")]
 
 if wall_height_m == 0:
