@@ -86,7 +86,7 @@ street = jd["address_num"] + ' ' + jd["address_street"] + ' ' + jd.get("address_
 # copy stick-framed 2x6 house specs
 #house_data = "../../" + fileid  + "/" + fileid + "-house-data.txt"
 #os.system("cp 2x6-house.txt " + house_data)
-hd.write(json.dumps(jd))
+hd.write('\n' + json.dumps(jd))
 
 c = pi.find("Client")
 c.find("Name/First").text = form.getvalue("First")
