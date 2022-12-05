@@ -1,10 +1,14 @@
 # process xml template files using filepp
 
-TEMPLATES := $(wildcard *.xt)
+CGIDIR := /usr/lib/cgi-bin/
+CGIFILES := $(wildcard *.xt) $(wildcard 1E??.xml) RURC.xml windows.i ghww.py
+#TARGETS := $(TEMPLATES:%.xt=%.xml)
 
 #all: d-b-e.xml d-b-b.xml d-s-b.xml
-all: $(TEMPLATES:%.xt=%.xml)
+#all: $(TARGETS)
 
 %.xml: %.xt
 	filepp -m for.pm $< > $@
 
+install: $(TARGETS)
+	sudo cp $(CGIFILES) $(CGIDIR)
