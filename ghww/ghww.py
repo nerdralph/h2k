@@ -36,7 +36,7 @@ template = form.getvalue("template") + ".xml"
 # main floor interior perimeter
 mperim = float(form.getvalue("mperim"))
 
-# main floor interior perimeter
+# main floor interior area
 marea = float(form.getvalue("marea"))
 
 # wall height in metres
@@ -80,12 +80,6 @@ f.find("TaxNumber").text = AAN
 hs = t.find("House/Specifications")
 hs.find("YearBuilt").attrib["value"] = jd.get("year_built", "0")
 
-# 123 Main St
-street = jd["address_num"] + ' ' + jd["address_street"] + ' ' + jd.get("address_suffix", "")
-
-# copy stick-framed 2x6 house specs
-#house_data = "../../" + fileid  + "/" + fileid + "-house-data.txt"
-#os.system("cp 2x6-house.txt " + house_data)
 hd.write(json.dumps(jd))
 
 c = pi.find("Client")
@@ -101,6 +95,7 @@ info = ET.Element("Info", {"code": "Info. 8"})
 info.text = "H2K template built with Greener Homes Wizard github.com/nerdralph/h2k/"
 pii.append(info)
 
+street = jd["address_num"] + ' ' + jd["address_street"] + ' ' + jd.get("address_suffix", "")
 sa = c.find("StreetAddress")
 sa.find("Street").text = street
 sa.find("City").text = jd["address_city"]
@@ -117,7 +112,6 @@ if wall_height_m == 0:
 storeys = 2 if wall_height_m > 4 else 1
 # code 1 = 1 storey, 3 = 2 storey
 hs.find("Storeys").attrib["code"] = "1" if storeys == 1 else "3"
-#hd.write("\nstoreys: " + str(storeys))
 
 # calculate foundation and main floor area converted to metric
 main_area_sm = marea/SF_PER_SM
@@ -199,7 +193,6 @@ hd.write("\nwall height, perim: " +
 m = hc.find(FTYPE + "/Floor/Measurements")
 m.attrib["area"] = str(bsmt_area_sm)
 if FTYPE == "Basement":
-    #m = hc.find("Basement/Floor/Measurements")
     hc.find("Basement").attrib["exposedSurfacePerimeter"] = str(bperim_m)
     # H2K errror if perim <= 4*sqrt(area), common ratio is 1.05x
     # relevant for semis and multiple foundations
@@ -207,7 +200,6 @@ if FTYPE == "Basement":
     m.attrib["perimeter"] = str(bfp_m)
 
 if FTYPE == "Slab":
-    #m = hc.find("Slab/Floor/Measurements")
     m.attrib["perimeter"] = str(bperim_m)
 
 hd.write("\nfoundation floor area, perimeter:" +
