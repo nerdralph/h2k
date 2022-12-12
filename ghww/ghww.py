@@ -5,7 +5,7 @@
 #import photos
 
 import cgi, json, math, os, sys
-from datetime import date
+#from datetime import date
 import requests
 import subprocess
 import xml.etree.ElementTree as ET
@@ -31,7 +31,7 @@ print("Content-Type: application/octet-stream")
 print('Content-Disposition: attachment; filename="' + outfile + '"\n')
 
 AAN = form.getvalue("AAN")
-template = form.getvalue("template") + ".xml"
+template = form.getvalue("template") + ".xt"
 
 # main floor interior perimeter
 mperim = float(form.getvalue("mperim"))
@@ -62,26 +62,23 @@ PP_DEFS = ["-D_FRONT_=" + dir(FRONT),
     "-D_BACK_=" + dir(FRONT + 4),
     "-D_LEFT_=" + dir(FRONT + 6)]
 
-xml = subprocess.check_output(["filepp"] + PP_DEFS + [template])
+# use filepp to make h2k xml file
+xml = subprocess.check_output(["filepp", "-m", "for.pm"] + PP_DEFS + [template])
 t = ET.ElementTree(ET.fromstring(xml))
-
-# set default evaluation date 
-ymd = date.today().isoformat()
 
 # load SO+EA info template
 so = ET.parse(fileid[:4] + ".xml").getroot()
 pi = t.find("ProgramInformation")
 f = pi.find("File")
 f.extend(so)
-f.attrib["evaluationDate"] = ymd
+# set default evaluation date 
+#ymd = date.today().isoformat()
+#f.attrib["evaluationDate"] = ymd
 f.find("Identification").text = fileid
 f.find("TaxNumber").text = AAN
 
 hs = t.find("House/Specifications")
 hs.find("YearBuilt").attrib["value"] = jd.get("year_built", "0")
-
-# 123 Main St
-street = jd["address_num"] + ' ' + jd["address_street"] + ' ' + jd.get("address_suffix", "")
 
 # copy stick-framed 2x6 house specs
 #house_data = "../../" + fileid  + "/" + fileid + "-house-data.txt"
@@ -101,6 +98,8 @@ info = ET.Element("Info", {"code": "Info. 8"})
 info.text = "H2K template built with Greener Homes Wizard github.com/nerdralph/h2k/"
 pii.append(info)
 
+# 123 Main St
+street = jd["address_num"] + ' ' + jd["address_street"] + ' ' + jd.get("address_suffix", "")
 sa = c.find("StreetAddress")
 sa.find("Street").text = street
 sa.find("City").text = jd["address_city"]
