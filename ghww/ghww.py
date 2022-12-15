@@ -14,7 +14,7 @@ FT_PER_M = 3.28084
 SF_PER_SM = FT_PER_M ** 2
 CF_PER_CM = FT_PER_M ** 3
 
-# form inputs: fileID AAN template mperim marea [aflht] [ta_delta] [afl_perim]")
+# form inputs: fileID AAN template mperim marea [aflht] [ta_delta]")
 # f = foundation, t = top floor, outside measurements
 
 form = cgi.FieldStorage()
@@ -44,9 +44,6 @@ wall_height_m = float(form.getvalue("aflht", 0))/FT_PER_M
 
 # top floor interior area difference from marea
 ta_delta = float(form.getvalue("ta_delta", 0))
-
-# above foundation perimeter if different than mperim
-afl_perim = float(form.getvalue("afl_perim", mperim))
 
 jd = requests.get("https://www.thedatazone.ca/resource/a859-xvcs.json?aan=" + AAN).json()[0]
 
@@ -122,8 +119,8 @@ hs.find("Storeys").attrib["code"] = "1" if storeys == 1 else "3"
 main_area_sm = marea/SF_PER_SM
 mperim_m = mperim/FT_PER_M
 # assume 12" bsmt walls & 6" walls above basement
-bsmt_area_sm = (marea - (mperim -4)/2)/SF_PER_SM
-bperim_m = (mperim -4)/FT_PER_M
+bsmt_area_sm = form.getvalue("barea", (marea - (mperim -2)/2)/SF_PER_SM)
+bperim_m = form.getvalue("bperim", (mperim -4)/FT_PER_M)
 
 # calculate sign since ta_delta can be negative
 # easier look at first char of argument for '-'?
