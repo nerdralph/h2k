@@ -110,7 +110,9 @@ wc = {"BRIER ISLAND": "163",
       "SYDNEY": "170",
       "WESTERN HEAD": "171",
       "YARMOUTH": "172"}
-pi.find("Weather/Location").attrib["code"] = wc[form.getvalue("weather")]
+loc = form.getvalue("weather")
+if loc in wc.keys(): 
+    pi.find("Weather/Location").attrib["code"] = wc[loc]
 
 if wall_height_m == 0:
     wall_height_m = 5.15 if jd["style"] == "2 Storey" else 2.42
