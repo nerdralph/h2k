@@ -101,11 +101,15 @@ sa.find("PostalCode").text = form.getvalue("postal")
 
 # wc = weather codes
 # todo add region codes NB=7, NS=8
-wc = {"GREENWOOD": "165",
+wc = {"BRIER ISLAND": "163",
+      "GREENWOOD": "165",
       "HALIFAX INTL": "166",
+      "KEJIMKUJIK": "167",
       "MONCTON INTL": "141",
       "SHEARWATER": "169",
-      "SYDNEY": "170"}
+      "SYDNEY": "170",
+      "WESTERN HEAD": "171",
+      "YARMOUTH": "172"}
 pi.find("Weather/Location").attrib["code"] = wc[form.getvalue("weather")]
 
 if wall_height_m == 0:
@@ -153,7 +157,7 @@ volume = (BSMT_HT/FT_PER_M * bsmt_area_sm) + wall_height_m * main_area_sm
 # adjust for different top floor area with 8' ceiling and 1' floor
 volume += tad_sm *  9/FT_PER_M
 t.find("House/NaturalAirInfiltration/Specifications/House").attrib["volume"] = str(volume)
-hd.write("\nhouse volume cf: " + str(round(volume * SF_PER_SM * FT_PER_M)))
+hd.write("\nhouse volume cf: " + str(round(volume * CF_PER_CM )))
 
 # calculate highest ceiling height
 # template has 4' pony, so add 1' above grade + 1' header to wall height
