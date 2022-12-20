@@ -1,5 +1,5 @@
             <Type1>
-                <FansAndPump hasEnergyEfficientMotor="false">
+                <FansAndPump hasEnergyEfficientMotor="true">
                     <Mode code="1">
                         <English>Auto</English>
                         <French>Auto</French>
