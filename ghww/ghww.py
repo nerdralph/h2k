@@ -88,9 +88,9 @@ pii = pi.find("Information")
 info = ET.Element("Info", {"code": "Info. 7"})
 info.text = "NSPI;;" + form.getvalue("email", "") + ";N"
 pii.append(info)
-info = ET.Element("Info", {"code": "Info. 8"})
-info.text = "H2K template built with Greener Homes Wizard github.com/nerdralph/h2k/"
-pii.append(info)
+#info = ET.Element("Info", {"code": "Info. 8"})
+#info.text = "H2K template built with Greener Homes Wizard github.com/nerdralph/h2k/"
+#pii.append(info)
 
 street = jd["address_num"] + ' ' + jd["address_street"] + ' ' + jd.get("address_suffix", "")
 sa = c.find("StreetAddress")
@@ -202,10 +202,8 @@ m = hc.find(FTYPE + "/Floor/Measurements")
 m.attrib["area"] = str(bsmt_area_sm)
 if FTYPE == "Basement":
     hc.find("Basement").attrib["exposedSurfacePerimeter"] = str(bperim_m)
-    # H2K errror if perim <= 4*sqrt(area), common ratio is 1.05x
-    # relevant for semis and multiple foundations
-    bfp_m = math.sqrt(bsmt_area_sm)*4 * 1.05
-    m.attrib["perimeter"] = str(bfp_m)
+    # H2K errror if perim <= 4*sqrt(area): relevant for semis and multiple foundations
+    m.attrib["perimeter"] = str(math.sqrt(bsmt_area_sm)*4 + 0.1)
 
 if FTYPE == "Slab":
     m.attrib["perimeter"] = str(bperim_m)
