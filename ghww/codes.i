@@ -198,6 +198,38 @@
                     </Layers>
                 </Code>
             </Standard>
+            <Favorite>
+                <Code id="Code 11" value="200024" nominalRValue="0">
+                    <Label>V5S</Label>
+                    <Description>Vinyl 1/2" Clear Slider</Description>
+                    <Layers>
+                        <GlazingTypes code="2">
+                            <English>Double/double with 1 coat</English>
+                            <French>Double/double, 1 couche</French>
+                        </GlazingTypes>
+                        <CoatingsTints code="0">
+                            <English>Clear</English>
+                            <French>Transparent</French>
+                        </CoatingsTints>
+                        <FillType code="0">
+                            <English>13 mm Air</English>
+                            <French>13 mm d'air</French>
+                        </FillType>
+                        <SpacerType code="0">
+                            <English>Metal</English>
+                            <French>Métal</French>
+                        </SpacerType>
+                        <Type code="2">
+                            <English>Slider with sash</English>
+                            <French>Coulissant</French>
+                        </Type>
+                        <FrameMaterial code="4">
+                            <English>Vinyl</English>
+                            <French>Vinyle</French>
+                        </FrameMaterial>
+                    </Layers>
+                </Code>
+            </Favorite>
         </Window>
         <FloorsAbove>
             <Standard>
