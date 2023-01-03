@@ -125,8 +125,10 @@ hs.find("Storeys").attrib["code"] = "1" if storeys == 1 else "3"
 main_area_sm = marea/SF_PER_SM
 mperim_m = mperim/FT_PER_M
 # assume 12" bsmt walls & 6" walls above basement
-bsmt_area_sm = form.getvalue("barea", (marea - (mperim -2)/2)/SF_PER_SM)
-bperim_m = form.getvalue("bperim", (mperim -4)/FT_PER_M)
+#bsmt_area_sm = form.getvalue("barea", (marea - (mperim -2)/2)/SF_PER_SM)
+bsmt_area_sm = (marea - (mperim -2)/2)/SF_PER_SM
+#bperim_m = form.getvalue("bperim", (mperim -4)/FT_PER_M)
+bperim_m = (mperim -4)/FT_PER_M
 
 # calculate sign since ta_delta can be negative
 # easier look at first char of argument for '-'?
