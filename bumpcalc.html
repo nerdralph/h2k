@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>bumpout calculator</title>
+  </head>
+  <body style="background-color:LightSkyBlue;">
+    <img src="bumpout.png" /> 
+    <form>
+      A:<input id="A"><br>
+      B:<input id="B" onchange="calcC()"><br>
+      C:<input id="C" onchange="calcB()"><br>
+    </form>
+	  <script>
+      // house bumpout calculations
+      //       A
+      //   \______/ C
+      //       B
+
+      // get first element by name
+      function gFEBN(name) {
+        return document.getElementsByName(name)[0];
+      }
+
+      function calcB() {
+        A = gFEBN("A").value; C = gFEBN("C").value;
+        SIDE = Math.sqrt(C**2 / 2);
+        gFEBN("B").value = (A - SIDE*2).toFixed(2);
+      }
+
+      function calcC() {
+        console.log(A);
+        //A = gFEBN("A").value; B = gFEBN("B").value;
+        C.value =  Math.sqrt(2 * ((A.value-B.value)/2)**2).toFixed(2);
+      }
+    </script>
+  </body>
+</html>
