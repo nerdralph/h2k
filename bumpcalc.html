@@ -17,20 +17,12 @@
       //   \______/ C
       //       B
 
-      // get first element by name
-      function gFEBN(name) {
-        return document.getElementsByName(name)[0];
-      }
-
       function calcB() {
-        A = gFEBN("A").value; C = gFEBN("C").value;
-        SIDE = Math.sqrt(C**2 / 2);
-        gFEBN("B").value = (A - SIDE*2).toFixed(2);
+        SIDE = Math.sqrt(C.value**2 / 2);
+        B.value = (A.value - SIDE*2).toFixed(2);
       }
 
       function calcC() {
-        console.log(A);
-        //A = gFEBN("A").value; B = gFEBN("B").value;
         C.value =  Math.sqrt(2 * ((A.value-B.value)/2)**2).toFixed(2);
       }
     </script>
