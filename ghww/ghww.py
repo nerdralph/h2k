@@ -88,9 +88,9 @@ pii = pi.find("Information")
 info = ET.Element("Info", {"code": "Info. 7"})
 info.text = "NSPI;;" + form.getvalue("email", "") + ";N"
 pii.append(info)
-info = ET.Element("Info", {"code": "Info. 8"})
-info.text = "H2K template built with Greener Homes Wizard github.com/nerdralph/h2k/"
-pii.append(info)
+#info = ET.Element("Info", {"code": "Info. 8"})
+#info.text = "H2K template built with Greener Homes Wizard github.com/nerdralph/h2k/"
+#pii.append(info)
 
 street = jd["address_num"] + ' ' + jd["address_street"] + ' ' + jd.get("address_suffix", "")
 sa = c.find("StreetAddress")
@@ -125,8 +125,10 @@ hs.find("Storeys").attrib["code"] = "1" if storeys == 1 else "3"
 main_area_sm = marea/SF_PER_SM
 mperim_m = mperim/FT_PER_M
 # assume 12" bsmt walls & 6" walls above basement
-bsmt_area_sm = form.getvalue("barea", (marea - (mperim -2)/2)/SF_PER_SM)
-bperim_m = form.getvalue("bperim", (mperim -4)/FT_PER_M)
+#bsmt_area_sm = form.getvalue("barea", (marea - (mperim -2)/2)/SF_PER_SM)
+bsmt_area_sm = (marea - (mperim -2)/2)/SF_PER_SM
+#bperim_m = form.getvalue("bperim", (mperim -4)/FT_PER_M)
+bperim_m = (mperim -4)/FT_PER_M
 
 # calculate sign since ta_delta can be negative
 # easier look at first char of argument for '-'?
@@ -135,11 +137,17 @@ if ta_delta != 0:
 else:
     ta_sign = 1
 
+tad_sm = ta_delta/SF_PER_SM
+above_grade_sm = (main_area_sm * storeys) + tad_sm
+hfa = t.find("House/Specifications/HeatedFloorArea")
+hfa.attrib["aboveGrade"] = str(above_grade_sm)
+
 hc = t.find("House/Components")
 if hc.find("Basement"):
     FTYPE = "Basement"
     # 7.8ft bsmt + 1' header
     BSMT_HT = 8.8
+    hfa.attrib["belowGrade"] = str(bsmt_area_sm)
 elif hc.find("Slab"):
     FTYPE = "Slab"
     BSMT_HT = 0
@@ -147,19 +155,11 @@ else:
     print("unrecognized template foundation type")
     sys.exit()
 
-tad_sm = ta_delta/SF_PER_SM
-hfa = t.find("House/Specifications/HeatedFloorArea")
-above_grade_sm = (main_area_sm * storeys) + tad_sm
-hfa.attrib["aboveGrade"] = str(above_grade_sm)
-if FTYPE == "Basement":
-    hfa.attrib["belowGrade"] = str(bsmt_area_sm)
-hd.write("\nheated floor area sf: " + str(round(above_grade_sm * SF_PER_SM)))
-
 volume = (BSMT_HT/FT_PER_M * bsmt_area_sm) + wall_height_m * main_area_sm
 # adjust for different top floor area with 8' ceiling and 1' floor
 volume += tad_sm *  9/FT_PER_M
 t.find("House/NaturalAirInfiltration/Specifications/House").attrib["volume"] = str(volume)
-hd.write("\nhouse volume cf: " + str(round(volume * CF_PER_CM )))
+#hd.write("\nhouse volume cf: " + str(round(volume * CF_PER_CM )))
 
 # calculate highest ceiling height
 # template has 4' pony, so add 1' above grade + 1' header to wall height
@@ -171,12 +171,9 @@ hd.write("\nhouse volume cf: " + str(round(volume * CF_PER_CM )))
 ef = hc.find("Floor")
 if ta_delta > 0:
     # configure exposed floor
-    efl_m = math.sqrt(tad_sm)
+    ef_len = math.sqrt(tad_sm)
     ef.find("Measurements").attrib["area"] = str(tad_sm)
-    ef.find("Measurements").attrib["length"] = str(efl_m)
-    hd.write("\nexposed floor area, length: "
-             + str(round(tad_sm * SF_PER_SM)) + ", "
-             + str(round(efl_m * FT_PER_M)))
+    ef.find("Measurements").attrib["length"] = str(ef_len)
 else:
     hc.remove(ef)
 
@@ -198,21 +195,12 @@ hd.write("\nwall height, perim: " +
          ", " + str(mperim_m * FT_PER_M))
 
 # calculate foundation perim & area
-m = hc.find(FTYPE + "/Floor/Measurements")
+f = hc.find(FTYPE)
+f.attrib["exposedSurfacePerimeter"] = str(bperim_m)
+m = f.find("Floor/Measurements")
 m.attrib["area"] = str(bsmt_area_sm)
-if FTYPE == "Basement":
-    hc.find("Basement").attrib["exposedSurfacePerimeter"] = str(bperim_m)
-    # H2K errror if perim <= 4*sqrt(area), common ratio is 1.05x
-    # relevant for semis and multiple foundations
-    bfp_m = math.sqrt(bsmt_area_sm)*4 * 1.05
-    m.attrib["perimeter"] = str(bfp_m)
-
-if FTYPE == "Slab":
-    m.attrib["perimeter"] = str(bperim_m)
-
-hd.write("\nfoundation floor area, perimeter:" +
-         str(round(bsmt_area_sm * SF_PER_SM)) +
-         ", " + str(round(bperim_m * FT_PER_M)))
+# H2K requires perim <= exposedSurfacePerimeter: relevant for semis and multiple foundations
+m.attrib["perimeter"] = str(max(bperim_m, math.sqrt(bsmt_area_sm)*4 + 0.1))
 
 # debug
 #t.write("out.h2k", "UTF-8", True)
