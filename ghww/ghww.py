@@ -70,7 +70,7 @@ f.find("Identification").text = fileid
 f.find("TaxNumber").text = AAN
 
 hs = t.find("House/Specifications")
-hs.find("YearBuilt").attrib["value"] = jd.get("year_built", "0")
+hs.find("YearBuilt").attrib["value"] = jd.get("year_built", "1920")
 
 c = pi.find("Client")
 c.find("Name/First").text = form.getvalue("First")
