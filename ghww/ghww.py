@@ -128,13 +128,6 @@ bsmt_area_sm = (marea - (mperim -2)/2)/SF_PER_SM
 #bperim_m = form.getvalue("bperim", (mperim -4)/FT_PER_M)
 bperim_m = (mperim -4)/FT_PER_M
 
-# calculate sign since ta_delta can be negative
-# easier look at first char of argument for '-'?
-if ta_delta != 0:
-    ta_sign = math.sqrt(pow(ta_delta, 2))/ta_delta
-else:
-    ta_sign = 1
-
 tad_sm = ta_delta/SF_PER_SM
 above_grade_sm = (main_area_sm * storeys) + tad_sm
 hfa = t.find("House/Specifications/HeatedFloorArea")
