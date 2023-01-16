@@ -2,8 +2,6 @@
 # Ralph Doncaster 2021, 2022
 # Greener Homes wizard web version: creates H2K house models from templates
 
-#import photos
-
 import cgi, json, math, os, sys
 #from datetime import date
 import requests
@@ -15,7 +13,7 @@ SF_PER_SM = FT_PER_M ** 2
 CF_PER_CM = FT_PER_M ** 3
 
 # form inputs: fileID AAN template mperim marea [aflht] [ta_delta]")
-# f = foundation, t = top floor, outside measurements
+# t = top floor, outside measurements
 
 form = cgi.FieldStorage()
 
@@ -158,12 +156,14 @@ t.find("House/NaturalAirInfiltration/Specifications/House").attrib["volume"] = s
 #t.find("House/NaturalAirInfiltration/Specifications/BuildingSite").attrib["highestCeiling"] =
 # str(highest_ceiling)
 
+ceiling_area_sm = main_area_sm
 ef = hc.find("Floor")
 if ta_delta > 0:
     # configure exposed floor
-    ef_len = math.sqrt(tad_sm)
-    ef.find("Measurements").attrib["area"] = str(tad_sm)
-    ef.find("Measurements").attrib["length"] = str(ef_len)
+    m = ef.find("Measurements")
+    m.attrib["area"] = str(tad_sm)
+    m.attrib["length"] = str(math.sqrt(tad_sm))
+    ceiling_area_sm += tad_sm
 else:
     hc.remove(ef)
 
@@ -171,7 +171,6 @@ m = hc.find("Ceiling/Measurements")
 # gable roof eave length typically 0.6 * perim
 c_len_m = mperim_m * 0.6
 m.attrib["length"] = str(c_len_m)
-ceiling_area_sm = main_area_sm if ta_delta < 0 else main_area_sm + tad_sm
 m.attrib["area"] = str(ceiling_area_sm)
 
 m = hc.find("Wall/Measurements")
