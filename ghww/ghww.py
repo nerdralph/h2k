@@ -12,8 +12,8 @@ FT_PER_M = 3.28084
 SF_PER_SM = FT_PER_M ** 2
 CF_PER_CM = FT_PER_M ** 3
 
-# form inputs: fileID AAN template mperim marea [aflht] [ta_delta]")
-# t = top floor, outside measurements
+# form inputs: fileID AAN template mperim marea [aflht] [ta_delta] [tp_delta]")
+# t = top floor
 
 form = cgi.FieldStorage()
 
@@ -30,20 +30,19 @@ print('Content-Disposition: attachment; filename="' + outfile + '"\n')
 
 AAN = form.getvalue("AAN")
 template = form.getvalue("template") + ".xt"
-
 # main floor interior perimeter
 mperim = float(form.getvalue("mperim"))
-
 # main floor interior area
 marea = float(form.getvalue("marea"))
-
 # wall height in metres
 wall_height_m = float(form.getvalue("aflht", 0))/FT_PER_M
-
-# top floor interior area difference from marea
+# top floor area difference from marea
 ta_delta = float(form.getvalue("ta_delta", 0))
+# top floor area difference from marea
+tp_delta_m = float(form.getvalue("tp_delta", 0))/FT_PER_M
 
 jd = requests.get("https://www.thedatazone.ca/resource/a859-xvcs.json?aan=" + AAN).json()[0]
+hd.write(json.dumps(jd))
 
 # 1=south, counter-clockwise to 8=southwest; see ghww.html FacingDirection
 def points(code):
@@ -72,8 +71,6 @@ f.find("TaxNumber").text = AAN
 
 hs = t.find("House/Specifications")
 hs.find("YearBuilt").attrib["value"] = jd.get("year_built", "0")
-
-hd.write(json.dumps(jd))
 
 c = pi.find("Client")
 c.find("Name/First").text = form.getvalue("First")
@@ -111,7 +108,7 @@ if loc in wc.keys():
     pi.find("Weather/Location").attrib["code"] = wc[loc]
 
 if wall_height_m == 0:
-    wall_height_m = 5.15 if jd["style"] == "2 Storey" else 2.42
+    wall_height_m = 5.15 if "2 Storey" in jd["style"] else 2.42
 
 storeys = 2 if wall_height_m > 4 else 1
 # code 1 = 1 storey, 3 = 2 storey
@@ -120,10 +117,9 @@ hs.find("Storeys").attrib["code"] = "1" if storeys == 1 else "3"
 # calculate foundation and main floor area converted to metric
 main_area_sm = marea/SF_PER_SM
 mperim_m = mperim/FT_PER_M
+
 # assume 12" bsmt walls & 6" walls above basement
-#bsmt_area_sm = form.getvalue("barea", (marea - (mperim -2)/2)/SF_PER_SM)
 bsmt_area_sm = (marea - (mperim -2)/2)/SF_PER_SM
-#bperim_m = form.getvalue("bperim", (mperim -4)/FT_PER_M)
 bperim_m = (mperim -4)/FT_PER_M
 
 tad_sm = ta_delta/SF_PER_SM
@@ -134,17 +130,17 @@ hfa.attrib["aboveGrade"] = str(above_grade_sm)
 hc = t.find("House/Components")
 if hc.find("Basement"):
     FTYPE = "Basement"
-    # 7.8ft bsmt + 1' header
-    BSMT_HT = 8.8
+    # 7.8ft bsmt + 1' header / FT_PER_M
+    BSMT_HT_M = 2.683
     hfa.attrib["belowGrade"] = str(bsmt_area_sm)
 elif hc.find("Slab"):
     FTYPE = "Slab"
-    BSMT_HT = 0
+    BSMT_HT_M = 0
 else:
     print("unrecognized template foundation type")
     sys.exit()
 
-volume = (BSMT_HT/FT_PER_M * bsmt_area_sm) + wall_height_m * main_area_sm
+volume = (BSMT_HT_M * bsmt_area_sm) + wall_height_m * main_area_sm
 # adjust for different top floor area with 8' ceiling and 1' floor
 volume += tad_sm *  9/FT_PER_M
 t.find("House/NaturalAirInfiltration/Specifications/House").attrib["volume"] = str(volume)
@@ -175,7 +171,7 @@ m.attrib["area"] = str(ceiling_area_sm)
 
 m = hc.find("Wall/Measurements")
 m.attrib["height"] = str(wall_height_m)
-m.attrib["perimeter"] = str(mperim_m)
+m.attrib["perimeter"] = str(mperim_m + tp_delta_m/storeys)
 
 # calculate foundation perim & area
 f = hc.find(FTYPE)
