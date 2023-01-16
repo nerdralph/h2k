@@ -150,7 +150,6 @@ volume = (BSMT_HT/FT_PER_M * bsmt_area_sm) + wall_height_m * main_area_sm
 # adjust for different top floor area with 8' ceiling and 1' floor
 volume += tad_sm *  9/FT_PER_M
 t.find("House/NaturalAirInfiltration/Specifications/House").attrib["volume"] = str(volume)
-#hd.write("\nhouse volume cf: " + str(round(volume * CF_PER_CM )))
 
 # calculate highest ceiling height
 # template has 4' pony, so add 1' above grade + 1' header to wall height
@@ -174,16 +173,10 @@ c_len_m = mperim_m * 0.6
 m.attrib["length"] = str(c_len_m)
 ceiling_area_sm = main_area_sm if ta_delta < 0 else main_area_sm + tad_sm
 m.attrib["area"] = str(ceiling_area_sm)
-hd.write("\nceiling area, length: " +
-         str(round(ceiling_area_sm * SF_PER_SM)) +
-         ", " + str(round(c_len_m * FT_PER_M)))
 
 m = hc.find("Wall/Measurements")
 m.attrib["height"] = str(wall_height_m)
 m.attrib["perimeter"] = str(mperim_m)
-hd.write("\nwall height, perim: " +
-         str(round(wall_height_m * FT_PER_M)) +
-         ", " + str(mperim_m * FT_PER_M))
 
 # calculate foundation perim & area
 f = hc.find(FTYPE)
@@ -193,9 +186,7 @@ m.attrib["area"] = str(bsmt_area_sm)
 # H2K requires perim <= exposedSurfacePerimeter: relevant for semis and multiple foundations
 m.attrib["perimeter"] = str(max(bperim_m, math.sqrt(bsmt_area_sm)*4 + 0.1))
 
-
-# write prepared h2k file
-#outfile = "../../" + fileid + ".h2k"
+# write h2k file
 #t.write(outfile, "UTF-8", True)
 sys.stdout.flush()
 t.write(sys.stdout.buffer, encoding="UTF-8", xml_declaration=True)
