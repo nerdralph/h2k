@@ -47,17 +47,15 @@ ta_delta = float(form.getvalue("ta_delta", 0))
 
 jd = requests.get("https://www.thedatazone.ca/resource/a859-xvcs.json?aan=" + AAN).json()[0]
 
-#t = ET.parse(template)
-
 # 1=south, counter-clockwise to 8=southwest; see ghww.html FacingDirection
-def dir(code):
+def points(code):
     return str(((code - 1) % 8) + 1)
 
 FRONT = int(form.getvalue("FacingDirection"))
-PP_DEFS = ["-D_FRONT_=" + dir(FRONT),
-    "-D_RIGHT_=" + dir(FRONT + 2),
-    "-D_BACK_=" + dir(FRONT + 4),
-    "-D_LEFT_=" + dir(FRONT + 6)]
+PP_DEFS = ["-D_FRONT_=" + points(FRONT),
+        "-D_RIGHT_=" + points(FRONT + 2),
+        "-D_BACK_=" + points(FRONT + 4),
+        "-D_LEFT_=" + points(FRONT + 6)]
 
 # use filepp to make h2k xml file
 xml = subprocess.check_output(["filepp", "-m", "for.pm"] + PP_DEFS + [template])
@@ -202,9 +200,6 @@ m.attrib["area"] = str(bsmt_area_sm)
 # H2K requires perim <= exposedSurfacePerimeter: relevant for semis and multiple foundations
 m.attrib["perimeter"] = str(max(bperim_m, math.sqrt(bsmt_area_sm)*4 + 0.1))
 
-# debug
-#t.write("out.h2k", "UTF-8", True)
-#sys.exit(0)
 
 # write prepared h2k file
 #outfile = "../../" + fileid + ".h2k"
