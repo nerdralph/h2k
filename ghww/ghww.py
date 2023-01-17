@@ -2,8 +2,6 @@
 # Ralph Doncaster 2021, 2022
 # Greener Homes wizard web version: creates H2K house models from templates
 
-#import photos
-
 import cgi, json, math, os, sys
 #from datetime import date
 import requests
@@ -14,8 +12,8 @@ FT_PER_M = 3.28084
 SF_PER_SM = FT_PER_M ** 2
 CF_PER_CM = FT_PER_M ** 3
 
-# form inputs: fileID AAN template mperim marea [aflht] [ta_delta]")
-# f = foundation, t = top floor, outside measurements
+# form inputs: fileID AAN template mperim marea [aflht] [ta_delta] [tp_delta]")
+# t = top floor
 
 form = cgi.FieldStorage()
 
@@ -32,32 +30,29 @@ print('Content-Disposition: attachment; filename="' + outfile + '"\n')
 
 AAN = form.getvalue("AAN")
 template = form.getvalue("template") + ".xt"
-
 # main floor interior perimeter
 mperim = float(form.getvalue("mperim"))
-
 # main floor interior area
 marea = float(form.getvalue("marea"))
-
 # wall height in metres
 wall_height_m = float(form.getvalue("aflht", 0))/FT_PER_M
-
-# top floor interior area difference from marea
+# top floor area difference from marea
 ta_delta = float(form.getvalue("ta_delta", 0))
+# top floor area difference from marea
+tp_delta_m = float(form.getvalue("tp_delta", 0))/FT_PER_M
 
 jd = requests.get("https://www.thedatazone.ca/resource/a859-xvcs.json?aan=" + AAN).json()[0]
-
-#t = ET.parse(template)
+hd.write(json.dumps(jd))
 
 # 1=south, counter-clockwise to 8=southwest; see ghww.html FacingDirection
-def dir(code):
+def points(code):
     return str(((code - 1) % 8) + 1)
 
 FRONT = int(form.getvalue("FacingDirection"))
-PP_DEFS = ["-D_FRONT_=" + dir(FRONT),
-    "-D_RIGHT_=" + dir(FRONT + 2),
-    "-D_BACK_=" + dir(FRONT + 4),
-    "-D_LEFT_=" + dir(FRONT + 6)]
+PP_DEFS = ["-D_FRONT_=" + points(FRONT),
+        "-D_RIGHT_=" + points(FRONT + 2),
+        "-D_BACK_=" + points(FRONT + 4),
+        "-D_LEFT_=" + points(FRONT + 6)]
 
 # use filepp to make h2k xml file
 xml = subprocess.check_output(["filepp", "-m", "for.pm"] + PP_DEFS + [template])
@@ -75,9 +70,7 @@ f.find("Identification").text = fileid
 f.find("TaxNumber").text = AAN
 
 hs = t.find("House/Specifications")
-hs.find("YearBuilt").attrib["value"] = jd.get("year_built", "0")
-
-hd.write(json.dumps(jd))
+hs.find("YearBuilt").attrib["value"] = jd.get("year_built", "1920")
 
 c = pi.find("Client")
 c.find("Name/First").text = form.getvalue("First")
@@ -115,7 +108,7 @@ if loc in wc.keys():
     pi.find("Weather/Location").attrib["code"] = wc[loc]
 
 if wall_height_m == 0:
-    wall_height_m = 5.15 if jd["style"] == "2 Storey" else 2.42
+    wall_height_m = 5.15 if "2 Storey" in jd["style"] else 2.42
 
 storeys = 2 if wall_height_m > 4 else 1
 # code 1 = 1 storey, 3 = 2 storey
@@ -124,18 +117,10 @@ hs.find("Storeys").attrib["code"] = "1" if storeys == 1 else "3"
 # calculate foundation and main floor area converted to metric
 main_area_sm = marea/SF_PER_SM
 mperim_m = mperim/FT_PER_M
-# assume 12" bsmt walls & 6" walls above basement
-#bsmt_area_sm = form.getvalue("barea", (marea - (mperim -2)/2)/SF_PER_SM)
-bsmt_area_sm = (marea - (mperim -2)/2)/SF_PER_SM
-#bperim_m = form.getvalue("bperim", (mperim -4)/FT_PER_M)
-bperim_m = (mperim -4)/FT_PER_M
 
-# calculate sign since ta_delta can be negative
-# easier look at first char of argument for '-'?
-if ta_delta != 0:
-    ta_sign = math.sqrt(pow(ta_delta, 2))/ta_delta
-else:
-    ta_sign = 1
+# assume 12" bsmt walls & 6" walls above basement
+bsmt_area_sm = (marea - (mperim -2)/2)/SF_PER_SM
+bperim_m = (mperim -4)/FT_PER_M
 
 tad_sm = ta_delta/SF_PER_SM
 above_grade_sm = (main_area_sm * storeys) + tad_sm
@@ -145,21 +130,20 @@ hfa.attrib["aboveGrade"] = str(above_grade_sm)
 hc = t.find("House/Components")
 if hc.find("Basement"):
     FTYPE = "Basement"
-    # 7.8ft bsmt + 1' header
-    BSMT_HT = 8.8
+    # 7.8ft bsmt + 1' header / FT_PER_M
+    BSMT_HT_M = 2.683
     hfa.attrib["belowGrade"] = str(bsmt_area_sm)
 elif hc.find("Slab"):
     FTYPE = "Slab"
-    BSMT_HT = 0
+    BSMT_HT_M = 0
 else:
     print("unrecognized template foundation type")
     sys.exit()
 
-volume = (BSMT_HT/FT_PER_M * bsmt_area_sm) + wall_height_m * main_area_sm
+volume = (BSMT_HT_M * bsmt_area_sm) + wall_height_m * main_area_sm
 # adjust for different top floor area with 8' ceiling and 1' floor
 volume += tad_sm *  9/FT_PER_M
 t.find("House/NaturalAirInfiltration/Specifications/House").attrib["volume"] = str(volume)
-#hd.write("\nhouse volume cf: " + str(round(volume * CF_PER_CM )))
 
 # calculate highest ceiling height
 # template has 4' pony, so add 1' above grade + 1' header to wall height
@@ -168,12 +152,14 @@ t.find("House/NaturalAirInfiltration/Specifications/House").attrib["volume"] = s
 #t.find("House/NaturalAirInfiltration/Specifications/BuildingSite").attrib["highestCeiling"] =
 # str(highest_ceiling)
 
+ceiling_area_sm = main_area_sm
 ef = hc.find("Floor")
 if ta_delta > 0:
     # configure exposed floor
-    ef_len = math.sqrt(tad_sm)
-    ef.find("Measurements").attrib["area"] = str(tad_sm)
-    ef.find("Measurements").attrib["length"] = str(ef_len)
+    m = ef.find("Measurements")
+    m.attrib["area"] = str(tad_sm)
+    m.attrib["length"] = str(math.sqrt(tad_sm))
+    ceiling_area_sm += tad_sm
 else:
     hc.remove(ef)
 
@@ -181,18 +167,11 @@ m = hc.find("Ceiling/Measurements")
 # gable roof eave length typically 0.6 * perim
 c_len_m = mperim_m * 0.6
 m.attrib["length"] = str(c_len_m)
-ceiling_area_sm = main_area_sm if ta_delta < 0 else main_area_sm + tad_sm
 m.attrib["area"] = str(ceiling_area_sm)
-hd.write("\nceiling area, length: " +
-         str(round(ceiling_area_sm * SF_PER_SM)) +
-         ", " + str(round(c_len_m * FT_PER_M)))
 
 m = hc.find("Wall/Measurements")
 m.attrib["height"] = str(wall_height_m)
-m.attrib["perimeter"] = str(mperim_m)
-hd.write("\nwall height, perim: " +
-         str(round(wall_height_m * FT_PER_M)) +
-         ", " + str(mperim_m * FT_PER_M))
+m.attrib["perimeter"] = str(mperim_m + tp_delta_m/storeys)
 
 # calculate foundation perim & area
 f = hc.find(FTYPE)
@@ -202,12 +181,7 @@ m.attrib["area"] = str(bsmt_area_sm)
 # H2K requires perim <= exposedSurfacePerimeter: relevant for semis and multiple foundations
 m.attrib["perimeter"] = str(max(bperim_m, math.sqrt(bsmt_area_sm)*4 + 0.1))
 
-# debug
-#t.write("out.h2k", "UTF-8", True)
-#sys.exit(0)
-
-# write prepared h2k file
-#outfile = "../../" + fileid + ".h2k"
+# write h2k file
 #t.write(outfile, "UTF-8", True)
 sys.stdout.flush()
 t.write(sys.stdout.buffer, encoding="UTF-8", xml_declaration=True)
