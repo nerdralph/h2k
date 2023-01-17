@@ -69,9 +69,6 @@ f.extend(so)
 f.find("Identification").text = fileid
 f.find("TaxNumber").text = AAN
 
-hs = t.find("House/Specifications")
-hs.find("YearBuilt").attrib["value"] = jd.get("year_built", "1920")
-
 c = pi.find("Client")
 c.find("Name/First").text = form.getvalue("First")
 c.find("Name/Last").text = form.getvalue("Last")
@@ -109,8 +106,11 @@ if loc in wc.keys():
 
 if wall_height_m == 0:
     wall_height_m = 5.15 if "2 Storey" in jd["style"] else 2.42
-
 storeys = 2 if wall_height_m > 4 else 1
+
+house = t.find("House")
+hs = house.find("Specifications")
+hs.find("YearBuilt").attrib["value"] = jd.get("year_built", "1920")
 # code 1 = 1 storey, 3 = 2 storey
 hs.find("Storeys").attrib["code"] = "1" if storeys == 1 else "3"
 
@@ -124,7 +124,7 @@ bperim_m = (mperim -4)/FT_PER_M
 
 tad_sm = ta_delta/SF_PER_SM
 above_grade_sm = (main_area_sm * storeys) + tad_sm
-hfa = t.find("House/Specifications/HeatedFloorArea")
+hfa = hs.find("HeatedFloorArea")
 hfa.attrib["aboveGrade"] = str(above_grade_sm)
 
 hc = t.find("House/Components")
@@ -143,14 +143,12 @@ else:
 volume = (BSMT_HT_M * bsmt_area_sm) + wall_height_m * main_area_sm
 # adjust for different top floor area with 8' ceiling and 1' floor
 volume += tad_sm *  9/FT_PER_M
-t.find("House/NaturalAirInfiltration/Specifications/House").attrib["volume"] = str(volume)
+air_specs  = house.find("NaturalAirInfiltration/Specifications")
+air_specs.find("House").attrib["volume"] = str(volume)
 
-# calculate highest ceiling height
-# template has 4' pony, so add 1' above grade + 1' header to wall height
-# highest ceiling is best calculated manually
-#highest_ceiling = (4+1+1)/FT_PER_M + wall_height_m
-#t.find("House/NaturalAirInfiltration/Specifications/BuildingSite").attrib["highestCeiling"] =
-# str(highest_ceiling)
+# calculate highest ceiling height: 4' pony + 1' header + main wall
+#ceiling_h = (4 + 1)/FT_PER_M + wall_height_m
+#t.find("House/NaturalAirInfiltration/Specifications/BuildingSite").attrib["highestCeiling"] = str(highest_ceiling)
 
 ceiling_area_sm = main_area_sm
 ef = hc.find("Floor")
