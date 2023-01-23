@@ -10,6 +10,8 @@
       A:<input id="A"><br>
       B:<input id="B" onchange="calcC()"><br>
       C:<input id="C" onchange="calcB()"><br>
+      perim: <output id="perimeter"></output>, perim - A:<output id="pdelta"></output><br>
+      area: <output id="bumparea"></output><br>
     </form>
 	  <script>
       // house bumpout calculations
@@ -17,13 +19,26 @@
       //   \______/ C
       //       B
 
+      function calcPerim() {
+        perimeter.value = +B.value + C.value*2;
+	pdelta.value = (perimeter.value - A.value).toFixed(2);
+      }
+
+      function calcArea() {
+        bumparea.value = (A.value**2 - B.value**2)/4;
+      }
+
       function calcB() {
-        SIDE = Math.sqrt(C.value**2 / 2);
-        B.value = (A.value - SIDE*2).toFixed(2);
+        SIDES = Math.sqrt(C.value**2 / 2);
+        B.value = (A.value - SIDES*2).toFixed(2);
+        calcArea();
+        calcPerim();
       }
 
       function calcC() {
         C.value =  Math.sqrt(2 * ((A.value-B.value)/2)**2).toFixed(2);
+        calcArea();
+        calcPerim();
       }
     </script>
   </body>
