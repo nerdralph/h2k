@@ -146,9 +146,9 @@ volume += tad_sm *  9/FT_PER_M
 air_specs  = house.find("NaturalAirInfiltration/Specifications")
 air_specs.find("House").attrib["volume"] = str(volume)
 
-# calculate highest ceiling height: 4' pony + 1' header + main wall
-#ceiling_h = (4 + 1)/FT_PER_M + wall_height_m
-#t.find("House/NaturalAirInfiltration/Specifications/BuildingSite").attrib["highestCeiling"] = str(highest_ceiling)
+# default highest ceiling height: BSMT_HT/2 + main wall
+ceiling_h = BSMT_HT_M/2 + wall_height_m
+air_specs.find("BuildingSite").attrib["highestCeiling"] = str(ceiling_h)
 
 ceiling_area_sm = main_area_sm
 ef = hc.find("Floor")
