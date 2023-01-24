@@ -2,6 +2,7 @@
 # Ralph Doncaster 2021, 2022
 # Greener Homes wizard web version: creates H2K house models from templates
 
+import ashp
 import cgi, json, math, os, sys
 #from datetime import date
 import requests
@@ -104,11 +105,17 @@ loc = form.getvalue("weather")
 if loc in wc.keys(): 
     pi.find("Weather/Location").attrib["code"] = wc[loc]
 
+
 if wall_height_m == 0:
     wall_height_m = 5.15 if "2 Storey" in jd["style"] else 2.42
 storeys = 2 if wall_height_m > 4 else 1
 
 house = t.find("House")
+
+ahri = form.getvalue("AHRI")
+if ahri:
+    house.find("HeatingCooling").append(ashp.query(ahri))
+
 hs = house.find("Specifications")
 hs.find("YearBuilt").attrib["value"] = jd.get("year_built", "1920")
 # code 1 = 1 storey, 3 = 2 storey

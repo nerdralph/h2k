@@ -9,10 +9,10 @@
     <p>Helping Nova Scotia save energy.</p>
     <p>H2K Greener Homes Wizard</p>
     <form action="/cgi-bin/ghww.py" method="get" id="aanq">
-    File ID:<input name="fileID" minlength="10"><br>
-    8-digit AAN: <input name="AAN" type="tel" minlength="8" maxlength="8" size=8 pattern="[0-9]+" onblur="findAAN(this.value)">
-    template*: <input name="template" required>
-    house front faces
+    File ID <input name="fileID" minlength="10" size="10">
+    8-digit AAN <input name="AAN" type="tel" minlength="8" maxlength="8" size=8 pattern="[0-9]+" onblur="findAAN(this.value)">
+    template*: <input name="template" required size="5">
+    house faces
     <select name="FacingDirection">
       <option value="1">south</option>
       <option value="2">southeast</option>
@@ -23,6 +23,7 @@
       <option value="7">west</option>
       <option value="8">southwest</option>
     </select>
+    ASHP AHRI# <input name="AHRI" size="10">
     <br>
     mperim*: <input name="mperim" required size=8> marea*: <input name="marea" required size=8>
     aflht: <input name="aflht" size=8> ta_delta: <input name="ta_delta" size=8> tp_delta: <input name="tp_delta" size=8><br>
@@ -33,6 +34,8 @@
     Weather: <input name="weather" readonly><br>
     <input type="submit" value="Create H2K file">
     </form>
+    <br>
+    <a href="https://oee.nrcan.gc.ca/pml-lmp/index.cfm?action=app.search-recherche&appliance=HP_SS" target="_blank">NRCan ASHP lookup</a>
 	<script src="ghw.js"></script>
   </body>
 </html>
