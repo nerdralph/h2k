@@ -8,14 +8,12 @@ ASHP_Debug = 0
 
 def query(ahri : str):
     """Find an air-source heat pump given an AHRI reference #."""
-    SPEC_COLS = [ "Brand", "Outside_Model", "Heating_kW", "SEER", "HSPF5" ]
 
+    SPEC_COLS = [ "Brand", "Outside_Model", "Heating_kW", "SEER", "HSPF5" ]
     con = sqlite3.connect("hp.db")
     stmt = "SELECT " + ", ".join(SPEC_COLS) + " FROM ASHP WHERE AHRI_Ref = " + ahri + ';'
     row = con.cursor().execute(stmt).fetchone()
     con.close()
-
-    specs = None
 
     # Type 2 CCHP heating system
     tree = ET.parse("Type2.xml")
@@ -32,7 +30,7 @@ def query(ahri : str):
     ahp.find("EquipmentInformation").attrib["AHRI"] = ahri
 
     if ASHP_Debug:
-        print(ahri + ", ", specs)
+        print("Set AHRI# = " + ahri )
 
     #t.write("ASHP.xml", "UTF-8", True)
     return tree
