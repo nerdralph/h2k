@@ -2,7 +2,7 @@ Content-Type: application/octet-stream
 Content-Disposition: attachment; filename="1E43D12345.h2k"
 
 <?xml version='1.0' encoding='UTF-8'?>
-<HouseFile uiUnits="Imperial" xml:lang="en">
+<HouseFile xml:lang="en" uiUnits="Imperial">
     <Version major="1" minor="3">
         <Labels>
             <English>1.3</English>
@@ -11,7 +11,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
     </Version>
     <Application>
         <Name>HOT2000</Name>
-        <Version build="35" major="11" minor="11">
+        <Version major="11" minor="11" build="35">
             <Labels>
                 <English>11.11b35</English>
                 <French>11.11b35</French>
@@ -67,7 +67,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                 <PostalCode />
             </MailingAddress>
         </Client>
-        <Justifications achCorrection="false" combustionTestEfficiency="false" heatingCorrection="false" nameplateEfficiency="false" over18Months="false" twoBlowerDoors="false">
+        <Justifications nameplateEfficiency="false" combustionTestEfficiency="false" heatingCorrection="false" achCorrection="false" twoBlowerDoors="false" over18Months="false">
             <PossessionDate selected="false" />
             <HeatingVolumeDecrease selected="false" />
             <CorrectedInsulation>
@@ -90,7 +90,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
             <English>House</English>
             <French xml:lang="fr">House</French>
         </Labels>
-        <Specifications buildingType="House" defaultRoofCavity="false" effectiveMassFraction="1" eligibleForNBC="false">
+        <Specifications effectiveMassFraction="1" defaultRoofCavity="false" eligibleForNBC="false" buildingType="House">
             <HouseType code="1">
                 <English>Single Detached</English>
                 <French>Détaché</French>
@@ -131,7 +131,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                 <English>Normal (7-10m/23-33ft)</English>
                 <French>Normal (7-10m/23-33pi)</French>
             </WaterLevel>
-            <RoofCavity ventilationRate="0.5" volume="76.166">
+            <RoofCavity volume="76.166" ventilationRate="0.5">
                 <GableEnds area="12.8702">
                     <SheatingMaterial code="5" value="0.0826">
                         <English>Plywood/Part. bd 9.5 mm (3/8 in)</English>
@@ -161,26 +161,26 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
         </WindowTightness>
         <Temperatures id="19">
             <Label>Temperatures</Label>
-            <MainFloors coolingSetPoint="25" daytimeHeatingSetPoint="21" nighttimeHeatingSetPoint="18" nighttimeSetbackDuration="8">
+            <MainFloors daytimeHeatingSetPoint="21" nighttimeHeatingSetPoint="18" nighttimeSetbackDuration="8" coolingSetPoint="25">
                 <AllowableRise code="3">
                     <English>High (5.5 C = 9.9 F)</English>
                     <French>Haute (5.5 C = 9.9 F)</French>
                 </AllowableRise>
             </MainFloors>
-            <Basement basementUnit="false" cooled="false" heated="true" heatingSetPoint="19" separateThermostat="false" />
-            <Equipment coolingSetPoint="24" heatingSetPoint="22" />
+            <Basement heated="true" cooled="false" separateThermostat="false" heatingSetPoint="19" basementUnit="false" />
+            <Equipment heatingSetPoint="22" coolingSetPoint="24" />
             <Crawlspace heated="false" heatingSetPoint="15" />
         </Temperatures>
         <BaseLoads basementFractionOfInternalGains="0.15" commonSpaceElectricalConsumption="0" id="20">
             <Label>Base Loads</Label>
             <Occupancy isOccupied="true">
-                <Adults atHome="50" occupants="2" />
-                <Children atHome="50" occupants="1" />
-                <Infants atHome="0" occupants="0" />
+                <Adults occupants="2" atHome="50" />
+                <Children occupants="1" atHome="50" />
+                <Infants occupants="0" atHome="0" />
             </Occupancy>
-            <Summary electricalAppliances="6.2997" exteriorUse="0.9" hotWaterLoad="189.2118" lighting="2.6" otherElectric="9.7" />
-            <WaterUsage lowFlushToilets="0" otherHotWaterUse="2.92" temperature="55">
-                <BathroomFaucets code="2" numberPerOccupantPerDay="1.33" value="8.3">
+            <Summary electricalAppliances="6.2997" lighting="2.6" otherElectric="9.7" exteriorUse="0.9" hotWaterLoad="189.2118" />
+            <WaterUsage temperature="55" otherHotWaterUse="2.92" lowFlushToilets="0">
+                <BathroomFaucets code="2" value="8.3" numberPerOccupantPerDay="1.33">
                     <English>Standard 8.3 L/min (2.2 US gpm)</English>
                     <French>Débit standard 8.3 L/min (2,2 gal/min)</French>
                 </BathroomFaucets>
@@ -195,7 +195,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                     </FlowRate>
                 </Shower>
                 <ClothesWasher numberPerOccupantPerWeek="1.9">
-                    <RatedValues code="1" ratedAnnualEnergyConsumption="197" ratedWaterConsumptionPerCycle="54">
+                    <RatedValues code="1" ratedWaterConsumptionPerCycle="54" ratedAnnualEnergyConsumption="197">
                         <English>Default</English>
                         <French>Par défaut</French>
                     </RatedValues>
@@ -205,13 +205,13 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                     </Temperature>
                 </ClothesWasher>
                 <DishWasher numberPerOccupantPerWeek="1.37">
-                    <RatedValues code="1" ratedAnnualEnergyConsumption="260" ratedWaterConsumptionPerCycle="19">
+                    <RatedValues code="1" ratedWaterConsumptionPerCycle="19" ratedAnnualEnergyConsumption="260">
                         <English>Default</English>
                         <French>Par défaut</French>
                     </RatedValues>
                 </DishWasher>
             </WaterUsage>
-            <ElectricalUsage averageExteriorUse="0.9" otherLoad="9.7">
+            <ElectricalUsage otherLoad="9.7" averageExteriorUse="0.9">
                 <ClothesDryer percentageOfWasherLoads="71.4">
                     <EnergySource code="1">
                         <English>Electric</English>
@@ -246,25 +246,25 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                 </InteriorLighting>
             </ElectricalUsage>
         </BaseLoads>
-        <Generation PhotovoltaicCapacity="0" batteryStorage="false" id="21" solarReady="false">
+        <Generation solarReady="false" PhotovoltaicCapacity="0" batteryStorage="false" id="21">
             <Label>Generation</Label>
         </Generation>
         <NaturalAirInfiltration id="15">
             <Label>Natural Air Infiltration</Label>
             <Specifications>
-                <House volume="568.5444113025966">
+                <House volume="568.5997728980416">
                     <AirTightnessTest code="x">
                         <English>Blower door test values</English>
                         <French>Valeurs d'essai de dépressurisation</French>
                     </AirTightnessTest>
                 </House>
-                <BlowerTest airChangeRate="3.51" guarded="false" isCalculated="false" isCgsbTest="false" leakageArea="678.0618">
+                <BlowerTest airChangeRate="3.51" leakageArea="678.0618" isCgsbTest="false" guarded="false" isCalculated="false">
                     <Pressure code="1">
                         <English>10 Pa</English>
                         <French>10 Pa</French>
                     </Pressure>
                 </BlowerTest>
-                <BuildingSite highestCeiling="1">
+                <BuildingSite highestCeiling="6.4915">
                     <Terrain code="7">
                         <English>Suburban, forest</English>
                         <French>Banlieue, forêt</French>
@@ -298,19 +298,19 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <French>Prairie à l'herbe</French>
                     </Terrain>
                 </WeatherStation>
-                <LeakageFractions ceilings="0.3" floors="0.2" useDefaults="true" walls="0.5" />
+                <LeakageFractions useDefaults="true" ceilings="0.3" walls="0.5" floors="0.2" />
             </OtherFactors>
         </NaturalAirInfiltration>
         <Ventilation id="16">
             <Label>Ventilation</Label>
-            <Rooms bathrooms="2" bedrooms="3" living="3" otherHabitable="2" utility="1">
+            <Rooms living="3" bedrooms="3" bathrooms="2" utility="1" otherHabitable="2">
                 <VentilationRate code="1">
                     <English>Not applicable</English>
                     <French>Sans objet</French>
                 </VentilationRate>
                 <DepressurizationLimit code="0" value="0" />
             </Rooms>
-            <Requirements ach="0" exhaust="0" supply="0">
+            <Requirements ach="0" supply="0" exhaust="0">
                 <Use code="4">
                     <English>Not applicable</English>
                     <French>Sans objet</French>
@@ -331,7 +331,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                 </OperationSchedule>
             </WholeHouse>
             <WholeHouseVentilatorList>
-                <Hrv coolingEfficiency="25" efficiency1="55" efficiency2="45" exhaustFlowrate="28.0006" fanPower1="59.7553" fanPower2="73.5404" isDefaultFanpower="true" isEnergyStar="false" isHomeVentilatingInstituteCertified="false" isSupplemental="false" lowTempVentReduction="0" preheaterCapacity="0" supplyFlowrate="28.0006" temperatureCondition1="0" temperatureCondition2="-25">
+                <Hrv supplyFlowrate="28.0006" exhaustFlowrate="28.0006" fanPower1="59.7553" isDefaultFanpower="true" isEnergyStar="false" isHomeVentilatingInstituteCertified="false" isSupplemental="false" temperatureCondition1="0" temperatureCondition2="-25" fanPower2="73.5404" efficiency1="55" efficiency2="45" preheaterCapacity="0" lowTempVentReduction="0" coolingEfficiency="25">
                     <EquipmentInformation>
                         <Manufacturer>Heat recovery ventilator (HRV)</Manufacturer>
                         <Model>Wizard HRV mod</Model>
@@ -341,7 +341,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <French>VRC</French>
                     </VentilatorType>
                     <ColdAirDucts>
-                        <Supply diameter="152.4" insulation="0.7" length="1.5">
+                        <Supply length="1.5" diameter="152.4" insulation="0.7">
                             <Location code="4">
                                 <English>Main floor</English>
                                 <French>Rez-de-chaussée</French>
@@ -355,7 +355,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                                 <French>Scellé</French>
                             </Sealing>
                         </Supply>
-                        <Exhaust diameter="152.4" insulation="0.7" length="1.5">
+                        <Exhaust length="1.5" diameter="152.4" insulation="0.7">
                             <Location code="4">
                                 <English>Main floor</English>
                                 <French>Rez-de-chaussée</French>
@@ -373,7 +373,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                 </Hrv>
             </WholeHouseVentilatorList>
             <SupplementalVentilatorList>
-                <Dryer exhaustFlowrate="38" fanPower1="0" isDefaultFanpower="true" isEnergyStar="false" isHomeVentilatingInstituteCertified="false" isSupplemental="true" supplyFlowrate="0">
+                <Dryer supplyFlowrate="0" exhaustFlowrate="38" fanPower1="0" isDefaultFanpower="true" isEnergyStar="false" isHomeVentilatingInstituteCertified="false" isSupplemental="true">
                     <EquipmentInformation />
                     <VentilatorType code="5">
                         <English>Dryer</English>
@@ -388,7 +388,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <French>Évacuation extérieure</French>
                     </Exhaust>
                 </Dryer>
-                <BaseVentilator exhaustFlowrate="33" fanPower1="25.08" isDefaultFanpower="true" isEnergyStar="false" isHomeVentilatingInstituteCertified="false" isSupplemental="true" supplyFlowrate="0">
+                <BaseVentilator supplyFlowrate="0" exhaustFlowrate="33" fanPower1="25.08" isDefaultFanpower="true" isEnergyStar="false" isHomeVentilatingInstituteCertified="false" isSupplemental="true">
                     <EquipmentInformation />
                     <VentilatorType code="3">
                         <English>Bathroom</English>
@@ -399,7 +399,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <French>72 min/j</French>
                     </OperationSchedule>
                 </BaseVentilator>
-                <BaseVentilator exhaustFlowrate="33" fanPower1="25.08" isDefaultFanpower="true" isEnergyStar="false" isHomeVentilatingInstituteCertified="false" isSupplemental="true" supplyFlowrate="0">
+                <BaseVentilator supplyFlowrate="0" exhaustFlowrate="33" fanPower1="25.08" isDefaultFanpower="true" isEnergyStar="false" isHomeVentilatingInstituteCertified="false" isSupplemental="true">
                     <EquipmentInformation />
                     <VentilatorType code="3">
                         <English>Bathroom</English>
@@ -425,12 +425,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <English>Auto</English>
                         <French>Auto</French>
                     </Mode>
-                    <Power high="174.6" isCalculated="true" low="0" />
+                    <Power isCalculated="true" low="0" high="174.6" />
                 </FansAndPump>
                 <Baseboards>
                     <EquipmentInformation numberOfElectronicThermostats="0" />
-                    <Specifications efficiency="100" sizingFactor="1.1">
-                        <OutputCapacity code="2" uiUnits="btu/hr" value="9">
+                    <Specifications sizingFactor="1.1" efficiency="100">
+                        <OutputCapacity code="2" value="9" uiUnits="btu/hr">
                             <English>Calculated</English>
                             <French>Calculé</French>
                         </OutputCapacity>
@@ -439,9 +439,54 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
             </Type1>
             <Type2 shadingInF280Cooling="AccountedFor" />
             <MultipleSystems>
-                <Summary energySaverAirSourceHeatPump="0" energySaverHeatingSystems="0" epaCsaHeatingSystems="0" woodAppliances="0" />
+                <Summary energySaverHeatingSystems="0" energySaverAirSourceHeatPump="0" woodAppliances="0" epaCsaHeatingSystems="0" />
             </MultipleSystems>
-        </HeatingCooling>
+        <Type2 shadingInF280Cooling="AccountedFor">
+                <AirHeatPump>
+                    <EquipmentInformation energystar="false" CCASHP="false" AHRI="8797149">
+                        <Manufacturer>Senville</Manufacturer>
+                        <Model>SENA/09HF/OZ</Model>
+                    </EquipmentInformation>
+                    <Equipment crankcaseHeater="0" numberOfHeads="1">
+                        <Type code="3">
+                            <English>Mini-split ductless</English>
+                            <French>Petit système bibloc sans conduits</French>
+                        </Type>
+                        <Function code="2">
+                            <English>Heating/Cooling</English>
+                            <French>Chauffage/climatisation</French>
+                        </Function>
+                    </Equipment>
+                    <Specifications>
+                        <OutputCapacity code="1" value="3.19" uiUnits="btu/hr">
+                            <English>User-Specified</English>
+                            <French>Spécifiée par l'utilisateur</French>
+                        </OutputCapacity>
+                        <HeatingEfficiency isCop="false" value="9.739" />
+                        <CoolingEfficiency isCop="false" value="25" />
+                    </Specifications>
+                    <Temperature>
+                        <CutoffType code="3">
+                            <English>Unrestricted</English>
+                            <French>Non restreint</French>
+                        </CutoffType>
+                        <RatingType code="1" value="8.3333">
+                            <English>8.3 C (47 F)</English>
+                            <French>8.3 C (47 F)</French>
+                        </RatingType>
+                    </Temperature>
+                    <CoolingParameters sensibleHeatRatio="0.76" openableWindowArea="0">
+                        <FansAndPump flowRate="324.9148" hasEnergyEfficientMotor="false">
+                            <Mode code="1">
+                                <English>Auto</English>
+                                <French>Auto</French>
+                            </Mode>
+                            <Power isCalculated="true" />
+                        </FansAndPump>
+                    </CoolingParameters>
+                    <ColdClimateHeatPump heatingEfficiency="10" coolingEfficiency="17" capacity="7.0" uiUnits="btu/hr" cop="2.0" capacityMaintenance="100" />
+                </AirHeatPump>
+            </Type2></HeatingCooling>
         <Components>
             <Ceiling id="4">
                 <Label>Ceiling01</Label>
@@ -450,9 +495,9 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <English>Attic/gable</English>
                         <French>Combles/pignon</French>
                     </Type>
-                    <CeilingType idref="Code 2" nominalInsulation="6.2521" rValue="6.0448">2401551000</CeilingType>
+                    <CeilingType idref="Code 2" rValue="6.0448" nominalInsulation="6.2521">2401551000</CeilingType>
                 </Construction>
-                <Measurements area="78.17790315661412" heelHeight="0.13" length="21.396959315297302">
+                <Measurements length="21.396959315297302" area="78.17790315661412" heelHeight="0.13">
                     <Slope code="0" value="0.3333">
                         <English>User specified</English>
                         <French>Spécifié par l'utilisateur</French>
@@ -462,7 +507,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
             <Wall adjacentEnclosedSpace="false" id="2">
                 <Label>Main floor</Label>
                 <Construction corners="4" intersections="4">
-                    <Type idref="Code 1" nominalInsulation="3.2421" rValue="2.9921">1211301121</Type>
+                    <Type idref="Code 1" rValue="2.9921" nominalInsulation="3.2421">1211301121</Type>
                     <LintelType idref="Code 5">101</LintelType>
                 </Construction>
                 <Measurements height="5.15" perimeter="35.66159885882884" />
@@ -471,7 +516,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                     <French>S/O</French>
                 </FacingDirection>
                 <Components>
-                    <Door adjacentEnclosedSpace="false" id="5" rValue="1.14">
+                    <Door rValue="1.14" adjacentEnclosedSpace="false" id="5">
                         <Label>Front Door</Label>
                         <Construction energyStar="false">
                             <Type code="5" value="1.14">
@@ -481,12 +526,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         </Construction>
                         <Measurements height="2.032" width="1.2192" />
                         <Components>
-                            <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.2462" edgeOfGlassFraction="0.4226" er="11.4793" frameAreaFraction="0.3311" frameHeight="41" id="29" number="1" shgc="0.5209">
+                            <Window number="1" er="11.4793" shgc="0.5209" frameHeight="41" frameAreaFraction="0.3311" edgeOfGlassFraction="0.4226" centreOfGlassFraction="0.2462" adjacentEnclosedSpace="false" id="29">
                                 <Label>Front Lite</Label>
                                 <Construction energyStar="false">
                                     <Type idref="Code 6" rValue="0.3264">200004</Type>
                                 </Construction>
-                                <Measurements headerHeight="0" height="965.2" overhangWidth="0" width="304.8">
+                                <Measurements height="965.2" width="304.8" headerHeight="0" overhangWidth="0">
                                     <Tilt code="1" value="90">
                                         <English>Vertical</English>
                                         <French>Verticale</French>
@@ -500,7 +545,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                             </Window>
                         </Components>
                     </Door>
-                    <Door adjacentEnclosedSpace="false" id="6" rValue="1.14">
+                    <Door rValue="1.14" adjacentEnclosedSpace="false" id="6">
                         <Label>Back Door</Label>
                         <Construction energyStar="false">
                             <Type code="5" value="1.14">
@@ -510,12 +555,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         </Construction>
                         <Measurements height="2.032" width="0.8636" />
                         <Components>
-                            <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.5149" edgeOfGlassFraction="0.2771" er="11.4793" frameAreaFraction="0.208" frameHeight="41" id="28" number="1" shgc="0.6098">
+                            <Window number="1" er="11.4793" shgc="0.6098" frameHeight="41" frameAreaFraction="0.208" edgeOfGlassFraction="0.2771" centreOfGlassFraction="0.5149" adjacentEnclosedSpace="false" id="28">
                                 <Label>Back Lite</Label>
                                 <Construction energyStar="false">
                                     <Type idref="Code 6" rValue="0.336">200004</Type>
                                 </Construction>
-                                <Measurements headerHeight="0" height="965.2" overhangWidth="0" width="609.6">
+                                <Measurements height="965.2" width="609.6" headerHeight="0" overhangWidth="0">
                                     <Tilt code="1" value="90">
                                         <English>Vertical</English>
                                         <French>Verticale</French>
@@ -529,12 +574,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                             </Window>
                         </Components>
                     </Door>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="51" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="51">
                         <Label>front 1</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -542,12 +587,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="1">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="61" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="61">
                         <Label>right 1</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -555,12 +600,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="3">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="71" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="71">
                         <Label>back 1</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -568,12 +613,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="5">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="81" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="81">
                         <Label>left 1</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -581,12 +626,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="7">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="52" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="52">
                         <Label>front 2</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -594,12 +639,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="1">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="62" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="62">
                         <Label>right 2</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -607,12 +652,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="3">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="72" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="72">
                         <Label>back 2</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -620,12 +665,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="5">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="82" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="82">
                         <Label>left 2</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -633,12 +678,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="7">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="53" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="53">
                         <Label>front 3</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -646,12 +691,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="1">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="63" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="63">
                         <Label>right 3</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -659,12 +704,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="3">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="73" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="73">
                         <Label>back 3</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -672,12 +717,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="5">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="83" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="83">
                         <Label>left 3</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -685,12 +730,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="7">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="54" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="54">
                         <Label>front 4</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -698,12 +743,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="1">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="64" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="64">
                         <Label>right 4</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -711,12 +756,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="3">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="74" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="74">
                         <Label>back 4</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -724,12 +769,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="5">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="84" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="84">
                         <Label>left 4</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -737,12 +782,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="7">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="55" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="55">
                         <Label>front 5</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -750,12 +795,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="1">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="65" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="65">
                         <Label>right 5</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -763,12 +808,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="3">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="75" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="75">
                         <Label>back 5</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -776,12 +821,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="5">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="85" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="85">
                         <Label>left 5</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -789,12 +834,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="7">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="56" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="56">
                         <Label>front 6</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -802,12 +847,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="1">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="66" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="66">
                         <Label>right 6</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -815,12 +860,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="3">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="76" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="76">
                         <Label>back 6</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -828,12 +873,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="5">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="86" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="86">
                         <Label>left 6</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -841,12 +886,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="7">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="57" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="57">
                         <Label>front 7</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -854,12 +899,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="1">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="67" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="67">
                         <Label>right 7</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -867,12 +912,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="3">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="77" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="77">
                         <Label>back 7</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -880,12 +925,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="5">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="87" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="87">
                         <Label>left 7</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -893,12 +938,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="7">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="58" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="58">
                         <Label>front 8</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -906,12 +951,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="1">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="68" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="68">
                         <Label>right 8</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -919,12 +964,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="3">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="78" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="78">
                         <Label>back 8</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -932,12 +977,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="5">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="88" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="88">
                         <Label>left 8</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -945,12 +990,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="7">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="59" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="59">
                         <Label>front 9</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -958,12 +1003,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="1">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="69" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="69">
                         <Label>right 9</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -971,12 +1016,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="3">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="79" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="79">
                         <Label>back 9</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -984,12 +1029,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <FacingDirection code="5">
                         </FacingDirection>
                     </Window>
-                    <Window adjacentEnclosedSpace="false" centreOfGlassFraction="0.6309" edgeOfGlassFraction="0.2142" er="11.4793" frameAreaFraction="0.1549" frameHeight="41" id="89" number="1" shgc="0.6481">
+                    <Window number="1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="89">
                         <Label>left 9</Label>
                         <Construction energyStar="false">
                             <Type idref="Code 11" rValue="0.3403">V5S</Type>
                         </Construction>
-                        <Measurements headerHeight="0.2012" height="1016" overhangWidth="0.4115" width="1016">
+                        <Measurements height="1016" width="1016" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -999,9 +1044,9 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                     </Window>
                 </Components>
             </Wall>
-            <Basement exposedSurfacePerimeter="34.44239889784323" id="1" isExposedSurface="true">
+            <Basement isExposedSurface="true" exposedSurfacePerimeter="34.44239889784323" id="1">
                 <Label>Foundation - 1</Label>
-                <Configuration overlap="0.0914" subtype="8" type="BCCB">BCCB_8</Configuration>
+                <Configuration type="BCCB" subtype="8" overlap="0.0914">BCCB_8</Configuration>
                 <OpeningUpstairs code="4" value="1.5598">
                     <English>User specified</English>
                     <French>Spécifié par l'utilisateur</French>
@@ -1011,41 +1056,41 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                     <French>Pièce Utilitaire</French>
                 </RoomType>
                 <Floor>
-                    <Construction hasIntegralFooting="false" heatedFloor="false" isBelowFrostline="true">
-                        <AddedToSlab nominalInsulation="0.0018" rValue="0.0018">User specified</AddedToSlab>
-                        <FloorsAbove idref="Code 7" nominalInsulation="0" rValue="0.9834">4231002760</FloorsAbove>
+                    <Construction isBelowFrostline="true" hasIntegralFooting="false" heatedFloor="false">
+                        <AddedToSlab rValue="0.0018" nominalInsulation="0.0018">User specified</AddedToSlab>
+                        <FloorsAbove idref="Code 7" rValue="0.9834" nominalInsulation="0">4231002760</FloorsAbove>
                     </Construction>
-                    <Measurements area="72.83597869849729" isRectangular="false" perimeter="34.23759890759683" />
+                    <Measurements isRectangular="false" area="72.83597869849729" perimeter="34.44239889784323" />
                 </Floor>
                 <Wall hasPonyWall="true">
                     <Construction corners="4">
                         <InteriorAddedInsulation idref="Code 8" nominalInsulation="2.11">
                             <Description>230201</Description>
                             <Composite>
-                                <Section nominalRsi="2.11" percentage="100" rank="1" rsi="1.7329" />
+                                <Section rank="1" percentage="100" rsi="1.7329" nominalRsi="2.11" />
                             </Composite>
                         </InteriorAddedInsulation>
                         <ExteriorAddedInsulation nominalInsulation="0.0018">
                             <Description>User specified</Description>
                             <Composite>
-                                <Section nominalRsi="0.0018" percentage="100" rank="1" rsi="0.0018" />
+                                <Section rank="1" percentage="100" rsi="0.0018" nominalRsi="0.0018" />
                             </Composite>
                         </ExteriorAddedInsulation>
                         <Lintels idref="Code 4">Bsmnt Lintel</Lintels>
                         <PonyWallType idref="Code 9" nominalInsulation="3.2421">
                             <Description>1211301121</Description>
                             <Composite>
-                                <Section nominalRsi="3.2421" percentage="100" rank="1" rsi="2.8703" />
+                                <Section rank="1" percentage="100" rsi="2.8703" nominalRsi="3.2421" />
                             </Composite>
                         </PonyWallType>
                     </Construction>
-                    <Measurements depth="0.9144" height="2.3622" ponyWallHeight="1.2192" />
+                    <Measurements height="2.3622" depth="0.9144" ponyWallHeight="1.2192" />
                 </Wall>
                 <Components>
                     <FloorHeader adjacentEnclosedSpace="false" id="3">
                         <Label>BW hdr-01</Label>
                         <Construction>
-                            <Type idref="Code 10" nominalInsulation="3.34" rValue="3.6896">R-19 + siding</Type>
+                            <Type idref="Code 10" rValue="3.6896" nominalInsulation="3.34">R-19 + siding</Type>
                         </Construction>
                         <Measurements height="0.3048" perimeter="40.2336" />
                         <FacingDirection code="1">
@@ -1057,7 +1102,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
             </Basement>
             <HotWater id="17">
                 <Label>Domestic Hot Water</Label>
-                <Primary combinedFlue="false" connectedUnitsDwhr="0" ecoEnergy="false" energyStar="false" flueDiameter="0" hasDrainWaterHeatRecovery="false" insulatingBlanket="0.0176" userDefinedPilot="false">
+                <Primary hasDrainWaterHeatRecovery="false" insulatingBlanket="0.0176" combinedFlue="false" flueDiameter="0" energyStar="false" ecoEnergy="false" userDefinedPilot="false" connectedUnitsDwhr="0">
                     <EquipmentInformation>
                         <Manufacturer>Greener Homes wizard</Manufacturer>
                         <Model>Greener Homes wizard</Model>
@@ -1074,7 +1119,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <English>189.3 L, 41.6 Imp, 50 US gal</English>
                         <French>189.3 L, 41.6 imp, 50 gal ÉU</French>
                     </TankVolume>
-                    <EnergyFactor code="1" inputCapacity="0" isUniform="false" value="0.8974">
+                    <EnergyFactor code="1" value="0.8974" inputCapacity="0" isUniform="false">
                         <English>Use defaults</English>
                         <French>Valeurs par défaut</French>
                     </EnergyFactor>
@@ -1089,7 +1134,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
     <Codes>
         <Wall>
             <Standard>
-                <Code id="Code 1" nominalRValue="3.2421" value="1211301121">
+                <Code id="Code 1" value="1211301121" nominalRValue="3.2421">
                     <Label>1211301121</Label>
                     <Description>1211301121</Description>
                     <Layers>
@@ -1135,7 +1180,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
         </Wall>
         <Ceiling>
             <Standard>
-                <Code id="Code 2" nominalRValue="6.2521" value="2401551000">
+                <Code id="Code 2" value="2401551000" nominalRValue="6.2521">
                     <Label>2401551000</Label>
                     <Description>2401551000</Description>
                     <Layers>
@@ -1169,7 +1214,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
         </Ceiling>
         <Floor>
             <Standard>
-                <Code id="Code 3" nominalRValue="5.3242" value="3231L06B00">
+                <Code id="Code 3" value="3231L06B00" nominalRValue="5.3242">
                     <Label>3231L06B00</Label>
                     <Description>3231L06B00</Description>
                     <Layers>
@@ -1215,7 +1260,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
         </Floor>
         <Lintel>
             <Standard>
-                <Code id="Code 4" nominalRValue="0" value="100">
+                <Code id="Code 4" value="100" nominalRValue="0">
                     <Label>100</Label>
                     <Description>Bsmnt Lintel</Description>
                     <Layers>
@@ -1233,7 +1278,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         </Insulation>
                     </Layers>
                 </Code>
-                <Code id="Code 5" nominalRValue="0" value="101">
+                <Code id="Code 5" value="101" nominalRValue="0">
                     <Label>101</Label>
                     <Description>101</Description>
                     <Layers>
@@ -1255,7 +1300,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
         </Lintel>
         <Window>
             <Standard>
-                <Code id="Code 6" nominalRValue="0" value="200004">
+                <Code id="Code 6" value="200004" nominalRValue="0">
                     <Label>200004</Label>
                     <Description>200004</Description>
                     <Layers>
@@ -1287,7 +1332,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                 </Code>
             </Standard>
             <Favorite>
-                <Code id="Code 11" nominalRValue="0" value="200024">
+                <Code id="Code 11" value="200024" nominalRValue="0">
                     <Label>V5S</Label>
                     <Description>Vinyl 1/2" Clear Slider</Description>
                     <Layers>
@@ -1321,7 +1366,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
         </Window>
         <FloorsAbove>
             <Standard>
-                <Code id="Code 7" nominalRValue="0" value="4231002760">
+                <Code id="Code 7" value="4231002760" nominalRValue="0">
                     <Label>4231002760</Label>
                     <Description>4231002760</Description>
                     <Layers>
@@ -1367,7 +1412,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
         </FloorsAbove>
         <BasementWall>
             <Standard>
-                <Code id="Code 8" nominalRValue="2.11" value="230201">
+                <Code id="Code 8" value="230201" nominalRValue="2.11">
                     <Label>230201</Label>
                     <Description>230201</Description>
                     <Layers>
@@ -1401,7 +1446,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
         </BasementWall>
         <CrawlspaceWall>
             <Standard>
-                <Code id="Code 9" nominalRValue="3.2421" value="1211301121">
+                <Code id="Code 9" value="1211301121" nominalRValue="3.2421">
                     <Label>1211301121</Label>
                     <Description>1211301121</Description>
                     <Layers>
@@ -1447,7 +1492,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
         </CrawlspaceWall>
         <FloorHeader>
             <Favorite>
-                <Code id="Code 10" nominalRValue="3.34" value="1800Y00220">
+                <Code id="Code 10" value="1800Y00220" nominalRValue="3.34">
                     <Label>R-19 + siding</Label>
                     <Description>R-19 batt, 7/16" OSB, siding</Description>
                     <Layers>
@@ -1481,14 +1526,14 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
             <PhotovoltaicGeneration cost="0" priority="0" />
         </Settings>
         <Components>
-            <Generation PhotovoltaicCapacity="5" batteryStorage="false" id="21" photovoltaicCapacity="5" solarReady="false">
+            <Generation solarReady="false" PhotovoltaicCapacity="5" batteryStorage="false" photovoltaicCapacity="5" id="21">
                 <Label>Generation</Label>
                 <PhotovoltaicSystems>
                     <System rank="1">
                         <EquipmentInformation />
-                        <Array area="25.0838" azimuth="45" slope="20" />
-                        <Efficiency gridAbsorptionRate="99" inverterEfficiency="95" miscellaneousLosses="5" otherPowerLosses="1" />
-                        <Module cellTemperature="45" coefficientOfEfficiency="0.36" efficiency="20">
+                        <Array area="25.0838" slope="20" azimuth="45" />
+                        <Efficiency miscellaneousLosses="5" otherPowerLosses="1" inverterEfficiency="95" gridAbsorptionRate="99" />
+                        <Module efficiency="20" cellTemperature="45" coefficientOfEfficiency="0.36">
                             <Type code="6">
                                 <English>User Specified</English>
                                 <French>Spécifié par l'utilisateur</French>
@@ -1498,7 +1543,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                 </PhotovoltaicSystems>
             </Generation>
         </Components>
-        <GreenerHomes backwaterValve="false" basementSlabInsulated="false" minR10ContinuousExposedFloors="false" moistureProofCrawlSpace="false" roofingMembrane="false" smartThermostats="false" sumpPump="false" waterproofing="false" />
+        <GreenerHomes basementSlabInsulated="false" moistureProofCrawlSpace="false" waterproofing="false" roofingMembrane="false" minR10ContinuousExposedFloors="false" backwaterValve="false" sumpPump="false" smartThermostats="false" />
     </EnergyUpgrades>
     <FuelCosts includeCostCalculations="false" library="fuelLib.flc">
         <Electricity>
@@ -1509,12 +1554,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                     <English>kWhr</English>
                     <French>kWh</French>
                 </Units>
-                <Minimum charge="10" units="0" />
+                <Minimum units="0" charge="10" />
                 <RateBlocks>
-                    <Block1 costPerUnit="0.0999" units="250" />
-                    <Block2 costPerUnit="0.0702" units="99999" />
-                    <Block3 costPerUnit="0" units="0" />
-                    <Block4 costPerUnit="0" units="0" />
+                    <Block1 units="250" costPerUnit="0.0999" />
+                    <Block2 units="99999" costPerUnit="0.0702" />
+                    <Block3 units="0" costPerUnit="0" />
+                    <Block4 units="0" costPerUnit="0" />
                 </RateBlocks>
             </Fuel>
         </Electricity>
@@ -1526,12 +1571,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                     <English>m³</English>
                     <French>m³</French>
                 </Units>
-                <Minimum charge="14" units="0" />
+                <Minimum units="0" charge="14" />
                 <RateBlocks>
-                    <Block1 costPerUnit="0.5338" units="30" />
-                    <Block2 costPerUnit="0.5277" units="85" />
-                    <Block3 costPerUnit="0.5229" units="170" />
-                    <Block4 costPerUnit="0.5194" units="99999" />
+                    <Block1 units="30" costPerUnit="0.5338" />
+                    <Block2 units="85" costPerUnit="0.5277" />
+                    <Block3 units="170" costPerUnit="0.5229" />
+                    <Block4 units="99999" costPerUnit="0.5194" />
                 </RateBlocks>
             </Fuel>
         </NaturalGas>
@@ -1543,12 +1588,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                     <English>Litre</English>
                     <French>Litre</French>
                 </Units>
-                <Minimum charge="0" units="0" />
+                <Minimum units="0" charge="0" />
                 <RateBlocks>
-                    <Block1 costPerUnit="1.175" units="99999" />
-                    <Block2 costPerUnit="0" units="0" />
-                    <Block3 costPerUnit="0" units="0" />
-                    <Block4 costPerUnit="0" units="0" />
+                    <Block1 units="99999" costPerUnit="1.175" />
+                    <Block2 units="0" costPerUnit="0" />
+                    <Block3 units="0" costPerUnit="0" />
+                    <Block4 units="0" costPerUnit="0" />
                 </RateBlocks>
             </Fuel>
         </Oil>
@@ -1560,12 +1605,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                     <English>Litre</English>
                     <French>Litre</French>
                 </Units>
-                <Minimum charge="0" units="0" />
+                <Minimum units="0" charge="0" />
                 <RateBlocks>
-                    <Block1 costPerUnit="0.72" units="99999" />
-                    <Block2 costPerUnit="0" units="0" />
-                    <Block3 costPerUnit="0" units="0" />
-                    <Block4 costPerUnit="0" units="0" />
+                    <Block1 units="99999" costPerUnit="0.72" />
+                    <Block2 units="0" costPerUnit="0" />
+                    <Block3 units="0" costPerUnit="0" />
+                    <Block4 units="0" costPerUnit="0" />
                 </RateBlocks>
             </Fuel>
         </Propane>
@@ -1577,12 +1622,12 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                     <English>Cords</English>
                     <French>Cordes</French>
                 </Units>
-                <Minimum charge="0" units="0" />
+                <Minimum units="0" charge="0" />
                 <RateBlocks>
-                    <Block1 costPerUnit="210" units="99999" />
-                    <Block2 costPerUnit="0" units="0" />
-                    <Block3 costPerUnit="0" units="0" />
-                    <Block4 costPerUnit="0" units="0" />
+                    <Block1 units="99999" costPerUnit="210" />
+                    <Block2 units="0" costPerUnit="0" />
+                    <Block3 units="0" costPerUnit="0" />
+                    <Block4 units="0" costPerUnit="0" />
                 </RateBlocks>
             </Fuel>
         </Wood>
@@ -1592,20 +1637,20 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
             <English>EnerGuide Rating System</English>
             <French>Système de cote ÉnerGuide</French>
         </Labels>
-        <Version build="21119" major="15" minor="11">
+        <Version major="15" minor="11" build="21119">
             <Labels>
                 <English>v15.11b21119</English>
                 <French>v15.11b21119</French>
             </Labels>
         </Version>
-        <SdkVersion build="21119" major="1" minor="16">
+        <SdkVersion major="1" minor="16" build="21119">
             <Labels>
                 <English>v1.16b21119</English>
                 <French>v1.16b21119</French>
             </Labels>
         </SdkVersion>
         <Options>
-            <Main applyHouseholdOperatingConditions="false" applyReducedOperatingConditions="false" atypicalElectricalLoads="false" greenerHomesTab="true" referenceHouse="false" waterConservation="true">
+            <Main applyHouseholdOperatingConditions="false" applyReducedOperatingConditions="false" atypicalElectricalLoads="false" waterConservation="true" referenceHouse="false" greenerHomesTab="true">
                 <Vermiculite code="3">
                     <English>No Vermiculite</English>
                     <French>Pas de Vermiculite</French>
@@ -1766,7 +1811,7 @@ Hiring a contractor is the recommended option in undertaking several of the home
  ***Proof of primary residence is one of the requirements to participate in the Greener Homes program.
 </AdditionalComments>
             </RURComments>
-            <GreenerHomes backwaterValve="false" basementSlabInsulated="false" evaluationCost="199" minR10ContinuousExposedFloors="false" moistureProofCrawlSpace="false" remoteCommunities="false" roofingMembrane="false" smartThermostats="false" sumpPump="false" waterproofing="false">
+            <GreenerHomes basementSlabInsulated="false" moistureProofCrawlSpace="false" waterproofing="false" roofingMembrane="false" minR10ContinuousExposedFloors="false" backwaterValve="false" sumpPump="false" smartThermostats="false" remoteCommunities="false" evaluationCost="199">
                 <Community>N/A</Community>
             </GreenerHomes>
         </Options>
