@@ -16,8 +16,8 @@ def query(ahri : str):
     con.close()
 
     # Type 2 CCHP heating system
-    tree = ET.parse("Type2.xml")
-    ahp = tree.getroot().find("AirHeatPump")
+    type2 = ET.parse("Type2.xml").getroot()
+    ahp = type2.find("AirHeatPump")
     if row:
         specs = dict(zip(SPEC_COLS, row))
         ahp.find("*/Manufacturer").text = specs["Brand"]
@@ -32,7 +32,7 @@ def query(ahri : str):
     if ASHP_Debug:
         print("Set AHRI# = " + ahri )
 
-    return tree
+    return type2
 
 if __name__ == "__main__":
     if len(sys.argv) == 2:
