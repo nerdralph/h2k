@@ -18,7 +18,6 @@ def query(ahri : str):
     # Type 2 CCHP heating system
     tree = ET.parse("Type2.xml")
     ahp = tree.getroot().find("AirHeatPump")
-    specs = None
     if row:
         specs = dict(zip(SPEC_COLS, row))
         ahp.find("*/Manufacturer").text = specs["Brand"]
