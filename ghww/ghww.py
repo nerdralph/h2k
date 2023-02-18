@@ -61,10 +61,7 @@ f.extend(so)
 #ymd = date.today().isoformat()
 #f.attrib["evaluationDate"] = ymd
 
-pii = pi.find("Information")
-#info = ET.Element("Info", {"code": "Info. 7"})
-#info.text = "NSPI;;" + form.getvalue("email", "") + ";N"
-#pii.append(info)
+#pii = pi.find("Information")
 #info = ET.Element("Info", {"code": "Info. 8"})
 #info.text = "H2K template built with Greener Homes Wizard github.com/nerdralph/h2k/"
 #pii.append(info)

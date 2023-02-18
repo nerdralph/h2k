@@ -6,7 +6,7 @@ import xml.etree.ElementTree as ET
 
 ASHP_Debug = 0
 
-def query(ahri : str):
+def query(ahri: str):
     """Find an air-source heat pump given an AHRI reference #."""
 
     SPEC_COLS = [ "Brand", "Outside_Model", "Heating_kW", "SEER", "HSPF5" ]
