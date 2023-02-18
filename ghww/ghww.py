@@ -20,7 +20,7 @@ CF_PER_CM = FT_PER_M ** 3
 
 form = cgi.FieldStorage()
 
-fileid = form.getvalue("fileID")
+fileid = form.getvalue("_FileID")
 
 house_data = "/tmp/ghww.log"
 hd = open(house_data, 'a')
@@ -31,7 +31,7 @@ outfile = fileid + ".h2k"
 print("Content-Type: application/octet-stream")
 print('Content-Disposition: attachment; filename="' + outfile + '"\n')
 
-AAN = form.getvalue("AAN")
+AAN = form.getvalue("_AAN")
 template = form.getvalue("template") + ".xt"
 # main floor interior perimeter
 mperim = float(form.getvalue("mperim"))
@@ -56,16 +56,15 @@ so = ET.parse(fileid[:4] + ".xml").getroot()
 pi = t.find("ProgramInformation")
 f = pi.find("File")
 f.extend(so)
+
 # set default evaluation date 
 #ymd = date.today().isoformat()
 #f.attrib["evaluationDate"] = ymd
-f.find("Identification").text = fileid
-f.find("TaxNumber").text = AAN
 
 pii = pi.find("Information")
-info = ET.Element("Info", {"code": "Info. 7"})
-info.text = "NSPI;;" + form.getvalue("email", "") + ";N"
-pii.append(info)
+#info = ET.Element("Info", {"code": "Info. 7"})
+#info.text = "NSPI;;" + form.getvalue("email", "") + ";N"
+#pii.append(info)
 #info = ET.Element("Info", {"code": "Info. 8"})
 #info.text = "H2K template built with Greener Homes Wizard github.com/nerdralph/h2k/"
 #pii.append(info)

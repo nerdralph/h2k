@@ -83,7 +83,8 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
         </Justifications>
         <Information>
             <Info code="Info. 2">ENS</Info>
-        <Info code="Info. 7">NSPI;;;N</Info></Information>
+            <Info code="Info. 7">NSPI;;;N</Info>
+        </Information>
     </ProgramInformation>
     <House id="0">
         <Labels>
