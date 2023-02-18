@@ -1,7 +1,7 @@
 # process xml template files using filepp
 
 CGIDIR := /usr/lib/cgi-bin/
-CGIFILES := $(wildcard *.xt) $(wildcard 1E??.xml) $(wildcard *.i) RURC.xml *.py hp.db
+CGIFILES := $(wildcard *.xt) $(wildcard *.xml) $(wildcard *.i) *.py hp.db
 #TARGETS := $(TEMPLATES:%.xt=%.xml)
 
 #all: d-b-e.xml d-b-b.xml d-s-b.xml
