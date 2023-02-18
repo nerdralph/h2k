@@ -15,7 +15,7 @@ function getLocationData(d) {
         .then(data => {
             console.log(JSON.stringify(data));
             // address = street, town, prov, postal
-            [ae.street.value, ae.city.value, , ae.postal.value] = 
+            [ae._Street.value, ae._City.value, , ae._Postal.value] = 
                 data.candidates[0].address.split(", ");
             });
 

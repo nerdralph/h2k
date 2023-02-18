@@ -9,6 +9,7 @@
     <p>Helping Nova Scotia save energy.</p>
     <p>H2K Greener Homes Wizard</p>
     <form action="/cgi-bin/ghww.py" method="get" id="aanq">
+    <!-- field names prefixed with '_' will be converted to house template macros -->
     File ID <input name="fileID" minlength="10" size="10">
     8-digit AAN <input name="AAN" type="tel" minlength="8" maxlength="8" size=8 pattern="[0-9]+" onblur="findAAN(this.value)">
     template*: <input name="template" required size="5">
@@ -27,11 +28,11 @@
     <br>
     mperim*: <input name="mperim" required size=8> marea*: <input name="marea" required size=8>
     aflht: <input name="aflht" size=8> ta_delta: <input name="ta_delta" size=8> tp_delta: <input name="tp_delta" size=8><br>
-    Name First*: <input name="First" required> Last*: <input name="Last" required> Telephone:<input type="tel" name="Telephone"> email:<input type="email" name="email" size=30><br>
+    Name First*: <input name="_First" required> Last*: <input name="_Last" required> Telephone:<input type="tel" name="_Telephone"> email:<input type="email" name="email" size=30><br>
     AAN data: <output name="aanData"></output><br>
-    Street: <input name="street" readonly>
-    City: <input name="city" readonly>
-    Postal Code: <input name="postal" readonly size=7><br>
+    Street: <input name="_Street" readonly>
+    City: <input name="_City" readonly>
+    Postal Code: <input name="_Postal" readonly size=7><br>
     Weather: <input name="weather" readonly><br>
     <input type="submit" value="Create H2K file">
     </form>

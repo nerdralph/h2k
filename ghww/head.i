@@ -40,22 +40,22 @@
         </File>
         <Client>
             <Name>
-                <First></First>
-                <Last></Last>
+                <First>_First</First>
+                <Last>_Last</Last>
             </Name>
-            <Telephone></Telephone>
+            <Telephone>_Telephone</Telephone>
             <StreetAddress>
-                <Street></Street>
-                <City></City>
+                <Street>_Street</Street>
+                <City>_City</City>
                 <Province>NOVA SCOTIA</Province>
-                <PostalCode></PostalCode>
+                <PostalCode>_Postal</PostalCode>
             </StreetAddress>
             <MailingAddress>
                 <Name />
-                <Street></Street>
-                <City></City>
+                <Street>_Street</Street>
+                <City>_City</City>
                 <Province>NOVA SCOTIA</Province>
-                <PostalCode></PostalCode>
+                <PostalCode>_Postal</PostalCode>
             </MailingAddress>
         </Client>
         <Justifications nameplateEfficiency="false" combustionTestEfficiency="false" heatingCorrection="false" achCorrection="false" twoBlowerDoors="false" over18Months="false">

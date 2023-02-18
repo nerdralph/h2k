@@ -2,7 +2,9 @@
 # Ralph Doncaster 2021, 2022
 # Greener Homes wizard web version: creates H2K house models from templates
 
-import ashp
+# local modules
+import ashp, pp
+
 import cgi, json, math, os, sys
 #from datetime import date
 import requests
@@ -45,18 +47,8 @@ tp_delta_m = float(form.getvalue("tp_delta", 0))/FT_PER_M
 jd = requests.get("https://www.thedatazone.ca/resource/a859-xvcs.json?aan=" + AAN).json()[0]
 hd.write(json.dumps(jd))
 
-# 1=south, counter-clockwise to 8=southwest; see ghww.html FacingDirection
-def points(code):
-    return str(((code - 1) % 8) + 1)
-
-FRONT = int(form.getvalue("FacingDirection"))
-PP_DEFS = ["-D_FRONT_=" + points(FRONT),
-        "-D_RIGHT_=" + points(FRONT + 2),
-        "-D_BACK_=" + points(FRONT + 4),
-        "-D_LEFT_=" + points(FRONT + 6)]
-
 # use filepp to make h2k xml file
-xml = subprocess.check_output(["filepp", "-m", "for.pm"] + PP_DEFS + [template])
+xml = pp.filepp(template)
 t = ET.ElementTree(ET.fromstring(xml))
 
 # load SO+EA info template
@@ -70,11 +62,6 @@ f.extend(so)
 f.find("Identification").text = fileid
 f.find("TaxNumber").text = AAN
 
-c = pi.find("Client")
-c.find("Name/First").text = form.getvalue("First")
-c.find("Name/Last").text = form.getvalue("Last")
-c.find("Telephone").text = form.getvalue("Telephone")
-
 pii = pi.find("Information")
 info = ET.Element("Info", {"code": "Info. 7"})
 info.text = "NSPI;;" + form.getvalue("email", "") + ";N"
@@ -82,14 +69,6 @@ pii.append(info)
 #info = ET.Element("Info", {"code": "Info. 8"})
 #info.text = "H2K template built with Greener Homes Wizard github.com/nerdralph/h2k/"
 #pii.append(info)
-
-#street = jd["address_num"] + ' ' + jd["address_street"] + ' ' + jd.get("address_suffix", "")
-sa = c.find("StreetAddress")
-sa.find("Street").text = form.getvalue("street");
-#sa.find("City").text = jd["address_city"]
-sa.find("City").text = form.getvalue("city");
-# province set to NS in h2k template
-sa.find("PostalCode").text = form.getvalue("postal")
 
 # wc = weather codes
 # todo add region codes NB=7, NS=8
