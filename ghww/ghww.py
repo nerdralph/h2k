@@ -83,10 +83,11 @@ pii.append(info)
 #info.text = "H2K template built with Greener Homes Wizard github.com/nerdralph/h2k/"
 #pii.append(info)
 
-street = jd["address_num"] + ' ' + jd["address_street"] + ' ' + jd.get("address_suffix", "")
+#street = jd["address_num"] + ' ' + jd["address_street"] + ' ' + jd.get("address_suffix", "")
 sa = c.find("StreetAddress")
-sa.find("Street").text = street
-sa.find("City").text = jd["address_city"]
+sa.find("Street").text = form.getvalue("street");
+#sa.find("City").text = jd["address_city"]
+sa.find("City").text = form.getvalue("city");
 # province set to NS in h2k template
 sa.find("PostalCode").text = form.getvalue("postal")
 
@@ -102,9 +103,9 @@ wc = {"BRIER ISLAND": "163",
       "WESTERN HEAD": "171",
       "YARMOUTH": "172"}
 loc = form.getvalue("weather")
+hd.write("\nWeather station: " + loc)
 if loc in wc.keys(): 
     pi.find("Weather/Location").attrib["code"] = wc[loc]
-
 
 if wall_height_m == 0:
     wall_height_m = 5.15 if "2 Storey" in jd["style"] else 2.42
@@ -114,6 +115,7 @@ house = t.find("House")
 
 ahri = form.getvalue("AHRI")
 if ahri:
+    hd.write("AHRI#:" + ahri)
     house.find("HeatingCooling").append(ashp.query(ahri))
 
 hs = house.find("Specifications")
