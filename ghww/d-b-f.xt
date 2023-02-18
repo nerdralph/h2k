@@ -7,7 +7,6 @@
                 <Design code="7">July</Design>
             </CoolingSeason>
 #include "heat-f.i"
-            <Type2 shadingInF280Cooling="AccountedFor" />
             <MultipleSystems>
                 <Summary energySaverHeatingSystems="0" energySaverAirSourceHeatPump="0" woodAppliances="0" epaCsaHeatingSystems="0" />
             </MultipleSystems>
