@@ -41,6 +41,5 @@
                             <Power isCalculated="true" />
                         </FansAndPump>
                     </CoolingParameters>
-                    <ColdClimateHeatPump heatingEfficiency="10" coolingEfficiency="17" capacity="7.0" uiUnits="btu/hr" cop="2.0" capacityMaintenance="100" />
                 </AirHeatPump>
             </Type2>
