@@ -78,7 +78,6 @@ wc = {"BRIER ISLAND": "163",
       "WESTERN HEAD": "171",
       "YARMOUTH": "172"}
 loc = form.getvalue("weather")
-hd.write("\nWeather station: " + loc)
 if loc in wc.keys(): 
     pi.find("Weather/Location").attrib["code"] = wc[loc]
 
@@ -90,7 +89,6 @@ house = t.find("House")
 
 ahri = form.getvalue("AHRI")
 if ahri:
-    hd.write("AHRI#:" + ahri)
     house.find("HeatingCooling").append(ashp.query(ahri))
 
 hs = house.find("Specifications")

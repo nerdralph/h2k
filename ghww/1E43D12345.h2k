@@ -37,7 +37,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                 <English>Dwelling private</English>
                 <French>Logement privé</French>
             </Ownership>
-            <TaxNumber>07450729</TaxNumber>
+            <TaxNumber />
             <BuilderName />
             <HomeownerAuthorizationId />
         <EnteredBy>Kamaakshi Baabu</EnteredBy>
@@ -54,17 +54,17 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
             </Name>
             <Telephone>902-555-1212</Telephone>
             <StreetAddress>
-                <Street>5 CENTENNIAL CRT</Street>
-                <City>AMHERST</City>
+                <Street>5 Centennial Crt</Street>
+                <City>Amherst</City>
                 <Province>NOVA SCOTIA</Province>
                 <PostalCode>B4H 4V5</PostalCode>
             </StreetAddress>
             <MailingAddress>
                 <Name />
-                <Street />
-                <City />
+                <Street>5 Centennial Crt</Street>
+                <City>Amherst</City>
                 <Province>NOVA SCOTIA</Province>
-                <PostalCode />
+                <PostalCode>B4H 4V5</PostalCode>
             </MailingAddress>
         </Client>
         <Justifications nameplateEfficiency="false" combustionTestEfficiency="false" heatingCorrection="false" achCorrection="false" twoBlowerDoors="false" over18Months="false">
@@ -83,7 +83,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
         </Justifications>
         <Information>
             <Info code="Info. 2">ENS</Info>
-            <Info code="Info. 7">NSPI;;;N</Info>
+            <Info code="Info. 7">NSPI;;no@uu.net;N</Info>
         </Information>
     </ProgramInformation>
     <House id="0">
@@ -154,7 +154,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                     </RoofingMaterial>
                 </SlopedRoof>
             </RoofCavity>
-            <HeatedFloorArea aboveGrade="145.62550587996748" belowGrade="72.83597869849729" />
+            <HeatedFloorArea aboveGrade="185.80606810841144" belowGrade="86.95723987473656" />
         </Specifications>
         <WindowTightness code="1" value="1.86">
             <English>CSA - A1</English>
@@ -253,7 +253,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
         <NaturalAirInfiltration id="15">
             <Label>Natural Air Infiltration</Label>
             <Specifications>
-                <House volume="568.5997728980416">
+                <House volume="711.7568999630777">
                     <AirTightnessTest code="x">
                         <English>Blower door test values</English>
                         <French>Valeurs d'essai de dépressurisation</French>
@@ -438,7 +438,6 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                     </Specifications>
                 </Baseboards>
             </Type1>
-            <Type2 shadingInF280Cooling="AccountedFor" />
             <MultipleSystems>
                 <Summary energySaverHeatingSystems="0" energySaverAirSourceHeatPump="0" woodAppliances="0" epaCsaHeatingSystems="0" />
             </MultipleSystems>
@@ -485,7 +484,6 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                             <Power isCalculated="true" />
                         </FansAndPump>
                     </CoolingParameters>
-                    <ColdClimateHeatPump heatingEfficiency="10" coolingEfficiency="17" capacity="7.0" uiUnits="btu/hr" cop="2.0" capacityMaintenance="100" />
                 </AirHeatPump>
             </Type2></HeatingCooling>
         <Components>
@@ -498,7 +496,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                     </Type>
                     <CeilingType idref="Code 2" rValue="6.0448" nominalInsulation="6.2521">2401551000</CeilingType>
                 </Construction>
-                <Measurements length="21.396959315297302" area="78.17790315661412" heelHeight="0.13">
+                <Measurements length="23.774399239219225" area="92.90303405420572" heelHeight="0.13">
                     <Slope code="0" value="0.3333">
                         <English>User specified</English>
                         <French>Spécifié par l'utilisateur</French>
@@ -511,7 +509,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                     <Type idref="Code 1" rValue="2.9921" nominalInsulation="3.2421">1211301121</Type>
                     <LintelType idref="Code 5">101</LintelType>
                 </Construction>
-                <Measurements height="5.15" perimeter="35.66159885882884" />
+                <Measurements height="5.15" perimeter="39.62399873203204" />
                 <FacingDirection code="1">
                     <English>N/A</English>
                     <French>S/O</French>
@@ -1045,7 +1043,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                     </Window>
                 </Components>
             </Wall>
-            <Basement isExposedSurface="true" exposedSurfacePerimeter="34.44239889784323" id="1">
+            <Basement isExposedSurface="true" exposedSurfacePerimeter="38.40479877104644" id="1">
                 <Label>Foundation - 1</Label>
                 <Configuration type="BCCB" subtype="8" overlap="0.0914">BCCB_8</Configuration>
                 <OpeningUpstairs code="4" value="1.5598">
@@ -1061,7 +1059,7 @@ Content-Disposition: attachment; filename="1E43D12345.h2k"
                         <AddedToSlab rValue="0.0018" nominalInsulation="0.0018">User specified</AddedToSlab>
                         <FloorsAbove idref="Code 7" rValue="0.9834" nominalInsulation="0">4231002760</FloorsAbove>
                     </Construction>
-                    <Measurements isRectangular="false" area="72.83597869849729" perimeter="34.44239889784323" />
+                    <Measurements isRectangular="false" area="86.95723987473656" perimeter="38.40479877104644" />
                 </Floor>
                 <Wall hasPonyWall="true">
                     <Construction corners="4">
