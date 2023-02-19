@@ -1,0 +1,45 @@
+            <Type2 shadingInF280Cooling="AccountedFor">
+                <AirHeatPump>
+                    <EquipmentInformation energystar="false" CCASHP="true" AHRI="0">
+                        <Manufacturer>Greener Homes Wizard</Manufacturer>
+                        <Model>GHWiz</Model>
+                    </EquipmentInformation>
+                    <Equipment crankcaseHeater="0" numberOfHeads="2">
+                        <Type code="3">
+                            <English>Mini-split ductless</English>
+                            <French>Petit système bibloc sans conduits</French>
+                        </Type>
+                        <Function code="2">
+                            <English>Heating/Cooling</English>
+                            <French>Chauffage/climatisation</French>
+                        </Function>
+                    </Equipment>
+                    <Specifications>
+                        <OutputCapacity code="2" value="7.0" uiUnits="btu/hr">
+                            <English>Calculated</English>
+                        </OutputCapacity>
+                        <HeatingEfficiency isCop="false" value="9.57" />
+                        <CoolingEfficiency isCop="false" value="17" />
+                    </Specifications>
+                    <Temperature>
+                        <CutoffType code="3">
+                            <English>Unrestricted</English>
+                            <French>Non restreint</French>
+                        </CutoffType>
+                        <RatingType code="1" value="8.3333">
+                            <English>8.3 C (47 F)</English>
+                            <French>8.3 C (47 F)</French>
+                        </RatingType>
+                    </Temperature>
+                    <CoolingParameters sensibleHeatRatio="0.76" openableWindowArea="0">
+                        <FansAndPump flowRate="0" hasEnergyEfficientMotor="true">
+                            <Mode code="1">
+                                <English>Auto</English>
+                                <French>Auto</French>
+                            </Mode>
+                            <Power isCalculated="true" />
+                        </FansAndPump>
+                    </CoolingParameters>
+                    <ColdClimateHeatPump heatingEfficiency="0" coolingEfficiency="0" capacity="0" uiUnits="kW" cop="0" capacityMaintenance="0" />
+                </AirHeatPump>
+            </Type2>
