@@ -1,0 +1,6 @@
+# ghww change log
+
+2023-02-18: pass through form fields with _ prefix as house template macros
+
+2023-02-14: AHRI ref lookup using NRCan ASHP db
+
