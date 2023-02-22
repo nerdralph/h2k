@@ -24,8 +24,8 @@ def filepp(template: str):
     # use filepp to make h2k xml file
     xml = subprocess.check_output(["filepp", "-m", "for.pm"] + PP_DEFS + [template])
     xmlstr = xml.decode("utf-8")
-    pp = open("filepp.out", 'w')
-    pp.write(xmlstr)
+    #pp = open("filepp.out", 'w')
+    #pp.write(xmlstr)
 
     return xmlstr
 
