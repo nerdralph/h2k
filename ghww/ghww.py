@@ -15,7 +15,7 @@ FT_PER_M = 3.28084
 SF_PER_SM = FT_PER_M ** 2
 CF_PER_CM = FT_PER_M ** 3
 
-# form inputs: fileID AAN template mperim marea [aflht] [ta_delta] [tp_delta]")
+# form inputs: _fileID AAN _Foundation _Heat mperim marea [aflht] [ta_delta] [tp_delta]")
 # t = top floor
 
 form = cgi.FieldStorage()
@@ -32,7 +32,6 @@ print("Content-Type: application/octet-stream")
 print('Content-Disposition: attachment; filename="' + outfile + '"\n')
 
 AAN = form.getvalue("_AAN")
-template = form.getvalue("template") + ".xt"
 # main floor interior perimeter
 mperim = float(form.getvalue("mperim"))
 # main floor interior area
@@ -48,12 +47,12 @@ jd = requests.get("https://www.thedatazone.ca/resource/a859-xvcs.json?aan=" + AA
 hd.write(json.dumps(jd))
 
 # use filepp to make h2k xml file
-xml = pp.filepp(template)
-t = ET.ElementTree(ET.fromstring(xml))
+xml = pp.filepp("house.xt")
+tree = ET.ElementTree(ET.fromstring(xml))
 
 # load SO+EA info template
 so = ET.parse(fileid[:4] + ".xml").getroot()
-pi = t.find("ProgramInformation")
+pi = tree.find("ProgramInformation")
 f = pi.find("File")
 f.extend(so)
 
@@ -85,7 +84,7 @@ if wall_height_m == 0:
     wall_height_m = 5.15 if "2 Storey" in jd["style"] else 2.42
 storeys = 2 if wall_height_m > 4 else 1
 
-house = t.find("House")
+house = tree.find("House")
 
 ahri = form.getvalue("AHRI")
 if ahri:
@@ -109,7 +108,7 @@ above_grade_sm = (main_area_sm * storeys) + tad_sm
 hfa = hs.find("HeatedFloorArea")
 hfa.attrib["aboveGrade"] = str(above_grade_sm)
 
-hc = t.find("House/Components")
+hc = tree.find("House/Components")
 if hc.find("Basement"):
     FTYPE = "Basement"
     # 7.8ft bsmt + 1' header / FT_PER_M
@@ -162,6 +161,6 @@ m.attrib["area"] = str(bsmt_area_sm)
 m.attrib["perimeter"] = str(max(bperim_m, math.sqrt(bsmt_area_sm)*4 + 0.1))
 
 # write h2k file
-#t.write(outfile, "UTF-8", True)
+#tree.write(outfile, "UTF-8", True)
 sys.stdout.flush()
-t.write(sys.stdout.buffer, encoding="UTF-8", xml_declaration=True)
+tree.write(sys.stdout.buffer, encoding="UTF-8", xml_declaration=True)
