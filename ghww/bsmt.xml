@@ -1,0 +1,56 @@
+            <Basement isExposedSurface="true" exposedSurfacePerimeter="39.624" id="1">
+                <Label>Foundation - 1</Label>
+                <Configuration type="BCCB" subtype="8" overlap="0.0914">BCCB_8</Configuration>
+                <OpeningUpstairs code="4" value="1.5598">
+                    <English>User specified</English>
+                    <French>Spécifié par l'utilisateur</French>
+                </OpeningUpstairs>
+                <RoomType code="6">
+                    <English>Utility Room</English>
+                    <French>Pièce Utilitaire</French>
+                </RoomType>
+                <Floor>
+                    <Construction isBelowFrostline="true" hasIntegralFooting="false" heatedFloor="false">
+                        <AddedToSlab rValue="0.0018" nominalInsulation="0.0018">User specified</AddedToSlab>
+                        <FloorsAbove idref="Code 7" rValue="0.9834" nominalInsulation="0">4231002760</FloorsAbove>
+                    </Construction>
+                    <Measurements isRectangular="false" area="92.903" perimeter="39.624" />
+                </Floor>
+                <Wall hasPonyWall="true">
+                    <Construction corners="4">
+                        <InteriorAddedInsulation idref="Code 8" nominalInsulation="2.11">
+                            <Description>230201</Description>
+                            <Composite>
+                                <Section rank="1" percentage="100" rsi="1.7329" nominalRsi="2.11" />
+                            </Composite>
+                        </InteriorAddedInsulation>
+                        <ExteriorAddedInsulation nominalInsulation="0.0018">
+                            <Description>User specified</Description>
+                            <Composite>
+                                <Section rank="1" percentage="100" rsi="0.0018" nominalRsi="0.0018" />
+                            </Composite>
+                        </ExteriorAddedInsulation>
+                        <Lintels idref="Code 4">Bsmnt Lintel</Lintels>
+                        <PonyWallType idref="Code 9" nominalInsulation="3.2421">
+                            <Description>1211301121</Description>
+                            <Composite>
+                                <Section rank="1" percentage="100" rsi="2.8703" nominalRsi="3.2421" />
+                            </Composite>
+                        </PonyWallType>
+                    </Construction>
+                    <Measurements height="2.3622" depth="0.9144" ponyWallHeight="1.2192" />
+                </Wall>
+                <Components>
+                    <FloorHeader adjacentEnclosedSpace="false" id="3">
+                        <Label>BW hdr-01</Label>
+                        <Construction>
+                            <Type idref="Code 10" rValue="3.6896" nominalInsulation="3.34">R-19 + siding</Type>
+                        </Construction>
+                        <Measurements height="0.3048" perimeter="40.2336" />
+                        <FacingDirection code="1">
+                            <English>N/A</English>
+                            <French>S/O</French>
+                        </FacingDirection>
+                    </FloorHeader>
+                </Components>
+            </Basement>

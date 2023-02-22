@@ -1,0 +1,13 @@
+            <Slab isExposedSurface="true" exposedSurfacePerimeter="27.432" id="49">
+                <Label>Slab-on-grade - 1</Label>
+                <Configuration type="SCB" subtype="21">SCB_21</Configuration>
+                <Floor>
+                    <Construction isBelowFrostline="false" hasIntegralFooting="false" heatedFloor="false">
+                        <AddedToSlab rValue="1.7611" nominalInsulation="1.7611">User specified</AddedToSlab>
+                    </Construction>
+                    <Measurements isRectangular="false" area="37.1612" perimeter="27.432" />
+                </Floor>
+                <Wall>
+                    <RValues skirt="1.7611" thermalBreak="1.7611" />
+                </Wall>
+            </Slab>
