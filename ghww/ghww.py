@@ -3,7 +3,7 @@
 # Greener Homes wizard web version: creates H2K house models from templates
 
 # local modules
-import ashp, pp
+import ashp, config, pp
 
 import cgi, json, math, os, sys
 #from datetime import date
@@ -50,11 +50,13 @@ hd.write(json.dumps(jd))
 xml = pp.filepp("house.xt")
 tree = ET.ElementTree(ET.fromstring(xml))
 
-# load SO+EA info template
-so = ET.parse(fileid[:4] + ".xml").getroot()
 pi = tree.find("ProgramInformation")
+# set SO + EA
 f = pi.find("File")
-f.extend(so)
+soea = config.SOEA.setdefault(fileid[:4], config.DFLT_SOEA)
+f.find("EnteredBy").text = soea["eaname"]
+f.find("Company").text = soea["soname"]
+f.find("CompanyTelephone").text = soea["sotel"]
 
 # set default evaluation date 
 #ymd = date.today().isoformat()

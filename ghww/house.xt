@@ -26,7 +26,7 @@
                 <French>GREENWOOD</French>
             </Location>
         </Weather>
-        <File evaluationDate="2022-01-01">
+        <File evaluationDate="2023-01-01">
             <Identification>_FileID</Identification>
             <PreviousFileId />
             <EnrollmentId />
@@ -34,6 +34,12 @@
                 <English>Dwelling private</English>
                 <French>Logement privé</French>
             </Ownership>
+            <EnteredBy />
+            <UserTelephone />
+            <UserExtension />
+            <CompanyTelephone />
+            <CompanyExtension />
+            <Company />
             <TaxNumber />
             <BuilderName />
             <HomeownerAuthorizationId />
