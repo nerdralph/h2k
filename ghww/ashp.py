@@ -9,7 +9,7 @@ ASHP_Debug = 0
 def query(ahri: str):
     """Find an air-source heat pump given an AHRI reference #."""
 
-    SPEC_COLS = [ "Brand", "Outside_Model", "Heating_kW", "SEER", "HSPF5" ]
+    SPEC_COLS = ["Brand", "Outside_Model", "Heating_kW", "SEER", "HSPF5"]
     con = sqlite3.connect("hp.db")
     stmt = "SELECT " + ", ".join(SPEC_COLS) + " FROM ASHP WHERE AHRI_Ref = " + ahri + ';'
     row = con.cursor().execute(stmt).fetchone()
@@ -30,13 +30,13 @@ def query(ahri: str):
     ahp.find("EquipmentInformation").attrib["AHRI"] = ahri
 
     if ASHP_Debug:
-        print("Set AHRI# = " + ahri )
+        print("Set AHRI# = " + ahri)
 
     return type2
 
 if __name__ == "__main__":
     if len(sys.argv) == 2:
         ASHP_Debug = 1
-        print (query(sys.argv[1]))
+        print(query(sys.argv[1]))
     else:
-        print( sys.argv[0] + " AHRI_Ref")
+        print(sys.argv[0] + " AHRI_Ref")
