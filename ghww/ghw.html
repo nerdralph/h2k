@@ -10,7 +10,7 @@
     <p>H2K Greener Homes Wizard</p>
     <form action="/cgi-bin/ghww.py" method="get" id="aanq">
     <!-- field names prefixed with '_' will be converted to house template macros -->
-    File ID <input name="_FileID" minlength="10" size="10">
+    File ID <input name="_FileID" minlength="10" size="10" required>
     8-digit AAN <input name="_AAN" type="tel" minlength="8" maxlength="8" size=8 pattern="[0-9]+" onblur="findAAN(this.value)">
     <select name="_Foundation">
       <option>bsmt</option>
