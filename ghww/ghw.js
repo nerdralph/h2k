@@ -1,4 +1,4 @@
-// (c) Ralph Doncaster 2022, 2023
+// (c) Ralph Doncaster 2022
 
 // get postal code & weather station for given AAN JSON data from thedatazone.ca
 function getLocationData(d) {
