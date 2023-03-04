@@ -2,14 +2,11 @@
 # Ralph Doncaster 2021, 2022
 # Greener Homes wizard web version: creates H2K house models from templates
 
+import xml.etree.ElementTree as ET
+import cgi, json, math, os, requests, sys
+
 # local modules
 import ashp, config, pp
-
-import cgi, json, math, os, sys
-#from datetime import date
-import requests
-import subprocess
-import xml.etree.ElementTree as ET
 
 FT_PER_M = 3.28084
 SF_PER_SM = FT_PER_M ** 2
@@ -63,12 +60,11 @@ f.find("CompanyTelephone").text = soea["sotel"]
 #f.attrib["evaluationDate"] = ymd
 
 #pii = pi.find("Information")
-#info = ET.Element("Info", {"code": "Info. 8"})
+#info = ET.Element("Info", {"code": "Info. 42"})
 #info.text = "H2K template built with Greener Homes Wizard github.com/nerdralph/h2k/"
 #pii.append(info)
 
 # wc = weather codes
-# todo add region codes NB=7, NS=8
 wc = {"BRIER ISLAND": "163",
       "GREENWOOD": "165",
       "HALIFAX INTL": "166",
@@ -126,7 +122,7 @@ else:
 volume = (BSMT_HT_M * bsmt_area_sm) + wall_height_m * main_area_sm
 # adjust for different top floor area with 8' ceiling and 1' floor
 volume += tad_sm *  9/FT_PER_M
-air_specs  = house.find("NaturalAirInfiltration/Specifications")
+air_specs = house.find("NaturalAirInfiltration/Specifications")
 air_specs.find("House").attrib["volume"] = str(volume)
 
 # default highest ceiling height: BSMT_HT/2 + main wall

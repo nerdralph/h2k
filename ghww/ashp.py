@@ -4,7 +4,7 @@ import sqlite3
 import sys
 import xml.etree.ElementTree as ET
 
-ASHP_Debug = 0
+DEBUG = 0
 
 def query(ahri: str):
     """Find an air-source heat pump given an AHRI reference #."""
@@ -29,14 +29,14 @@ def query(ahri: str):
         ahri = "-1"
     ahp.find("EquipmentInformation").attrib["AHRI"] = ahri
 
-    if ASHP_Debug:
+    if DEBUG:
         print("Set AHRI# = " + ahri)
 
     return type2
 
 if __name__ == "__main__":
     if len(sys.argv) == 2:
-        ASHP_Debug = 1
+        DEBUG = 1
         print(query(sys.argv[1]))
     else:
         print(sys.argv[0] + " AHRI_Ref")
