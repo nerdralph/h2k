@@ -53,14 +53,14 @@
             <StreetAddress>
                 <Street>_Street</Street>
                 <City>_City</City>
-                <Province>NOVA SCOTIA</Province>
+                <Province>_Province</Province>
                 <PostalCode>_Postal</PostalCode>
             </StreetAddress>
             <MailingAddress>
                 <Name />
                 <Street>_Street</Street>
                 <City>_City</City>
-                <Province>NOVA SCOTIA</Province>
+                <Province>_Province</Province>
                 <PostalCode>_Postal</PostalCode>
             </MailingAddress>
         </Client>

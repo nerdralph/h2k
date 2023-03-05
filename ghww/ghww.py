@@ -66,6 +66,7 @@ f.find("CompanyTelephone").text = soea["sotel"]
 
 # wc = weather codes
 wc = {"BRIER ISLAND": "163",
+      "CALGARY INTL": "5",
       "GREENWOOD": "165",
       "HALIFAX INTL": "166",
       "KEJIMKUJIK": "167",
