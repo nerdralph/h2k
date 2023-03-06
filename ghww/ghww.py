@@ -33,15 +33,15 @@ AAN = form.getvalue("_AAN")
 mperim = float(form.getvalue("mperim"))
 # main floor interior area
 marea = float(form.getvalue("marea"))
-# wall height in metres
-wall_height_m = float(form.getvalue("aflht", 0))/FT_PER_M
+# wall height in metres, default to 2.43m = 7.97'
+wall_height_m = float(form.getvalue("aflht", 2.43))/FT_PER_M
 # top floor area difference from marea
 ta_delta = float(form.getvalue("ta_delta", 0))
 # top floor area difference from marea
 tp_delta_m = float(form.getvalue("tp_delta", 0))/FT_PER_M
 
-jd = requests.get("https://www.thedatazone.ca/resource/a859-xvcs.json?aan=" + AAN).json()[0]
-hd.write(json.dumps(jd))
+#jd = requests.get("https://www.thedatazone.ca/resource/a859-xvcs.json?aan=" + AAN).json()[0]
+#hd.write(json.dumps(jd))
 
 # use filepp to make h2k xml file
 xml = pp.filepp("house.xt")
@@ -79,10 +79,6 @@ loc = form.getvalue("weather")
 if loc in wc.keys(): 
     pi.find("Weather/Location").attrib["code"] = wc[loc]
 
-if wall_height_m == 0:
-    wall_height_m = 5.15 if "2 Storey" in jd["style"] else 2.42
-storeys = 2 if wall_height_m > 4 else 1
-
 house = tree.find("House")
 
 ahri = form.getvalue("AHRI")
@@ -90,7 +86,8 @@ if ahri:
     house.find("HeatingCooling").append(ashp.query(ahri))
 
 hs = house.find("Specifications")
-hs.find("YearBuilt").attrib["value"] = jd.get("year_built", "1920")
+# hs.find("YearBuilt").attrib["value"] = jd.get("year_built", "1920")
+storeys = 2 if wall_height_m > 4 else 1
 # code 1 = 1 storey, 3 = 2 storey
 hs.find("Storeys").attrib["code"] = "1" if storeys == 1 else "3"
 

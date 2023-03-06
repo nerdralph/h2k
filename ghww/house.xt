@@ -26,7 +26,7 @@
                 <French>GREENWOOD</French>
             </Location>
         </Weather>
-        <File evaluationDate="2023-01-01">
+        <File evaluationDate="__ISO_DATE__">
             <Identification>_FileID</Identification>
             <PreviousFileId />
             <EnrollmentId />
@@ -107,7 +107,7 @@
                 <English>Light, wood frame</English>
                 <French>Légère, ossature de bois</French>
             </ThermalMass>
-            <YearBuilt code="1" value="0">
+            <YearBuilt code="1" value="_YearBuilt">
                 <English>User specified</English>
                 <French>Spécifié par l'util.</French>
             </YearBuilt>
