@@ -11,7 +11,7 @@
     <form action="/cgi-bin/ghww.py" method="get" id="aanq">
     <!-- field names prefixed with '_' will be converted to house template macros -->
     File ID <input name="_FileID" minlength="10" size="10" required>
-    Tax number <input name="_AAN" type="tel" minlength="8" size=8 pattern="[0-9]+" onblur="findAAN(this.value)">
+    Tax # <input name="_AAN" type="tel" minlength="8" size=8 pattern="[0-9]+" onblur="findAAN(this.value)">
     <select name="_Foundation">
       <option>bsmt</option>
       <option>slab</option>
@@ -33,7 +33,7 @@
       <option value="7">west</option>
       <option value="8">southwest</option>
     </select>
-    ASHP AHRI# <input name="AHRI" size="10">
+    HP AHRI# <input name="AHRI" size="10">
     <br>
     mperim*: <input name="mperim" required size=8> marea*: <input name="marea" required size=8>
     aflht: <input name="aflht" size=8> ta_delta: <input name="ta_delta" size=8> tp_delta: <input name="tp_delta" size=8><br>

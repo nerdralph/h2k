@@ -81,6 +81,7 @@
         <Information>
             <Info code="Info. 2">ENS</Info>
             <Info code="Info. 7">NSPI;;_Email;N</Info>
+            <Info code="Info. 42">Built with Greener Homes Wizard github.com/nerdralph/h2k/</Info>
         </Information>
     </ProgramInformation>
     <House id="0">
