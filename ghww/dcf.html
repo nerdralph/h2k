@@ -9,17 +9,21 @@
       input:invalid {
         background-color: lightpink;
       }
-      input, label {
+      input, label, select {
         display: inline-grid;
+        font-size: 1em;
       }
       body {
         font-family: Helvetica, Arial, sans-serif;
+        background-color: LightSkyBlue;
+        margin-left: 1px;
+        margin-right: 4px;
       }
     </style>
     <title>EA DCF</title>
   </head>
-  <body style="background-color:LightSkyBlue;">
-    <h1 style="color:DarkGreen;">Solar Si</h1>
+  <body> 
+    <h1 style="color:DarkGreen;">ERS GHWiz</h1>
     <form action="/cgi-bin/ghww.py" method="get" id="aanq">
     <!-- field names prefixed with '_' will be converted to house template macros -->
     <label>File ID <input name="_FileID" pattern="[\w]{4}D[\d]{5}" size=10 required></label>
@@ -52,20 +56,20 @@
     <label>HP AHRI# <input type="tel" pattern="[\d]{6,9}" name="AHRI" size="9"></label>
     <br>
     Interior dimensions:<br>
-    <label>mperim*<input name="mperim" type="tel" required size=5></label>
-    <label>marea*<input name="marea" type="tel" required size=5></label>
-    <label>aflht<input name="aflht" type="tel" size=5></label>
-    <label>ta_delta<input name="ta_delta" type="tel" size=5></label>
-    <label>tp_delta<input name="tp_delta" type="tel" size=5></label>
+    <label>mperim*<input name="mperim" type="tel" required style="width: 5ch"></label>
+    <label>marea*<input name="marea" type="tel" required style="width: 5ch"></label>
+    <label>aflht<input name="aflht" type="tel" style="width: 5ch"></label>
+    <label>ta_delta<input name="ta_delta" type="tel" style="width: 5ch"></label>
+    <label>tp_delta<input name="tp_delta" type="tel" style="width: 5ch"></label>
     <br>
-    <label>Client first name*<input name="_First" required size=12></label>
-    <label>Client last name*<input name="_Last" required></label>
-    <label>Telephone<input type="tel" name="_Telephone" size=10></label>
-    <label>email<input type="email" name="_Email" size=30></label>
+    <label>Client first name*<input name="_First" required style="width: 14ch"></label>
+    <label>Client last name*<input name="_Last" required style="width: 18ch"></label>
+    <label>Telephone<input type="tel" name="_Telephone" style="width: 12ch"></label>
+    <label>email<input type="email" name="_Email" style="width: 25ch"></label>
     <br>
     House details: <output name="aanData"></output><br>
-    <label>Street<input name="_Street" readonly></label>
-    <label>City<input name="_City" size=15 readonly></label>
+    <label>Street<input name="_Street" readonly style="width: 20ch"></label>
+    <label>City<input name="_City" readonly style="width: 15ch"></label>
     <label>Province<input name="_Province" size=12 readonly></label>
     <label>Postal<input name="_Postal" readonly size=6></label><br>
     <label>Built in<input name="_YearBuilt" readonly size=4></label>
