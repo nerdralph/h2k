@@ -47,3 +47,7 @@ function findAAN(aan) {
     const region = location.hash.substr(1);
     fetchJd(TAXREGISTRY[region] + aan, d => ROLLFN[region](d[0]));
 }
+
+// global form init
+window.onload = () => aanq.elements._FileID.value = location.search.slice(1);
+
