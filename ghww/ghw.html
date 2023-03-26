@@ -8,6 +8,7 @@
     <h1 style="color:DarkGreen;">Solar Si</h1>
     <p>Helping Nova Scotia save energy.</p>
     <p>H2K Greener Homes Wizard</p>
+    <p>Enter interior dimensions in feet.</p>
     <form action="/cgi-bin/ghww.py" method="get" id="aanq">
     <!-- field names prefixed with '_' will be converted to house template macros -->
     File ID <input name="_FileID" minlength="10" size="10" required>
@@ -35,9 +36,11 @@
     </select>
     HP AHRI# <input name="AHRI" size="10">
     <br>
-    mperim*: <input name="mperim" required size=8> marea*: <input name="marea" required size=8>
+    mperim*: <input name="mperim" type="number" required size=4>
+    marea*: <input name="marea" required size=4>
     aflht: <input name="aflht" size=8> ta_delta: <input name="ta_delta" size=8> tp_delta: <input name="tp_delta" size=8><br>
-    Name First*: <input name="_First" required> Last*: <input name="_Last" required> Telephone:<input type="tel" name="_Telephone" size=12> email:<input type="email" name="_Email" size=30><br>
+    Name* <input name="_First" required placeholder="first"><input name="_Last" required placeholder="last">
+    Telephone:<input type="tel" name="_Telephone" size=12> email:<input type="email" name="_Email" size=30><br>
     House data: <output name="aanData"></output><br>
     Street: <input name="_Street" readonly>
     City: <input name="_City" readonly>
