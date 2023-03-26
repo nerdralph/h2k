@@ -3,7 +3,7 @@
 # Greener Homes wizard web version: creates H2K house models from templates
 
 import xml.etree.ElementTree as ET
-import cgi, json, math, os, requests, sys
+import cgi, datetime, json, math, os, requests, sys
 
 # local modules
 import ashp, config, pp
@@ -21,8 +21,8 @@ fileid = form.getvalue("_FileID")
 
 house_data = "/tmp/ghww.log"
 hd = open(house_data, 'a')
-hd.write("\nStart " + fileid)
-hd.write("\nARGS=" + os.getenv("QUERY_STRING"))
+hd.write("Start " + fileid + ' ' + datetime.date.today().isoformat())
+hd.write("\nARGS=" + os.getenv("QUERY_STRING") +"\n")
 
 outfile = fileid + ".h2k"
 print("Content-Type: application/octet-stream")
