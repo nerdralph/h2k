@@ -67,18 +67,55 @@
     <label>Telephone<input type="tel" name="_Telephone" style="width: 12ch"></label>
     <label>email<input type="email" name="_Email" style="width: 25ch"></label>
     <br>
-    House details: <output name="aanData"></output><br>
+    House details:<br>
     <label>Street<input name="_Street" readonly style="width: 20ch"></label>
     <label>City<input name="_City" readonly style="width: 15ch"></label>
     <label>Province<input name="_Province" size=12 readonly></label>
     <label>Postal<input name="_Postal" readonly size=6></label><br>
     <label>Built in<input name="_YearBuilt" readonly size=4></label>
     <label>Weather station<input name="weather" readonly></label><br>
+    <div v-scope="{counts: {_FW: 0, _LW: 0, _BW: 0, _RW: 0}}">
+      <template id="H2KWindow-tmpl">
+        <td><input type="tel" :name="wname + c +'T'" :value="dfltWndwCode.value" style="width: 6ch"></td>
+        <td><input type="tel" :name="wname + c +'C'" value="1" style="width: 1ch"></td>
+        <td><input type="tel" :data-var="wname" :name="wname + c +'H'" value="0" style="width: 3ch" @blur="counts[event.target.getAttribute('data-var')]++"></td>
+        <td><input type="tel" :name="wname + c +'W'" value="0" style="width: 3ch"></td>
+        <td><input :name="wname + c +'N'" style="width: 10ch"></td>
+      </template>
+      Default Window Code
+      <input id="dfltWndwCode" style="width: 6ch" type="tel" required pattern="[\d]{6}" 
+             @blur="with (counts) _FW=_LW=_BW=_RW=1"><br>
+      <table>
+        <tr><th>Tag</th><th>Type</th><th>#</th><th>Hgt</th><th>W-d</th><th>Note</th></tr>
+        <template v-for="c in counts['_FW']">
+          <tr v-scope="H2KWindow({wname: '_FW'})"><td>Frnt{{c}}</td></tr>
+        </template>
+        <template v-for="c in counts['_LW']">
+          <tr v-scope="H2KWindow({wname: '_LW'})"><td>Left{{c}}</td></tr>
+        </template>
+        <template v-for="c in counts['_BW']">
+          <tr v-scope="H2KWindow({wname: '_BW'})"><td>Bck{{c}}</td></tr>
+        </template>
+        <template v-for="c in counts['_RW']">
+          <tr v-scope="H2KWindow({wname: '_RW'})"><td>Rht{{c}}</td></tr>
+        </template>
+      </table>
+    </div>
     <input type="submit" value="Create H2K file">
     </form>
     <br>
     <a href="https://oee.nrcan.gc.ca/pml-lmp/index.cfm?action=app.search-recherche&appliance=HP_SS" target="_blank">NRCan ASHP lookup</a>
 	<script src="ghw.js"></script>
+  <script src="https://unpkg.com/petite-vue" defer init></script>
+  <script>
+    <!-- window template function -->
+    function H2KWindow(props){
+      return {
+        $template: '#H2KWindow-tmpl',
+        wname: props.wname
+      }
+    }
+  </script>
   </body>
 </html>
 
