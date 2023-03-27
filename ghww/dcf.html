@@ -78,7 +78,8 @@
       <template id="H2KWindow-tmpl">
         <td><input type="tel" :name="wname + c +'T'" :value="dfltWndwCode.value" style="width: 6ch"></td>
         <td><input type="tel" :name="wname + c +'C'" value="1" style="width: 1ch"></td>
-        <td><input type="tel" :data-var="wname" :name="wname + c +'H'" value="0" style="width: 3ch" @blur="counts[event.target.getAttribute('data-var')]++"></td>
+        <td><input type="tel" :data-var="wname" :name="wname + c +'H'" value="0" style="width: 3ch"
+                   @blur="addWindow(event.target, counts)"></td>
         <td><input type="tel" :name="wname + c +'W'" value="0" style="width: 3ch"></td>
         <td><input :name="wname + c +'N'" style="width: 10ch"></td>
       </template>
@@ -108,6 +109,10 @@
 	<script src="ghw.js"></script>
   <script src="https://unpkg.com/petite-vue" defer init></script>
   <script>
+    function addWindow(t, counts){
+      if (t.value > 0) counts[t.getAttribute('data-var')]++;
+    }
+
     <!-- window template function -->
     function H2KWindow(props){
       return {
