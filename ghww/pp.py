@@ -19,10 +19,13 @@ def filepp(template: str):
 
     for k in form.keys():
         if k[0] == '_':
-            PP_DEFS.append("-D" + k + '=' + form[k].value)
+            PP_DEFS.append("-D"+k+'=' + form[k].value)
+        if k[1:5] == "Wndw":
+            # convert inches to mm
+            PP_DEFS.append("-D"+k+'=' + str(25.4 * int(form[k].value)))
 
     # use filepp to make h2k xml file
-    xml = subprocess.check_output(["filepp", "-m", "for.pm"] + PP_DEFS + [template])
+    xml = subprocess.check_output(["filepp", "-m", "for.pm", "-m", "maths.pm"] + PP_DEFS + [template])
     xmlstr = xml.decode("utf-8")
     #pp = open("filepp.out", 'w')
     #pp.write(xmlstr)

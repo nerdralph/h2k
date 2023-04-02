@@ -449,8 +449,8 @@
                     <French>S/O</French>
                 </FacingDirection>
                 <Components>
-#include "doors.i"
-#include "windows.i"
+#include "doors.xml"
+#include "windows.xml"
                 </Components>
             </Wall>
             <Floor adjacentEnclosedSpace="true" id="42">

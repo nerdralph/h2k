@@ -72,7 +72,7 @@
     <label>City<input name="_City" readonly style="width: 15ch"></label>
     <label>Province<input name="_Province" size=12 readonly></label>
     <label>Postal<input name="_Postal" readonly size=6></label><br>
-    <label>Built in<input name="_YearBuilt" readonly size=4></label>
+    <label>Year built<input name="_YearBuilt" readonly size=4></label>
     <label>Weather station<input name="weather" readonly></label><br>
     <div v-scope="{counts: {WndwF: 1, WndwL: 1, WndwB: 1, WndwR: 1}}">
       <template id="H2KWindow-tmpl">
@@ -85,9 +85,9 @@
           </select>
         </td>
         <td><input type="tel" :name="'_C' + wname + c" value="1" maxlength="1" pattern="[\d]" style="width: 1ch"></td>
-        <td><input type="tel" :data-var="wname" :name="wname + c +'H'" value="0" style="width: 3ch"
+        <td><input type="tel" :data-var="wname" :name="'H' + wname + c" value="0" style="width: 3ch"
                    @blur="addWindow(event.target, counts)"></td>
-        <td><input type="tel" :name="wname + c +'W'" value="0" style="width: 3ch"></td>
+        <td><input type="tel" :name="'W' + wname + c" value="0" style="width: 3ch"></td>
         <td><input :name="'_N' + wname + c" style="width: 10ch"></td>
       </template>
       Windows:
