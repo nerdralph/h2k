@@ -3,7 +3,7 @@ D1: glazing layers/coats
  1 = single pane
  2 = double
  4 = triple with 2 lowE coatings
-D2: coatings; only [03] valid for basic service .2 hard coat
+D2: coatings; only valid lowE for basic service is .2 hard coat
  0 = none
  3 = .2e hard coat
 D3: airspace
@@ -22,4 +22,5 @@ D5: type (Picture, Hinged, ...)
 D6: frame material
  0 = aluminum
  2 = wood; same R-value & SHGC as vinyl 
+ 4 = vinyl
  5 = reinforced vinyl (for patio door)
