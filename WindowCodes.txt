@@ -1,4 +1,4 @@
-H2K common 6-digit window codes: [124][03][03][02][0-5][0245]
+H2K common window codes: [124][03][03][02][0-5][0245]
 D1: glazing layers/coats
  1 = single pane
  2 = double
