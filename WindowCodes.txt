@@ -1,11 +1,11 @@
-H2K common window codes: [124][03][03][02][0-5][0245]
+Common window codes: [124][03][03][02][0-5][0245]
 D1: glazing layers/coats
  1 = single pane
  2 = double
  4 = triple with 2 lowE coatings
-D2: coatings; only valid lowE for basic service is .2 hard coat
+D2: lowE coatings
  0 = none
- 3 = .2e hard coat
+ 3 = 0.2e hard coat
 D3: airspace
  0 = 13mm air
  3 = 13mm argon
