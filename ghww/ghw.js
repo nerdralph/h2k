@@ -5,6 +5,10 @@ const TAXREGISTRY = {
     "YYC": "https://data.calgary.ca/resource/simh-5fhj.json?roll_number="
 }
 
+function getCookie(name) {
+    return document.cookie.match(new RegExp(`(^| )${name}=([^;]+)`))?.at(2);
+}
+
 function nsAAN(d) {
     aanq.elements._YearBuilt.value = d.year_built;
     getHouseData( d.address_num + " " + d.address_street, d.x_coord + "," + d.y_coord);
@@ -48,6 +52,16 @@ function findAAN(aan) {
     fetchJd(TAXREGISTRY[region] + aan, d => ROLLFN[region](d[0]));
 }
 
+function nextFile() {
+    var fid = getCookie("_FileID");
+    if (!fid) return "";
+    // last 5 digits is house indicator: ERS Tech Procedures 2.9
+    fid = fid.substr(0,5) + `${+fid.substr(5) + 1}`.padStart(5, "0"); 
+    //document.cookie = `_FileID=${fid};SameSite=Strict`;
+    return fid;
+}
+
 // global form init
-window.onload = () => aanq.elements._FileID.value = location.search.slice(1);
+// window.onload = () => aanq.elements._FileID.value = location.search.slice(1);
+window.onload = () => aanq.elements._FileID.value = nextFile();
 
