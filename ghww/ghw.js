@@ -10,7 +10,7 @@ function getCookie(name) {
 }
 
 function nsAAN(d) {
-    aanq.elements._YearBuilt.value = d.year_built;
+    aanq.elements._YearBuilt.value = d.year_built | "1923";
     getHouseData( d.address_num + " " + d.address_street, d.x_coord + "," + d.y_coord);
 }
 
@@ -52,12 +52,17 @@ function findAAN(aan) {
     fetchJd(TAXREGISTRY[region] + aan, d => ROLLFN[region](d[0]));
 }
 
+function setFID(fid) {
+    document.cookie = `_FileID=${fid};SameSite=Strict`;
+    document.title = fid;
+}
+
+// increment FileID
 function nextFile() {
     var fid = getCookie("_FileID");
     if (!fid) return "";
     // last 5 digits is house indicator: ERS Tech Procedures 2.9
     fid = fid.substr(0,5) + `${+fid.substr(5) + 1}`.padStart(5, "0"); 
-    //document.cookie = `_FileID=${fid};SameSite=Strict`;
     return fid;
 }
 
