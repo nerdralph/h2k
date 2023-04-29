@@ -34,13 +34,6 @@
         <option>slab</option>
       </select>
     </label>
-    <label>Heat
-      <select name="_Heat">
-        <option>electric</option>
-        <option>boiler</option>
-        <option>furnace</option>
-      </select>
-    </label>
     <label>House faces
       <select name="FacingDirection">
         <option value="1">south</option>
@@ -53,27 +46,49 @@
         <option value="8">southwest</option>
       </select>
     </label>
-    <label>HP AHRI# <input type="tel" pattern="[\d]{6,9}" name="AHRI" size="9"></label>
     <br>
-    Interior dimensions:<br>
+    <br>Interior dimensions:<br>
     <label>mperim*<input name="mperim" type="tel" required style="width: 5ch"></label>
     <label>marea*<input name="marea" type="tel" required style="width: 5ch"></label>
     <label>aflht<input name="aflht" type="tel" style="width: 5ch"></label>
     <label>ta_delta<input name="ta_delta" type="tel" style="width: 5ch"></label>
     <label>tp_delta<input name="tp_delta" type="tel" style="width: 5ch"></label>
-    <br>
+    <br><br>
     <label>Client first name*<input name="_First" required style="width: 14ch"></label>
     <label>Client last name*<input name="_Last" required style="width: 18ch"></label>
     <label>Telephone<input type="tel" name="_Telephone" style="width: 12ch"></label>
     <label>email<input type="email" name="_Email" style="width: 25ch"></label>
     <br>
-    House details:<br>
     <label>Street<input name="_Street" style="width: 20ch"></label>
     <label>City<input name="_City" style="width: 15ch"></label>
     <label>Province<input name="_Province" size=12></label>
     <label>Postal<input name="_Postal" size=6></label><br>
     <label>Year built<input name="_YearBuilt" size=4></label>
     <label>Weather station<input name="weather"></label><br>
+    <div>
+    <br>Mechanicals<br>
+    <label>Heat
+      <select name="_Heat">
+        <option>electric</option>
+        <option>oil boiler</option>
+        <option>oil furnace</option>
+        <option>gas furnace</option>
+      </select>
+    </label>
+    <label>HP AHRI#<input type="tel" pattern="[\d]{6,9}" name="AHRI" size=7></label>
+    <label>Note<input name="HeatNote" size=9></label><br>
+    <label>Supplemental<input size=30></label><br>
+    <label>DHW
+      <select name="_DHW">
+        <option>electric</option>
+        <option>oil tank</option>
+        <option>gas tank</option>
+        <option>coil</option>
+      </select>
+    </label>
+    <label>Litres<input type="tel" pattern="[\d]*" name="_DHWL" size=3 value="189"></label>
+    <label>Note<input name="DHWNote" size=9></label><br>
+    </div>
     <div v-scope="{counts: {WndwF: 1, WndwL: 1, WndwB: 1, WndwR: 1}}">
       <template id="H2KWindow-tmpl">
         <td>
