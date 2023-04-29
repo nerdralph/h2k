@@ -10,7 +10,7 @@ function getCookie(name) {
 }
 
 function nsAAN(d) {
-    aanq.elements._YearBuilt.value = d.year_built | "1923";
+    aanq.elements._YearBuilt.value = d.year_built || "1923";
     getHouseData( d.address_num + " " + d.address_street, d.x_coord + "," + d.y_coord);
 }
 
