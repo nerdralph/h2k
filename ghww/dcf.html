@@ -28,12 +28,6 @@
     <!-- field names prefixed with '_' will be converted to house template macros -->
     <label>File ID <input name="_FileID" pattern="[\w]{4}D[\d]{5}" maxlength=10 size=10 required onblur="setFID(this.value)"></label>
     <label>Tax number <input name="_AAN" type="tel" size=8 pattern="[\d]{8}" required onblur="findAAN(this.value)"></label>
-    <label>Foundation
-      <select name="_Foundation">
-        <option>bsmt</option>
-        <option>slab</option>
-      </select>
-    </label>
     <label>House faces
       <select name="FacingDirection">
         <option value="1">south</option>
@@ -66,28 +60,85 @@
     <label>Year built<input name="_YearBuilt" size=4></label>
     <label>Weather station<input name="weather"></label><br>
     <div>
-    <br>Mechanicals<br>
-    <label>Heat
-      <select name="_Heat">
-        <option>electric</option>
-        <option>oil boiler</option>
-        <option>oil furnace</option>
-        <option>gas furnace</option>
+    <br>
+    <label>Main walls
+      <select name="walls">
+        <option>2x6 R19</option>
+        <option>2x4 R12</option>
       </select>
     </label>
-    <label>HP AHRI#<input type="tel" pattern="[\d]{6,9}" name="AHRI" size=7></label>
-    <label>Note<input name="HeatNote" size=9></label><br>
-    <label>Supplemental<input size=30></label><br>
-    <label>DHW
-      <select name="_DHW">
-        <option>electric</option>
-        <option>oil tank</option>
-        <option>gas tank</option>
-        <option>coil</option>
+    <label>Attic
+      <select name="attic">
+        <option>gable</option>
+        <option>hip</option>
+        <option>scissor</option>
       </select>
     </label>
-    <label>Litres<input type="tel" pattern="[\d]*" name="_DHWL" size=3 value="189"></label>
-    <label>Note<input name="DHWNote" size=9></label><br>
+    <label>Insulation
+      <select name="fill">
+        <option>cellulose</option>
+        <option>fibreglas</option>
+        <option>FG batt</option>
+      </select>
+    </label>
+    <label>" deep
+      <input type="tel" pattern="[\d]{1,2}" required size=2>
+    </label>
+    </div>
+    <div v-scope="{fnd: 'bsmt'}">
+      <br>
+      <label>Foundation
+        <select name="_Foundation" v-model="fnd">
+          <option>bsmt</option>
+          <option>slab</option>
+        </select>
+      </label>
+      <span v-if="fnd == 'bsmt'">
+        <label>Interior
+          <select>
+            <option>2x4 R12</option>
+            <option>2x4 R20</option>
+            <option>none</option>
+          </select>
+        </label>
+        <label>HAG
+          <input name="HAG" type="tel" pattern="[\d]{2,2}" size=2 value=56 required>
+        </label>
+        <label>Pony
+          <input name="Pony" type="tel" pattern="[\d]{1,2}" size=2 value=50>
+        </label>
+      </span>
+      <span v-if="fnd == 'slab'">
+        <label>R-value
+          <input type="tel" pattern="[\d]{1,2}" size=2>
+        </label>
+      </span>
+    </div>
+    <div>
+      <br>Mechanical 
+      <a href="https://oee.nrcan.gc.ca/pml-lmp/index.cfm?action=app.search-recherche&appliance=HP_SS" target="_blank">NRCan ASHP lookup</a><br>
+      <label>Heat
+        <select name="_Heat">
+          <option>electric</option>
+          <option>DV boiler</option>
+          <option>FR boiler</option>
+          <option>furnace</option>
+        </select>
+      </label>
+      <label>HP AHRI#<input type="tel" pattern="[\d]{6,9}" name="AHRI" size=7></label>
+      <label>Note<input name="HeatNote" size=8></label>
+      <label>Supplemental<input size=30></label><br>
+      <label>DHW
+        <select name="_DHW">
+          <option>electric</option>
+          <option>oil</option>
+          <option>gas</option>
+          <option>coil</option>
+        </select>
+      </label>
+      <label>Litres<input type="tel" pattern="[\d]*" name="_DHWL" style="width: 3ch" value="189"></label>
+      <label>Note<input name="DHWNote" size=6></label>
+      <label>R5 wrap<input type="checkbox"></label>
     </div>
     <div v-scope="{counts: {WndwF: 1, WndwL: 1, WndwB: 1, WndwR: 1}}">
       <template id="H2KWindow-tmpl">
@@ -124,11 +175,40 @@
         </template>
       </table>
     </div>
-    <input type="submit" value="Create H2K file">
-    </form>
+    <div v-scope="{doors: 2}" >
     <br>
-    <a href="https://oee.nrcan.gc.ca/pml-lmp/index.cfm?action=app.search-recherche&appliance=HP_SS" target="_blank">NRCan ASHP lookup</a>
-	<script src="ghw.js"></script>
+    <label style="display:inline"> Doors:
+      <input type="tel" size=1 pattern="[\d]" v-model.number="doors">
+    </label>
+    <table>
+      <tr><th>Type</th><th>Hgt</th><th>W-d</th><th>lite</th></tr>
+      <tr v-for="i in doors">
+        <td>
+          <select name="Dtype">
+            <option>steel</option>
+            <option>wood</option>
+          </select>
+        </td>
+        <td><input type="tel" style="width: 3ch"></td>
+        <td><input type="tel" style="width: 3ch"></td>
+        <td><input size=5"></td>
+      </tr>
+    </table>
+    </div>
+    <div v-scope="">
+      <br>Air leakage sources:
+      <table>
+        <tr v-for="s in ['attic hatch', 'upper lights', 'breaker panel', 'receptacles', 'switches', 'pipe holes', 'windows', 'doors', 'other']">
+          <td><label style="display:inline"><input type="checkbox">{{s}}</label></td>
+          <td><input></td>
+        </tr>
+      </table>
+    </div>
+    <!--
+    <input type="submit" value="Create H2K file">
+    -->
+    </form>
+  <script src="ghw.js"></script>
   <script src="https://unpkg.com/petite-vue" defer init></script>
   <script>
     function addWindow(t, counts){
