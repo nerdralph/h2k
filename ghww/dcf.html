@@ -24,30 +24,33 @@
   </head>
   <body> 
     <h1 style="color:DarkGreen;">ERS GHWiz</h1>
+    <a href="/GHWizDefaults.txt" target="_blank">GHWiz house defaults</a>
+    <p>
     <form action="/cgi-bin/ghww.py" method="get" id="aanq">
     <!-- field names prefixed with '_' will be converted to house template macros -->
-    <label>File ID <input name="_FileID" pattern="[\w]{4}D[\d]{5}" maxlength=10 size=10 required onblur="setFID(this.value)"></label>
-    <label>Tax number <input name="_AAN" type="tel" size=8 pattern="[\d]{8}" required onblur="findAAN(this.value)"></label>
+    <label>File ID <input name="_FileID" pattern="[\w]{4}D[\d]{5}" required style="width: 11ch" onblur="setFID(this.value)"></label>
+    <label>Tax number <input name="_AAN" type="tel" size=8 pattern="[\d]{8}" required onchange="findAAN(this.value)"></label>
     <label>House faces
       <select name="FacingDirection">
         <option value="1">south</option>
-        <option value="2">southeast</option>
+        <option value="2">sou'east</option>
         <option value="3">east</option>
-        <option value="4">northeast</option>
+        <option value="4">nor'east</option>
         <option value="5">north</option>
-        <option value="6">northwest</option>
+        <option value="6">nor'west</option>
         <option value="7">west</option>
-        <option value="8">southwest</option>
+        <option value="8">sou'west</option>
       </select>
     </label>
     <br>
     <br>Interior dimensions:<br>
-    <label>mperim*<input name="mperim" type="tel" required style="width: 5ch"></label>
-    <label>marea*<input name="marea" type="tel" required style="width: 5ch"></label>
-    <label>aflht<input name="aflht" type="tel" style="width: 5ch"></label>
-    <label>ta_delta<input name="ta_delta" type="tel" style="width: 5ch"></label>
-    <label>tp_delta<input name="tp_delta" type="tel" style="width: 5ch"></label>
-    <br><br>
+    <label>MPerim<input name="mperim" type="tel" required style="width: 5ch"></label>
+    <label>MArea<input name="marea" type="tel" required style="width: 5ch"></label>
+    <label>AFLHt<input name="aflht" type="tel" style="width: 4ch"></label>
+    <label>TA &#916<input name="ta_delta" type="tel" style="width: 4ch"></label>
+    <label>TP &#916<input name="tp_delta" type="tel" style="width: 4ch"></label>
+    <label>AGCHt<input name="ceilht" type="tel" required style="width: 4ch"></label>
+    <p>
     <label>Client first name*<input name="_First" required style="width: 14ch"></label>
     <label>Client last name*<input name="_Last" required style="width: 18ch"></label>
     <label>Telephone<input type="tel" name="_Telephone" style="width: 12ch"></label>
@@ -129,6 +132,7 @@
       <label>Note<input name="HeatNote" size=8></label>
       <label>Supplemental<input size=30></label><br>
       <label>DHW
+        <!-- todo: only show coil with boilers -->
         <select name="_DHW">
           <option>electric</option>
           <option>oil</option>
