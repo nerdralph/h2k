@@ -10,13 +10,22 @@ function getCookie(name) {
 }
 
 function nsAAN(d) {
-    aanq.elements._YearBuilt.value = d.year_built || "1923";
-    getHouseData( d.address_num + " " + d.address_street, d.x_coord + "," + d.y_coord);
+    // data collection form elements
+    const fe = aanq.elements;
+    fe._YearBuilt.value = d.year_built || "1923";
+    fe._Street.value = d.address_num + " " + d.address_street + " " + d.address_suffix;
+    fe._City.value = d.address_city;
+    fe._Province.value = "NOVA SCOTIA";
+    setWeather(d.x_coord + "," + d.y_coord);
 }
 
 function yycRoll(d) {
-    aanq.elements._YearBuilt.value = d.year_of_construction;
-    getHouseData(d.address, d.longitude + "," + d.latitude);
+    // data collection form elements
+    const fe = aanq.elements;
+    fe._YearBuilt.value = d.year_of_construction;
+    fe._Street.value = d.address;
+    fe._Province.value = "ALBERTA";
+    setWeather(d.longitude + "," + d.latitude);
 }
 
 const ROLLFN = {
@@ -32,15 +41,15 @@ function fetchJd(query, action) {
         .then(data => {console.log(JSON.stringify(data)); action(data);});
 }
 
-// get address, postal code & weather station
-// address = house number & street
+// set weather station
 // WKID4326 = gps longitude, gps latitude
-function getHouseData(address, WKID4326) {
+function setWeather(WKID4326) {
+    // data collection form elements
     const fe = aanq.elements;
 
-    var q = "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?&f=json&SingleLine=" + address + "&location=" + WKID4326 + "&maxLocations=1";
-    fetchJd(q, d => [fe._Street.value, fe._City.value, fe._Province.value , fe._Postal.value]
-                     = d.candidates[0].address.split(", "));
+//    var q = "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?&f=json&SingleLine=" + address + "&location=" + WKID4326 + "&maxLocations=1";
+//    fetchJd(q, d => [fe._Street.value, fe._City.value, fe._Province.value , fe._Postal.value]
+//                     = d.candidates[0].address.split(", "));
 
     q =  "https://maps-cartes.services.geo.ca/server_serveur/rest/services/NRCan/Carte_climatique_HOT2000_Climate_Map_EN/MapServer/1/query?geometry=" + WKID4326 + "&geometryType=esriGeometryPoint&inSR=4326&f=json";
     fetchJd(q, d => fe.weather.value = d.features[0].attributes.Name);
@@ -48,7 +57,7 @@ function getHouseData(address, WKID4326) {
 
 // get property data for roll number
 function findAAN(aan) {
-    const region = location.hash.substr(1);
+    const region = location.hash.slice(1) || "NS";
     fetchJd(TAXREGISTRY[region] + aan, d => ROLLFN[region](d[0]));
 }
 
