@@ -4,6 +4,19 @@ const TAXREGISTRY = {
     "NS": "https://www.thedatazone.ca/resource/a859-xvcs.json?aan=", 
     "YYC": "https://data.calgary.ca/resource/simh-5fhj.json?roll_number="
 }
+// fetch JSON query & perform action on response data
+function fetchJd(query, action) {
+    console.log(query);
+    fetch(query)
+        .then(response => response.json())
+        .then(data => {console.log(JSON.stringify(data)); action(data);});
+}
+
+
+function setPostal(address) {
+    q = "https://ws1.postescanada-canadapost.ca/Capture/Interactive/Find/v1.00/json3ex.ws?Key=AX81-HA65-HM33-RA59&Text=" + address + "&Countries=CAN"; 
+    fetchJd(q, d => aanq.elements._Postal.value = d.Items[0].Text.slice(-7));
+}
 
 function getCookie(name) {
     return document.cookie.match(new RegExp(`(^| )${name}=([^;]+)`))?.at(2);
@@ -17,6 +30,7 @@ function nsAAN(d) {
     fe._City.value = d.address_city;
     fe._Province.value = "NOVA SCOTIA";
     setWeather(d.x_coord + "," + d.y_coord);
+    setPostal(fe._Street.value + d.address_city + "NS");
 }
 
 function yycRoll(d) {
@@ -31,14 +45,6 @@ function yycRoll(d) {
 const ROLLFN = {
     "NS": nsAAN,
     "YYC": yycRoll
-}
-
-// fetch JSON query & perform action on response data
-function fetchJd(query, action) {
-    console.log(query);
-    fetch(query)
-        .then(response => response.json())
-        .then(data => {console.log(JSON.stringify(data)); action(data);});
 }
 
 // set weather station
