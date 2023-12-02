@@ -4,6 +4,7 @@ const TAXREGISTRY = {
     "NS": "https://www.thedatazone.ca/resource/a859-xvcs.json?aan=", 
     "YYC": "https://data.calgary.ca/resource/simh-5fhj.json?roll_number="
 }
+
 // fetch JSON query & perform action on response data
 function fetchJd(query, action) {
     console.log(query);
@@ -11,7 +12,6 @@ function fetchJd(query, action) {
         .then(response => response.json())
         .then(data => {console.log(JSON.stringify(data)); action(data);});
 }
-
 
 function setPostal(address) {
     q = "https://ws1.postescanada-canadapost.ca/Capture/Interactive/Find/v1.00/json3ex.ws?Key=AX81-HA65-HM33-RA59&Text=" + address + "&Countries=CAN"; 
