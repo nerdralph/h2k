@@ -20,9 +20,13 @@ pi = tree.find("ProgramInformation")
 pif = pi.find("File")
 print ("File ID: " + pif.findtext("Identification"))
 tid = pif.find("TaxNumber").text or "no AAN"
-print ("AAN: " + tid)
+if tid.length() == 7:
+    tid = '0' + tid
+print ("8-digit AAN: " + tid)
 
 pvsc = requests.get("https://www.thedatazone.ca/resource/a859-xvcs.json?aan=" + tid).json()[0]
+if not pvsc:
+    print ("AAN not found in PVSC database")
 #print(json.dumps(jd))
 
 hse = tree.find("House")
@@ -43,4 +47,4 @@ print (sa.find("City").text + " vs " + pvsc.get("address_city"))
 print (sa.find("PostalCode").text + " vs ")
 
 air_specs = hse.find("NaturalAirInfiltration/Specifications")
-print ("ACH@50Pa " + air_specs.find("BlowerTest").attrib["airChangeRate"])
+print ("\nACH@50Pa " + air_specs.find("BlowerTest").attrib["airChangeRate"])
