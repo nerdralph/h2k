@@ -39,4 +39,8 @@ sa = pi.find("Client/StreetAddress")
 print (sa.find("Street").text + " vs " + pvsc.get("address_num") + ' ' + pvsc.get("address_street"))
 print (sa.find("City").text + " vs " + pvsc.get("address_city"))
 
+#todo: Canada Post lookup
 print (sa.find("PostalCode").text + " vs ")
+
+air_specs = hse.find("NaturalAirInfiltration/Specifications")
+print ("ACH@50Pa " + air_specs.find("BlowerTest").attrib["airChangeRate"])
