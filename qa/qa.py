@@ -20,7 +20,7 @@ pi = tree.find("ProgramInformation")
 pif = pi.find("File")
 print ("File ID: " + pif.findtext("Identification"))
 tid = pif.find("TaxNumber").text or "no AAN"
-if tid.length() == 7:
+if len(tid) == 7:
     tid = '0' + tid
 print ("8-digit AAN: " + tid)
 
