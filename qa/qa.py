@@ -20,22 +20,23 @@ pi = tree.find("ProgramInformation")
 pif = pi.find("File")
 print ("File ID: " + pif.findtext("Identification"))
 tid = pif.find("TaxNumber").text or "no AAN"
-print("AAN: " + tid)
+print ("AAN: " + tid)
 
 pvsc = requests.get("https://www.thedatazone.ca/resource/a859-xvcs.json?aan=" + tid).json()[0]
 #print(json.dumps(jd))
 
 hse = tree.find("House")
-print("\nh2k file vs online data")
+print ("\nh2k file vs online data")
 specs = hse.find("Specifications")
-print(specs.find("YearBuilt").attrib["value"] + " vs " + pvsc.get("year_built") )
-print(specs.find("HouseType/English").text + " vs " + pvsc.get("style") )
+print (specs.find("YearBuilt").attrib["value"] + " vs " + pvsc.get("year_built") )
+print (specs.find("HouseType/English").text + " vs " + pvsc.get("style") )
 # check floor area
 hfaa = specs.find("HeatedFloorArea").attrib("aboveGrade") * SF_PER_SM
 hfab = specs.find("HeatedFloorArea").attrib("belowGrade") * SF_PER_SM
-print("HFA above, below grade: " + hfaa + ", " + hfab)
+print ("HFA above, below grade: " + hfaa + ", " + hfab, end = '')
+print (" vs " + pvsc.get("square_foot_living_area") + " living area")
 sa = pi.find("Client/StreetAddress")
-print(sa.find("Street").text + " vs " + pvsc.get("address_num") + ' ' + pvsc.get("address_street"))
-print(sa.find("City").text + " vs " + pvsc.get("address_city"))
+print (sa.find("Street").text + " vs " + pvsc.get("address_num") + ' ' + pvsc.get("address_street"))
+print (sa.find("City").text + " vs " + pvsc.get("address_city"))
 
-print(sa.find("PostalCode").text + " vs ")
+print (sa.find("PostalCode").text + " vs ")
