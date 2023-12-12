@@ -12,7 +12,7 @@ h2k = form["file"]
 print ("file: " + h2k.filename)
 
 tree = ET.parse(h2k.file)
-pif = tree.find("ProgramInformation/File)
+pif = tree.find("ProgramInformation/File")
 
 print ("File ID: " + tree.findtext("Identification"))
 tid = pif.find("TaxNumber").text or "no AAN"
