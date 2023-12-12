@@ -6,7 +6,8 @@ import cgi, datetime, json, math, os, requests, sys
 
 form = cgi.FieldStorage()
 
-h2kfile = form['filename']
+h2kfile = form.getvalue("filename", "none")
 
 print ("Content-type: text/plain\n")
+print ("Solar Si H2k QA scanner alpha")
 print ("file: " + h2kfile)
