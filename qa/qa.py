@@ -4,8 +4,11 @@
 import xml.etree.ElementTree as ET
 import cgi, datetime, json, math, os, requests, sys
 
+FT_PER_M = 3.28084
+SF_PER_SM = FT_PER_M ** 2
+
 print ("Content-type: text/plain\n")
-print ("Solar Si H2k QA scanner alpha")
+print ("Solar Si H2k QA scan alpha")
 
 form = cgi.FieldStorage()
 h2k = form["h2kfile"]
@@ -19,15 +22,20 @@ print ("File ID: " + pif.findtext("Identification"))
 tid = pif.find("TaxNumber").text or "no AAN"
 print("AAN: " + tid)
 
-jd = requests.get("https://www.thedatazone.ca/resource/a859-xvcs.json?aan=" + tid).json()[0]
+pvsc = requests.get("https://www.thedatazone.ca/resource/a859-xvcs.json?aan=" + tid).json()[0]
 #print(json.dumps(jd))
 
 hse = tree.find("House")
-print("h2k file vs PVSC data")
+print("\nh2k file vs online data")
 specs = hse.find("Specifications")
-print(specs.find("YearBuilt").attrib["value"] + " vs " + jd.get("year_built") )
-print(specs.find("HouseType/English").text + " vs " + jd.get("style") )
-# todo: check floor area
+print(specs.find("YearBuilt").attrib["value"] + " vs " + pvsc.get("year_built") )
+print(specs.find("HouseType/English").text + " vs " + pvsc.get("style") )
+# check floor area
+hfaa = specs.find("HeatedFloorArea").attrib("aboveGrade") * SF_PER_SM
+hfab = specs.find("HeatedFloorArea").attrib("belowGrade") * SF_PER_SM
+print("HFA above, below grade: " + hfaa + ", " + hfab)
 sa = pi.find("Client/StreetAddress")
-print(sa.find("Street").text + " vs " + jd.get("address_num") + ' ' + jd.get("address_street"))
-print(sa.find("City").text + " vs " + jd.get("address_city"))
+print(sa.find("Street").text + " vs " + pvsc.get("address_num") + ' ' + pvsc.get("address_street"))
+print(sa.find("City").text + " vs " + pvsc.get("address_city"))
+
+print(sa.find("PostalCode").text + " vs ")
