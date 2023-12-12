@@ -7,7 +7,7 @@ import cgi, datetime, json, math, os, requests, sys
 FT_PER_M = 3.28084
 SF_PER_SM = FT_PER_M ** 2
 
-print ("Content-type: text/plain\n")
+print ("Content-type: text/plain; charset=utf-8\n")
 print ("Solar Si H2k QA scan alpha")
 
 form = cgi.FieldStorage()
@@ -33,7 +33,8 @@ hse = tree.find("House")
 print ("\nh2k file vs online data")
 specs = hse.find("Specifications")
 print (specs.find("YearBuilt").attrib["value"] + " vs " + pvsc.get("year_built") )
-print (specs.find("HouseType/English").text + " vs " + pvsc.get("style") )
+print (specs.find("HouseType/English").text +\
+       specs.find("Storeys/English").text + " vs " + pvsc.get("style") )
 # check floor area
 hfaa = float(specs.find("HeatedFloorArea").attrib["aboveGrade"]) * SF_PER_SM
 hfab = float(specs.find("HeatedFloorArea").attrib["belowGrade"]) * SF_PER_SM
