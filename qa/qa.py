@@ -12,10 +12,11 @@ h2k = form["h2kfile"]
 print ("file: " + h2k.filename)
 
 tree = ET.parse(h2k.file)
-pi = tree.find("ProgramInformation/")
+pi = tree.find("ProgramInformation")
 
-print ("File ID: " + pi.findtext("Identification"))
-tid = pi.find("TaxNumber").text or "no AAN"
+pif = pi.find("File")
+print ("File ID: " + pif.findtext("Identification"))
+tid = pif.find("TaxNumber").text or "no AAN"
 print("AAN: " + tid)
 
 jd = requests.get("https://www.thedatazone.ca/resource/a859-xvcs.json?aan=" + tid).json()[0]
@@ -27,6 +28,6 @@ specs = hse.find("Specifications")
 print(specs.find("YearBuilt").attrib["value"] + " vs " + jd.get("year_built") )
 print(specs.find("HouseType/English").text + " vs " + jd.get("style") )
 # todo: check floor area
-sa = pi.find("Client/StreetAddress/")
-print(sa.find("Street").text + " vs " + jd.get("address_num") + jd.get("address_street"))
+sa = pi.find("Client/StreetAddress")
+print(sa.find("Street").text + " vs " + jd.get("address_num") + ' ' + jd.get("address_street"))
 print(sa.find("City").text + " vs " + jd.get("address_city"))
