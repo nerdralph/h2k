@@ -22,7 +22,7 @@ print ("File ID: " + pif.findtext("Identification"))
 tid = pif.find("TaxNumber").text or "no AAN"
 if len(tid) == 7:
     tid = '0' + tid
-print ("8-digit AAN: " + tid)
+print ("8-digit AAN: " + tid, flush=True)
 
 pvsc = requests.get("https://www.thedatazone.ca/resource/a859-xvcs.json?aan=" + tid).json()[0]
 if not pvsc:
@@ -33,7 +33,7 @@ hse = tree.find("House")
 print ("\nh2k file vs online data")
 specs = hse.find("Specifications")
 print (specs.find("YearBuilt").attrib["value"] + " vs " + pvsc.get("year_built") )
-print (specs.find("HouseType/English").text +\
+print (specs.find("HouseType/English").text + ' ' +\
        specs.find("Storeys/English").text + " vs " + pvsc.get("style") )
 # check floor area
 hfaa = float(specs.find("HeatedFloorArea").attrib["aboveGrade"]) * SF_PER_SM
@@ -44,9 +44,9 @@ sa = pi.find("Client/StreetAddress")
 print (sa.find("Street").text + " vs " + pvsc.get("address_num") + ' ' + pvsc.get("address_street") +\
        pvsc.get("address_suffix") or '')
 print (sa.find("City").text + " vs " + pvsc.get("address_city"))
-
 #todo: Canada Post lookup
-print (sa.find("PostalCode").text + " vs ")
+print (sa.find("PostalCode").text + " vs ", flush=True)
+pi.find("Weather/Location/English".text + " vs ")
 
 air_specs = hse.find("NaturalAirInfiltration/Specifications")
 print ("\nACH@50Pa " + air_specs.find("BlowerTest").attrib["airChangeRate"])
