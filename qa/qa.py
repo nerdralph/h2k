@@ -40,7 +40,8 @@ hfab = float(specs.find("HeatedFloorArea").attrib["belowGrade"]) * SF_PER_SM
 print ("HFA above, below grade: " + str(int(hfaa)) + ", " + str(int(hfab)), end = '')
 print (" vs " + pvsc.get("square_foot_living_area") + " living area")
 sa = pi.find("Client/StreetAddress")
-print (sa.find("Street").text + " vs " + pvsc.get("address_num") + ' ' + pvsc.get("address_street"))
+print (sa.find("Street").text + " vs " + pvsc.get("address_num") + ' ' + pvsc.get("address_street") +\
+       pvsc.get("address_suffix") or '')
 print (sa.find("City").text + " vs " + pvsc.get("address_city"))
 
 #todo: Canada Post lookup
