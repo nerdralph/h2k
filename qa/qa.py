@@ -31,8 +31,8 @@ specs = hse.find("Specifications")
 print (specs.find("YearBuilt").attrib["value"] + " vs " + pvsc.get("year_built") )
 print (specs.find("HouseType/English").text + " vs " + pvsc.get("style") )
 # check floor area
-hfaa = specs.find("HeatedFloorArea").attrib("aboveGrade") * SF_PER_SM
-hfab = specs.find("HeatedFloorArea").attrib("belowGrade") * SF_PER_SM
+hfaa = float(specs.find("HeatedFloorArea").attrib("aboveGrade")) * SF_PER_SM
+hfab = float(specs.find("HeatedFloorArea").attrib("belowGrade")) * SF_PER_SM
 print ("HFA above, below grade: " + hfaa + ", " + hfab, end = '')
 print (" vs " + pvsc.get("square_foot_living_area") + " living area")
 sa = pi.find("Client/StreetAddress")
