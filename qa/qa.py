@@ -33,7 +33,7 @@ print (specs.find("HouseType/English").text + " vs " + pvsc.get("style") )
 # check floor area
 hfaa = float(specs.find("HeatedFloorArea").attrib["aboveGrade"]) * SF_PER_SM
 hfab = float(specs.find("HeatedFloorArea").attrib["belowGrade"]) * SF_PER_SM
-print ("HFA above, below grade: " + int(hfaa) + ", " + int(hfab), end = '')
+print ("HFA above, below grade: " + str(int(hfaa)) + ", " + str(int(hfab)), end = '')
 print (" vs " + pvsc.get("square_foot_living_area") + " living area")
 sa = pi.find("Client/StreetAddress")
 print (sa.find("Street").text + " vs " + pvsc.get("address_num") + ' ' + pvsc.get("address_street"))
