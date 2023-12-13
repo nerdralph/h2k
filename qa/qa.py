@@ -32,7 +32,7 @@ if not pvsc:
 hse = tree.find("House")
 print ("\nh2k file vs online data")
 specs = hse.find("Specifications")
-print (specs.find("YearBuilt").attrib["value"] + " vs " + pvsc.get("year_built", "unknown") )
+print ("built " + specs.find("YearBuilt").attrib["value"] + " vs " + pvsc.get("year_built", "unknown") )
 print (specs.find("HouseType/English").text + ' ' +\
        specs.find("Storeys/English").text + " vs " + pvsc.get("style") )
 # check floor area
@@ -44,8 +44,7 @@ sa = pi.find("Client/StreetAddress")
 print (sa.find("Street").text + " vs " + pvsc.get("address_num") + ' ' + pvsc.get("address_street") +\
        ' ' + pvsc.get("address_suffix", ''))
 print (sa.find("City").text + " vs " + pvsc.get("address_city"))
-#todo: Canada Post lookup
-print (sa.find("PostalCode").text + " vs ", flush=True)
+print (sa.find("PostalCode").text + " vs " + "todo: Canada Post lookup")
 print (pi.find("Weather/Location/English").text + " vs ", end='')
 # lookup weather station
 wkid4326 = pvsc["x_coord"] + "," + pvsc["y_coord"]
