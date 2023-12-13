@@ -24,10 +24,11 @@ if len(tid) == 7:
     tid = '0' + tid
 print ("8-digit AAN: " + tid, flush=True)
 
-pvsc = requests.get("https://www.thedatazone.ca/resource/a859-xvcs.json?aan=" + tid).json()[0]
-if not pvsc:
+dz = requests.get("https://www.thedatazone.ca/resource/a859-xvcs.json?aan=" + tid).json()
+if not len(dz):
     print ("AAN not found in PVSC database")
-#print(json.dumps(jd))
+    sys.exit(0)
+pvsc = dz[0]
 
 hse = tree.find("House")
 print ("\nh2k file vs online data")
