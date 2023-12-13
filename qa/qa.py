@@ -42,7 +42,7 @@ print ("HFA above, below grade: " + str(int(hfaa)) + ", " + str(int(hfab)), end 
 print (" vs " + pvsc.get("square_foot_living_area") + " living area")
 sa = pi.find("Client/StreetAddress")
 print (sa.find("Street").text + " vs " + pvsc.get("address_num") + ' ' + pvsc.get("address_street") +\
-       pvsc.get("address_suffix", '')
+       pvsc.get("address_suffix", ''))
 print (sa.find("City").text + " vs " + pvsc.get("address_city"))
 #todo: Canada Post lookup
 print (sa.find("PostalCode").text + " vs ", flush=True)
