@@ -32,7 +32,7 @@ if not pvsc:
 hse = tree.find("House")
 print ("\nh2k file vs online data")
 specs = hse.find("Specifications")
-print (specs.find("YearBuilt").attrib["value"] + " vs " + pvsc.get("year_built") )
+print (specs.find("YearBuilt").attrib["value"] + " vs " + pvsc.get("year_built", "unknown") )
 print (specs.find("HouseType/English").text + ' ' +\
        specs.find("Storeys/English").text + " vs " + pvsc.get("style") )
 # check floor area
@@ -42,13 +42,13 @@ print ("HFA above, below grade: " + str(int(hfaa)) + ", " + str(int(hfab)), end 
 print (" vs " + pvsc.get("square_foot_living_area") + " living area")
 sa = pi.find("Client/StreetAddress")
 print (sa.find("Street").text + " vs " + pvsc.get("address_num") + ' ' + pvsc.get("address_street") +\
-       pvsc.get("address_suffix") or '')
+       pvsc.get("address_suffix", '')
 print (sa.find("City").text + " vs " + pvsc.get("address_city"))
 #todo: Canada Post lookup
 print (sa.find("PostalCode").text + " vs ", flush=True)
 print (pi.find("Weather/Location/English").text + " vs ", end='')
 # lookup weather station
-wkid4326 = pvsc.x_coord + "," + pvsc.y_coord
+wkid4326 = pvsc["x_coord"] + "," + pvsc["y_coord"]
 ws = requests.get("https://maps-cartes.services.geo.ca/server_serveur/rest/services/NRCan/Carte_climatique_HOT2000_Climate_Map_EN/MapServer/1/query?geometry=" + wkid4326 + "&geometryType=esriGeometryPoint&inSR=4326&f=json")
 print (ws.json()["features"][0]["attributes"]["Name"])
 
