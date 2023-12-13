@@ -46,7 +46,7 @@ print (sa.find("Street").text + " vs " + pvsc.get("address_num") + ' ' + pvsc.ge
        ' ' + pvsc.get("address_suffix", ''))
 print (sa.find("City").text + " vs " + pvsc.get("address_city"))
 print (sa.find("PostalCode").text + " vs " + "todo: Canada Post lookup")
-print (pi.find("Weather/Location/English").text + " vs ", end='')
+print ("Weather " + pi.find("Weather/Location/English").text + " vs ", end='')
 # lookup weather station
 wkid4326 = pvsc["x_coord"] + "," + pvsc["y_coord"]
 ws = requests.get("https://maps-cartes.services.geo.ca/server_serveur/rest/services/NRCan/Carte_climatique_HOT2000_Climate_Map_EN/MapServer/1/query?geometry=" + wkid4326 + "&geometryType=esriGeometryPoint&inSR=4326&f=json")
