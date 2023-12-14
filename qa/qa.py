@@ -17,12 +17,16 @@ print ("file: " + h2k.filename)
 tree = ET.parse(h2k.file)
 pi = tree.find("ProgramInformation")
 
+log = open("/tmp/qa.log", 'a')
+
 pif = pi.find("File")
-print ("File ID: " + pif.findtext("Identification"))
+fid = pif.findtext("Identification")
+print ("File ID: " + fid)
 tid = pif.find("TaxNumber").text or "no AAN"
 if len(tid) == 7:
     tid = '0' + tid
-print ("8-digit AAN: " + tid, flush=True)
+print ("8-digit AAN: " + tid)
+log.write(datetime.date.today().isoformat() + " FileID: " + fid + ", AAN: " + tid + '\n')
 
 dz = requests.get("https://www.thedatazone.ca/resource/a859-xvcs.json?aan=" + tid).json()
 if not len(dz):
