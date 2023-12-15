@@ -17,6 +17,7 @@ def filepp(template: str):
                "-D_BACK_=" + points(FRONT + 4),
                "-D_LEFT_=" + points(FRONT + 6)]
 
+    # todo: count windows and prune unused windows
     for k in form.keys():
         if k[0] == '_':
             PP_DEFS.append("-D"+k+'=' + form[k].value)

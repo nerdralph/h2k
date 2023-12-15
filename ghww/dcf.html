@@ -119,7 +119,10 @@
     </div>
     <div>
       <br>Mechanical 
+      <!--
       <a href="https://oee.nrcan.gc.ca/pml-lmp/index.cfm?action=app.search-recherche&appliance=HP_SS" target="_blank">NRCan ASHP lookup</a><br>
+      -->
+      <a href="http://ahridirectory.org" target="_blank">AHRI Directory</a><br>
       <label>Heat
         <select name="_Heat">
           <option>electric</option>
@@ -130,7 +133,7 @@
       </label>
       <label>HP AHRI#<input type="tel" pattern="[\d]{6,9}" name="AHRI" size=7></label>
       <label>Note<input name="HeatNote" size=8></label>
-      <label>Supplemental<input size=30></label><br>
+      <label>Supplemental heat<input size=30></label><br>
       <label>DHW
         <!-- todo: only show coil with boilers -->
         <select name="_DHW">
@@ -142,9 +145,13 @@
       </label>
       <label>Litres<input type="tel" pattern="[\d]*" name="_DHWL" style="width: 3ch" value="189"></label>
       <label>Note<input name="DHWNote" size=6></label>
-      <label>R5 wrap<input type="checkbox"></label>
+      <label>R5 wrap<input type="checkbox"></label><br>
+      <label>HRV<input type="checkbox"></label>
+      <label>make<input name="_HRVmake" size=6></label>
+      <label>model<input name="_HRVmodel" size=6></label> 
+      <label>fans<input name="_fancount" value=0 type="tel" pattern="[012]" style="width: 1ch"></label> 
     </div>
-    <div v-scope="{counts: {WndwF: 1, WndwL: 1, WndwB: 1, WndwR: 1}}">
+    <div v-scope="{counts: {WndwF: 8, WndwL: 8, WndwB: 8, WndwR: 8}}">
       <template id="H2KWindow-tmpl">
         <td>
           <select :name="'_T' + wname + c">
@@ -156,28 +163,34 @@
           </select>
         </td>
         <td><input type="tel" :name="'_C' + wname + c" value="1" maxlength="1" pattern="[\d]" style="width: 1ch"></td>
-        <td><input type="tel" :data-var="wname" :name="'H' + wname + c" value="0" style="width: 3ch"
-                   @blur="addWindow(event.target, counts)"></td>
+        <td><input type="tel" :data-var="wname" :name="'H' + wname + c" value="0" style="width: 3ch"></td>
+        <!--
+          @blur="addWindow(event.target, counts)"></td>
+        -->
         <td><input type="tel" :name="'W' + wname + c" value="0" style="width: 3ch"></td>
         <td><input :name="'_N' + wname + c" style="width: 10ch"></td>
       </template>
       <br>
-      Windows: <a href="/WindowCodes.txt" target="_blank">H2K window codes</a>
-      <table>
-        <tr><th>Name</th><th>Type</th><th>#</th><th>Hgt</th><th>W-d</th><th>Note</th></tr>
-        <template v-for="c in counts['WndwF']">
-          <tr v-scope="H2KWindow({wname: 'WndwF'})"><td>front{{c}}</td></tr>
-        </template>
-        <template v-for="c in counts['WndwL']">
-          <tr v-scope="H2KWindow({wname: 'WndwL'})"><td>left{{c}}</td></tr>
-        </template>
-        <template v-for="c in counts['WndwB']">
-          <tr v-scope="H2KWindow({wname: 'WndwB'})"><td>back{{c}}</td></tr>
-        </template>
-        <template v-for="c in counts['WndwR']">
-          <tr v-scope="H2KWindow({wname: 'WndwR'})"><td>right{{c}}</td></tr>
-        </template>
-      </table>
+      <details>
+        <summary>
+          Windows: <a href="/WindowCodes.txt" target="_blank">H2K window codes</a>
+        </summary>
+        <table>
+          <tr><th>Name</th><th>Type</th><th>#</th><th>Hgt</th><th>W-d</th><th>Note</th></tr>
+          <template v-for="c in counts['WndwF']">
+            <tr v-scope="H2KWindow({wname: 'WndwF'})"><td>front{{c}}</td></tr>
+          </template>
+          <template v-for="c in counts['WndwL']">
+            <tr v-scope="H2KWindow({wname: 'WndwL'})"><td>left{{c}}</td></tr>
+          </template>
+          <template v-for="c in counts['WndwB']">
+            <tr v-scope="H2KWindow({wname: 'WndwB'})"><td>back{{c}}</td></tr>
+          </template>
+          <template v-for="c in counts['WndwR']">
+            <tr v-scope="H2KWindow({wname: 'WndwR'})"><td>right{{c}}</td></tr>
+          </template>
+        </table>
+      </details>
     </div>
     <div v-scope="{doors: 2}" >
     <br>
@@ -215,11 +228,12 @@
   <script src="ghw.js"></script>
   <script src="https://unpkg.com/petite-vue" defer init></script>
   <script>
+    <!-- unused func -->
     function addWindow(t, counts){
       if (t.value > 0) counts[t.getAttribute('data-var')]++;
     }
 
-    <!-- window template function -->
+    <!-- window template func -->
     function H2KWindow(props){
       return {
         $template: '#H2KWindow-tmpl',
