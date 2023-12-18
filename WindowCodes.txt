@@ -24,3 +24,7 @@ D6: frame material
  2 = wood; same R-value & SHGC as vinyl 
  4 = vinyl
  5 = reinforced vinyl (for patio door)
+
+Examples
+200024 = double-gazed metal spacer slider vinyl
+233214 = double-glazed lowE+argon insulated spacer hinged vinyl
