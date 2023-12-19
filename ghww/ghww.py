@@ -34,7 +34,7 @@ mperim = float(form.getvalue("mperim"))
 # main floor interior area
 marea = float(form.getvalue("marea"))
 # wall height in metres, default to 2.43m = 7.97'
-wall_height_m = float(form.getvalue("aflht", 2.43))/FT_PER_M
+wall_height_m = float(form.getvalue("aflht", 2.43))
 # top floor area difference from marea
 ta_delta = float(form.getvalue("ta_delta", 0))
 # top floor area difference from marea
@@ -124,8 +124,8 @@ air_specs = house.find("NaturalAirInfiltration/Specifications")
 air_specs.find("House").attrib["volume"] = str(volume)
 
 # default highest ceiling height: BSMT_HT/2 + main wall
-ceiling_h = BSMT_HT_M/2 + wall_height_m
-air_specs.find("BuildingSite").attrib["highestCeiling"] = str(ceiling_h)
+#ceiling_h = BSMT_HT_M/2 + wall_height_m
+#air_specs.find("BuildingSite").attrib["highestCeiling"] = str(ceiling_h)
 
 ceiling_area_sm = main_area_sm
 ef = hc.find("Floor")
