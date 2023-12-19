@@ -26,7 +26,7 @@ function nsAAN(d) {
     // data collection form elements
     const fe = aanq.elements;
     fe._YearBuilt.value = d.year_built || "1923";
-    fe._Street.value = d.address_num + " " + d.address_street + " " + d.address_suffix;
+    fe._Street.value = d.address_num + " " + d.address_street + " " + (d.address_suffix || '');
     fe._City.value = d.address_city;
     fe._Province.value = "NOVA SCOTIA";
     setWeather(d.x_coord + "," + d.y_coord);
