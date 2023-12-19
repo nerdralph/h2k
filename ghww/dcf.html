@@ -156,16 +156,17 @@
       <template id="H2KWindow-tmpl">
         <td>
           <select :name="'_T' + wname + c">
-            <option value="Code 12">200024</option>
-            <option value="Code 14">233214</option>
-            <option value="Code 15">233224</option>
-            <option value="Code 11">200004</option>
-            <option value="Code 13">233204</option>
+            <option value="Code 200024">200024</option>
+            <option value="Code 233214">233214</option>
+            <option value="Code 233224">233224</option>
+            <option value="Code 200004">200004</option>
+            <option value="Code 233204">233204</option>
           </select>
         </td>
         <td><input type="tel" :name="'_C' + wname + c" value="1" maxlength="1" pattern="[\d]" style="width: 1ch"></td>
-        <td><input type="tel" :data-var="wname" :name="'H' + wname + c" value="0" style="width: 3ch"></td>
+        <td><input type="tel" :name="'H' + wname + c" value="0" style="width: 3ch"></td>
         <!--
+        <td><input type="tel" :data-var="wname" :name="'H' + wname + c" value="0" style="width: 3ch"></td>
           @blur="addWindow(event.target, counts)"></td>
         -->
         <td><input type="tel" :name="'W' + wname + c" value="0" style="width: 3ch"></td>
