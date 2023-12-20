@@ -21,7 +21,7 @@ def filepp(template: str):
     for k in form.keys():
         if k[0] == '_':
             PP_DEFS.append("-D"+k+'=' + form[k].value)
-        if k[1:5] == "Wndw":
+        if k[1:5] in ["Wndw", "Door"]:
             # convert inches to mm
             PP_DEFS.append("-D"+k+'=' + str(25.4 * int(form[k].value)))
 

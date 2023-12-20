@@ -194,10 +194,12 @@
         </table>
       </details>
     </div>
-    <div v-scope="{doors: 2}" >
+    <div v-scope="{doors: 3}" >
     <br>
     <label style="display:inline"> Doors:
+      <!--
       <input type="tel" size=1 pattern="[\d]" v-model.number="doors">
+      -->
     </label>
     <table>
       <tr><th>Type</th><th>Hgt</th><th>W-d</th><th>lite</th></tr>
@@ -208,9 +210,9 @@
             <option>wood</option>
           </select>
         </td>
-        <td><input type="tel" style="width: 3ch"></td>
-        <td><input type="tel" style="width: 3ch"></td>
-        <td><input size=8"></td>
+        <td><input type="tel" :name="'HDoor' + i" style="width: 3ch"></td>
+        <td><input type="tel" :name="'WDoor' + i" style="width: 3ch"></td>
+        <td><input size=9></td>
       </tr>
     </table>
     </div>
