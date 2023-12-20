@@ -230,12 +230,12 @@
   <script src="ghw.js"></script>
   <script src="https://unpkg.com/petite-vue" defer init></script>
   <script>
-    <!-- unused func -->
+    // unused func
     function addWindow(t, counts){
       if (t.value > 0) counts[t.getAttribute('data-var')]++;
     }
 
-    <!-- window template func -->
+    // vue template function for window data entry
     function H2KWindow(props){
       return {
         $template: '#H2KWindow-tmpl',
