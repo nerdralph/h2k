@@ -325,7 +325,7 @@
                 </OperationSchedule>
             </WholeHouse>
             <WholeHouseVentilatorList>
-                <Hrv supplyFlowrate="28.0006" exhaustFlowrate="28.0006" fanPower1="59.7553" isDefaultFanpower="true" isEnergyStar="false" isHomeVentilatingInstituteCertified="false" isSupplemental="false" temperatureCondition1="0" temperatureCondition2="-25" fanPower2="73.5404" efficiency1="55" efficiency2="45" preheaterCapacity="0" lowTempVentReduction="0" coolingEfficiency="25">
+                <Hrv supplyFlowrate="28.0006" exhaustFlowrate="28.0006" fanPower1="59.7553" isDefaultFanpower="true" isEnergyStar="false" isHomeVentilatingInstituteCertified="false" isSupplemental="false" temperatureCondition1="0" temperatureCondition2="-25" fanPower2="73.5404" efficiency1="71" efficiency2="64" preheaterCapacity="0" lowTempVentReduction="0" coolingEfficiency="25">
                     <EquipmentInformation>
                         <Manufacturer>_HRVmake</Manufacturer>
                         <Model>_HRVmodel</Model>
