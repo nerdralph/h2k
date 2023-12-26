@@ -25,6 +25,10 @@ function getCookie(name) {
 function nsAAN(d) {
     // data collection form elements
     const fe = aanq.elements;
+    if (!d){
+        fe._Street.value = "not found";
+        return;
+    }
     fe._YearBuilt.value = d.year_built || "1923";
     fe._Street.value = d.address_num + " " + d.address_street + " " + (d.address_suffix || '');
     fe._City.value = d.address_city;
@@ -36,6 +40,10 @@ function nsAAN(d) {
 function yycRoll(d) {
     // data collection form elements
     const fe = aanq.elements;
+    if (!d){
+        fe._Street.value = "not found";
+        return;
+    }
     fe._YearBuilt.value = d.year_of_construction;
     fe._Street.value = d.address;
     fe._Province.value = "ALBERTA";
