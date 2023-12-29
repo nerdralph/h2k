@@ -194,7 +194,7 @@
         </table>
       </details>
     </div>
-    <div v-scope="{doors: 3}" >
+    <div v-scope="{doors: 2}" >
     <br>
     <label style="display:inline"> Doors:
       <!--
@@ -205,14 +205,15 @@
       <tr><th>Type</th><th>Hgt</th><th>W-d</th><th>lite</th></tr>
       <tr v-for="i in doors">
         <td>
+          <label>d{{i}}</label>
           <select name="Dtype">
             <option>steel</option>
             <option>fglass</option>
             <option>wood</option>
           </select>
         </td>
-        <td><input type="tel" :name="'HDoor' + i" style="width: 3ch"></td>
-        <td><input type="tel" :name="'WDoor' + i" style="width: 3ch"></td>
+        <td><input type="tel" :name="'HDoor' + i" value="81.5" style="width: 3ch"></td>
+        <td><input type="tel" :name="'WDoor' + i" value="30.89" style="width: 3ch"></td>
         <td><input size=9></td>
       </tr>
     </table>
