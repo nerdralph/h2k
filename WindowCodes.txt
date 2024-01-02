@@ -28,3 +28,4 @@ D6: frame material
 Examples
 200024 = double-gazed metal spacer slider vinyl
 233214 = double-glazed lowE+argon insulated spacer hinged vinyl
+200045 = double-gazed metal spacer patio door

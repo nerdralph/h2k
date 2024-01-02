@@ -5,6 +5,8 @@ import cgi
 import subprocess
 import sys
 
+INCH_PER_M = 12 * 3.28084
+
 # 1=south, counter-clockwise to 8=southwest; see ghww.html FacingDirection
 def points(code):
     return str(((code - 1) % 8) + 1)
@@ -21,7 +23,10 @@ def filepp(template: str):
     for k in form.keys():
         if k[0] == '_':
             PP_DEFS.append("-D"+k+'=' + form[k].value)
-        if k[1:5] in ["Wndw", "Door"]:
+        if (k[1:5] == "Door") and form[k].value:
+            # todo: default h2k door = 30.89 x 81.5 inch == .81m x 2.07m
+            PP_DEFS.append("-D"+k+'=' + str(int(form[k].value) / INCH_PER_M))
+        elif k[1:5] == "Wndw":
             # convert inches to mm
             PP_DEFS.append("-D"+k+'=' + str(25.4 * int(form[k].value)))
 

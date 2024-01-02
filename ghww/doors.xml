@@ -6,7 +6,7 @@
                                 <French>Acier / âme en mousse à vaporiser de densité moyenne</French>
                             </Type>
                         </Construction>
-                        <Measurements height="2.083" width="1.2192" />
+                        <Measurements height="2.07" width="0.81" />
                         <Components>
                             <Window number="1" er="11.4793" shgc="0.5209" frameHeight="41" frameAreaFraction="0.3311" edgeOfGlassFraction="0.4226" centreOfGlassFraction="0.2462" adjacentEnclosedSpace="false" id="29">
                                 <Label>Front Lite</Label>
@@ -35,7 +35,7 @@
                                 <French>Acier / âme en mousse à vaporiser de densité moyenne</French>
                             </Type>
                         </Construction>
-                        <Measurements height="2.083" width="0.8636" />
+                        <Measurements height="2.07" width="0.81" />
                         <Components>
                             <Window number="1" er="11.4793" shgc="0.6098" frameHeight="41" frameAreaFraction="0.208" edgeOfGlassFraction="0.2771" centreOfGlassFraction="0.5149" adjacentEnclosedSpace="false" id="28">
                                 <Label>Back Lite</Label>

@@ -88,6 +88,18 @@
       <input type="tel" pattern="[\d]{1,2}" required size=2>
     </label>
     </div>
+    <br>
+    <label>headers
+      <select>
+        <option>none</option>
+        <option>2x8</option>
+        <option selected>2x10</option>
+        <option>12"</option>
+      </select>
+    </label>
+    <label>insulation R-
+      <input type="tel" pattern="[\d]{1,2}" size=2>
+    </label>
     <div v-scope="{fnd: 'bsmt'}">
       <br>
       <label>Foundation
@@ -126,8 +138,7 @@
       <label>Heat
         <select name="_Heat">
           <option>electric</option>
-          <option>DV boiler</option>
-          <option>FR boiler</option>
+          <option>boiler</option>
           <option>furnace</option>
         </select>
       </label>
@@ -155,6 +166,7 @@
     <div v-scope="{counts: {WndwF: 8, WndwL: 8, WndwB: 8, WndwR: 8}}">
       <template id="H2KWindow-tmpl">
         <td>
+          <!-- todo: add patio door code -->
           <select :name="'_T' + wname + c">
             <option value="Code 200024">200024</option>
             <option value="Code 233214">233214</option>
@@ -194,12 +206,11 @@
         </table>
       </details>
     </div>
-    <div v-scope="{doors: 2}" >
+    <div v-scope="{doors: 5}" >
     <br>
     <label style="display:inline"> Doors:
-      <!--
-      <input type="tel" size=1 pattern="[\d]" v-model.number="doors">
-      -->
+      <!-- <input type="tel" size=1 pattern="[\d]" v-model.number="doors"> -->
+      <input type="tel" size=1 pattern="[\d]">
     </label>
     <table>
       <tr><th>Type</th><th>Hgt</th><th>W-d</th><th>lite</th></tr>
@@ -212,8 +223,8 @@
             <option>wood</option>
           </select>
         </td>
-        <td><input type="tel" :name="'HDoor' + i" value="81.5" style="width: 3ch"></td>
-        <td><input type="tel" :name="'WDoor' + i" value="30.89" style="width: 3ch"></td>
+        <td><input type="tel" :name="'HDoor' + i" style="width: 3ch"></td>
+        <td><input type="tel" :name="'WDoor' + i" style="width: 3ch"></td>
         <td><input size=9></td>
       </tr>
     </table>
