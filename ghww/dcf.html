@@ -24,7 +24,7 @@
   </head>
   <body> 
     <h1 style="color:DarkGreen;">ERS GHWiz</h1>
-    v41
+    v42
     <a href="/GHWizDefaults.txt" target="_blank">GHWiz house defaults</a>
     <p>
     <form action="/cgi-bin/ghww.py" method="get" id="aanq">
@@ -61,7 +61,7 @@
     <label>City<input name="_City" style="width: 15ch"></label>
     <label>Province<input name="_Province" size=12></label>
     <label>Postal<input name="_Postal" size=6></label><br>
-    <label>Year built<input name="_YearBuilt" size=4></label>
+    <label>Year built<input name="_YearBuilt" required type="tel" pattern="[\d]{4}" size=4></label>
     <label>Weather station<input name="weather"></label><br>
     <div>
     <br>
@@ -69,6 +69,16 @@
       <select name="walls">
         <option>2x6 R19</option>
         <option>2x4 R12</option>
+        <option>2x4 rough</option>
+        <option>ICF</option>
+      </select>
+    </label>
+    <label>+foam
+      <select name="foam">
+        <option>none</option>
+        <option>1" EPS</option>
+        <option>1" XPS</option>
+        <option>1.5" EPS</option>
       </select>
     </label>
     <label>Attic
@@ -167,13 +177,14 @@
     <div v-scope="{counts: {WndwF: 8, WndwL: 8, WndwB: 8, WndwR: 8}}">
       <template id="H2KWindow-tmpl">
         <td>
-          <!-- todo: add patio door code -->
           <select :name="'_T' + wname + c">
             <option value="Code 200024">200024</option>
             <option value="Code 233214">233214</option>
             <option value="Code 233224">233224</option>
             <option value="Code 200004">200004</option>
             <option value="Code 233204">233204</option>
+            <option value="Code 200045">200045</option>
+            <option value="Code 233245">233245</option>
           </select>
         </td>
         <td><input type="tel" :name="'_C' + wname + c" value="1" maxlength="1" pattern="[\d]" style="width: 1ch"></td>
