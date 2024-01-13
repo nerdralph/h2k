@@ -4,6 +4,9 @@
 import xml.etree.ElementTree as ET
 import cgi, datetime, json, math, os, requests, sys
 
+def xmlval(xmle, tag: str) -> str:
+    return xmle.find(tag).attrib["value"]
+
 FT_PER_M = 3.28084
 SF_PER_SM = FT_PER_M ** 2
 
@@ -35,11 +38,13 @@ if not len(dz):
 pvsc = dz[0]
 
 hse = tree.find("House")
-print("\nh2k file vs online data")
 specs = hse.find("Specifications")
+tsv = tree.find("Program/Results/Tsv")
+print("\nh2k file vs online data")
 print(specs.find("HouseType/English").text + " vs " + pvsc.get("style") )
 
-print("Weather " + pi.find("Weather/Location/English").text + " vs ", end='')
+#print("Weather " + pi.find("Weather/Location/English").text + " vs ", end='')
+print("Weather " + xmlval(tsv, "WeatherLoc") + " vs ", end='')
 # lookup weather station
 wkid4326 = pvsc["x_coord"] + "," + pvsc["y_coord"]
 ws = requests.get("https://maps-cartes.services.geo.ca/server_serveur/rest/services/NRCan/Carte_climatique_HOT2000_Climate_Map_EN/MapServer/1/query?geometry=" + wkid4326 + "&geometryType=esriGeometryPoint&inSR=4326&f=json")
