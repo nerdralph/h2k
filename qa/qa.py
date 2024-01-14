@@ -65,7 +65,7 @@ print("Front faces " + specs.find("FacingDirection/English").text)
 print("Built " + xmlval(tsv, "YearBuilt") + " vs " + pvsc.get("year_built", "unknown") )
 
 tsvals = ["AtypicalEnergyLoads", "GreenerHomes", "Vermiculite"]
-valdump(tsvals)
+valdump(tsv, tsvals)
 
 print("Reduced operating conditions: todo")
 
@@ -78,7 +78,7 @@ print(sa.find("PostalCode").text + " vs " + "todo: Canada Post lookup")
 temps = hse.find("Temperatures")
 print("Basement cooled: " + temps.find("Basement").attrib["cooled"])
 print("Crawlspace heated: " + temps.find("Crawlspace").attrib["heated"])
-print("MURB basement unit: " + temps.find("basementUnit").attrib["cooled"])
+print("MURB basement unit: " + temps.find("Basement").attrib["basementUnit"])
 
 air_specs = hse.find("NaturalAirInfiltration/Specifications")
 print("\nACH@50Pa " + air_specs.find("BlowerTest").attrib["airChangeRate"])
