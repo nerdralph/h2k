@@ -7,6 +7,11 @@ import cgi, datetime, json, math, os, requests, sys
 def xmlval(xmle, tag: str) -> str:
     return xmle.find(tag).attrib["value"]
 
+# dump xml values using xmlval
+def valdump(xmle, tags):
+    for tag in tags:
+        print(tag +": " + xmlval(xmle, tag))
+
 FT_PER_M = 3.28084
 SF_PER_SM = FT_PER_M ** 2
 
@@ -41,9 +46,9 @@ hse = tree.find("House")
 specs = hse.find("Specifications")
 tsv = tree.find("Program/Results/Tsv")
 print("\nh2k file vs online data")
-print(specs.find("HouseType/English").text + " vs " + pvsc.get("style") )
+print("Building type: " + xmlval(tsv, "BuildingType"))
+print("House type: " + specs.find("HouseType/English").text + " vs " + pvsc.get("style") )
 
-#print("Weather " + pi.find("Weather/Location/English").text + " vs ", end='')
 print("Weather " + xmlval(tsv, "WeatherLoc") + " vs ", end='')
 # lookup weather station
 wkid4326 = pvsc["x_coord"] + "," + pvsc["y_coord"]
@@ -55,17 +60,25 @@ hfab = float(specs.find("HeatedFloorArea").attrib["belowGrade"]) * SF_PER_SM
 print("HFA above, below grade: " + str(int(hfaa)) + ", " + str(int(hfab)), end = '')
 print(" vs " + pvsc.get("square_foot_living_area") + " living area")
 
-print(specs.find("Storeys/English").text)
+print("Storeys: " + xmlval(tsv, "Storeys"))
+print("Front faces " + specs.find("FacingDirection/English").text)
+print("Built " + xmlval(tsv, "YearBuilt") + " vs " + pvsc.get("year_built", "unknown") )
 
-print("front faces " + specs.find("FacingDirection/English").text)
+tsvals = ["AtypicalEnergyLoads", "GreenerHomes", "Vermiculite"]
+valdump(tsvals)
 
-print("built " + specs.find("YearBuilt").attrib["value"] + " vs " + pvsc.get("year_built", "unknown") )
+print("Reduced operating conditions: todo")
 
 sa = pi.find("Client/StreetAddress")
 print(sa.find("Street").text + " vs " + pvsc.get("address_num") + ' ' + pvsc.get("address_street") +\
        ' ' + pvsc.get("address_suffix", ''))
 print(sa.find("City").text + " vs " + pvsc.get("address_city"))
 print(sa.find("PostalCode").text + " vs " + "todo: Canada Post lookup")
+
+temps = hse.find("Temperatures")
+print("Basement cooled: " + temps.find("Basement").attrib["cooled"])
+print("Crawlspace heated: " + temps.find("Crawlspace").attrib["heated"])
+print("MURB basement unit: " + temps.find("basementUnit").attrib["cooled"])
 
 air_specs = hse.find("NaturalAirInfiltration/Specifications")
 print("\nACH@50Pa " + air_specs.find("BlowerTest").attrib["airChangeRate"])
