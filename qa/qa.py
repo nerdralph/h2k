@@ -130,7 +130,7 @@ for w in windows:
           " height=" + m.attrib["height"])
 
 doors = hc.findall("Wall/Components/Door")
-print("\nWindows:", len(windows))
+print("\nDoors:", len(doors))
 for d in doors:
     m = d.find("Measurements")
     print(d.findtext("Label") + ":" +\
