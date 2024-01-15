@@ -45,6 +45,9 @@ pvsc = dz[0]
 hse = tree.find("House")
 specs = hse.find("Specifications")
 tsv = tree.find("Program/Results/Tsv")
+
+print("\nNet AEC-AEP: " +xmlval(tsv, "EGHFconTotal"))
+
 print("\nHouse h2k vs online data")
 print("Building type: " + xmlval(tsv, "BuildingType"))
 print("House type: " + specs.find("HouseType/English").text + " vs " + pvsc.get("style"))
@@ -123,6 +126,14 @@ print("\nWindows:", len(windows))
 for w in windows:
     m = w.find("Measurements")
     print(w.findtext("Label") + ":" +\
+          " width=" + m.attrib["width"] +\
+          " height=" + m.attrib["height"])
+
+doors = hc.findall("Wall/Components/Door")
+print("\nWindows:", len(windows))
+for d in doors:
+    m = d.find("Measurements")
+    print(d.findtext("Label") + ":" +\
           " width=" + m.attrib["width"] +\
           " height=" + m.attrib["height"])
 
