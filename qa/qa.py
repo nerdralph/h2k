@@ -45,7 +45,7 @@ pvsc = dz[0]
 hse = tree.find("House")
 specs = hse.find("Specifications")
 tsv = tree.find("Program/Results/Tsv")
-print("\nh2k file vs online data")
+print("\nHouse h2k vs online data")
 print("Building type: " + xmlval(tsv, "BuildingType"))
 print("House type: " + specs.find("HouseType/English").text + " vs " + pvsc.get("style") )
 
@@ -64,6 +64,7 @@ print("Storeys: " + xmlval(tsv, "Storeys"))
 print("Front faces " + specs.find("FacingDirection/English").text)
 print("Built " + xmlval(tsv, "YearBuilt") + " vs " + pvsc.get("year_built", "unknown") )
 
+print("General Info")
 tsvals = ["AtypicalEnergyLoads", "GreenerHomes", "Vermiculite"]
 valdump(tsvals)
 
@@ -75,10 +76,22 @@ print(sa.find("Street").text + " vs " + pvsc.get("address_num") + ' ' + pvsc.get
 print(sa.find("City").text + " vs " + pvsc.get("address_city"))
 print(sa.find("PostalCode").text + " vs " + "todo: Canada Post lookup")
 
+print("Temperatures")
 temps = hse.find("Temperatures")
 print("Basement cooled: " + temps.find("Basement").attrib["cooled"])
 print("Crawlspace heated: " + temps.find("Crawlspace").attrib["heated"])
 print("MURB basement unit: " + temps.find("basementUnit").attrib["cooled"])
+
+print("Ceiling and roof")
+ceilings = hse.findall("Components/Ceiling")
+for c in ceilings:
+    m = c.find("Measurements")
+    print(c.findtext("Label") + ":" +\
+          " area=" + m.attrib["area"] +\
+          " len=" + m.attrib["length"] +\
+          " " + c.findtext("Construction/Type/English") +\
+          " RSI=" + c.find("Construction/CeilingType").attrib["rValue"] +\
+          " heel=" + m.attrib["heelHeight"])
 
 air_specs = hse.find("NaturalAirInfiltration/Specifications")
 print("\nACH@50Pa " + air_specs.find("BlowerTest").attrib["airChangeRate"])
