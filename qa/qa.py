@@ -64,7 +64,7 @@ print("Storeys: " + xmlval(tsv, "Storeys"))
 print("Front faces " + specs.find("FacingDirection/English").text)
 print("Built " + xmlval(tsv, "YearBuilt") + " vs " + pvsc.get("year_built", "unknown"))
 
-print("\General Info")
+print("\nGeneral Info")
 tsvals = ["AtypicalEnergyLoads", "GreenerHomes", "Vermiculite"]
 valdump(tsv, tsvals)
 
@@ -76,14 +76,15 @@ print(sa.find("Street").text + " vs " + pvsc.get("address_num") + ' ' +\
 print(sa.find("City").text + " vs " + pvsc.get("address_city"))
 print(sa.find("PostalCode").text + " vs " + "todo: Canada Post lookup")
 
-print("\Temperatures")
+print("\nTemperatures")
 temps = hse.find("Temperatures")
 print("Basement cooled: " + temps.find("Basement").attrib["cooled"])
 print("Crawlspace heated: " + temps.find("Crawlspace").attrib["heated"])
 print("MURB basement unit: " + temps.find("Basement").attrib["basementUnit"])
 
-print("\Ceiling and roof")
-ceilings = hse.findall("Components/Ceiling")
+hc = hse.find("Components")
+print("\nCeiling and roof")
+ceilings = hc.findall("Ceiling")
 for c in ceilings:
     m = c.find("Measurements")
     print(c.findtext("Label") + ":" +\
@@ -93,8 +94,8 @@ for c in ceilings:
           " RSI=" + c.find("Construction/CeilingType").attrib["rValue"] +\
           " heel=" + m.attrib["heelHeight"])
 
-print("\Walls")
-walls = hse.findall("Components/Wall")
+print("\nWalls")
+walls = hc.findall("Wall")
 for w in walls:
     m = w.find("Measurements")
     print(w.findtext("Label") + ":" +\
@@ -103,6 +104,19 @@ for w in walls:
           " " + w.findtext("Construction/Type") +\
           " RSI=" + w.find("Construction/Type").attrib["rValue"] +\
           " buffer=" + w.attrib["adjacentEnclosedSpace"])
+
+print("\nMain wall headers - todo")
+
+print("\nExposed floors")
+ef = hc.findall("Floor")
+for f in ef:
+    m = f.find("Measurements")
+    print(f.findtext("Label") + ":" +\
+          " area=" + m.attrib["area"] +\
+          " len=" + m.attrib["length"] +\
+          " " + f.findtext("Construction/Type") +\
+          " RSI=" + f.find("Construction/Type").attrib["rValue"] +\
+          " buffer=" + f.attrib["adjacentEnclosedSpace"])
 
 air_specs = hse.find("NaturalAirInfiltration/Specifications")
 print("\nACH@50Pa " + air_specs.find("BlowerTest").attrib["airChangeRate"])
