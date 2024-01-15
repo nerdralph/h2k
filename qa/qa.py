@@ -118,5 +118,13 @@ for f in ef:
           " RSI=" + f.find("Construction/Type").attrib["rValue"] +\
           " buffer=" + f.attrib["adjacentEnclosedSpace"])
 
+windows = hc.findall("Wall/Components/Window")
+print("\nWindows:", len(windows))
+for w in windows:
+    m = w.find("Measurements")
+    print(w.findtext("Label") + ":" +\
+          " width=" + m.attrib["width"] +\
+          " height=" + m.attrib["height"])
+
 air_specs = hse.find("NaturalAirInfiltration/Specifications")
 print("\nACH@50Pa " + air_specs.find("BlowerTest").attrib["airChangeRate"])
