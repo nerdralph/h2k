@@ -55,14 +55,7 @@ f.find("EnteredBy").text = soea["eaname"]
 f.find("Company").text = soea["soname"]
 f.find("CompanyTelephone").text = soea["sotel"]
 
-# set default evaluation date 
 #ymd = date.today().isoformat()
-#f.attrib["evaluationDate"] = ymd
-
-#pii = pi.find("Information")
-#info = ET.Element("Info", {"code": "Info. 42"})
-#info.text = "H2K template built with Greener Homes Wizard github.com/nerdralph/h2k/"
-#pii.append(info)
 
 # wc = weather codes
 wc = {"BRIER ISLAND": "163",
