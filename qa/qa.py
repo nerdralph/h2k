@@ -124,14 +124,17 @@ for f in ef:
 def windowspecs(w) -> str:
     m = w.find("Measurements")
     return (w.findtext("Label") + ":" +\
+          w.findtext("Construction/Type") +\
           " width=" + m.attrib["width"] +\
           " height=" + m.attrib["height"])
 
-windows = hc.findall("Wall/Components/Window")
+#windows = hc.findall("Wall/Components/Window")
+windows = hc.findall("*/Components/Window")
 print("\nWindows:", len(windows))
 for w in windows:
     print(windowspecs(w))
 
+# todo: include basement doors
 doors = hc.findall("Wall/Components/Door")
 print("\nDoors:", len(doors))
 for d in doors:
@@ -141,8 +144,10 @@ for d in doors:
           " height=" + m.attrib["height"])
     windows = d.findall("Components/Window")
     for w in windows:
-        print(" lite:", windowspecs(w))
+        print(" lite", windowspecs(w))
 
+bsmt = hc.find("Basement")
+print("\nBasement:", bsmt.findtext("Configuration") if bsmt else "N/A")) 
 
 air_specs = hse.find("NaturalAirInfiltration/Specifications")
 print("\nACH@50Pa " + air_specs.find("BlowerTest").attrib["airChangeRate"])
