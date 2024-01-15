@@ -64,7 +64,7 @@ print("Storeys: " + xmlval(tsv, "Storeys"))
 print("Front faces " + specs.find("FacingDirection/English").text)
 print("Built " + xmlval(tsv, "YearBuilt") + " vs " + pvsc.get("year_built", "unknown"))
 
-print("General Info")
+print("\General Info")
 tsvals = ["AtypicalEnergyLoads", "GreenerHomes", "Vermiculite"]
 valdump(tsv, tsvals)
 
@@ -76,13 +76,13 @@ print(sa.find("Street").text + " vs " + pvsc.get("address_num") + ' ' +\
 print(sa.find("City").text + " vs " + pvsc.get("address_city"))
 print(sa.find("PostalCode").text + " vs " + "todo: Canada Post lookup")
 
-print("Temperatures")
+print("\Temperatures")
 temps = hse.find("Temperatures")
 print("Basement cooled: " + temps.find("Basement").attrib["cooled"])
 print("Crawlspace heated: " + temps.find("Crawlspace").attrib["heated"])
 print("MURB basement unit: " + temps.find("Basement").attrib["basementUnit"])
 
-print("Ceiling and roof")
+print("\Ceiling and roof")
 ceilings = hse.findall("Components/Ceiling")
 for c in ceilings:
     m = c.find("Measurements")
@@ -92,6 +92,17 @@ for c in ceilings:
           " " + c.findtext("Construction/Type/English") +\
           " RSI=" + c.find("Construction/CeilingType").attrib["rValue"] +\
           " heel=" + m.attrib["heelHeight"])
+
+print("\Walls")
+walls = hse.findall("Components/Wall")
+for w in walls:
+    m = w.find("Measurements")
+    print(w.findtext("Label") + ":" +\
+          " height=" + m.attrib["height"] +\
+          " perim=" + m.attrib["perimeter"] +\
+          " " + w.findtext("Construction/Type") +\
+          " RSI=" + w.find("Construction/Type").attrib["rValue"] +\
+          " buffer=" + w.attrib["adjacentEnclosedSpace"])
 
 air_specs = hse.find("NaturalAirInfiltration/Specifications")
 print("\nACH@50Pa " + air_specs.find("BlowerTest").attrib["airChangeRate"])
