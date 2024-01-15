@@ -152,5 +152,15 @@ print("\nBasement:", bsmt.findtext("Configuration") if bsmt else "N/A")
 slab = hc.find("Slab")
 print("\nSlab:", slab.findtext("Configuration") if slab else "N/A")
 
+print("\nType 1 Heating")
+tsvals = ["FurnaceFuel", "FurnaceType"]
+valdump(tsv, tsvals)
+
+ashp = hse.find("HeatingCooling/AirHeatpump")
+print("\nType 2 Heating", "ASHP" if ashp else "N/A")
+if ashp:
+    ei = ashp.find("EquipmentInformation")
+    print(ei.findtext("Manufacturer"), ei.findtext("Model"))
+
 air_specs = hse.find("NaturalAirInfiltration/Specifications")
 print("\nACH@50Pa " + air_specs.find("BlowerTest").attrib["airChangeRate"])

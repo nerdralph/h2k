@@ -8,7 +8,7 @@
                 </FansAndPump>
                 <Boiler>
                     <EquipmentInformation energystar="false">
-                        <Manufacturer>Greener Homes Wizard</Manufacturer>
+                        <Manufacturer>GHWiz mfr</Manufacturer>
                     </EquipmentInformation>
                     <Equipment isBiEnergy="false" switchoverTemperature="0">
                         <EnergySource code="3">

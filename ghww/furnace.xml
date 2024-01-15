@@ -8,7 +8,7 @@
                 </FansAndPump>
                 <Furnace>
                     <EquipmentInformation energystar="false">
-                        <Manufacturer>Wizard SPH man</Manufacturer>
+                        <Manufacturer>GHWiz mfr</Manufacturer>
                     </EquipmentInformation>
                     <Equipment isBiEnergy="false" switchoverTemperature="0">
                         <EnergySource code="3">
