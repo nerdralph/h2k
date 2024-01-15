@@ -2,7 +2,7 @@
 # (c) Ralph Doncaster nerdralph.blogspot.ca
 
 import xml.etree.ElementTree as ET
-import cgi, datetime, json, math, os, requests, sys
+import cgi, datetime, os, requests, sys
 
 def xmlval(xmle, tag: str) -> str:
     return xmle.find(tag).attrib["value"]
@@ -47,7 +47,7 @@ specs = hse.find("Specifications")
 tsv = tree.find("Program/Results/Tsv")
 print("\nHouse h2k vs online data")
 print("Building type: " + xmlval(tsv, "BuildingType"))
-print("House type: " + specs.find("HouseType/English").text + " vs " + pvsc.get("style") )
+print("House type: " + specs.find("HouseType/English").text + " vs " + pvsc.get("style"))
 
 print("Weather " + xmlval(tsv, "WeatherLoc") + " vs ", end='')
 # lookup weather station
@@ -57,22 +57,22 @@ print(ws.json()["features"][0]["attributes"]["Name"])
 
 hfaa = float(specs.find("HeatedFloorArea").attrib["aboveGrade"]) * SF_PER_SM
 hfab = float(specs.find("HeatedFloorArea").attrib["belowGrade"]) * SF_PER_SM
-print("HFA above, below grade: " + str(int(hfaa)) + ", " + str(int(hfab)), end = '')
+print("HFA above, below grade: " + str(int(hfaa)) + ", " + str(int(hfab)), end='')
 print(" vs " + pvsc.get("square_foot_living_area") + " living area")
 
 print("Storeys: " + xmlval(tsv, "Storeys"))
 print("Front faces " + specs.find("FacingDirection/English").text)
-print("Built " + xmlval(tsv, "YearBuilt") + " vs " + pvsc.get("year_built", "unknown") )
+print("Built " + xmlval(tsv, "YearBuilt") + " vs " + pvsc.get("year_built", "unknown"))
 
 print("General Info")
 tsvals = ["AtypicalEnergyLoads", "GreenerHomes", "Vermiculite"]
-valdump(tsvals)
+valdump(tsv, tsvals)
 
 print("Reduced operating conditions: todo")
 
 sa = pi.find("Client/StreetAddress")
-print(sa.find("Street").text + " vs " + pvsc.get("address_num") + ' ' + pvsc.get("address_street") +\
-       ' ' + pvsc.get("address_suffix", ''))
+print(sa.find("Street").text + " vs " + pvsc.get("address_num") + ' ' +\
+  pvsc.get("address_street") + ' ' + pvsc.get("address_suffix", ''))
 print(sa.find("City").text + " vs " + pvsc.get("address_city"))
 print(sa.find("PostalCode").text + " vs " + "todo: Canada Post lookup")
 
@@ -80,7 +80,7 @@ print("Temperatures")
 temps = hse.find("Temperatures")
 print("Basement cooled: " + temps.find("Basement").attrib["cooled"])
 print("Crawlspace heated: " + temps.find("Crawlspace").attrib["heated"])
-print("MURB basement unit: " + temps.find("basementUnit").attrib["cooled"])
+print("MURB basement unit: " + temps.find("Basement").attrib["basementUnit"])
 
 print("Ceiling and roof")
 ceilings = hse.findall("Components/Ceiling")
