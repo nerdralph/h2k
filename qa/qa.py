@@ -121,13 +121,16 @@ for f in ef:
           " RSI=" + f.find("Construction/Type").attrib["rValue"] +\
           " buffer=" + f.attrib["adjacentEnclosedSpace"])
 
+def windowspecs(w) -> str:
+    m = w.find("Measurements")
+    return (w.findtext("Label") + ":" +\
+          " width=" + m.attrib["width"] +\
+          " height=" + m.attrib["height"])
+
 windows = hc.findall("Wall/Components/Window")
 print("\nWindows:", len(windows))
 for w in windows:
-    m = w.find("Measurements")
-    print(w.findtext("Label") + ":" +\
-          " width=" + m.attrib["width"] +\
-          " height=" + m.attrib["height"])
+    print(windowspecs(w))
 
 doors = hc.findall("Wall/Components/Door")
 print("\nDoors:", len(doors))
@@ -136,6 +139,10 @@ for d in doors:
     print(d.findtext("Label") + ":" +\
           " width=" + m.attrib["width"] +\
           " height=" + m.attrib["height"])
+    windows = d.findall("Components/Window")
+    for w in windows:
+        print(" lite:", windowspecs(w))
+
 
 air_specs = hse.find("NaturalAirInfiltration/Specifications")
 print("\nACH@50Pa " + air_specs.find("BlowerTest").attrib["airChangeRate"])
