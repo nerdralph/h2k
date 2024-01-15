@@ -147,7 +147,7 @@ for d in doors:
         print(" lite", windowspecs(w))
 
 bsmt = hc.find("Basement")
-print("\nBasement:", bsmt.findtext("Configuration") if bsmt else "N/A")) 
+print("\nBasement:", bsmt.findtext("Configuration") if bsmt else "N/A")
 
 air_specs = hse.find("NaturalAirInfiltration/Specifications")
 print("\nACH@50Pa " + air_specs.find("BlowerTest").attrib["airChangeRate"])
