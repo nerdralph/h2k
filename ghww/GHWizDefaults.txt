@@ -1,0 +1,17 @@
+Where these defaults are not appropriate, use a paper DCF
+
+no vermiculite
+
+ceilings: 1/2" drywall, strapping, wood truss
+
+2x6 main walls: 1/2" drywall, OSB, vinyl siding
+2x4 main walls: 1/2" drywall, 3/4" board, wood siding
+2x4 rough main walls: plaster+lath, 3/4" board, wood siding
+
+floors: 1/2" drywall, 3/4" strapping, 2x10, 3/4" subfloor, 3/4" flooring
+
+basement walls: BCCB_8, no slab or exterior insulation
+slabs: SCN_7
+
+mechanicals: no combustion air duct
+
