@@ -140,14 +140,14 @@
         </label>
       </span>
     </div>
-    <div>
+    <div v-scope="{type1: 'electric'}">
       <br>Mechanical 
       <!--
       <a href="https://oee.nrcan.gc.ca/pml-lmp/index.cfm?action=app.search-recherche&appliance=HP_SS" target="_blank">NRCan ASHP lookup</a><br>
       -->
       <a href="http://ahridirectory.org" target="_blank">AHRI Directory</a><br>
       <label>Heat
-        <select name="_Heat">
+        <select name="_Heat" v-model="type1">
           <option>electric</option>
           <option>boiler</option>
           <option>furnace</option>
@@ -162,7 +162,7 @@
           <option>electric</option>
           <option>oil</option>
           <option>gas</option>
-          <option>coil</option>
+          <option v-if="type1 == 'boiler'">coil</option>
         </select>
       </label>
       <label>Litres<input type="tel" pattern="[\d]*" name="_DHWL" style="width: 3ch" value="189"></label>
@@ -224,7 +224,7 @@
     <br>
     <label style="display:inline"> Doors:
       <!-- <input type="tel" size=1 pattern="[\d]" v-model.number="doors"> -->
-      <input type="tel" size=1 pattern="[\d]">
+      <input type="tel" required size=1 pattern="[\d]">
     </label>
     <table>
       <tr><th>Type</th><th>Hgt</th><th>W-d</th><th>lite</th></tr>
