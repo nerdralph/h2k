@@ -155,12 +155,22 @@ print("\nSlab:", slab.findtext("Configuration") if slab else "N/A")
 print("\nType 1 Heating")
 tsvals = ["FurnaceFuel", "FurnaceType"]
 valdump(tsv, tsvals)
+print("Mfr & model required for condensing equipment")
 
-ashp = hse.find("HeatingCooling/AirHeatpump")
+ashp = hse.find("HeatingCooling/Type2/AirHeatpump")
 print("\nType 2 Heating", "ASHP" if ashp else "N/A")
 if ashp:
     ei = ashp.find("EquipmentInformation")
-    print(ei.findtext("Manufacturer"), ei.findtext("Model"))
+    print(ei.findtext("Manufacturer", default="no mfr"), ei.findtext("Model", default="no model"))
+
+print("\nDHW")
+tsvals = ["pDHWFuel", "pDHWType", "priDHWModel", "PrimaryDHWTankVolume"]
+valdump(tsv, tsvals)
+#dhw = hc.find("HotWater/Primary")
+#ei = dhw.find("EquipmentInformation")
+#print(dhw.findtext("EnergySource/English"))
+#print(ei.findtext("Manufacturer", default="no mfr"), ei.findtext("Model", default="no model"))
+print("Mfr & model required for instant & condensing equipment")
 
 air_specs = hse.find("NaturalAirInfiltration/Specifications")
 print("\nACH@50Pa " + air_specs.find("BlowerTest").attrib["airChangeRate"])
