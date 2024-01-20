@@ -459,7 +459,7 @@
                 </Construction>
                 <Measurements area="0.0929" length="0.3048" />
             </Floor>
-#include "_HeatDHW.xml"
+#include "_DHWtypeDHW.xml"
         </Components>
     </House>
 #include "codes.xml"
