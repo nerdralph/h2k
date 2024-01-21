@@ -4,6 +4,9 @@
 import xml.etree.ElementTree as ET
 import cgi, datetime, os, requests, sys
 
+FT_PER_M = 3.28084
+SF_PER_SM = FT_PER_M ** 2
+
 def xmlval(xmle, tag: str) -> str:
     return xmle.find(tag).attrib["value"]
 
@@ -12,11 +15,13 @@ def valdump(xmle, tags):
     for tag in tags:
         print(tag +": " + xmlval(xmle, tag))
 
-FT_PER_M = 3.28084
-SF_PER_SM = FT_PER_M ** 2
+# key = array of json keys to print
+def printjson(jd, keys):
+    for key in keys:
+        print(key +": " + jd.get(key, "unknown"))
 
 print("Content-type: text/plain; charset=utf-8\n")
-print("Solar Si H2k QA scan alpha")
+print("Solar Si H2k QA scan beta")
 
 form = cgi.FieldStorage()
 h2k = form["h2kfile"]
@@ -39,8 +44,15 @@ log.write(datetime.date.today().isoformat() + " FileID: " + fid + ", AAN: " + ti
 dz = requests.get("https://www.thedatazone.ca/resource/a859-xvcs.json?aan=" + tid).json()
 if not len(dz):
     print("AAN not found in PVSC database")
-    sys.exit(0)
-pvsc = dz[0]
+else:
+    print("PVSC data:")
+    pvsc = dz[0]
+    keys = ["style", "square_foot_living_area", "year_built", "address_num", "address_street", "address_city"]
+    printjson(pvsc, keys)
+    # lookup weather station
+    wkid4326 = pvsc["x_coord"] + "," + pvsc["y_coord"]
+    ws = requests.get("https://maps-cartes.services.geo.ca/server_serveur/rest/services/NRCan/Carte_climatique_HOT2000_Climate_Map_EN/MapServer/1/query?geometry=" + wkid4326 + "&geometryType=esriGeometryPoint&inSR=4326&f=json")
+    print("H2K weather: " + ws.json()["features"][0]["attributes"]["Name"])
 
 hse = tree.find("House")
 specs = hse.find("Specifications")
@@ -48,24 +60,19 @@ tsv = tree.find("Program/Results/Tsv")
 
 print("\nNet AEC-AEP: " +xmlval(tsv, "EGHFconTotal"))
 
-print("\nHouse h2k vs online data")
+print("\nHouse data:")
 print("Building type: " + xmlval(tsv, "BuildingType"))
-print("House type: " + specs.find("HouseType/English").text + " vs " + pvsc.get("style"))
+print("House type: " + specs.find("HouseType/English").text)
 
-print("Weather " + xmlval(tsv, "WeatherLoc") + " vs ", end='')
-# lookup weather station
-wkid4326 = pvsc["x_coord"] + "," + pvsc["y_coord"]
-ws = requests.get("https://maps-cartes.services.geo.ca/server_serveur/rest/services/NRCan/Carte_climatique_HOT2000_Climate_Map_EN/MapServer/1/query?geometry=" + wkid4326 + "&geometryType=esriGeometryPoint&inSR=4326&f=json")
-print(ws.json()["features"][0]["attributes"]["Name"])
+print("Weather " + xmlval(tsv, "WeatherLoc"))
 
 hfaa = float(specs.find("HeatedFloorArea").attrib["aboveGrade"]) * SF_PER_SM
 hfab = float(specs.find("HeatedFloorArea").attrib["belowGrade"]) * SF_PER_SM
-print("HFA above, below grade: " + str(int(hfaa)) + ", " + str(int(hfab)), end='')
-print(" vs " + pvsc.get("square_foot_living_area") + " living area")
+print("HFA above, below grade: " + str(int(hfaa)) + ", " + str(int(hfab)))
 
 print("Storeys: " + xmlval(tsv, "Storeys"))
 print("Front faces " + specs.find("FacingDirection/English").text)
-print("Built " + xmlval(tsv, "YearBuilt") + " vs " + pvsc.get("year_built", "unknown"))
+print("Built " + xmlval(tsv, "YearBuilt"))
 
 print("\nGeneral Info")
 tsvals = ["AtypicalEnergyLoads", "GreenerHomes", "Vermiculite"]
@@ -74,10 +81,9 @@ valdump(tsv, tsvals)
 print("Reduced operating conditions: todo")
 
 sa = pi.find("Client/StreetAddress")
-print(sa.find("Street").text + " vs " + pvsc.get("address_num") + ' ' +\
-  pvsc.get("address_street") + ' ' + pvsc.get("address_suffix", ''))
-print(sa.find("City").text + " vs " + pvsc.get("address_city"))
-print(sa.find("PostalCode").text + " vs " + "todo: Canada Post lookup")
+print(sa.find("Street").text)
+print(sa.find("City").text)
+print(sa.find("PostalCode").text)
 
 print("\nTemperatures")
 temps = hse.find("Temperatures")
