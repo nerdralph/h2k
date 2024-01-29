@@ -58,12 +58,10 @@ hse = tree.find("House")
 specs = hse.find("Specifications")
 tsv = tree.find("Program/Results/Tsv")
 
-print("\nNet AEC-AEP: " +xmlval(tsv, "EGHFconTotal"))
-
 print("\nHouse data:")
+print("\nNet AEC-AEP: " +xmlval(tsv, "EGHFconTotal"))
 print("Building type: " + xmlval(tsv, "BuildingType"))
 print("House type: " + specs.find("HouseType/English").text)
-
 print("Weather " + xmlval(tsv, "WeatherLoc"))
 
 hfaa = float(specs.find("HeatedFloorArea").attrib["aboveGrade"]) * SF_PER_SM

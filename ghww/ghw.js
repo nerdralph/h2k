@@ -13,9 +13,11 @@ function fetchJd(query, action) {
         .then(data => {console.log(JSON.stringify(data)); action(data);});
 }
 
-function setPostal(address) {
-    q = "https://ws1.postescanada-canadapost.ca/Capture/Interactive/Find/v1.00/json3ex.ws?Key=AX81-HA65-HM33-RA59&Text=" + address + "&Countries=CAN"; 
-    fetchJd(q, d => aanq.elements._Postal.value = d.Items[0].Text.slice(-7));
+// set postal code base on latitude and longitude
+function setPostal(latt, longt) {
+    //q = "https://ws1.postescanada-canadapost.ca/Capture/Interactive/Find/v1.00/json3ex.ws?Key=AX81-HA65-HM33-RA59&Text=" + address + "&Countries=CAN"; 
+    q = "https://geocoder.ca/?json=1&latt=" + latt + "&longt=" + longt;
+    fetchJd(q, d => aanq.elements._Postal.value = d.postal);
 }
 
 function getCookie(name) {
@@ -34,7 +36,7 @@ function nsAAN(d) {
     fe._City.value = d.address_city;
     fe._Province.value = "NOVA SCOTIA";
     setWeather(d.x_coord + "," + d.y_coord);
-    setPostal(fe._Street.value + d.address_city + "NS");
+    setPostal(d.y_coord, d.x_coord);
 }
 
 function yycRoll(d) {
