@@ -161,7 +161,7 @@ tsvals = ["FurnaceFuel", "FurnaceType"]
 valdump(tsv, tsvals)
 print("Mfr & model required for condensing equipment: TP 3.5.14")
 
-ashp = hse.find("HeatingCooling/Type2/AirHeatpump")
+ashp = hse.find("HeatingCooling/Type2/AirHeatPump")
 print("\nType 2 Heating", "ASHP" if ashp else "N/A")
 if ashp:
     ei = ashp.find("EquipmentInformation")
