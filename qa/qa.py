@@ -165,6 +165,7 @@ ashp = hse.find("HeatingCooling/Type2/AirHeatPump")
 print("\nType 2 Heating", "ASHP" if ashp else "N/A")
 if ashp:
     ei = ashp.find("EquipmentInformation")
+    print("AHRI", ei.attrib["AHRI"])
     print(ei.findtext("Manufacturer", default="no mfr"), ei.findtext("Model", default="no model"))
 
 print("\nDHW")
