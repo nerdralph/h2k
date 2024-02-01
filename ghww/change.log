@@ -1,5 +1,7 @@
 # ghww change log
 
+2023-12-12: ghww.html legacy, dcf.html for DCF and H2K gen
+
 2023-02-22: refactor templates into single house.xt with form input for foundation & heat
 
 2023-02-18: pass through form fields with _ prefix as house template macros
