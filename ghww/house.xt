@@ -607,7 +607,7 @@
             </Labels>
         </SdkVersion>
         <Options xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-            <Main applyHouseholdOperatingConditions="false" applyReducedOperatingConditions="false" atypicalElectricalLoads="false" waterConservation="true" referenceHouse="false" greenerHomesTab="true">
+            <Main applyHouseholdOperatingConditions="false" applyReducedOperatingConditions="false" atypicalElectricalLoads="false" waterConservation="false" referenceHouse="false" greenerHomesTab="true">
                 <Vermiculite code="3">
                     <English>No Vermiculite</English>
                     <French>Pas de Vermiculite</French>
