@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-# Ralph Doncaster 2021, 2022
+# Ralph Doncaster 2021
 # Greener Homes wizard web version: creates H2K house models from templates
 
 import xml.etree.ElementTree as ET
-import cgi, datetime, json, math, os, requests, sys
+import cgi, datetime, math, os, sys
 
 # local modules
 import ashp, config, pp
@@ -37,9 +37,6 @@ tad_sm = float(form.getvalue("ta_delta", 0))/SF_PER_SM
 # top floor area difference from marea
 tp_delta_m = float(form.getvalue("tp_delta", 0))/FT_PER_M
 
-#jd = requests.get("https://www.thedatazone.ca/resource/a859-xvcs.json?aan=" + AAN).json()[0]
-#hd.write(json.dumps(jd))
-
 # use filepp to make h2k xml file
 xml = pp.filepp("house.xt")
 tree = ET.ElementTree(ET.fromstring(xml))
@@ -51,8 +48,6 @@ soea = config.SOEA.setdefault(fileid[:4], config.DFLT_SOEA)
 f.find("EnteredBy").text = soea["eaname"]
 f.find("Company").text = soea["soname"]
 f.find("CompanyTelephone").text = soea["sotel"]
-
-#ymd = date.today().isoformat()
 
 # wc = weather codes
 wc = {"BRIER ISLAND": "163",
@@ -70,7 +65,6 @@ if loc in wc.keys():
     pi.find("Weather/Location").attrib["code"] = wc[loc]
 
 house = tree.find("House")
-
 ahri = form.getvalue("AHRI")
 if ahri:
     house.find("HeatingCooling").append(ashp.query(ahri))
