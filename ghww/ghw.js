@@ -28,12 +28,14 @@ function nsAAN(d) {
     // data collection form elements
     const fe = aanq.elements;
     if (!d){
-        fe._Street.value = "not found";
+        taxdb.innerText = "not found";
         return;
     }
-    fe._YearBuilt.value = d.year_built || "1923";
+    fe._YearBuilt.value = d.year_built || "1900";
     fe._Street.value = d.address_num + " " + d.address_street + " " + (d.address_suffix || '');
     fe._City.value = d.address_city;
+    taxdb.innerText = fe._Street.value + ", " +  d.address_city + ", "
+        + d.style + " built " + d.year_built || "unknown";
     fe._Province.value = "NOVA SCOTIA";
     setWeather(d.x_coord + "," + d.y_coord);
     setPostal(d.y_coord, d.x_coord);

@@ -12,9 +12,6 @@ FT_PER_M = 3.28084
 SF_PER_SM = FT_PER_M ** 2
 CF_PER_CM = FT_PER_M ** 3
 
-# form inputs: _fileID AAN _Foundation _Heat mperim marea [aflht] [ta_delta] [tp_delta]")
-# t = top floor
-
 form = cgi.FieldStorage()
 
 fileid = form.getvalue("_FileID")
@@ -33,10 +30,10 @@ AAN = form.getvalue("_AAN")
 mperim = float(form.getvalue("mperim"))
 # main floor interior area
 marea = float(form.getvalue("marea"))
-# wall height in metres, default to 2.43m = 7.97'
-wall_height_m = float(form.getvalue("aflht", 2.43))
+# wall height in metres, default to 7.97'
+wall_height_m = float(form.getvalue("aflht", 7.97))/FT_PER_M
 # top floor area difference from marea
-ta_delta = float(form.getvalue("ta_delta", 0))
+tad_sm = float(form.getvalue("ta_delta", 0))/SF_PER_SM
 # top floor area difference from marea
 tp_delta_m = float(form.getvalue("tp_delta", 0))/FT_PER_M
 
@@ -78,26 +75,21 @@ ahri = form.getvalue("AHRI")
 if ahri:
     house.find("HeatingCooling").append(ashp.query(ahri))
 
-hs = house.find("Specifications")
-# hs.find("YearBuilt").attrib["value"] = jd.get("year_built", "1920")
-storeys = 2 if wall_height_m > 4 else 1
-# code 1 = 1 storey, 3 = 2 storey
-hs.find("Storeys").attrib["code"] = "1" if storeys == 1 else "3"
-
 # calculate foundation and main floor area converted to metric
 main_area_sm = marea/SF_PER_SM
 mperim_m = mperim/FT_PER_M
 
-# assume 12" bsmt walls & 6" walls above basement
+# assume 12" thick bsmt walls & 6" walls above basement
 bsmt_area_sm = (marea - (mperim -2)/2)/SF_PER_SM
 bperim_m = (mperim -4)/FT_PER_M
 
-tad_sm = ta_delta/SF_PER_SM
+storey_codes = {"1":1, "2":2, "3":2, "4":2, "5":3, "6":1, "7":1}
+storeys = storey_codes[form.getvalue("_Storeys")]
 above_grade_sm = (main_area_sm * storeys) + tad_sm
-hfa = hs.find("HeatedFloorArea")
+hfa = house.find("Specifications/HeatedFloorArea")
 hfa.attrib["aboveGrade"] = str(above_grade_sm)
 
-hc = tree.find("House/Components")
+hc = house.find("Components")
 if hc.find("Basement"):
     FTYPE = "Basement"
     # 7.8ft bsmt + 1' header / FT_PER_M
@@ -122,7 +114,7 @@ air_specs.find("House").attrib["volume"] = str(volume)
 
 ceiling_area_sm = main_area_sm
 ef = hc.find("Floor")
-if ta_delta > 0:
+if tad_sm > 0:
     # configure exposed floor
     m = ef.find("Measurements")
     m.attrib["area"] = str(tad_sm)
