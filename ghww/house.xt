@@ -91,41 +91,30 @@
         <Specifications effectiveMassFraction="1" defaultRoofCavity="false" eligibleForNBC="false" buildingType="House">
             <HouseType code="1">
                 <English>Single Detached</English>
-                <French>Détaché</French>
             </HouseType>
             <PlanShape code="1">
                 <English>Rectangular</English>
-                <French>Rectangulaire</French>
             </PlanShape>
-            <Storeys code="1">
-                <English>One storey</English>
-                <French>Un étage</French>
+            <Storeys code="_Storeys">
             </Storeys>
             <FacingDirection code="_FRONT_">
             </FacingDirection>
             <ThermalMass code="1">
                 <English>Light, wood frame</English>
-                <French>Légère, ossature de bois</French>
             </ThermalMass>
             <YearBuilt code="1" value="_YearBuilt">
-                <English>User specified</English>
-                <French>Spécifié par l'util.</French>
             </YearBuilt>
             <WallColour code="10" value="0.4">
                 <English>Default</English>
-                <French>par défaut</French>
             </WallColour>
             <SoilCondition code="1">
                 <English>Normal conductivity (dry sand, loam, clay)</English>
-                <French>conductivité normale (sable sec, argile)</French>
             </SoilCondition>
             <RoofColour code="10" value="0.4">
                 <English>Default</English>
-                <French>par défaut</French>
             </RoofColour>
             <WaterLevel code="2">
                 <English>Normal (7-10m/23-33ft)</English>
-                <French>Normal (7-10m/23-33pi)</French>
             </WaterLevel>
             <RoofCavity volume="76.166" ventilationRate="0.5">
                 <GableEnds area="12.8702">
