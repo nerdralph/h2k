@@ -247,7 +247,7 @@
                         <French>10 Pa</French>
                     </Pressure>
                 </BlowerTest>
-                <BuildingSite highestCeiling="_AGCHt">
+                <BuildingSite highestCeiling="5.0">
                     <Terrain code="7">
                         <English>Suburban, forest</English>
                         <French>Banlieue, forêt</French>
