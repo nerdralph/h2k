@@ -1,5 +1,21 @@
 // (c) Ralph Doncaster 2022
 
+const FT_PER_M = 3.28084
+const IN_PER_M = FT_PER_M * 12
+
+// divisors to convert between units
+const CONVERSION = {
+    "ftm": FT_PER_M,
+    "inm": IN_PER_M,
+}
+
+// convert form inputs to metric
+function convert()
+{
+    inputs = document.querySelectorAll("[data-units");
+    inputs.forEach(e => e.value /= CONVERSION[e.dataset.units]);
+}
+
 const TAXREGISTRY = {
     "NS": "https://www.thedatazone.ca/resource/a859-xvcs.json?aan=", 
     "YYC": "https://data.calgary.ca/resource/simh-5fhj.json?roll_number="
