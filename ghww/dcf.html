@@ -64,7 +64,7 @@
     <label>TA &#916<input name="ta_delta" type="tel" style="width: 4ch"></label>
     <label>TP &#916<input name="tp_delta" type="tel" style="width: 4ch"></label>
     <label title="Above Grade Height of Highest Ceiling">AGHHC
-      <input name="_AGCHt" type="tel" required style="width: 4ch">
+      <input name="_AGCHt" type="tel" required data-units="ftm" style="width: 4ch">
     </label>
     <p>
     <label>Client first name*<input name="_First" required style="width: 14ch"></label>
@@ -143,10 +143,10 @@
           </select>
         </label>
         <label title="average foundation height above ground">HAG
-          <input name="HAG" type="tel" pattern="[\d]{2,2}" size=2 required>
+          <input name="HAG" type="tel" pattern="[\d]+" size=2 required>
         </label>
         <label title="height in inches">Pony
-          <input name="Pony" type="tel" pattern="[\d]{1,2}" size=2 required>
+          <input name="Pony" type="tel" pattern="[\d\.]+" data-units="inm" size=2 required>
         </label>
       </span>
       <span v-if="fnd == 'slab'">
