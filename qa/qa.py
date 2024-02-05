@@ -34,7 +34,7 @@ log = open("/tmp/qa.log", 'a')
 
 pif = pi.find("File")
 fid = pif.findtext("Identification")
-print("File ID: " + fid)
+print("File ID, date:" fid, pif.attrib["evaluationDate"])
 tid = pif.find("TaxNumber").text or "no AAN"
 if len(tid) == 7:
     tid = '0' + tid
@@ -59,7 +59,7 @@ specs = hse.find("Specifications")
 tsv = tree.find("Program/Results/Tsv")
 
 print("\nHouse data:")
-print("\nNet AEC-AEP: " +xmlval(tsv, "EGHFconTotal"))
+print("Net AEC-AEP: " +xmlval(tsv, "EGHFconTotal"))
 print("Building type: " + xmlval(tsv, "BuildingType"))
 print("House type: " + specs.find("HouseType/English").text)
 print("Weather " + xmlval(tsv, "WeatherLoc"))
@@ -178,8 +178,8 @@ valdump(tsv, tsvals)
 print("Mfr & model required for instant & condensing equipment: TP 3.6.1")
 
 v = hse.find("Ventilation")
-print("Ventilation:")
-print(len(v.findall("SupplementalVentilatorList/BaseVentilator")), "bath fans and range hood")
+print("\nVentilation:")
+print(len(v.findall("SupplementalVentilatorList/BaseVentilator")), "total bath fans and range hoods (max 3 allowed)")
 hrv = v.find("WholeHouseVentilatorList/Hrv")
 if not hrv:
     print("No HRV")
