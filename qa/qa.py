@@ -34,7 +34,7 @@ log = open("/tmp/qa.log", 'a')
 
 pif = pi.find("File")
 fid = pif.findtext("Identification")
-print("File ID, date:" fid, pif.attrib["evaluationDate"])
+print("File ID, date:", fid, pif.attrib["evaluationDate"])
 tid = pif.find("TaxNumber").text or "no AAN"
 if len(tid) == 7:
     tid = '0' + tid
