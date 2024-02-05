@@ -177,5 +177,21 @@ valdump(tsv, tsvals)
 #print(ei.findtext("Manufacturer", default="no mfr"), ei.findtext("Model", default="no model"))
 print("Mfr & model required for instant & condensing equipment: TP 3.6.1")
 
+v = hse.find("Ventilation")
+print("Ventilation:")
+print(len(v.findall("SupplementalVentilatorList/BaseVentilator")), "bath fans and range hood")
+hrv = v.find("WholeHouseVentilatorList/Hrv")
+if not hrv:
+    print("No HRV")
+else:
+    ei = hrv.find("EquipmentInformation")
+    print("HRV make/model: ", ei.findtext("Manufacturer"), ei.findtext("Model"))
+    print("flow rate" +\
+          " supply=" + hrv.attrib["supplyFlowrate"] +\
+          " exhaust=" + hrv.attrib["exhaustFlowrate"])
+    print("efficiency" +\
+          " 0C=" + hrv.attrib["efficiency1"] +\
+          " -25C=" + hrv.attrib["efficiency2"])
+
 air_specs = hse.find("NaturalAirInfiltration/Specifications")
 print("\nACH@50Pa " + air_specs.find("BlowerTest").attrib["airChangeRate"])
