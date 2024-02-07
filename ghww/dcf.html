@@ -237,7 +237,7 @@
     <div v-scope="{doors: 2}" >
     <br>
     <label style="display:inline"> Doors:
-      <input type="tel" size=1 pattern="[1-9]" v-model.number="doors">
+      <input type="tel" size=2 pattern="[1-9]" v-model.number="doors">
       <!-- <input type="tel" required size=2 maxlength=1 pattern="[1-9]"> -->
     </label>
     <table>
@@ -266,7 +266,7 @@
         </tr>
         <tr>
           <td><label style="display:inline"><input type="checkbox">other</label></td>
-          <td><textarea></textarea></td>
+          <td><textarea style="width: 100%"></textarea></td>
       </table>
     </div>
     <input type="submit" value="Create H2K file" onclick="convert()">
@@ -289,4 +289,3 @@
   </script>
   </body>
 </html>
-
