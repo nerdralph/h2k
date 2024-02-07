@@ -260,10 +260,13 @@
     <div v-scope="">
       <br>Air leakage sources:
       <table>
-        <tr v-for="s in ['attic hatch', 'upper lights', 'breaker panel', 'receptacles', 'switches', 'pipe holes', 'windows', 'doors', 'other']">
+        <tr v-for="s in ['attic hatch', 'upper lights', 'panelboard', 'receptacles', 'switches', 'pipe holes', 'windows', 'doors', 'baseboard']">
           <td><label style="display:inline"><input type="checkbox">{{s}}</label></td>
           <td><input></td>
         </tr>
+        <tr>
+          <td><label style="display:inline"><input type="checkbox">other</label></td>
+          <td><textarea></textarea></td>
       </table>
     </div>
     <input type="submit" value="Create H2K file" onclick="convert()">
