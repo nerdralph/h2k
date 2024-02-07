@@ -84,7 +84,8 @@
       <select name="walls">
         <option>2x6 R19</option>
         <option>2x4 R12</option>
-        <option>2x4 rough</option>
+        <option>2x4 RC</option>
+        <option>2x4 R14</option>
         <option>ICF</option>
       </select>
     </label>
@@ -93,9 +94,21 @@
         <option>none</option>
         <option>1" EPS</option>
         <option>1" XPS</option>
-        <option>1.5" EPS</option>
+        <option>1.5 EPS</option>
       </select>
     </label>
+    <label>headers
+      <select>
+        <option>none</option>
+        <option>2x8</option>
+        <option selected>2x10</option>
+        <option>12"</option>
+      </select>
+    </label>
+    <label>R-
+      <input type="tel" required pattern="[\d]{1,2}" size=2>
+    </label>
+    <br>
     <label>Attic
       <select name="attic">
         <option>gable</option>
@@ -114,18 +127,6 @@
       <input type="tel" pattern="[\d]{1,2}" required size=2>
     </label>
     </div>
-    <br>
-    <label>headers
-      <select>
-        <option>none</option>
-        <option>2x8</option>
-        <option selected>2x10</option>
-        <option>12"</option>
-      </select>
-    </label>
-    <label>R-
-      <input type="tel" required pattern="[\d]{1,2}" size=2>
-    </label>
     <div v-scope="{fnd: 'bsmt'}">
       <br>
       <label>Foundation
