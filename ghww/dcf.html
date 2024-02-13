@@ -3,10 +3,10 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-      input:valid {
+      input:valid, select:valid {
         background-color: palegreen;
       }
-      input:invalid {
+      input:invalid, select:invalid {
         background-color: lightpink;
       }
       input, label, select {
@@ -32,7 +32,8 @@
     <label>File ID <input name="_FileID" pattern="[\w]{4}D[\d]{5}" required style="width: 11ch" onblur="setFID(this.value)"></label>
     <label>Tax number <input name="_AAN" type="tel" size=8 pattern="[\d]{8}" required onchange="findAAN(this.value)"></label>
     <label>House faces
-      <select name="FacingDirection">
+      <select name="FacingDirection" required>
+        <option value="">choose</option>
         <option value="1">south</option>
         <option value="2">sou'east</option>
         <option value="3">east</option>
@@ -44,7 +45,8 @@
       </select>
     </label>
     <label>Storeys
-      <select name="_Storeys">
+      <select name="_Storeys" required>
+        <option value="">choose</option>
         <option value="1">1 storey</option>
         <option value="2">1.5</option>
         <option value="3">2 storey</option>
@@ -81,12 +83,14 @@
     <div>
     <br>
     <label>Main walls
-      <select name="walls">
+      <select name="wall" required>
+        <option value="">choose</option>
         <option>2x6 R19</option>
+        <option>2x6 R24</option>
         <option>2x4 R12</option>
+        <option>ICF</option>
         <option>2x4 RC</option>
         <option>2x4 R14</option>
-        <option>ICF</option>
       </select>
     </label>
     <label>+foam
@@ -110,17 +114,21 @@
     </label>
     <br>
     <label>Attic
-      <select name="attic">
+      <select>
         <option>gable</option>
         <option>hip</option>
+        <option>cathedral</option>
+        <option>flat</option>
         <option>scissor</option>
       </select>
     </label>
     <label>Insulation
-      <select name="fill">
+      <select required>
+        <option value="">choose</option>
         <option>cellulose</option>
         <option>fibreglas</option>
         <option>FG batt</option>
+        <option>LD foam</option>
       </select>
     </label>
     <label>" deep
