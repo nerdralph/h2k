@@ -29,8 +29,12 @@
     <p>
     <form action="/cgi-bin/ghww.py" method="get" id="aanq">
     <!-- field names prefixed with '_' will be converted to house template macros -->
-    <label>File ID <input name="_FileID" pattern="[\w]{4}D[\d]{5}" required style="width: 11ch" onblur="setFID(this.value)"></label>
-    <label>Tax number <input name="_AAN" type="tel" size=8 pattern="[\d]{8}" required onchange="findAAN(this.value)"></label>
+    <label>File ID
+      <input name="_FileID" pattern="[\w]{4}D[\d]{5}" autocapitalize=characters required style="width: 11ch" onblur="setFID(this.value)">
+    </label>
+    <label>Tax number
+      <input name="_AAN" type="tel" size=8 pattern="[\d]{8}" required onchange="findAAN(this.value)">
+    </label>
     <label>House faces
       <select name="FacingDirection" required>
         <option value="">choose</option>
@@ -56,19 +60,7 @@
         <option value="7">splt ntry</option>
       </select>
     </label>
-    <br>Tax DB: <pre id="taxdb">tax number required</pre>
-    Interior dimensions:<br>
-    <label>MPerim<input name="mperim" type="tel" required style="width: 5ch"></label>
-    <label>MArea<input name="marea" type="tel" required style="width: 5ch"></label>
-    <label title="Above Foundation Wall Height">AFWHt
-      <input name="aflht" type="tel" style="width: 4ch">
-    </label>
-    <label>TA &#916<input name="ta_delta" type="tel" style="width: 4ch"></label>
-    <label>TP &#916<input name="tp_delta" type="tel" style="width: 4ch"></label>
-    <label title="Above Grade Height of Highest Ceiling">AGHHC
-      <input name="_AGCHt" type="tel" required data-units="ftm" style="width: 4ch">
-    </label>
-    <p>
+    <pre id="taxdb">Tax number required</pre>
     <label>Client first name*<input name="_First" required style="width: 14ch"></label>
     <label>Client last name*<input name="_Last" required style="width: 18ch"></label>
     <label>Telephone<input type="tel" name="_Telephone" style="width: 12ch"></label>
@@ -80,17 +72,28 @@
     <label>Postal<input name="_Postal" size=6></label><br>
     <label>Year built<input name="_YearBuilt" required type="tel" pattern="[\d]{4}" size=4></label>
     <label>Weather station<input name="weather"></label><br>
-    <div>
-    <br>
+    <p>
+    Interior dimensions:<br>
+    <label>MPerim<input name="mperim" type="tel" required style="width: 5ch"></label>
+    <label>MArea<input name="marea" type="tel" required style="width: 5ch"></label>
+    <label title="Above Foundation Wall Height">WHgt
+      <input name="aflht" type="tel" required style="width: 4ch">
+    </label>
+    <label>TA &#916<input name="ta_delta" style="width: 4ch"></label>
+    <label>TP &#916<input name="tp_delta" style="width: 4ch"></label>
+    <label title="Above Grade Height of Highest Ceiling">AGHHC
+      <input name="_AGCHt" type="tel" required data-units="ftm" style="width: 4ch">
+    </label>
+    <p>
     <label>Main walls
       <select name="wall" required>
         <option value="">choose</option>
-        <option>2x6 R19</option>
-        <option>2x6 R24</option>
-        <option>2x4 R12</option>
+        <option>2x6R19</option>
+        <option>2x6R24</option>
+        <option>2x4R12</option>
         <option>ICF</option>
         <option>2x4 RC</option>
-        <option>2x4 R14</option>
+        <option>2x4R14</option>
       </select>
     </label>
     <label>+foam
@@ -112,7 +115,7 @@
     <label>R-
       <input type="tel" required pattern="[\d]{1,2}" size=2>
     </label>
-    <br>
+    <p>
     <label>Attic
       <select>
         <option>gable</option>
@@ -131,31 +134,35 @@
         <option>LD foam</option>
       </select>
     </label>
-    <label>" deep
-      <input type="tel" pattern="[\d]{1,2}" required size=2>
+    <label>depth
+      <input type="tel" pattern="[\d]{1,2}" required size=2 placeholder="inch">
     </label>
-    </div>
+    <p>
     <div v-scope="{fnd: 'bsmt'}">
-      <br>
-      <label>Foundation
+      <label>foundation
         <select name="_Foundation" v-model="fnd">
           <option>bsmt</option>
           <option>slab</option>
         </select>
       </label>
       <span v-if="fnd == 'bsmt'">
-        <label>Interior
+        <label title="bsmt wall height">height
+          <input name="BHt" type="tel" pattern="[\d\.]+" data-units="inm" size=2 required placeholder="inch">
+        </label>
+        <label>interior
           <select>
-            <option>2x4 R12</option>
-            <option>2x4 R20</option>
+            <option>2x4R12</option>
+            <option>2x6R19</option>
+            <option>1" EPS</option>
+            <option>2" EPS</option>
             <option>none</option>
           </select>
         </label>
         <label title="average foundation height above ground">HAG
-          <input name="HAG" type="tel" pattern="[\d]+" size=2 required>
+          <input name="HAG" type="tel" pattern="[\d]+" size=2 required placeholder="inch">
         </label>
-        <label title="height in inches">Pony
-          <input name="Pony" type="tel" pattern="[\d\.]+" data-units="inm" size=2 required>
+        <label title="height in inches">pony
+          <input name="Pony" type="tel" pattern="[\d\.]+" data-units="inm" size=2 required placeholder="inch">
         </label>
       </span>
       <span v-if="fnd == 'slab'">
