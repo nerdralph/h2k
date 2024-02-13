@@ -230,10 +230,7 @@
         <td><input :name="'_N' + wname + c" style="width: 10ch"></td>
       </template>
       <br>
-      <details>
-        <summary>
           Windows: <a href="/WindowCodes.txt" target="_blank">H2K window codes</a>
-        </summary>
         <table>
           <tr><th>L</th><th>Type</th><th>#</th><th>Hgt</th><th>W-d</th><th>Note</th></tr>
           <template v-for="c in counts['WndwF']">
@@ -249,7 +246,6 @@
             <tr v-scope="H2KWindow({wname: 'WndwR'})"><td>rt{{c}}</td></tr>
           </template>
         </table>
-      </details>
     </div>
     <div v-scope="{doors: 2}" >
     <br>
