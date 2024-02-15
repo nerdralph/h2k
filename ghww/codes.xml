@@ -167,6 +167,10 @@
         </Lintel>
         <Window>
             <Standard>
+                <Code id="Code 100012" value="100012" nominalRValue="0">
+                    <Label>100012</Label>
+                    <Description>100012</Description>
+                </Code>
                 <Code id="Code 200004" value="200004" nominalRValue="0">
                     <Label>200004</Label>
                     <Description>200004</Description>

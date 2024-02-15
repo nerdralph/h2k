@@ -3,10 +3,10 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-      input:valid {
+      input:valid, select:valid {
         background-color: palegreen;
       }
-      input:invalid {
+      input:invalid, select:invalid {
         background-color: lightpink;
       }
       input, label, select {
@@ -24,15 +24,20 @@
   </head>
   <body> 
     <h1 style="color:DarkGreen;">ERS GHWiz</h1>
-    v43
+    v45
     <a href="/GHWizDefaults.txt" target="_blank">GHWiz house defaults</a>
     <p>
     <form action="/cgi-bin/ghww.py" method="get" id="aanq">
     <!-- field names prefixed with '_' will be converted to house template macros -->
-    <label>File ID <input name="_FileID" pattern="[\w]{4}D[\d]{5}" required style="width: 11ch" onblur="setFID(this.value)"></label>
-    <label>Tax number <input name="_AAN" type="tel" size=8 pattern="[\d]{8}" required onchange="findAAN(this.value)"></label>
+    <label>File ID
+      <input name="_FileID" pattern="[\w]{4}D[\d]{5}" autocapitalize=characters required style="width: 11ch" onblur="setFID(this.value)">
+    </label>
+    <label>Tax number
+      <input name="_AAN" type="tel" size=8 pattern="[\d]{8}" required onchange="findAAN(this.value)">
+    </label>
     <label>House faces
-      <select name="FacingDirection">
+      <select name="FacingDirection" required>
+        <option value="">choose</option>
         <option value="1">south</option>
         <option value="2">sou'east</option>
         <option value="3">east</option>
@@ -44,7 +49,8 @@
       </select>
     </label>
     <label>Storeys
-      <select name="_Storeys">
+      <select name="_Storeys" required>
+        <option value="">choose</option>
         <option value="1">1 storey</option>
         <option value="2">1.5</option>
         <option value="3">2 storey</option>
@@ -54,19 +60,7 @@
         <option value="7">splt ntry</option>
       </select>
     </label>
-    <br>Tax DB: <pre id="taxdb">tax number required</pre>
-    Interior dimensions:<br>
-    <label>MPerim<input name="mperim" type="tel" required style="width: 5ch"></label>
-    <label>MArea<input name="marea" type="tel" required style="width: 5ch"></label>
-    <label title="Above Foundation Wall Height">AFWHt
-      <input name="aflht" type="tel" style="width: 4ch">
-    </label>
-    <label>TA &#916<input name="ta_delta" type="tel" style="width: 4ch"></label>
-    <label>TP &#916<input name="tp_delta" type="tel" style="width: 4ch"></label>
-    <label title="Above Grade Height of Highest Ceiling">AGHHC
-      <input name="_AGCHt" type="tel" required data-units="ftm" style="width: 4ch">
-    </label>
-    <p>
+    <pre id="taxdb">Tax number required</pre>
     <label>Client first name*<input name="_First" required style="width: 14ch"></label>
     <label>Client last name*<input name="_Last" required style="width: 18ch"></label>
     <label>Telephone<input type="tel" name="_Telephone" style="width: 12ch"></label>
@@ -78,14 +72,28 @@
     <label>Postal<input name="_Postal" size=6></label><br>
     <label>Year built<input name="_YearBuilt" required type="tel" pattern="[\d]{4}" size=4></label>
     <label>Weather station<input name="weather"></label><br>
-    <div>
-    <br>
+    <p>
+    Interior dimensions:<br>
+    <label>MPerim<input name="mperim" type="tel" required style="width: 5ch"></label>
+    <label>MArea<input name="marea" type="tel" required style="width: 5ch"></label>
+    <label title="Above Foundation Wall Height">WHgt
+      <input name="aflht" type="tel" required style="width: 4ch">
+    </label>
+    <label>TA &#916<input name="ta_delta" style="width: 4ch"></label>
+    <label>TP &#916<input name="tp_delta" style="width: 4ch"></label>
+    <label title="Above Grade Height of Highest Ceiling">AGHHC
+      <input name="_AGCHt" type="tel" required data-units="ftm" style="width: 4ch">
+    </label>
+    <p>
     <label>Main walls
-      <select name="walls">
-        <option>2x6 R19</option>
-        <option>2x4 R12</option>
-        <option>2x4 rough</option>
+      <select name="wall" required>
+        <option value="">choose</option>
+        <option>2x6R19</option>
+        <option>2x6R24</option>
+        <option>2x4R12</option>
         <option>ICF</option>
+        <option>2x4 RC</option>
+        <option>2x4R14</option>
       </select>
     </label>
     <label>+foam
@@ -93,28 +101,9 @@
         <option>none</option>
         <option>1" EPS</option>
         <option>1" XPS</option>
-        <option>1.5" EPS</option>
+        <option>1.5 EPS</option>
       </select>
     </label>
-    <label>Attic
-      <select name="attic">
-        <option>gable</option>
-        <option>hip</option>
-        <option>scissor</option>
-      </select>
-    </label>
-    <label>Insulation
-      <select name="fill">
-        <option>cellulose</option>
-        <option>fibreglas</option>
-        <option>FG batt</option>
-      </select>
-    </label>
-    <label>" deep
-      <input type="tel" pattern="[\d]{1,2}" required size=2>
-    </label>
-    </div>
-    <br>
     <label>headers
       <select>
         <option>none</option>
@@ -123,30 +112,57 @@
         <option>12"</option>
       </select>
     </label>
-    <label>insulation R-
+    <label>R-
       <input type="tel" required pattern="[\d]{1,2}" size=2>
     </label>
+    <p>
+    <label>Attic
+      <select>
+        <option>gable</option>
+        <option>hip</option>
+        <option>cathedral</option>
+        <option>flat</option>
+        <option>scissor</option>
+      </select>
+    </label>
+    <label>Insulation
+      <select required>
+        <option value="">choose</option>
+        <option>cellulose</option>
+        <option>fibreglas</option>
+        <option>FG batt</option>
+        <option>LD foam</option>
+      </select>
+    </label>
+    <label>depth
+      <input type="tel" pattern="[\d]{1,2}" required size=2 placeholder="inch">
+    </label>
+    <p>
     <div v-scope="{fnd: 'bsmt'}">
-      <br>
-      <label>Foundation
+      <label>foundation
         <select name="_Foundation" v-model="fnd">
           <option>bsmt</option>
           <option>slab</option>
         </select>
       </label>
       <span v-if="fnd == 'bsmt'">
-        <label>Interior
+        <label title="bsmt wall height">height
+          <input name="BHt" type="tel" pattern="[\d\.]+" data-units="inm" size=2 required placeholder="inch">
+        </label>
+        <label>interior
           <select>
-            <option>2x4 R12</option>
-            <option>2x4 R20</option>
+            <option>2x4R12</option>
+            <option>2x6R19</option>
+            <option>1" EPS</option>
+            <option>2" EPS</option>
             <option>none</option>
           </select>
         </label>
         <label title="average foundation height above ground">HAG
-          <input name="HAG" type="tel" pattern="[\d]+" size=2 required>
+          <input name="HAG" type="tel" pattern="[\d]+" size=2 required placeholder="inch">
         </label>
-        <label title="height in inches">Pony
-          <input name="Pony" type="tel" pattern="[\d\.]+" data-units="inm" size=2 required>
+        <label title="height in inches">pony
+          <input name="_PonyHt" type="tel" pattern="[\d\.]+" data-units="inm" size=2 required placeholder="inch">
         </label>
       </span>
       <span v-if="fnd == 'slab'">
@@ -194,16 +210,17 @@
       <template id="H2KWindow-tmpl">
         <td>
           <select :name="'_T' + wname + c">
-            <option value="Code 200024">200024</option>
+            <option value="Code 100012">100012</option>
+            <option value="Code 200004">200004</option>
+            <option value="Code 200024" selected>200024</option>
             <option value="Code 233214">233214</option>
             <option value="Code 233224">233224</option>
-            <option value="Code 200004">200004</option>
             <option value="Code 233204">233204</option>
             <option value="Code 200045">200045</option>
             <option value="Code 233245">233245</option>
           </select>
         </td>
-        <td><input type="tel" :name="'_C' + wname + c" value="1" maxlength="1" pattern="[\d]" style="width: 1ch"></td>
+        <td><input type="tel" :name="'_C' + wname + c" value="1" maxlength="1" pattern="[\d]" style="width: 2ch"></td>
         <td><input type="tel" :name="'H' + wname + c" value="0" style="width: 3ch"></td>
         <!--
         <td><input type="tel" :data-var="wname" :name="'H' + wname + c" value="0" style="width: 3ch"></td>
@@ -213,32 +230,28 @@
         <td><input :name="'_N' + wname + c" style="width: 10ch"></td>
       </template>
       <br>
-      <details>
-        <summary>
           Windows: <a href="/WindowCodes.txt" target="_blank">H2K window codes</a>
-        </summary>
         <table>
-          <tr><th>Name</th><th>Type</th><th>#</th><th>Hgt</th><th>W-d</th><th>Note</th></tr>
+          <tr><th>L</th><th>Type</th><th>#</th><th>Hgt</th><th>W-d</th><th>Note</th></tr>
           <template v-for="c in counts['WndwF']">
-            <tr v-scope="H2KWindow({wname: 'WndwF'})"><td>front{{c}}</td></tr>
+            <tr v-scope="H2KWindow({wname: 'WndwF'})"><td>fr{{c}}</td></tr>
           </template>
           <template v-for="c in counts['WndwL']">
-            <tr v-scope="H2KWindow({wname: 'WndwL'})"><td>left{{c}}</td></tr>
+            <tr v-scope="H2KWindow({wname: 'WndwL'})"><td>lf{{c}}</td></tr>
           </template>
           <template v-for="c in counts['WndwB']">
-            <tr v-scope="H2KWindow({wname: 'WndwB'})"><td>back{{c}}</td></tr>
+            <tr v-scope="H2KWindow({wname: 'WndwB'})"><td>bk{{c}}</td></tr>
           </template>
           <template v-for="c in counts['WndwR']">
-            <tr v-scope="H2KWindow({wname: 'WndwR'})"><td>right{{c}}</td></tr>
+            <tr v-scope="H2KWindow({wname: 'WndwR'})"><td>rt{{c}}</td></tr>
           </template>
         </table>
-      </details>
     </div>
-    <div v-scope="{doors: 5}" >
+    <div v-scope="{doors: 2}" >
     <br>
     <label style="display:inline"> Doors:
-      <!-- <input type="tel" size=1 pattern="[\d]" v-model.number="doors"> -->
-      <input type="tel" required size=1 pattern="[\d]">
+      <input type="tel" size=2 pattern="[1-9]" v-model.number="doors">
+      <!-- <input type="tel" required size=2 maxlength=1 pattern="[1-9]"> -->
     </label>
     <table>
       <tr><th>Type</th><th>Hgt</th><th>W-d</th><th>lite</th></tr>
@@ -260,10 +273,13 @@
     <div v-scope="">
       <br>Air leakage sources:
       <table>
-        <tr v-for="s in ['attic hatch', 'upper lights', 'breaker panel', 'receptacles', 'switches', 'pipe holes', 'windows', 'doors', 'other']">
+        <tr v-for="s in ['attic hatch', 'upper lights', 'panelboard', 'receptacles', 'switches', 'pipe holes', 'windows', 'doors', 'baseboard']">
           <td><label style="display:inline"><input type="checkbox">{{s}}</label></td>
           <td><input></td>
         </tr>
+        <tr>
+          <td><label style="display:inline"><input type="checkbox">other</label></td>
+          <td><textarea style="width: 100%"></textarea></td>
       </table>
     </div>
     <input type="submit" value="Create H2K file" onclick="convert()">
@@ -286,4 +302,3 @@
   </script>
   </body>
 </html>
-
