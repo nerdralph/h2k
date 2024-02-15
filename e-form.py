@@ -70,7 +70,8 @@ d = (dt.date.today() + td).isoformat()
 fieldvalues["Date[0]"] = d
 fieldvalues["Date_2[0]"] = d
 fieldvalues["Date_3[0]"] = d
-fieldvalues["Signature_3[0]"] = "Ralph Doncaster"
+# try to use script font for digital signature
+fieldvalues["Signature_3[0]"] = "R Doncaster"
 print("fieldvalues: ")
 print(fieldvalues)
 
