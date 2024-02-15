@@ -74,10 +74,10 @@
     <br>
     <label>Street<input name="_Street" style="width: 20ch"></label>
     <label>City<input name="_City" style="width: 15ch"></label>
-    <label>Province<input name="_Province" size=12></label>
-    <label>Postal<input name="_Postal" size=6></label><br>
-    <label>Year built<input name="_YearBuilt" required type="tel" pattern="[\d]{4}" size=4></label>
-    <label>Weather station<input name="weather"></label><br>
+    <label>Province<input name="_Province" size=9></label>
+    <label>Postal<input name="_Postal" size=5></label><br>
+    <label>Year built<input name="_YearBuilt" required type="tel" pattern="[\d]{4}" size=3></label>
+    <label>Weather station<input name="weather" size=8></label><br>
     <div>
     <br>
     <label>Main walls
@@ -187,8 +187,7 @@
       <label>model<input name="_HRVmodel" size=6></label> 
       <label>fans<input type="tel" required pattern="[012]" style="width: 2ch"></label> 
       <label>hood<input type="checkbox"></label><br>
-      <label>PV<input type="checkbox"></label>
-      <label>kW DC<input style="width: 4ch"></label>
+      <label>PV W DC<input style="width: 5ch"></label>
     </div>
     <div v-scope="{counts: {WndwF: 8, WndwL: 8, WndwB: 8, WndwR: 8}}">
       <template id="H2KWindow-tmpl">
