@@ -97,7 +97,6 @@ function findAAN(aan) {
 
 function setFID(fid) {
     document.cookie = `_FileID=${fid};SameSite=Strict`;
-    document.title = fid;
 }
 
 // increment FileID
@@ -106,10 +105,16 @@ function nextFile() {
     if (!fid) return "";
     // last 5 digits is house indicator: ERS Tech Procedures 2.9
     fid = fid.substr(0,5) + `${+fid.substr(5) + 1}`.padStart(5, "0"); 
+    document.title = fid;
     return fid;
+}
+
+function checkDCF() {
+    if (! aanq.checkValidity()) return;
+    convert();
+    setFID(aanq.elements["_FileID"].value);
 }
 
 // global form init
 // window.onload = () => aanq.elements._FileID.value = location.search.slice(1);
 window.onload = () => aanq.elements._FileID.value = nextFile();
-
