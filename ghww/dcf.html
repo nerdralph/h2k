@@ -27,7 +27,7 @@
     v47
     <a href="/GHWizDefaults.txt" target="_blank">GHWiz house defaults</a>
     <p>
-    <form action="/cgi-bin/ghww.py" method="get" id="aanq">
+    <form action="/cgi-bin/ghww.py" method="get" id="aanq" autocomplete="off">
     <!-- field names prefixed with '_' will be converted to house template macros -->
     <label>File ID
       <input name="_FileID" pattern="[\w]{4}D[\d]{5}" autocapitalize=characters required style="width: 11ch" onchange="document.title = this.value">
@@ -283,7 +283,7 @@
           <td><textarea style="width: 100%"></textarea></td>
       </table>
     </div>
-    <input type="submit" value="make H2K file" onclick="convert()">
+    <input type="submit" value="make H2K file" onclick="checkDCF()">
     </form>
   <script src="ghw.js"></script>
   <script src="https://unpkg.com/petite-vue" defer init></script>
