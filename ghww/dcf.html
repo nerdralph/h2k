@@ -147,7 +147,7 @@
       </label>
       <span v-if="fnd == 'bsmt'">
         <label title="bsmt wall height">height
-          <input name="BHt" type="tel" pattern="[\d\.]+" data-units="inm" size=2 required placeholder="inch">
+          <input name="_BHt" inputmode="numeric" pattern="[\d]i{2,3)" data-units="inm" size=2 required placeholder="inch">
         </label>
         <label>interior
           <select>
