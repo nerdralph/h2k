@@ -251,7 +251,7 @@
     <div v-scope="{doors: 2}" >
     <br>
     <label style="display:inline"> Doors:
-      <input type="tel" size=2 pattern="[1-9]" v-model.number="doors">
+      <input inputmode=numeric size=2 pattern="[1-9]" v-model.number="doors">
       <!-- <input type="tel" required size=2 maxlength=1 pattern="[1-9]"> -->
     </label>
     <table>
@@ -265,9 +265,13 @@
             <option>wood</option>
           </select>
         </td>
-        <td><input type="tel" :name="'HDoor' + i" style="width: 3ch"></td>
-        <td><input type="tel" :name="'WDoor' + i" style="width: 3ch"></td>
-        <td><input size=9></td>
+        <td>
+          <input inputmode=numeric value="81.5" :name="'_HDoor' + i" style="width: 3ch">
+        </td>
+        <td>
+          <input inputmode=numeric value="31.9" :name="'_WDoor' + i" style="width: 3ch">
+        </td>
+        <td><input size=11></td>
       </tr>
     </table>
     </div>
