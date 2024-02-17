@@ -36,6 +36,7 @@ wall_height_m = float(form.getvalue("aflht", 7.97))/FT_PER_M
 tad_sm = float(form.getvalue("ta_delta", 0))/SF_PER_SM
 # top floor area difference from marea
 tp_delta_m = float(form.getvalue("tp_delta", 0))/FT_PER_M
+BSMT_HT_M = float(form.getvalue("_BHt", 0))
 
 # use filepp to make h2k xml file
 xml = pp.filepp("house.xt")
@@ -86,12 +87,11 @@ hfa.attrib["aboveGrade"] = str(above_grade_sm)
 hc = house.find("Components")
 if hc.find("Basement"):
     FTYPE = "Basement"
-    # 7.8ft bsmt + 1' header / FT_PER_M
-    BSMT_HT_M = 2.683
+    # add 1' header
+    BSMT_HT_M += 1.0/FT_PER_M
     hfa.attrib["belowGrade"] = str(bsmt_area_sm)
 elif hc.find("Slab"):
     FTYPE = "Slab"
-    BSMT_HT_M = 0
 else:
     print("unrecognized template foundation type")
     sys.exit()
@@ -101,10 +101,6 @@ volume = (BSMT_HT_M * bsmt_area_sm) + wall_height_m * main_area_sm
 volume += tad_sm *  9/FT_PER_M
 air_specs = house.find("NaturalAirInfiltration/Specifications")
 air_specs.find("House").attrib["volume"] = str(volume)
-
-# default highest ceiling height: BSMT_HT/2 + main wall
-#ceiling_h = BSMT_HT_M/2 + wall_height_m
-#air_specs.find("BuildingSite").attrib["highestCeiling"] = str(ceiling_h)
 
 ceiling_area_sm = main_area_sm
 ef = hc.find("Floor")
