@@ -181,8 +181,12 @@ print("Mfr & model only required for instant & condensing equipment: TP 3.6.1")
 
 v = hse.find("Ventilation")
 print("\nVentilation:")
-# todo: report dryer
-print(len(v.findall("SupplementalVentilatorList/BaseVentilator")), "total bath fans and range hoods (max 3 allowed)")
+#print(len(v.findall("*/BaseVentilator/VentilatorType[@code='3']")), "bath fans (max 2 allowed)")
+print(len(v.findall("*/BaseVentilator/VentilatorType/[English='Bathroom']")), \
+      "bath fan(s) of 2 allowed &", \
+      len(v.findall("*/BaseVentilator/VentilatorType/[English='Range Hood']")), \
+      "range hood of 1 allowed")
+
 hrv = v.find("WholeHouseVentilatorList/Hrv")
 if not hrv:
     print("No HRV")
