@@ -184,7 +184,7 @@ print("\nVentilation:")
 #print(len(v.findall("*/BaseVentilator/VentilatorType[@code='3']")), "bath fans (max 2 allowed)")
 print(len(v.findall("*/BaseVentilator/VentilatorType/[English='Bathroom']")), \
       "bath fan(s) of 2 allowed &", \
-      len(v.findall("*/BaseVentilator/VentilatorType/[English='Range Hood']")), \
+      len(v.findall("*/BaseVentilator/VentilatorType/[English='Range hood']")), \
       "range hood of 1 allowed")
 
 hrv = v.find("WholeHouseVentilatorList/Hrv")
