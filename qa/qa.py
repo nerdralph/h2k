@@ -143,6 +143,7 @@ print("\nDoors:", len(doors))
 for d in doors:
     m = d.find("Measurements")
     print(d.findtext("Label") + ":" +\
+          " " + d.findtext("Construction/Type/English") +\
           " width=" + m.attrib["width"] +\
           " height=" + m.attrib["height"])
     windows = d.findall("Components/Window")
