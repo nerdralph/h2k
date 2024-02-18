@@ -138,8 +138,7 @@ print("\nWindows:", len(windows))
 for w in windows:
     print(windowspecs(w))
 
-# todo: include basement doors
-doors = hc.findall("Wall/Components/Door")
+doors = hc.findall("*/Components/Door")
 print("\nDoors:", len(doors))
 for d in doors:
     m = d.find("Measurements")
@@ -150,17 +149,20 @@ for d in doors:
     for w in windows:
         print(" lite", windowspecs(w))
 
+# todo: add foundation details area, R-value
 bsmt = hc.find("Basement")
 print("\nBasement:", bsmt.findtext("Configuration") if bsmt else "N/A")
 
 slab = hc.find("Slab")
 print("\nSlab:", slab.findtext("Configuration") if slab else "N/A")
 
+# todo: crawlspace
+
 print("\nType 1 Heating")
 tsvals = ["FurnaceFuel", "FurnaceType", "FurnaceModel"]
 valdump(tsv, tsvals)
 print("Mfr & model only required for condensing equipment: TP 3.5.14")
-# SuppHtgType1
+# todo: SuppHtgType1
 
 ashp = hse.find("HeatingCooling/Type2/AirHeatPump")
 print("\nType 2 Heating", "ASHP" if ashp else "N/A")
