@@ -157,9 +157,10 @@ slab = hc.find("Slab")
 print("\nSlab:", slab.findtext("Configuration") if slab else "N/A")
 
 print("\nType 1 Heating")
-tsvals = ["FurnaceFuel", "FurnaceType"]
+tsvals = ["FurnaceFuel", "FurnaceType", "FurnaceModel"]
 valdump(tsv, tsvals)
-print("Mfr & model required for condensing equipment: TP 3.5.14")
+print("Mfr & model only required for condensing equipment: TP 3.5.14")
+# SuppHtgType1
 
 ashp = hse.find("HeatingCooling/Type2/AirHeatPump")
 print("\nType 2 Heating", "ASHP" if ashp else "N/A")
@@ -175,10 +176,11 @@ valdump(tsv, tsvals)
 #ei = dhw.find("EquipmentInformation")
 #print(dhw.findtext("EnergySource/English"))
 #print(ei.findtext("Manufacturer", default="no mfr"), ei.findtext("Model", default="no model"))
-print("Mfr & model required for instant & condensing equipment: TP 3.6.1")
+print("Mfr & model only required for instant & condensing equipment: TP 3.6.1")
 
 v = hse.find("Ventilation")
 print("\nVentilation:")
+# report dryer
 print(len(v.findall("SupplementalVentilatorList/BaseVentilator")), "total bath fans and range hoods (max 3 allowed)")
 hrv = v.find("WholeHouseVentilatorList/Hrv")
 if not hrv:
