@@ -24,13 +24,13 @@
   </head>
   <body> 
     <h1 style="color:DarkGreen;">ERS GHWiz</h1>
-    v45
+    v47
     <a href="/GHWizDefaults.txt" target="_blank">GHWiz house defaults</a>
     <p>
-    <form action="/cgi-bin/ghww.py" method="get" id="aanq">
+    <form action="/cgi-bin/ghww.py" method="get" id="aanq" autocomplete="off">
     <!-- field names prefixed with '_' will be converted to house template macros -->
     <label>File ID
-      <input name="_FileID" pattern="[\w]{4}D[\d]{5}" autocapitalize=characters required style="width: 11ch" onblur="setFID(this.value)">
+      <input name="_FileID" pattern="[\w]{4}D[\d]{5}" autocapitalize=characters required style="width: 11ch" onchange="document.title = this.value">
     </label>
     <label>Tax number
       <input name="_AAN" type="tel" size=8 pattern="[\d]{8}" required onchange="findAAN(this.value)">
@@ -61,17 +61,17 @@
       </select>
     </label>
     <pre id="taxdb">Tax number required</pre>
-    <label>Client first name*<input name="_First" required style="width: 14ch"></label>
-    <label>Client last name*<input name="_Last" required style="width: 18ch"></label>
+    <label>Client first name<input name="_First" required style="width: 14ch"></label>
+    <label>Client last name<input name="_Last" required style="width: 18ch"></label>
     <label>Telephone<input type="tel" name="_Telephone" style="width: 12ch"></label>
-    <label>email<input type="email" name="_Email" style="width: 25ch"></label>
+    <label>email<input type="email" name="_Email" style="width: 23ch"></label>
     <br>
     <label>Street<input name="_Street" style="width: 20ch"></label>
     <label>City<input name="_City" style="width: 15ch"></label>
-    <label>Province<input name="_Province" size=12></label>
-    <label>Postal<input name="_Postal" size=6></label><br>
-    <label>Year built<input name="_YearBuilt" required type="tel" pattern="[\d]{4}" size=4></label>
-    <label>Weather station<input name="weather"></label><br>
+    <label>Province<input name="_Province" size=10></label>
+    <label>Postal<input name="_Postal" size=5></label><br>
+    <label>Yr built<input name="_YearBuilt" required type="tel" pattern="[\d]{4}" size=3></label>
+    <label>Weather station<input name="weather" size="10"></label><br>
     <p>
     Interior dimensions:<br>
     <label>MPerim<input name="mperim" type="tel" required style="width: 5ch"></label>
@@ -147,7 +147,7 @@
       </label>
       <span v-if="fnd == 'bsmt'">
         <label title="bsmt wall height">height
-          <input name="BHt" type="tel" pattern="[\d\.]+" data-units="inm" size=2 required placeholder="inch">
+          <input name="_BHt" inputmode="numeric" pattern="[\d]i{2,3)" data-units="inm" size=2 required placeholder="inch">
         </label>
         <label>interior
           <select>
@@ -186,7 +186,8 @@
       </label>
       <label>HP AHRI#<input type="tel" pattern="[\d]{6,9}" name="AHRI" size=7></label>
       <label>Note<input size=8></label>
-      <label>Supplemental heat<input size=30></label><br>
+      <label>Supplemental heat<input size=25></label>
+      <p>
       <label>DHW
         <select name="_DHWtype">
           <option>electric</option>
@@ -195,16 +196,16 @@
           <option v-if="type1 == 'boiler'">coil</option>
         </select>
       </label>
-      <label>Litres<input type="tel" pattern="[\d]*" name="_DHWL" required style="width: 4ch"></label>
-      <label>Note<input size=6></label>
-      <label>R5 wrap<input type="checkbox"></label><br>
-      <label>HRV<input type="checkbox"></label>
-      <label>make<input name="_HRVmake" size=6></label>
+      <label>Litres<input type="tel" pattern="[\d]*" name="_DHWL" required style="width: 3ch"></label>
+      <label>Note<input size=7></label>
+      <label>R5 wrap<input type="checkbox"></label>
+      <p>
+      <label>HRV make<input name="_HRVmake" size=7></label>
       <label>model<input name="_HRVmodel" size=6></label> 
       <label>fans<input type="tel" required pattern="[012]" style="width: 2ch"></label> 
-      <label>hood<input type="checkbox"></label><br>
-      <label>PV<input type="checkbox"></label>
-      <label>kW DC<input style="width: 4ch"></label>
+      <label>hood<input type="checkbox"></label>
+      <p>
+      <label>PV W DC<input style="width: 6ch"></label>
     </div>
     <div v-scope="{counts: {WndwF: 8, WndwL: 8, WndwB: 8, WndwR: 8}}">
       <template id="H2KWindow-tmpl">
@@ -250,7 +251,7 @@
     <div v-scope="{doors: 2}" >
     <br>
     <label style="display:inline"> Doors:
-      <input type="tel" size=2 pattern="[1-9]" v-model.number="doors">
+      <input inputmode=numeric size=2 pattern="[1-9]" v-model.number="doors">
       <!-- <input type="tel" required size=2 maxlength=1 pattern="[1-9]"> -->
     </label>
     <table>
@@ -264,9 +265,13 @@
             <option>wood</option>
           </select>
         </td>
-        <td><input type="tel" :name="'HDoor' + i" style="width: 3ch"></td>
-        <td><input type="tel" :name="'WDoor' + i" style="width: 3ch"></td>
-        <td><input size=9></td>
+        <td>
+          <input inputmode=numeric data-units="inm" value="81.5" :name="'_HDoor' + i" style="width: 3ch">
+        </td>
+        <td>
+          <input inputmode=numeric data-units="inm" value="31.9" :name="'_WDoor' + i" style="width: 3ch">
+        </td>
+        <td><input size=11></td>
       </tr>
     </table>
     </div>
@@ -282,7 +287,7 @@
           <td><textarea style="width: 100%"></textarea></td>
       </table>
     </div>
-    <input type="submit" value="Create H2K file" onclick="convert()">
+    <input type="submit" value="make H2K file" onclick="checkDCF()">
     </form>
   <script src="ghw.js"></script>
   <script src="https://unpkg.com/petite-vue" defer init></script>
