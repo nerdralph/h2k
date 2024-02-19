@@ -127,39 +127,42 @@ for f in ef:
 
 def windowspecs(w) -> str:
     m = w.find("Measurements")
-    return (w.findtext("Label") + ":" +\
-          w.findtext("Construction/Type") +\
-          " width=" + m.attrib["width"] +\
-          " height=" + m.attrib["height"])
+    return (w.findtext("Label") + ": qty " +\
+            w.attrib["number"] + " " +\
+            w.findtext("Construction/Type") +\
+            " width=" + m.attrib["width"] +\
+            " height=" + m.attrib["height"])
 
-#windows = hc.findall("Wall/Components/Window")
 windows = hc.findall("*/Components/Window")
 print("\nWindows:", len(windows))
 for w in windows:
     print(windowspecs(w))
 
-# todo: include basement doors
-doors = hc.findall("Wall/Components/Door")
+doors = hc.findall("*/Components/Door")
 print("\nDoors:", len(doors))
 for d in doors:
     m = d.find("Measurements")
     print(d.findtext("Label") + ":" +\
+          " " + d.findtext("Construction/Type/English") +\
           " width=" + m.attrib["width"] +\
           " height=" + m.attrib["height"])
     windows = d.findall("Components/Window")
     for w in windows:
         print(" lite", windowspecs(w))
 
+# todo: add foundation details area, R-value
 bsmt = hc.find("Basement")
 print("\nBasement:", bsmt.findtext("Configuration") if bsmt else "N/A")
 
 slab = hc.find("Slab")
 print("\nSlab:", slab.findtext("Configuration") if slab else "N/A")
 
+# todo: crawlspace
+
 print("\nType 1 Heating")
-tsvals = ["FurnaceFuel", "FurnaceType"]
+tsvals = ["FurnaceFuel", "FurnaceType", "FurnaceModel"]
 valdump(tsv, tsvals)
-print("Mfr & model required for condensing equipment: TP 3.5.14")
+print("Mfr & model only required for condensing equipment: TP 3.5.14")
 
 ashp = hse.find("HeatingCooling/Type2/AirHeatPump")
 print("\nType 2 Heating", "ASHP" if ashp else "N/A")
@@ -168,18 +171,23 @@ if ashp:
     print("AHRI", ei.attrib["AHRI"])
     print(ei.findtext("Manufacturer", default="no mfr"), ei.findtext("Model", default="no model"))
 
+print("\nSupplementary heating")
+tsvals = ["SuppHtgFuel1", "SuppHtgType1"]
+valdump(tsv, tsvals)
+
 print("\nDHW")
 tsvals = ["pDHWFuel", "pDHWType", "priDHWModel", "PrimaryDHWTankVolume"]
 valdump(tsv, tsvals)
-#dhw = hc.find("HotWater/Primary")
-#ei = dhw.find("EquipmentInformation")
-#print(dhw.findtext("EnergySource/English"))
-#print(ei.findtext("Manufacturer", default="no mfr"), ei.findtext("Model", default="no model"))
-print("Mfr & model required for instant & condensing equipment: TP 3.6.1")
+print("Mfr & model only required for instant & condensing equipment: TP 3.6.1")
 
 v = hse.find("Ventilation")
 print("\nVentilation:")
-print(len(v.findall("SupplementalVentilatorList/BaseVentilator")), "total bath fans and range hoods (max 3 allowed)")
+#print(len(v.findall("*/BaseVentilator/VentilatorType[@code='3']")), "bath fans (max 2 allowed)")
+print(len(v.findall("*/BaseVentilator/VentilatorType/[English='Bathroom']")), \
+      "bath fan(s) of 2 allowed &", \
+      len(v.findall("*/BaseVentilator/VentilatorType/[English='Range hood']")), \
+      "range hood of 1 allowed")
+
 hrv = v.find("WholeHouseVentilatorList/Hrv")
 if not hrv:
     print("No HRV")
