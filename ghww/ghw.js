@@ -115,6 +115,27 @@ function checkDCF() {
     setFID(aanq.elements["_FileID"].value);
 }
 
+// set required form inputs for testing
+function setTestVals() {
+    fe = aanq.elements;
+    fe["_FileID"].value = "0000D12345";
+    fe["FacingDirection"].value = "1";
+    fe["_Storeys"].value = "1";
+    fe["_First"].value = "Jay";
+    fe["_Last"].value = "Doe";
+    fe["_Last"].value = "Doe";
+    fe["mperim"].value = "130";
+    fe["marea"].value = "1000";
+    fe["aflht"].value = "8";
+    fe["_AGCHt"].value = "8";
+    fe["wall"].value = "2x4R12";
+    fe["headerR"].value = "12";
+    fe["AIType"].value = "FG batt";
+    fe["AIDepth"].value = "6";
+    fe["_DHWL"].value = "189";
+    fe["fans"].value = "1";
+}
+
 // global form init
 // window.onload = () => aanq.elements._FileID.value = location.search.slice(1);
 window.onload = () => aanq.elements._FileID.value = nextFile();
