@@ -128,7 +128,7 @@ for f in ef:
 def windowspecs(w) -> str:
     m = w.find("Measurements")
     return (w.findtext("Label") + ": qty " +\
-            w.attrib["number"] + " "\
+            w.attrib["number"] + " " +\
             w.findtext("Construction/Type") +\
             " width=" + m.attrib["width"] +\
             " height=" + m.attrib["height"])
