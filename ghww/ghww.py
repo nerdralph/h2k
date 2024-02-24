@@ -93,8 +93,7 @@ if hc.find("Basement"):
 elif hc.find("Slab"):
     FTYPE = "Slab"
 else:
-    print("unrecognized template foundation type")
-    sys.exit()
+    hd.write("unrecognized template foundation type\n")
 
 volume = (BSMT_HT_M * bsmt_area_sm) + wall_height_m * main_area_sm
 # adjust for different top floor area with 8' ceiling and 1' floor
@@ -132,7 +131,7 @@ f = hc.find(FTYPE)
 f.attrib["exposedSurfacePerimeter"] = str(bperim_m)
 m = f.find("Floor/Measurements")
 m.attrib["area"] = str(bsmt_area_sm)
-# H2K requires perim <= exposedSurfacePerimeter: relevant for semis and multiple foundations
+# H2K requires perimeter >= exposedSurfacePerimeter: relevant for semis and multiple foundations
 m.attrib["perimeter"] = str(max(bperim_m, math.sqrt(bsmt_area_sm)*4 + 0.1))
 
 # write h2k file
