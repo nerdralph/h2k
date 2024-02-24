@@ -418,7 +418,7 @@
                     </Type>
                     <CeilingType idref="Code 2" rValue="6.0448" nominalInsulation="6.2521">2401551000</CeilingType>
                 </Construction>
-                <Measurements length="23.672" area="104.0148" heelHeight="0.13">
+                <Measurements length="_EaveLen" area="104.0148" heelHeight="0.13">
                     <Slope code="0" value="0.3333">
                         <English>User specified</English>
                         <French>Spécifié par l'utilisateur</French>

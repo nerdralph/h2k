@@ -113,12 +113,8 @@ else:
     hc.remove(ef)
 
 m = hc.find("Ceiling/Measurements")
-# gable roof eave length typically 0.6 * perim
-c_len_m = mperim_m * 0.6
-m.attrib["length"] = str(c_len_m)
 m.attrib["area"] = str(ceiling_area_sm)
-# heel height as per ERS tech procedures 3.5.3.3
-# house.xt default = 0.13m
+# heel height as per ERS tech procedures 3.5.3.3, house.xt default = 0.13m
 if (int(form.getvalue("_YearBuilt")) < 1990):
     m.attrib["heelHeight"] = "0.10"
 
