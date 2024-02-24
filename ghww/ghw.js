@@ -132,6 +132,7 @@ function setTestVals() {
     fe["headerR"].value = "12";
     fe["AIType"].value = "FG batt";
     fe["AIDepth"].value = "6";
+    fe["_EaveLen"].value = "80";
     fe["_DHWL"].value = "189";
     fe["fans"].value = "1";
 }
