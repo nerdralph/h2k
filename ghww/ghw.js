@@ -29,11 +29,15 @@ function fetchJd(query, action) {
         .then(data => {console.log(JSON.stringify(data)); action(data);});
 }
 
+//    var q = "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?&f=json&SingleLine=" + address + "&location=" + WKID4326 + "&maxLocations=1";
+
 // set postal code base on latitude and longitude
-function setPostal(latt, longt) {
-    //q = "https://ws1.postescanada-canadapost.ca/Capture/Interactive/Find/v1.00/json3ex.ws?Key=AX81-HA65-HM33-RA59&Text=" + address + "&Countries=CAN"; 
-    q = "https://geocoder.ca/?json=1&latt=" + latt + "&longt=" + longt;
-    fetchJd(q, d => aanq.elements._Postal.value = d.postal);
+function setPostal(longt, latt) {
+    // q = "https://ws1.postescanada-canadapost.ca/Capture/Interactive/Find/v1.00/json3ex.ws?Key=AX81-HA65-HM33-RA59&Text=" + address + "&Countries=CAN"; 
+    // q = "https://geocoder.ca/?json=1&latt=" + latt + "&longt=" + longt;
+    q = "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/reverseGeocode?f=json&featureTypes=PointAddress&location=" +
+        longt + "," + latt;
+    fetchJd(q, d => aanq.elements._Postal.value = d.address.Postal + d.address.PostalExt);
 }
 
 function getCookie(name) {
@@ -54,7 +58,7 @@ function nsAAN(d) {
         + d.style + " built " + d.year_built || "unknown";
     fe._Province.value = "NOVA SCOTIA";
     setWeather(d.x_coord + "," + d.y_coord);
-    setPostal(d.y_coord, d.x_coord);
+    setPostal(d.x_coord, d.y_coord);
 }
 
 function yycRoll(d) {
@@ -80,10 +84,6 @@ const ROLLFN = {
 function setWeather(WKID4326) {
     // data collection form elements
     const fe = aanq.elements;
-
-//    var q = "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?&f=json&SingleLine=" + address + "&location=" + WKID4326 + "&maxLocations=1";
-//    fetchJd(q, d => [fe._Street.value, fe._City.value, fe._Province.value , fe._Postal.value]
-//                     = d.candidates[0].address.split(", "));
 
     q =  "https://maps-cartes.services.geo.ca/server_serveur/rest/services/NRCan/Carte_climatique_HOT2000_Climate_Map_EN/MapServer/1/query?geometry=" + WKID4326 + "&geometryType=esriGeometryPoint&inSR=4326&f=json";
     fetchJd(q, d => fe.weather.value = d.features[0].attributes.Name);
@@ -113,6 +113,27 @@ function checkDCF() {
     if (! aanq.checkValidity()) return;
     convert();
     setFID(aanq.elements["_FileID"].value);
+}
+
+// set required form inputs for testing
+function setTestVals() {
+    fe = aanq.elements;
+    fe["_FileID"].value = "0000D12345";
+    fe["FacingDirection"].value = "1";
+    fe["_Storeys"].value = "1";
+    fe["_First"].value = "Jay";
+    fe["_Last"].value = "Doe";
+    fe["_Last"].value = "Doe";
+    fe["mperim"].value = "130";
+    fe["marea"].value = "1000";
+    fe["aflht"].value = "8";
+    fe["_AGCHt"].value = "8";
+    fe["wall"].value = "2x4R12";
+    fe["headerR"].value = "12";
+    fe["AIType"].value = "FG batt";
+    fe["AIDepth"].value = "6";
+    fe["_DHWL"].value = "189";
+    fe["fans"].value = "1";
 }
 
 // global form init

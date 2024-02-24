@@ -24,7 +24,7 @@
   </head>
   <body> 
     <h1 style="color:DarkGreen;">ERS GHWiz</h1>
-    v47
+    v48
     <a href="/GHWizDefaults.txt" target="_blank">GHWiz house defaults</a>
     <p>
     <form action="/cgi-bin/ghww.py" method="get" id="aanq" autocomplete="off">
@@ -113,7 +113,7 @@
       </select>
     </label>
     <label>R-
-      <input inputmode="numeric" required pattern="[\d]{1,2}" size=2>
+      <input name="headerR" inputmode="numeric" required pattern="[\d]{1,2}" size=2>
     </label>
     <p>
     <label>Attic
@@ -126,7 +126,7 @@
       </select>
     </label>
     <label>Insulation
-      <select required>
+      <select name="AIType" required>
         <option value="">choose</option>
         <option>cellulose</option>
         <option>fibreglas</option>
@@ -135,7 +135,7 @@
       </select>
     </label>
     <label>depth
-      <input inputmode="numeric" pattern="[\d]{1,2}" required size=2 placeholder="inch">
+      <input name="AIDepth" inputmode="numeric" pattern="[\d]{1,2}" required size=2 placeholder="inch">
     </label>
     <label>eave
       <input inputmode="numeric" data-units="ftm" name=_EaveLen required size=2 placeholder="feet">
@@ -205,7 +205,7 @@
       <p>
       <label>HRV make<input name="_HRVmake" size=7></label>
       <label>model<input name="_HRVmodel" size=6></label> 
-      <label>fans<input inputmode="numeric" required pattern="[012]" style="width: 2ch"></label> 
+      <label>fans<input name="fans" inputmode="numeric" required pattern="[012]" style="width: 2ch"></label> 
       <label>hood<input type="checkbox"></label>
       <p>
       <label>PV W DC<input style="width: 6ch"></label>
