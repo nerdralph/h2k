@@ -25,13 +25,12 @@ outfile = fileid + ".h2k"
 print("Content-Type: application/octet-stream")
 print('Content-Disposition: attachment; filename="' + outfile + '"\n')
 
-AAN = form.getvalue("_AAN")
 # main floor interior perimeter
 mperim = float(form.getvalue("mperim"))
 # main floor interior area
 marea = float(form.getvalue("marea"))
-# wall height in metres, default to 7.97'
-wall_height_m = float(form.getvalue("aflht", 7.97))/FT_PER_M
+# wall height in metres
+wall_height_m = float(form.getvalue("aflht"))/FT_PER_M
 # top floor area difference from marea
 tad_sm = float(form.getvalue("ta_delta", 0))/SF_PER_SM
 # top floor area difference from marea
@@ -70,7 +69,6 @@ ahri = form.getvalue("AHRI")
 if ahri:
     house.find("HeatingCooling").append(ashp.query(ahri))
 
-# calculate foundation and main floor area converted to metric
 main_area_sm = marea/SF_PER_SM
 mperim_m = mperim/FT_PER_M
 
@@ -132,6 +130,5 @@ m.attrib["area"] = str(bsmt_area_sm)
 m.attrib["perimeter"] = str(max(bperim_m, math.sqrt(bsmt_area_sm)*4 + 0.1))
 
 # write h2k file
-#tree.write(outfile, "UTF-8", True)
 sys.stdout.flush()
 tree.write(sys.stdout.buffer, encoding="UTF-8", xml_declaration=True)
