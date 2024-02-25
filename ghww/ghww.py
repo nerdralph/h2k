@@ -91,6 +91,7 @@ if hc.find("Basement"):
     BSMT_HT_M += 1.0/FT_PER_M
     hfa.attrib["belowGrade"] = str(bsmt_area_sm)
 elif hc.find("Slab"):
+    # todo: copy main measurements
     FTYPE = "Slab"
 else:
     hd.write("unrecognized template foundation type\n")
