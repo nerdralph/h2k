@@ -96,7 +96,7 @@ function findAAN(aan) {
 }
 
 function setFID(fid) {
-    document.cookie = `_FileID=${fid};SameSite=Strict`;
+    document.cookie = `_FileID=${fid}; SameSite=Strict; max-age=86400*99`;
 }
 
 // increment FileID
