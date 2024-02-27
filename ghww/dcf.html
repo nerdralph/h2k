@@ -24,7 +24,7 @@
   </head>
   <body> 
     <h1 style="color:DarkGreen;">ERS GHWiz</h1>
-    v50
+    v51
     <a href="/GHWizDefaults.txt" target="_blank">GHWiz house defaults</a>
     <p>
     <form action="/cgi-bin/ghww.py" method="get" id="aanq" autocomplete="off">
@@ -225,18 +225,18 @@
           </select>
         </td>
         <td><input inputmode=numeric :name="'_C' + wname + c" value="1" maxlength="1" pattern="[\d]" style="width: 2ch"></td>
+        <td><input inputmode=numeric :name="'W' + wname + c" value="0" style="width: 3ch"></td>
         <td><input inputmode=numeric :name="'H' + wname + c" value="0" style="width: 3ch"></td>
         <!--
         <td><input inputmode=numeric :data-var="wname" :name="'H' + wname + c" value="0" style="width: 3ch"></td>
           @blur="addWindow(event.target, counts)"></td>
         -->
-        <td><input inputmode=numeric :name="'W' + wname + c" value="0" style="width: 3ch"></td>
         <td><input :name="'_N' + wname + c" style="width: 10ch"></td>
       </template>
       <br>
           Windows: <a href="/WindowCodes.txt" target="_blank">H2K window codes</a>
         <table>
-          <tr><th>L</th><th>Type</th><th>#</th><th>Hgt</th><th>W-d</th><th>Note</th></tr>
+          <tr><th>L</th><th>Type</th><th>#</th><th>W-d</th><th>Hgt</th><th>Note</th></tr>
           <template v-for="c in counts['WndwF']">
             <tr v-scope="H2KWindow({wname: 'WndwF'})"><td>fr{{c}}</td></tr>
           </template>
@@ -258,7 +258,7 @@
       <!-- <input inputmode=numeric required size=2 maxlength=1 pattern="[1-9]"> -->
     </label>
     <table>
-      <tr><th>Type</th><th>Hgt</th><th>W-d</th><th>lite</th></tr>
+      <tr><th>Type</th><th>W-d</th>Hgt</th><th>lite</th></tr>
       <tr v-for="i in doors">
         <td>
           <label>d{{i}}</label>
@@ -269,10 +269,10 @@
           </select>
         </td>
         <td>
-          <input inputmode=numeric data-units="inm" value="81.5" :name="'_HDoor' + i" style="width: 4ch">
+          <input inputmode=numeric data-units="inm" value="31.9" :name="'_WDoor' + i" style="width: 4ch">
         </td>
         <td>
-          <input inputmode=numeric data-units="inm" value="31.9" :name="'_WDoor' + i" style="width: 4ch">
+          <input inputmode=numeric data-units="inm" value="81.5" :name="'_HDoor' + i" style="width: 4ch">
         </td>
         <td><input size=11></td>
       </tr>
@@ -282,7 +282,7 @@
       <br>Air leakage sources:
       <table>
         <tr v-for="s in ['attic hatch', 'upper lights', 'panelboard', 'receptacles', 'switches', 'pipe holes', 'windows', 'doors', 'baseboard']">
-          <td><label style="display:inline"><input type="checkbox" style="width:1em">{{s}}</label></td>
+          <td><label style="display:inline"><input type="checkbox" style="width:1ch">{{s}}</label></td>
           <td><input></td>
         </tr>
         <tr>
