@@ -16,7 +16,7 @@
                         </Construction>
                         <Measurements height="0_HDoor2" width="0_WDoor2" />
                     </Door>
-                    <Door rValue="1.14" adjacentEnclosedSpace="false" id="6">
+                    <Door rValue="1.14" adjacentEnclosedSpace="false" id="7">
                         <Label>Door 3</Label>
                         <Construction energyStar="false">
                             <Type code="5" value="1.14">
@@ -26,7 +26,7 @@
                         <Measurements height="0_HDoor3" width="0_WDoor3" />
                         <Measurements height="2.07" width="0.81" />
                     </Door>
-                    <Door rValue="1.14" adjacentEnclosedSpace="false" id="6">
+                    <Door rValue="1.14" adjacentEnclosedSpace="false" id="8">
                         <Label>Door 4</Label>
                         <Construction energyStar="false">
                             <Type code="5" value="1.14">
@@ -35,7 +35,7 @@
                         </Construction>
                         <Measurements height="0_HDoor4" width="0_WDoor4" />
                     </Door>
-                    <Door rValue="1.14" adjacentEnclosedSpace="false" id="6">
+                    <Door rValue="1.14" adjacentEnclosedSpace="false" id="9">
                         <Label>Door 5</Label>
                         <Construction energyStar="false">
                             <Type code="5" value="1.14">
