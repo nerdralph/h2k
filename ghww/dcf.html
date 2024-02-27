@@ -24,7 +24,7 @@
   </head>
   <body> 
     <h1 style="color:DarkGreen;">ERS GHWiz</h1>
-    v49
+    v50
     <a href="/GHWizDefaults.txt" target="_blank">GHWiz house defaults</a>
     <p>
     <form action="/cgi-bin/ghww.py" method="get" id="aanq" autocomplete="off">
@@ -282,7 +282,7 @@
       <br>Air leakage sources:
       <table>
         <tr v-for="s in ['attic hatch', 'upper lights', 'panelboard', 'receptacles', 'switches', 'pipe holes', 'windows', 'doors', 'baseboard']">
-          <td><label style="display:inline"><input type="checkbox">{{s}}</label></td>
+          <td><label style="display:inline"><input type="checkbox" style="width:1em">{{s}}</label></td>
           <td><input></td>
         </tr>
         <tr>
