@@ -3,7 +3,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwF1" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwF1" width="WWndwF1" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwF1" width="0WWndwF1" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -16,7 +16,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwR1" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwR1" width="WWndwR1" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwR1" width="0WWndwR1" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -29,7 +29,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwB1" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwB1" width="WWndwB1" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwB1" width="0WWndwB1" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -42,7 +42,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwL1" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwL1" width="WWndwL1" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwL1" width="0WWndwL1" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -55,7 +55,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwF2" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwF2" width="WWndwF2" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwF2" width="0WWndwF2" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -68,7 +68,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwR2" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwR2" width="WWndwR2" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwR2" width="0WWndwR2" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -81,7 +81,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwB2" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwB2" width="WWndwB2" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwB2" width="0WWndwB2" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -94,7 +94,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwL2" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwL2" width="WWndwL2" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwL2" width="0WWndwL2" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -107,7 +107,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwF3" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwF3" width="WWndwF3" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwF3" width="0WWndwF3" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -120,7 +120,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwR3" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwR3" width="WWndwR3" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwR3" width="0WWndwR3" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -133,7 +133,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwB3" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwB3" width="WWndwB3" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwB3" width="0WWndwB3" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -146,7 +146,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwL3" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwL3" width="WWndwL3" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwL3" width="0WWndwL3" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -159,7 +159,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwF4" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwF4" width="WWndwF4" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwF4" width="0WWndwF4" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -172,7 +172,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwR4" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwR4" width="WWndwR4" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwR4" width="0WWndwR4" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -185,7 +185,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwB4" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwB4" width="WWndwB4" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwB4" width="0WWndwB4" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -198,7 +198,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwL4" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwL4" width="WWndwL4" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwL4" width="0WWndwL4" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -211,7 +211,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwF5" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwF5" width="WWndwF5" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwF5" width="0WWndwF5" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -224,7 +224,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwR5" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwR5" width="WWndwR5" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwR5" width="0WWndwR5" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -237,7 +237,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwB5" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwB5" width="WWndwB5" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwB5" width="0WWndwB5" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -250,7 +250,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwL5" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwL5" width="WWndwL5" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwL5" width="0WWndwL5" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -263,7 +263,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwF6" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwF6" width="WWndwF6" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwF6" width="0WWndwF6" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -276,7 +276,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwR6" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwR6" width="WWndwR6" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwR6" width="0WWndwR6" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -289,7 +289,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwB6" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwB6" width="WWndwB6" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwB6" width="0WWndwB6" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -302,7 +302,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwL6" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwL6" width="WWndwL6" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwL6" width="0WWndwL6" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -315,7 +315,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwF7" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwF7" width="WWndwF7" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwF7" width="0WWndwF7" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -328,7 +328,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwR7" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwR7" width="WWndwR7" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwR7" width="0WWndwR7" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -341,7 +341,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwB7" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwB7" width="WWndwB7" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwB7" width="0WWndwB7" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -354,7 +354,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwL7" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwL7" width="WWndwL7" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwL7" width="0WWndwL7" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -367,7 +367,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwF8" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwF8" width="WWndwF8" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwF8" width="0WWndwF8" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -380,7 +380,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwR8" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwR8" width="WWndwR8" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwR8" width="0WWndwR8" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -393,7 +393,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwB8" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwB8" width="WWndwB8" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwB8" width="0WWndwB8" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -406,7 +406,7 @@
                         <Construction energyStar="false">
                             <Type idref="_TWndwL8" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="HWndwL8" width="WWndwL8" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="0HWndwL8" width="0WWndwL8" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
