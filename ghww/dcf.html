@@ -74,15 +74,23 @@
     <label>Weather station<input name="weather" size="10"></label><br>
     <p>
     Interior dimensions:<br>
-    <label>MPerim<input name="mperim" placeholder="feet" inputmode=numeric required style="width: 5ch"></label>
-    <label>MArea<input name="marea" placeholder="sqft" inputmode=numeric required style="width: 5ch"></label>
-    <label title="Above Foundation Wall Height">WHgt
-      <input name="aflht" inputmode=numeric placeholder="feet" required style="width: 4ch">
+    <label>MPerim
+      <input name="mperim" placeholder="feet" inputmode=numeric required
+       pattern="[1-2]?[\d]{2}" style="width: 5ch">
     </label>
-    <label>TA &#916<input name="ta_delta" placeholder="feet" inputmode=numeric style="width: 4ch"></label>
-    <label>TP &#916<input name="tp_delta" placeholder="sqft" inputmode=numeric style="width: 4ch"></label>
+    <label>MArea
+      <input name="marea" placeholder="sqft" inputmode=numeric required
+       pattern="[1-2]?[\d]{3}" style="width: 5ch">
+    </label>
+    <label title="Above Foundation Wall Height">WHgt
+      <input name="aflht" inputmode=numeric placeholder="feet" required
+       pattern="[1-2]?[\d]" style="width: 4ch">
+    </label>
+    <label>TP &#916<input name="tp_delta" placeholder="feet" inputmode=numeric style="width: 4ch"></label>
+    <label>TA &#916<input name="ta_delta" placeholder="sqft" inputmode=numeric style="width: 4ch"></label>
     <label title="Above Grade Height of Highest Ceiling">AGHHC
-      <input name="_AGCHt" inputmode=numeric placeholder="feet" required data-units="ftm" style="width: 4ch">
+      <input name="_AGCHt" inputmode=numeric placeholder="feet" required
+       pattern="[1-3]?[\d]" data-units="ftm" style="width: 4ch">
     </label>
     <p>
     <label>Main walls
