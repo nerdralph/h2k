@@ -12,7 +12,7 @@ const CONVERSION = {
 // convert form inputs to metric
 function convert()
 {
-    inputs = document.querySelectorAll("[data-units");
+    let inputs = document.querySelectorAll("[data-units");
     inputs.forEach(e => e.value /= CONVERSION[e.dataset.units]);
 }
 
@@ -35,9 +35,9 @@ function fetchJd(query, action) {
 function setPostal(longt, latt) {
     // q = "https://ws1.postescanada-canadapost.ca/Capture/Interactive/Find/v1.00/json3ex.ws?Key=AX81-HA65-HM33-RA59&Text=" + address + "&Countries=CAN"; 
     // q = "https://geocoder.ca/?json=1&latt=" + latt + "&longt=" + longt;
-    q = "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/reverseGeocode?f=json&featureTypes=PointAddress&location=" +
+    const q = "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/reverseGeocode?f=json&featureTypes=PointAddress&location=" +
         longt + "," + latt;
-    fetchJd(q, d => aanq.elements._Postal.value = d.address.Postal + d.address.PostalExt);
+    fetchJd(q, d => document.aanq.elements._Postal.value = d.address.Postal + d.address.PostalExt);
 }
 
 function getCookie(name) {
@@ -46,15 +46,16 @@ function getCookie(name) {
 
 function nsAAN(d) {
     // data collection form elements
-    const fe = aanq.elements;
+    const fe = document.aanq.elements;
+    const tdb = document.taxdb;
     if (!d){
-        taxdb.innerText = "not found";
+        tdb.innerText = "not found";
         return;
     }
     fe._YearBuilt.value = d.year_built || "1900";
     fe._Street.value = d.address_num + " " + d.address_street + " " + (d.address_suffix || '');
     fe._City.value = d.address_city;
-    taxdb.innerText = fe._Street.value + ", " +  d.address_city + ", "
+    tdb.innerText = fe._Street.value + ", " +  d.address_city + ", "
         + d.style + " built " + d.year_built || "unknown";
     fe._Province.value = "NOVA SCOTIA";
     setWeather(d.x_coord + "," + d.y_coord);
@@ -63,7 +64,7 @@ function nsAAN(d) {
 
 function yycRoll(d) {
     // data collection form elements
-    const fe = aanq.elements;
+    const fe = document.aanq.elements;
     if (!d){
         fe._Street.value = "not found";
         return;
@@ -83,9 +84,9 @@ const ROLLFN = {
 // WKID4326 = gps longitude, gps latitude
 function setWeather(WKID4326) {
     // data collection form elements
-    const fe = aanq.elements;
+    const fe = document.aanq.elements;
 
-    q =  "https://maps-cartes.services.geo.ca/server_serveur/rest/services/NRCan/Carte_climatique_HOT2000_Climate_Map_EN/MapServer/1/query?geometry=" + WKID4326 + "&geometryType=esriGeometryPoint&inSR=4326&f=json";
+    const q =  "https://maps-cartes.services.geo.ca/server_serveur/rest/services/NRCan/Carte_climatique_HOT2000_Climate_Map_EN/MapServer/1/query?geometry=" + WKID4326 + "&geometryType=esriGeometryPoint&inSR=4326&f=json";
     fetchJd(q, d => fe.weather.value = d.features[0].attributes.Name);
 }
 
@@ -101,7 +102,7 @@ function setFID(fid) {
 
 // increment FileID
 function nextFile() {
-    var fid = getCookie("_FileID");
+    let fid = getCookie("_FileID");
     if (!fid) return "";
     // last 5 digits is house indicator: ERS Tech Procedures 2.9
     fid = fid.substr(0,5) + `${+fid.substr(5) + 1}`.padStart(5, "0"); 
@@ -110,14 +111,14 @@ function nextFile() {
 }
 
 function checkDCF() {
-    if (! aanq.checkValidity()) return;
+    if (! document.aanq.checkValidity()) return;
     convert();
-    setFID(aanq.elements["_FileID"].value);
+    setFID(document.aanq.elements["_FileID"].value);
 }
 
 // set required form inputs for testing
 function setTestVals() {
-    fe = aanq.elements;
+    let fe = document.aanq.elements;
     fe["_FileID"].value = "0000D12345";
     fe["FacingDirection"].value = "1";
     fe["_Storeys"].value = "1";
@@ -139,4 +140,4 @@ function setTestVals() {
 
 // global form init
 // window.onload = () => aanq.elements._FileID.value = location.search.slice(1);
-window.onload = () => aanq.elements._FileID.value = nextFile();
+window.onload = () => document.aanq.elements._FileID.value = nextFile();
