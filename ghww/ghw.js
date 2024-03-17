@@ -124,7 +124,6 @@ function setTestVals() {
     fe["_Storeys"].value = "1";
     fe["_First"].value = "Jay";
     fe["_Last"].value = "Doe";
-    fe["_Last"].value = "Doe";
     fe["mperim"].value = "130";
     fe["marea"].value = "1000";
     fe["aflht"].value = "8";
