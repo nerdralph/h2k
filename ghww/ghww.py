@@ -72,7 +72,7 @@ if ahri:
 main_area_sm = marea/SF_PER_SM
 mperim_m = mperim/FT_PER_M
 
-# assume 12" thick bsmt walls & 6" walls above basement
+# assume basement walls 6" thicker than main walls
 bsmt_area_sm = (marea - (mperim -2)/2)/SF_PER_SM
 bperim_m = (mperim -4)/FT_PER_M
 
@@ -83,11 +83,13 @@ hfa = house.find("Specifications/HeatedFloorArea")
 hfa.attrib["aboveGrade"] = str(above_grade_sm)
 
 hc = house.find("Components")
-if hc.find("Basement"):
+if f := hc.find("Basement"):
     FTYPE = "Basement"
     # add 1' header
     BSMT_HT_M += 1.0/FT_PER_M
     hfa.attrib["belowGrade"] = str(bsmt_area_sm)
+    hm = f.find("Components/FloorHeader/Measurements")
+    hm.attrib["perimeter"] = str(mperim_m) 
 elif hc.find("Slab"):
     # todo: copy main measurements
     FTYPE = "Slab"
