@@ -1,4 +1,4 @@
-// (c) Ralph Doncaster 2022
+// (c) Ralph Doncaster
 
 const FT_PER_M = 3.28084
 const IN_PER_M = FT_PER_M * 12
@@ -8,6 +8,8 @@ const CONVERSION = {
     "ftm": FT_PER_M,
     "inm": IN_PER_M,
 }
+
+const DCFFIELDS = document.aanq.elements;
 
 // convert form inputs to metric
 function convert()
@@ -29,21 +31,14 @@ function fetchJd(query, action) {
         .then(data => {console.log(JSON.stringify(data)); action(data);});
 }
 
-//    var q = "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?&f=json&SingleLine=" + address + "&location=" + WKID4326 + "&maxLocations=1";
-
 // set postal code base on latitude and longitude
 function setPostal(longt, latt) {
-    // q = "https://ws1.postescanada-canadapost.ca/Capture/Interactive/Find/v1.00/json3ex.ws?Key=AX81-HA65-HM33-RA59&Text=" + address + "&Countries=CAN"; 
-    // q = "https://geocoder.ca/?json=1&latt=" + latt + "&longt=" + longt;
     const q = "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/reverseGeocode?f=json&featureTypes=PointAddress&location=" +
         longt + "," + latt;
     fetchJd(q, d => document.aanq.elements._Postal.value = d.address.Postal + d.address.PostalExt);
 }
 
-function getCookie(name) {
-    return document.cookie.match(new RegExp(`(^| )${name}=([^;]+)`))?.at(2);
-}
-
+// todo: refactor nsAAN and yycRoll
 function nsAAN(d) {
     // data collection form elements
     const fe = document.aanq.elements;
@@ -85,12 +80,12 @@ const ROLLFN = {
 function setWeather(WKID4326) {
     // data collection form elements
     const fe = document.aanq.elements;
-
     const q =  "https://maps-cartes.services.geo.ca/server_serveur/rest/services/NRCan/Carte_climatique_HOT2000_Climate_Map_EN/MapServer/1/query?geometry=" + WKID4326 + "&geometryType=esriGeometryPoint&inSR=4326&f=json";
     fetchJd(q, d => fe.weather.value = d.features[0].attributes.Name);
 }
 
 // get property data for roll number
+// todo: write parseTaxData to check null & call ROLLFN
 function findAAN(aan) {
     const region = location.hash.slice(1) || "NS";
     fetchJd(TAXREGISTRY[region] + aan, d => ROLLFN[region](d[0]));
@@ -98,6 +93,10 @@ function findAAN(aan) {
 
 function setFID(fid) {
     document.cookie = `_FileID=${fid}; SameSite=Strict; max-age=86400*99`;
+}
+
+function getCookie(name) {
+    return document.cookie.match(new RegExp(`(^| )${name}=([^;]+)`))?.at(2);
 }
 
 // increment FileID
