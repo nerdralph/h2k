@@ -9,7 +9,7 @@ const CONVERSION = {
     "inm": IN_PER_M,
 }
 
-const DCFFIELDS = document.aanq.elements;
+const DCFFIELDS = window.aanq.elements;
 
 // convert form inputs to metric
 function convert()
@@ -35,14 +35,14 @@ function fetchJd(query, action) {
 function setPostal(longt, latt) {
     const q = "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/reverseGeocode?f=json&featureTypes=PointAddress&location=" +
         longt + "," + latt;
-    fetchJd(q, d => document.aanq.elements._Postal.value = d.address.Postal + d.address.PostalExt);
+    fetchJd(q, d => DCFFIELDS._Postal.value = d.address.Postal + d.address.PostalExt);
 }
 
 // todo: refactor nsAAN and yycRoll
 function nsAAN(d) {
     // data collection form elements
-    const fe = document.aanq.elements;
-    const tdb = document.taxdb;
+    const fe = DCFFIELDS;
+    const tdb = window.taxdb;
     if (!d){
         tdb.innerText = "not found";
         return;
@@ -59,7 +59,7 @@ function nsAAN(d) {
 
 function yycRoll(d) {
     // data collection form elements
-    const fe = document.aanq.elements;
+    const fe = DCFFIELDS;
     if (!d){
         fe._Street.value = "not found";
         return;
@@ -78,10 +78,8 @@ const ROLLFN = {
 // set weather station
 // WKID4326 = gps longitude, gps latitude
 function setWeather(WKID4326) {
-    // data collection form elements
-    const fe = document.aanq.elements;
     const q =  "https://maps-cartes.services.geo.ca/server_serveur/rest/services/NRCan/Carte_climatique_HOT2000_Climate_Map_EN/MapServer/1/query?geometry=" + WKID4326 + "&geometryType=esriGeometryPoint&inSR=4326&f=json";
-    fetchJd(q, d => fe.weather.value = d.features[0].attributes.Name);
+    fetchJd(q, d => DCFFIELDS.weather.value = d.features[0].attributes.Name);
 }
 
 // get property data for roll number
@@ -110,14 +108,14 @@ function nextFile() {
 }
 
 function checkDCF() {
-    if (! document.aanq.checkValidity()) return;
+    if (! window.aanq.checkValidity()) return;
     convert();
-    setFID(document.aanq.elements["_FileID"].value);
+    setFID(DCFFIELDS["_FileID"].value);
 }
 
 // set required form inputs for testing
 function setTestVals() {
-    let fe = document.aanq.elements;
+    let fe = DCFFIELDS;
     fe["_FileID"].value = "0000D12345";
     fe["FacingDirection"].value = "1";
     fe["_Storeys"].value = "1";
@@ -136,6 +134,6 @@ function setTestVals() {
     fe["fans"].value = "1";
 }
 
-// global form init
+// global form init todo: write dcfInit including ?dbg 
 // window.onload = () => aanq.elements._FileID.value = location.search.slice(1);
-window.onload = () => document.aanq.elements._FileID.value = nextFile();
+window.onload = () => DCFFIELDS._FileID.value = nextFile();
