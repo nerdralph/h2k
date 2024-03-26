@@ -86,8 +86,8 @@
       <input name="aflht" inputmode=numeric placeholder="feet" required
        pattern="[1-2]?[\d]" style="width: 4ch">
     </label>
-    <label>TP &#916<input name="tp_delta" placeholder="feet" inputmode=numeric style="width: 4ch"></label>
-    <label>TA &#916<input name="ta_delta" placeholder="sqft" inputmode=numeric style="width: 4ch"></label>
+    <label>TP &#916;<input name="tp_delta" placeholder="feet" inputmode=numeric style="width: 4ch"></label>
+    <label>TA &#916;<input name="ta_delta" placeholder="sqft" inputmode=numeric style="width: 4ch"></label>
     <label title="Above Grade Height of Highest Ceiling">AGHHC
       <input name="_AGCHt" inputmode=numeric placeholder="feet" required
        pattern="[1-3]?[\d]" data-units="ftm" style="width: 4ch">
@@ -236,10 +236,6 @@
         <td><input inputmode=numeric :name="'_C' + wname + c" value="1" maxlength="1" pattern="[\d]" style="width: 2ch"></td>
         <td><input inputmode=numeric :name="'W' + wname + c" style="width: 3ch"></td>
         <td><input inputmode=numeric :name="'H' + wname + c" style="width: 3ch"></td>
-        <!--
-        <td><input inputmode=numeric :data-var="wname" :name="'H' + wname + c" value="0" style="width: 3ch"></td>
-          @blur="addWindow(event.target, counts)"></td>
-        -->
         <td><input :name="'_N' + wname + c" style="width: 10ch"></td>
       </template>
       <br>
@@ -247,7 +243,7 @@
         <table>
           <tr><th>L</th><th>Type</th><th>#</th><th>W-d</th><th>Hgt</th><th>Note</th></tr>
           <template v-for="c in counts['WndwF']">
-            <tr v-scope="H2KWindow({wname: 'WndwF'})"><td>fr{{c}}</td></tr>
+            <tr v-scope="H2KWindow({wname: 'WndwF'})"><td>lf{{c}}</td></tr>
           </template>
           <template v-for="c in counts['WndwL']">
             <tr v-scope="H2KWindow({wname: 'WndwL'})"><td>lf{{c}}</td></tr>
@@ -304,11 +300,6 @@
   <script src="ghw.js"></script>
   <script src="https://unpkg.com/petite-vue" defer init></script>
   <script>
-    // unused func
-    function addWindow(t, counts){
-      if (t.value > 0) counts[t.getAttribute('data-var')]++;
-    }
-
     // vue template function for window data entry
     function H2KWindow(props){
       return {
