@@ -89,8 +89,9 @@
     <label>TP &#916;<input name="tp_delta" placeholder="feet" inputmode=numeric style="width: 4ch"></label>
     <label>TA &#916;<input name="ta_delta" placeholder="sqft" inputmode=numeric style="width: 4ch"></label>
     <label title="Above Grade Height of Highest Ceiling">AGHHC
+      <! pattern="[1-3]?[\d]" data-units="ftm" style="width: 4ch">
       <input name="_AGCHt" inputmode=numeric placeholder="feet" required
-       pattern="[1-3]?[\d]" data-units="ftm" style="width: 4ch">
+       data-units="ftm" style="width: 4ch">
     </label>
     <p>
     <label>Main walls
