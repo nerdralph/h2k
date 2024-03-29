@@ -159,7 +159,8 @@
       </label>
       <span v-if="fnd == 'bsmt'">
         <label title="bsmt wall height">height
-          <input name="_BHt" inputmode=numeric pattern="[\d]{2,3}" data-units="inm" size=2 required placeholder="inch">
+          <! input name="_BHt" inputmode=numeric pattern="[\d]{2,3}" data-units="inm" size=2 required placeholder="inch">
+          <input name="_BHt" inputmode=numeric data-units="inm" size=2 required placeholder="inch">
         </label>
         <label>interior
           <select>
@@ -174,7 +175,8 @@
           <input name="HAG" inputmode=numeric pattern="[\d]+" size=2 required placeholder="inch">
         </label>
         <label title="height in inches">pony
-          <input name="_PonyHt" inputmode=numeric pattern="[\d\.]+" data-units="inm" size=2 required placeholder="inch">
+          <! input name="_PonyHt" inputmode=numeric pattern="[\d\.]+" data-units="inm" size=2 required placeholder="inch">
+          <input name="_PonyHt" inputmode=numeric data-units="inm" size=2 required placeholder="inch">
         </label>
       </span>
       <span v-if="fnd == 'slab'">
