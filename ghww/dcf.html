@@ -158,7 +158,7 @@
       </label>
       <span v-if="fnd == 'bsmt'">
         <label title="bsmt wall height">height
-          <input name="_BHt" inputmode=numeric pattern="[\d]i{2,3)" data-units="inm" size=2 required placeholder="inch">
+          <input name="_BHt" inputmode=numeric pattern="[\d]{2,3)" data-units="inm" size=2 required placeholder="inch">
         </label>
         <label>interior
           <select>
@@ -243,7 +243,7 @@
         <table>
           <tr><th>L</th><th>Type</th><th>#</th><th>W-d</th><th>Hgt</th><th>Note</th></tr>
           <template v-for="c in counts['WndwF']">
-            <tr v-scope="H2KWindow({wname: 'WndwF'})"><td>lf{{c}}</td></tr>
+            <tr v-scope="H2KWindow({wname: 'WndwF'})"><td>fr{{c}}</td></tr>
           </template>
           <template v-for="c in counts['WndwL']">
             <tr v-scope="H2KWindow({wname: 'WndwL'})"><td>lf{{c}}</td></tr>
