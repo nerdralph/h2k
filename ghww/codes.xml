@@ -47,9 +47,9 @@
         </Wall>
         <Ceiling>
             <Standard>
-                <Code id="Code 2" value="2401551000" nominalRValue="6.2521">
-                    <Label>2401551000</Label>
-                    <Description>2401551000</Description>
+                <Code id="Code 2" value="2403Y92000" nominalRValue="6.68">
+                    <Label>2403Y92000</Label>
+                    <Description>2403Y92000</Description>
                     <Layers>
                         <StructureType code="4">
                             <English>Truss</English>
@@ -57,23 +57,18 @@
                         </StructureType>
                         <ComponentTypeSize code="0">
                             <English>38x89 mm (2x4 in) Attic truss</English>
-                            <French>38x89 (2x4) Ferme de grenier</French>
                         </ComponentTypeSize>
-                        <Spacing code="1">
-                            <English>400 mm (16 in)</English>
-                            <French>400 mm (16 po)</French>
+                        <Spacing code="3">
+                            <English>600 mm (24 in)</English>
                         </Spacing>
-                        <InsulationLayer1 code="5">
-                            <English>RSI 4.93 @ 216 mm  (R 28 @ 8.5'') batt</English>
-                            <French>RSI 4.93 @ 216 mm  (R 28 @ 8.5'') natte</French>
+                        <InsulationLayer1 code="Y">
+                            <English>RSI 3.34 @ 140 mm (R 19 @ 5.5'') batt</English>
                         </InsulationLayer1>
-                        <InsulationLayer2 code="5">
-                            <English>38 mm (1.5  in) XTPS IV</English>
-                            <French>38 mm (1.5  po) PSXT IV</French>
+                        <InsulationLayer2 code="9">
+                            <English>Same as Insulation Layer 1</English>
                         </InsulationLayer2>
-                        <Interior code="1">
-                            <English>12 mm (0.5 in) gypsum board</English>
-                            <French>12 mm (0.5 po) Plaque de plâtre (P de p)</French>
+                        <Interior code="2">
+                            <English>Gypsum + Non insul. strapping</English>
                         </Interior>
                     </Layers>
                 </Code>
