@@ -1,6 +1,6 @@
             <Basement isExposedSurface="true" exposedSurfacePerimeter="39.624" id="1">
-                <Label>Foundation - 1</Label>
-                <Configuration type="BCCB" subtype="8" overlap="0.0914">BCCB_8</Configuration>
+                <Label>Basement - 1</Label>
+                <Configuration type="BCCB" subtype="4" overlap="1.0">BCCB_4</Configuration>
                 <OpeningUpstairs code="1" value="1.5598">
                     <English>Standard door - open</English>
                 </OpeningUpstairs>
