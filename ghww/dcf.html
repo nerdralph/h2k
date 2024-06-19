@@ -24,7 +24,7 @@
   </head>
   <body> 
     <h1 style="color:DarkGreen;">ERS GHWiz</h1>
-    v52
+    v53
     <a href="/GHWizDefaults.txt" target="_blank">GHWiz house defaults</a>
     <p>
     <form action="/cgi-bin/ghww.py" method="get" id="aanq" autocomplete="off">
@@ -210,13 +210,13 @@
           <option v-if="type1 == 'boiler'">coil</option>
         </select>
       </label>
-      <label>Litres<input inputmode=numeric pattern="[\d]*" name="_DHWL" required style="width: 3ch"></label>
+      <label>Litres<input inputmode=numeric pattern="[\d]*" name="_DHWL" vlaue="182" required style="width: 3ch"></label>
       <label>Note<input size=7></label>
       <label>R5 wrap<input type="checkbox"></label>
       <p>
       <label>HRV make<input name="_HRVmake" size=7></label>
       <label>model<input name="_HRVmodel" size=6></label> 
-      <label>fans<input name="fans" inputmode=numeric required pattern="[012]" style="width: 3ch"></label> 
+      <label>fans<input name="_fans" inputmode=numeric value="0" pattern="[012]" style="width: 3ch"></label> 
       <label>hood<input type="checkbox"></label>
       <p>
       <label>PV W DC<input style="width: 6ch"></label>
