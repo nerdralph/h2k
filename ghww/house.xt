@@ -373,6 +373,7 @@
                         <French>Évacuation extérieure</French>
                     </Exhaust>
                 </Dryer>
+#if _fans > 0
                 <BaseVentilator supplyFlowrate="0" exhaustFlowrate="33" fanPower1="25.08" isDefaultFanpower="true" isEnergyStar="false" isHomeVentilatingInstituteCertified="false" isSupplemental="true">
                     <EquipmentInformation />
                     <VentilatorType code="3">
@@ -384,6 +385,7 @@
                         <French>72 min/j</French>
                     </OperationSchedule>
                 </BaseVentilator>
+#if _fans > 1
                 <BaseVentilator supplyFlowrate="0" exhaustFlowrate="33" fanPower1="25.08" isDefaultFanpower="true" isEnergyStar="false" isHomeVentilatingInstituteCertified="false" isSupplemental="true">
                     <EquipmentInformation />
                     <VentilatorType code="3">
@@ -395,6 +397,8 @@
                         <French>72 min/j</French>
                     </OperationSchedule>
                 </BaseVentilator>
+#endif
+#endif
             </SupplementalVentilatorList>
         </Ventilation>
         <HeatingCooling id="18">
