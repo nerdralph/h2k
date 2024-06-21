@@ -1,5 +1,5 @@
                     <Door rValue="1.14" adjacentEnclosedSpace="false" id="5">
-                        <Label>Front Door</Label>
+                        <Label>Door 1</Label>
                         <Construction energyStar="false">
                             <Type code="5" value="1.14">
                                 <English>Steel Medium density spray foam core</English>
@@ -7,8 +7,9 @@
                         </Construction>
                         <Measurements height="_HDoor1" width="_WDoor1" />
                     </Door>
+#ifdef _HDoor2
                     <Door rValue="1.14" adjacentEnclosedSpace="false" id="6">
-                        <Label>Back Door</Label>
+                        <Label>Door 2</Label>
                         <Construction energyStar="false">
                             <Type code="5" value="1.14">
                                 <English>Steel Medium density spray foam core</English>
@@ -16,6 +17,8 @@
                         </Construction>
                         <Measurements height="0_HDoor2" width="0_WDoor2" />
                     </Door>
+#endif
+#ifdef _HDoor3
                     <Door rValue="1.14" adjacentEnclosedSpace="false" id="7">
                         <Label>Door 3</Label>
                         <Construction energyStar="false">
@@ -26,6 +29,8 @@
                         <Measurements height="0_HDoor3" width="0_WDoor3" />
                         <Measurements height="2.07" width="0.81" />
                     </Door>
+#endif
+#ifdef _HDoor4
                     <Door rValue="1.14" adjacentEnclosedSpace="false" id="8">
                         <Label>Door 4</Label>
                         <Construction energyStar="false">
@@ -35,6 +40,8 @@
                         </Construction>
                         <Measurements height="0_HDoor4" width="0_WDoor4" />
                     </Door>
+#endif
+#ifdef _HDoor5
                     <Door rValue="1.14" adjacentEnclosedSpace="false" id="9">
                         <Label>Door 5</Label>
                         <Construction energyStar="false">
@@ -44,3 +51,4 @@
                         </Construction>
                         <Measurements height="0_HDoor5" width="0_WDoor5" />
                     </Door>
+#endif
