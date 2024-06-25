@@ -24,7 +24,7 @@
   </head>
   <body> 
     <h1 style="color:DarkGreen;">ERS GHWiz</h1>
-    v53
+    v54
     <a href="/GHWizDefaults.txt" target="_blank">GHWiz house defaults</a>
     <p>
     <form action="/cgi-bin/ghww.py" method="get" id="aanq" autocomplete="off">
@@ -186,7 +186,7 @@
       </span>
     </div>
     <div v-scope="{type1: 'electric'}">
-      <br>Mechanical 
+      <br>Mechanical: needed for ERS, not F280
       <!--
       <a href="https://oee.nrcan.gc.ca/pml-lmp/index.cfm?action=app.search-recherche&appliance=HP_SS" target="_blank">NRCan ASHP lookup</a><br>
       -->
@@ -259,14 +259,13 @@
           </template>
         </table>
     </div>
-    <div v-scope="{doors: 2}" >
+    <div v-scope="{doors: 5}" >
     <br>
     <label style="display:inline"> Doors:
-      <input inputmode=numeric size=2 pattern="[1-9]" v-model.number="doors">
-      <!-- <input inputmode=numeric required size=2 maxlength=1 pattern="[1-9]"> -->
+      <!-- <input inputmode=numeric size=2 pattern="[1-9]" v-model.number="doors"> -->
     </label>
     <table>
-      <tr><th>Type</th><th>W-d</th><th>Hgt</th><th>lite</th></tr>
+      <tr><th>Type</th><th>W-d</th><th>Hgt</th><th>lite/note</th></tr>
       <tr v-for="i in doors">
         <td>
           <label>d{{i}}</label>
@@ -277,10 +276,10 @@
           </select>
         </td>
         <td>
-          <input inputmode=numeric data-units="inm" value="31.9" :name="'_WDoor' + i" style="width: 4ch">
+          <input inputmode=numeric data-units="inm" :name="'_WDoor' + i" style="width: 4ch">
         </td>
         <td>
-          <input inputmode=numeric data-units="inm" value="81.5" :name="'_HDoor' + i" style="width: 4ch">
+          <input inputmode=numeric data-units="inm" :name="'_HDoor' + i" style="width: 4ch">
         </td>
         <td><input size=11></td>
       </tr>
