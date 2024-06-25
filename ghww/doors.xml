@@ -7,7 +7,7 @@
                         </Construction>
                         <Measurements height="_HDoor1" width="_WDoor1" />
                     </Door>
-#ifdef _HDoor2
+#if _HDoor2 > 0
                     <Door rValue="1.14" adjacentEnclosedSpace="false" id="6">
                         <Label>Door 2</Label>
                         <Construction energyStar="false">
@@ -18,7 +18,7 @@
                         <Measurements height="0_HDoor2" width="0_WDoor2" />
                     </Door>
 #endif
-#ifdef _HDoor3
+#if_HDoor3 > 0
                     <Door rValue="1.14" adjacentEnclosedSpace="false" id="7">
                         <Label>Door 3</Label>
                         <Construction energyStar="false">
@@ -30,7 +30,7 @@
                         <Measurements height="2.07" width="0.81" />
                     </Door>
 #endif
-#ifdef _HDoor4
+#if _HDoor4 > 0
                     <Door rValue="1.14" adjacentEnclosedSpace="false" id="8">
                         <Label>Door 4</Label>
                         <Construction energyStar="false">
@@ -41,7 +41,7 @@
                         <Measurements height="0_HDoor4" width="0_WDoor4" />
                     </Door>
 #endif
-#ifdef _HDoor5
+#if _HDoor5 > 0
                     <Door rValue="1.14" adjacentEnclosedSpace="false" id="9">
                         <Label>Door 5</Label>
                         <Construction energyStar="false">
