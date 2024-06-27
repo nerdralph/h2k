@@ -11,7 +11,7 @@ ceilings: 1/2" drywall, strapping, wood truss
 floors: 1/2" drywall, 3/4" strapping, joist, 3/4" subfloor, 3/4" flooring
 
 basement or slab foundations (no crawlspaces)
-basement walls: BCCB_8, no slab or exterior insulation
+basement walls: BCCB_8, 6" thicker than main walls, no slab or exterior insulation
 slabs: SCN_7
 
 mechanicals: no combustion air duct, no DHWHR
