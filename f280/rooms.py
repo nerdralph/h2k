@@ -24,12 +24,19 @@ for line in RLF.readlines():
 TREE = ET.parse(sys.argv[1])
 HC = TREE.find("House/Components")
 
+DHL = 0
 ROOMS = HC.findall("Room/Label")
 for r in ROOMS:
-    print (r.text, "BTU/h")
-    print ("Heat:", wb(rooms[r.text[0]][1]))
-    print ("Cool:", wb(rooms[r.text[0]][2]))
+    print(r.text, "BTU/h")
+    RHL = wb(rooms[r.text[0]][1])
+    DHL += RHL
+    print("Heat:", RHL)
+    print("Cool:", wb(rooms[r.text[0]][2]))
+    print()
 
-print ("Basement BTU/h")
-print ("Heat:", wb(rooms['B'][1]))
-print ("Cool:", wb(rooms['B'][2]))
+print("Basement BTU/h")
+BHL = wb(rooms['B'][1])
+print("Heat:", BHL)
+print("Cool:", wb(rooms['B'][2]))
+
+print("\nDHL:", DHL + BHL)
