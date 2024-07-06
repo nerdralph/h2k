@@ -5,6 +5,8 @@ import csv, math
 # home location to nearest 0.001 degrees
 HOME = [-63.517, 44.966]
 
+# CSA F280_Weather.xlsm exported to CSV
+# http://www.csagroup.org/documents/CSA_F280-12.zip
 f = open("F280_Weather.csv")
 
 wd = csv.DictReader(f)
