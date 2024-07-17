@@ -15,7 +15,7 @@ const DCFFIELDS = window.aanq.elements;
 function convert()
 {
     let inputs = document.querySelectorAll("[data-units");
-    inputs.forEach(e => e.value /= CONVERSION[e.dataset.units]);
+    inputs.forEach(e => {if (e.value) e.value /= CONVERSION[e.dataset.units]});
 }
 
 const TAXREGISTRY = {
@@ -130,8 +130,8 @@ function setTestVals() {
     fe["AIType"].value = "FG batt";
     fe["AIDepth"].value = "6";
     fe["_EaveLen"].value = "80";
-    fe["_DHWL"].value = "189";
-    fe["fans"].value = "1";
+    // fe["_DHWL"].value = "189";
+    fe["_fans"].value = "1";
 }
 
 // global form init todo: write dcfInit including ?dbg 
