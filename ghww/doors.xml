@@ -1,8 +1,7 @@
                     <Door rValue="1.14" adjacentEnclosedSpace="false" id="5">
                         <Label>Door 1</Label>
                         <Construction energyStar="false">
-                            <Type code="5" value="1.14">
-                                <English>Steel Medium density spray foam core</English>
+                            <Type code="_CodeDoor1" value="1.14">
                             </Type>
                         </Construction>
                         <Measurements height="_HDoor1" width="_WDoor1" />
@@ -11,8 +10,7 @@
                     <Door rValue="1.14" adjacentEnclosedSpace="false" id="6">
                         <Label>Door 2</Label>
                         <Construction energyStar="false">
-                            <Type code="5" value="1.14">
-                                <English>Steel Medium density spray foam core</English>
+                            <Type code="_CodeDoor2" value="1.14">
                             </Type>
                         </Construction>
                         <Measurements height="0_HDoor2" width="0_WDoor2" />
@@ -22,8 +20,7 @@
                     <Door rValue="1.14" adjacentEnclosedSpace="false" id="7">
                         <Label>Door 3</Label>
                         <Construction energyStar="false">
-                            <Type code="5" value="1.14">
-                                <English>Steel Medium density spray foam core</English>
+                            <Type code="_CodeDoor3" value="1.14">
                             </Type>
                         </Construction>
                         <Measurements height="0_HDoor3" width="0_WDoor3" />
@@ -34,8 +31,7 @@
                     <Door rValue="1.14" adjacentEnclosedSpace="false" id="8">
                         <Label>Door 4</Label>
                         <Construction energyStar="false">
-                            <Type code="5" value="1.14">
-                                <English>Steel Medium density spray foam core</English>
+                            <Type code="_CodeDoor4" value="1.14">
                             </Type>
                         </Construction>
                         <Measurements height="0_HDoor4" width="0_WDoor4" />
@@ -45,8 +41,7 @@
                     <Door rValue="1.14" adjacentEnclosedSpace="false" id="9">
                         <Label>Door 5</Label>
                         <Construction energyStar="false">
-                            <Type code="5" value="1.14">
-                                <English>Steel Medium density spray foam core</English>
+                            <Type code="_CodeDoor5" value="1.14">
                             </Type>
                         </Construction>
                         <Measurements height="0_HDoor5" width="0_WDoor5" />
