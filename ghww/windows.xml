@@ -1,9 +1,10 @@
+#ifdef HWndwF1
                     <Window number="_CWndwF1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="51">
                         <Label>front 1</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwF1" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwF1" width="0WWndwF1" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwF1" width="WWndwF1" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -11,12 +12,14 @@
                         <FacingDirection code="_FRONT_">
                         </FacingDirection>
                     </Window>
+#endif
+#ifdef HWndwR1
                     <Window number="_CWndwR1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="61">
                         <Label>right 1</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwR1" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwR1" width="0WWndwR1" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwR1" width="WWndwR1" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -24,12 +27,14 @@
                         <FacingDirection code="_RIGHT_">
                         </FacingDirection>
                     </Window>
+#endif
+#ifdef HWndwB1
                     <Window number="_CWndwB1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="71">
                         <Label>back 1</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwB1" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwB1" width="0WWndwB1" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwB1" width="WWndwB1" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -37,12 +42,14 @@
                         <FacingDirection code="_BACK_">
                         </FacingDirection>
                     </Window>
+#endif
+#ifdef HWndwL1
                     <Window number="_CWndwL1" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="81">
                         <Label>left 1</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwL1" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwL1" width="0WWndwL1" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwL1" width="WWndwL1" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -50,12 +57,14 @@
                         <FacingDirection code="_LEFT_">
                         </FacingDirection>
                     </Window>
+#endif
+#ifdef HWndwF2
                     <Window number="_CWndwF2" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="52">
                         <Label>front 2</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwF2" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwF2" width="0WWndwF2" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwF2" width="WWndwF2" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -63,12 +72,14 @@
                         <FacingDirection code="_FRONT_">
                         </FacingDirection>
                     </Window>
+#endif
+#ifdef HWndwR2
                     <Window number="_CWndwR2" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="62">
                         <Label>right 2</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwR2" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwR2" width="0WWndwR2" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwR2" width="WWndwR2" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -76,12 +87,14 @@
                         <FacingDirection code="_RIGHT_">
                         </FacingDirection>
                     </Window>
+#endif
+#ifdef HWndwB2
                     <Window number="_CWndwB2" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="72">
                         <Label>back 2</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwB2" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwB2" width="0WWndwB2" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwB2" width="WWndwB2" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -89,12 +102,14 @@
                         <FacingDirection code="_BACK_">
                         </FacingDirection>
                     </Window>
+#endif
+#ifdef HWndwL2
                     <Window number="_CWndwL2" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="82">
                         <Label>left 2</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwL2" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwL2" width="0WWndwL2" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwL2" width="WWndwL2" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -102,12 +117,14 @@
                         <FacingDirection code="_LEFT_">
                         </FacingDirection>
                     </Window>
+#endif
+#ifdef HWndwF3
                     <Window number="_CWndwF3" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="53">
                         <Label>front 3</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwF3" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwF3" width="0WWndwF3" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwF3" width="WWndwF3" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -115,12 +132,14 @@
                         <FacingDirection code="_FRONT_">
                         </FacingDirection>
                     </Window>
+#endif
+#ifdef HWndwR3
                     <Window number="_CWndwR3" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="63">
                         <Label>right 3</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwR3" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwR3" width="0WWndwR3" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwR3" width="WWndwR3" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -128,12 +147,14 @@
                         <FacingDirection code="_RIGHT_">
                         </FacingDirection>
                     </Window>
+#endif
+#ifdef HWndwB3
                     <Window number="_CWndwB3" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="73">
                         <Label>back 3</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwB3" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwB3" width="0WWndwB3" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwB3" width="WWndwB3" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -141,12 +162,14 @@
                         <FacingDirection code="_BACK_">
                         </FacingDirection>
                     </Window>
+#endif
+#ifdef HWndwL3
                     <Window number="_CWndwL3" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="83">
                         <Label>left 3</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwL3" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwL3" width="0WWndwL3" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwL3" width="WWndwL3" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -154,12 +177,14 @@
                         <FacingDirection code="_LEFT_">
                         </FacingDirection>
                     </Window>
+#endif
+#ifdef HWndwF4
                     <Window number="_CWndwF4" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="54">
                         <Label>front 4</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwF4" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwF4" width="0WWndwF4" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwF4" width="WWndwF4" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -167,12 +192,14 @@
                         <FacingDirection code="_FRONT_">
                         </FacingDirection>
                     </Window>
+#endif
+#ifdef HWndwR4
                     <Window number="_CWndwR4" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="64">
                         <Label>right 4</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwR4" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwR4" width="0WWndwR4" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwR4" width="WWndwR4" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -180,12 +207,14 @@
                         <FacingDirection code="_RIGHT_">
                         </FacingDirection>
                     </Window>
+#endif
+#ifdef HWndwB4
                     <Window number="_CWndwB4" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="74">
                         <Label>back 4</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwB4" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwB4" width="0WWndwB4" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwB4" width="WWndwB4" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -193,12 +222,14 @@
                         <FacingDirection code="_BACK_">
                         </FacingDirection>
                     </Window>
+#endif
+#ifdef HWndwL4
                     <Window number="_CWndwL4" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="84">
                         <Label>left 4</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwL4" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwL4" width="0WWndwL4" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwL4" width="WWndwL4" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -206,12 +237,14 @@
                         <FacingDirection code="_LEFT_">
                         </FacingDirection>
                     </Window>
+#endif
+#ifdef HWndwF5
                     <Window number="_CWndwF5" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="55">
                         <Label>front 5</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwF5" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwF5" width="0WWndwF5" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwF5" width="WWndwF5" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -219,12 +252,14 @@
                         <FacingDirection code="_FRONT_">
                         </FacingDirection>
                     </Window>
+#endif
+#ifdef HWndwR5
                     <Window number="_CWndwR5" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="65">
                         <Label>right 5</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwR5" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwR5" width="0WWndwR5" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwR5" width="WWndwR5" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -232,12 +267,14 @@
                         <FacingDirection code="_RIGHT_">
                         </FacingDirection>
                     </Window>
+#endif
+#ifdef HWndwB5
                     <Window number="_CWndwB5" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="75">
                         <Label>back 5</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwB5" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwB5" width="0WWndwB5" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwB5" width="WWndwB5" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -245,12 +282,14 @@
                         <FacingDirection code="_BACK_">
                         </FacingDirection>
                     </Window>
+#endif
+#ifdef HWndwL5
                     <Window number="_CWndwL5" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="85">
                         <Label>left 5</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwL5" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwL5" width="0WWndwL5" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwL5" width="WWndwL5" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -258,12 +297,14 @@
                         <FacingDirection code="_LEFT_">
                         </FacingDirection>
                     </Window>
+#endif
+#ifdef HWndwF6
                     <Window number="_CWndwF6" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="56">
                         <Label>front 6</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwF6" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwF6" width="0WWndwF6" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwF6" width="WWndwF6" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -271,12 +312,14 @@
                         <FacingDirection code="_FRONT_">
                         </FacingDirection>
                     </Window>
+#endif
+#ifdef HWndwR6
                     <Window number="_CWndwR6" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="66">
                         <Label>right 6</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwR6" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwR6" width="0WWndwR6" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwR6" width="WWndwR6" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -284,12 +327,14 @@
                         <FacingDirection code="_RIGHT_">
                         </FacingDirection>
                     </Window>
+#endif
+#ifdef HWndwB6
                     <Window number="_CWndwB6" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="76">
                         <Label>back 6</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwB6" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwB6" width="0WWndwB6" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwB6" width="WWndwB6" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -297,12 +342,14 @@
                         <FacingDirection code="_BACK_">
                         </FacingDirection>
                     </Window>
+#endif
+#ifdef HWndwL6
                     <Window number="_CWndwL6" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="86">
                         <Label>left 6</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwL6" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwL6" width="0WWndwL6" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwL6" width="WWndwL6" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -310,12 +357,14 @@
                         <FacingDirection code="_LEFT_">
                         </FacingDirection>
                     </Window>
+#endif
+#ifdef HWndwF7
                     <Window number="_CWndwF7" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="57">
                         <Label>front 7</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwF7" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwF7" width="0WWndwF7" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwF7" width="WWndwF7" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -323,12 +372,14 @@
                         <FacingDirection code="_FRONT_">
                         </FacingDirection>
                     </Window>
+#endif
+#ifdef HWndwR7
                     <Window number="_CWndwR7" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="67">
                         <Label>right 7</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwR7" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwR7" width="0WWndwR7" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwR7" width="WWndwR7" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -336,12 +387,14 @@
                         <FacingDirection code="_RIGHT_">
                         </FacingDirection>
                     </Window>
+#endif
+#ifdef HWndwB7
                     <Window number="_CWndwB7" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="77">
                         <Label>back 7</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwB7" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwB7" width="0WWndwB7" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwB7" width="WWndwB7" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -349,12 +402,14 @@
                         <FacingDirection code="_BACK_">
                         </FacingDirection>
                     </Window>
+#endif
+#ifdef HWndwL7
                     <Window number="_CWndwL7" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="87">
                         <Label>left 7</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwL7" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwL7" width="0WWndwL7" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwL7" width="WWndwL7" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -362,12 +417,14 @@
                         <FacingDirection code="_LEFT_">
                         </FacingDirection>
                     </Window>
+#endif
+#ifdef HWndwF8
                     <Window number="_CWndwF8" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="58">
                         <Label>front 8</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwF8" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwF8" width="0WWndwF8" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwF8" width="WWndwF8" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -375,12 +432,14 @@
                         <FacingDirection code="_FRONT_">
                         </FacingDirection>
                     </Window>
+#endif
+#ifdef HWndwR8
                     <Window number="_CWndwR8" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="68">
                         <Label>right 8</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwR8" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwR8" width="0WWndwR8" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwR8" width="WWndwR8" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -388,12 +447,14 @@
                         <FacingDirection code="_RIGHT_">
                         </FacingDirection>
                     </Window>
+#endif
+#ifdef HWndwB8
                     <Window number="_CWndwB8" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="78">
                         <Label>back 8</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwB8" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwB8" width="0WWndwB8" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwB8" width="WWndwB8" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -401,12 +462,14 @@
                         <FacingDirection code="_BACK_">
                         </FacingDirection>
                     </Window>
+#endif
+#ifdef HWndwL8
                     <Window number="_CWndwL8" er="11.4793" shgc="0.6481" frameHeight="41" frameAreaFraction="0.1549" edgeOfGlassFraction="0.2142" centreOfGlassFraction="0.6309" adjacentEnclosedSpace="false" id="88">
                         <Label>left 8</Label>
                         <Construction energyStar="false">
                             <Type idref="_TWndwL8" rValue="0.3403"></Type>
                         </Construction>
-                        <Measurements height="0HWndwL8" width="0WWndwL8" headerHeight="0.2012" overhangWidth="0.4115">
+                        <Measurements height="HWndwL8" width="WWndwL8" headerHeight="0.2012" overhangWidth="0.4115">
                             <Tilt code="1" value="90">
                             </Tilt>
                         </Measurements>
@@ -414,3 +477,4 @@
                         <FacingDirection code="_LEFT_">
                         </FacingDirection>
                     </Window>
+#endif
