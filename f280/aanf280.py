@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Ralph Doncaster open source MIT license
 
 import cgi, csv, json, math, requests
 
