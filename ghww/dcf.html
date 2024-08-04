@@ -269,7 +269,7 @@
       <tr v-for="i in doors">
         <td>
           <label>d{{i}}</label>
-          <select name="_CodeDoor{{i}}">
+          <select :name="'_CodeDoor' +i">
             <option value="5">steel</option>
             <option value="2">wood</option>
             <option value="7">fglass</option>
