@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# generates room-by-room heat load list from H2K file and
+# H2KRoomLoads.txt with floor room key & heat/cool
+# floor = B|G|S
+# room key = first character of room name: must be unique
 
 import sys
 import xml.etree.ElementTree as ET
@@ -14,29 +18,32 @@ if len(sys.argv) < 2:
 #RLF = open("H2KRoomLoads.txt")
 RLF = open("C:/HOT2000 v11.12b12/H2KRoomLoads.txt")
 
-rooms = {}
+roomloads = {}
 for line in RLF.readlines():
-    #print(line.rstrip('\n'))
     # cols = level, ID, heat, cool
     cols = line.split('\t')
-    rooms[cols[1]] = [cols[0],] + cols[2:]
+    roomloads[cols[1]] = [cols[0],] + cols[2:]
 
 TREE = ET.parse(sys.argv[1])
 HC = TREE.find("House/Components")
 
-DHL = 0
+dhl = 0 
 ROOMS = HC.findall("Room/Label")
 for r in ROOMS:
     print(r.text, "BTU/h")
-    RHL = wb(rooms[r.text[0]][1])
-    DHL += RHL
+    RHL = wb(roomloads[r.text[0]][1])
+    dhl += RHL
     print("Heat:", RHL)
-    print("Cool:", wb(rooms[r.text[0]][2]))
+    print("Cool:", wb(roomloads[r.text[0]][2]))
     print()
 
-print("Basement BTU/h")
-BHL = wb(rooms['B'][1])
-print("Heat:", BHL)
-print("Cool:", wb(rooms['B'][2]))
+for k in roomloads.keys():
+    if roomloads[k][0] == 'B':
+        print("Basement room", k)
+        RHL = wb(roomloads[k][1])
+        dhl += RHL
+        print("Heat:", RHL)
+        print("Cool:", wb(roomloads[k][2]))
+        print()
 
-print("\nDHL:", DHL + BHL)
+print("House DHL:", dhl)
