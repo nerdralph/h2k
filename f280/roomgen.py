@@ -4,6 +4,11 @@
 
 import csv
 
+FTPERM = 3.28084
+
+def fttom(ft: str) -> float:
+    return float(ft)/FTPERM
+
 roomxml = """
             <Room id="{rmid}">
                 <Label>{label}</Label>
@@ -19,7 +24,7 @@ roomxml = """
                     <Wall adjacentEnclosedSpace="false" id="{wallid}">
                         <Label>{label} wall</Label>
                         <Construction corners="1" intersections="1">
-                            <Type idref="Code 2" rValue="3.0379" nominalInsulation="3.34">RBR wall</Type>
+                            <Type idref="Code 1" rValue="3.0379" nominalInsulation="3.34">RBR wall</Type>
                         </Construction>
                         <Measurements height="2.4384" perimeter="6.7056" />
                         <FacingDirection code="1">
@@ -45,6 +50,6 @@ rd = csv.DictReader(f)
 # 7 = other
 
 for row in rd:
-    print(roomxml.format(rmid=rmid, label=row["room"], rmtype=row["rmtype"], floor=row["floor"], width=row["width"], depth=row["depth"], wallid=(rmid + 100)))
+    print(roomxml.format(rmid=rmid, label=row["room"], rmtype=row["rmtype"], floor=row["floor"], width=fttom(row["width"]), depth=fttom(row["depth"]), wallid=(rmid + 100)))
     rmid += 1
 
