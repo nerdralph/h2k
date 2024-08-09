@@ -1,0 +1,8 @@
+room,depth,width,rmtype,wall perim,floor
+A br1, 12, 10, 4, 12, 1
+B br2, 10, 7, 4, 17, 1
+C br3, 10, 7, 4, 17, 1
+D bath, 10, 8, 5, 8, 1
+E hall, 14, 13.4, 7, 32, 1
+F kitchen, 14, 14, 1, 28, 1
+G living, 14, 14, 2, 42, 1
