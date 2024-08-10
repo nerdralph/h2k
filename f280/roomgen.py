@@ -34,7 +34,9 @@ roomxml = """
             </Room>"""
 
 # starting room id
-rmid = 800
+rmid = 100
+# wall id offset from room id
+WALLBASE= 50
 
 f = open("rooms.csv", encoding='ISO-8859-1')
 rd = csv.DictReader(f)
@@ -50,6 +52,6 @@ rd = csv.DictReader(f)
 # 7 = other
 
 for row in rd:
-    print(roomxml.format(rmid=rmid, label=row["room"], rmtype=row["rmtype"], floor=row["floor"], width=fttom(row["width"]), depth=fttom(row["depth"]), wallid=(rmid + 100)))
+    print(roomxml.format(rmid=rmid, label=row["room"], rmtype=row["rmtype"], floor=row["floor"], width=fttom(row["width"]), depth=fttom(row["depth"]), wallid=(rmid + WALLBASE)))
     rmid += 1
 
