@@ -23,9 +23,10 @@
     <title>EA DCF</title>
   </head>
   <body> 
-    <h1 style="color:DarkGreen;">ERS GHWiz</h1>
-    v57
-    <a href="/GHWizDefaults.txt" target="_blank">GHWiz house defaults</a>
+    <h1 style="color:DarkGreen;">H2K Builder v1.5.8</h1>
+    <!--
+    <a href="/GHWizDefaults.txt" target="_blank">house defaults</a>
+    -->
     <p>
     <form action="/cgi-bin/ghww.py" method="get" id="aanq" autocomplete="off">
     <!-- field names prefixed with '_' will be converted to house template macros -->
@@ -186,11 +187,11 @@
       </span>
     </div>
     <div v-scope="{type1: 'electric'}">
-      <br>Mechanical: needed for ERS, not F280
+      <br>Mechanicals needed for ERS<br>
       <!--
       <a href="https://oee.nrcan.gc.ca/pml-lmp/index.cfm?action=app.search-recherche&appliance=HP_SS" target="_blank">NRCan ASHP lookup</a><br>
-      -->
       <a href="http://ahridirectory.org" target="_blank">AHRI Directory</a><br>
+      -->
       <label>Heat
         <select name="_Heat" v-model="type1">
           <option>electric</option>
@@ -289,18 +290,22 @@
         <textarea style="width: 45ch"></textarea>
       </label>
     </div>
+    <br>
     <div v-scope="">
-      <br>Air leakage sources:
-      <table>
-        <tr v-for="s in ['attic hatch', 'upper lights', 'panelboard', 'receptacles', 'switches', 'pipe holes', 'windows', 'doors', 'baseboard']">
-          <td><label style="display:inline"><input type="checkbox" style="width:1ch">{{s}}</label></td>
-          <td><input></td>
-        </tr>
-        <tr>
-          <td><label style="display:inline"><input type="checkbox" sytle="width:1ch">other</label></td>
-          <td><textarea style="width: 100%"></textarea></td>
-      </table>
+      <details>
+        <summary>Air leakage sources:</summary>
+        <table>
+          <tr v-for="s in ['attic hatch', 'upper lights', 'panelboard', 'receptacles', 'switches', 'pipe holes', 'windows', 'doors', 'baseboard']">
+            <td><label style="display:inline"><input type="checkbox" style="width:1ch">{{s}}</label></td>
+            <td><input></td>
+          </tr>
+          <tr>
+            <td><label style="display:inline"><input type="checkbox" sytle="width:1ch">other</label></td>
+            <td><textarea style="width: 100%"></textarea></td>
+        </table>
+      </details>
     </div>
+    <br>
     <input type="submit" value="make H2K file" onclick="checkDCF()">
     </form>
   <script src="ghw.js"></script>
