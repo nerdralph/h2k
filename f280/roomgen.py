@@ -2,7 +2,7 @@
 # Ralph Doncaster 2024 open source MIT licence
 # generate h2k room definitions from csv input
 
-import csv
+import csv, sys
 
 FTPERM = 3.28084
 
@@ -38,6 +38,10 @@ rmid = 100
 # wall id offset from room id
 WALLBASE= 50
 
+if len(sys.argv) < 2:
+    print(sys.argv[0], "file.h2k")
+    sys.exit()
+
 f = open("rooms.csv", encoding='ISO-8859-1')
 rd = csv.DictReader(f)
 # rd.fieldnames == ['room', 'depth', 'width', 'rmtype', 'wall perim', 'floor']
@@ -50,6 +54,9 @@ rd = csv.DictReader(f)
 # 5 = bath
 # 6 = utility
 # 7 = other
+
+t = ET.parse(sys.argv[1])
+hc = t.find("House/Components")
 
 for row in rd:
     print(roomxml.format(rmid=rmid, label=row["room"], rmtype=row["rmtype"], floor=row["floor"], width=fttom(row["width"]), depth=fttom(row["depth"]), wallid=(rmid + WALLBASE)))
