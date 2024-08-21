@@ -3,6 +3,7 @@
 # generate h2k room definitions from csv input
 
 import csv, sys
+import xml.etree.ElementTree as ET
 
 FTPERM = 3.28084
 
@@ -31,7 +32,8 @@ roomxml = """
                         </FacingDirection>
                     </Wall>
                 </Components>
-            </Room>"""
+            </Room>
+"""
 
 # starting room id
 rmid = 100
@@ -55,10 +57,17 @@ rd = csv.DictReader(f)
 # 6 = utility
 # 7 = other
 
-t = ET.parse(sys.argv[1])
+H2K = sys.argv[1]
+t = ET.parse(H2K)
 hc = t.find("House/Components")
 
 for row in rd:
-    print(roomxml.format(rmid=rmid, label=row["room"], rmtype=row["rmtype"], floor=row["floor"], width=fttom(row["width"]), depth=fttom(row["depth"]), wallid=(rmid + WALLBASE)))
+    rmxml = roomxml.format(rmid=rmid, label=row["room"], rmtype=row["rmtype"], floor=row["floor"], width=fttom(row["width"]), depth=fttom(row["depth"]), wallid=(rmid + WALLBASE))
+    root = ET.fromstring(rmxml)
+    hc.append(root)
+    #print(ET.tostring(root))
     rmid += 1
+
+outfile = "rg-out.h2k"
+t.write(outfile, "UTF-8", True)
 
