@@ -21,4 +21,4 @@ hp.db: hp.db.zst
 
 install: $(CGIFILES)
 	sudo cp $(CGIFILES) $(CGIDIR)
-	cp ghw.js dcf.html /var/www/solarsi.ca/html/
+	cp *.js dcf.html /var/www/solarsi.ca/html/
