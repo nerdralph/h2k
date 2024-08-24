@@ -7,6 +7,12 @@ CGIFILES := $(wildcard *.xt) $(wildcard *.xml) *.py
 #all: d-b-e.xml d-b-b.xml d-s-b.xml
 #all: $(TARGETS)
 
+dcf.html: *.htm
+	cat head.htm main.htm airleaks.htm tail.htm > $@
+
+f280.html: *.htm
+	cat head.htm main.htm tail.htm > $@
+
 hp.db: hp.db.zst
 	zstd -d $<
 
