@@ -412,6 +412,8 @@
             </CoolingSeason>
 #ifdef _Heat
 #include "_Heat.xml"
+#else
+#include "electric.xml"
 #endif
             <MultipleSystems>
                 <Summary energySaverHeatingSystems="0" energySaverAirSourceHeatPump="0" woodAppliances="0" epaCsaHeatingSystems="0" />
