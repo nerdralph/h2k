@@ -410,7 +410,9 @@
                 <End code="12">December</End>
                 <Design code="7">July</Design>
             </CoolingSeason>
+#ifdef _Heat
 #include "_Heat.xml"
+#endif
             <MultipleSystems>
                 <Summary energySaverHeatingSystems="0" energySaverAirSourceHeatPump="0" woodAppliances="0" epaCsaHeatingSystems="0" />
             </MultipleSystems>
@@ -456,7 +458,9 @@
                 </Construction>
                 <Measurements area="0.0929" length="0.3048" />
             </Floor>
+#ifdef _DHWtype
 #include "_DHWtypeDHW.xml"
+#endif
         </Components>
     </House>
 #include "codes.xml"
