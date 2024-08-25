@@ -130,8 +130,11 @@ function setTestVals() {
     fe["AIType"].value = "FG batt";
     fe["AIDepth"].value = "6";
     fe["_EaveLen"].value = "80";
-    // fe["_DHWL"].value = "189";
-    fe["_fans"].value = "1";
+    fe["WWndwF1"].value = "36";
+    fe["HWndwF1"].value = "48";
+    fe["_WDoor1"].value = "38";
+    fe["_HDoor1"].value = "82";
+    //fe["_fans"].value = "1";
 }
 
 // global form init todo: write dcfInit including ?dbg 
