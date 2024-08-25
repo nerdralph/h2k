@@ -496,7 +496,11 @@
                     <End code="12">December</End>
                     <Design code="7">July</Design>
                 </CoolingSeason>
+#ifdef _Heat
 #include "_Heat.xml"
+#else
+#include "electric.xml"
+#endif
 #include "Type2Upg.xml"
                 <MultipleSystems>
                     <Summary energySaverHeatingSystems="0" energySaverAirSourceHeatPump="0" woodAppliances="0" epaCsaHeatingSystems="0" />
