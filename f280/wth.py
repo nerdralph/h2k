@@ -5,9 +5,9 @@ import csv, math
 # home location to nearest 0.001 degrees
 HOME = [-63.517, 44.966]
 
-# CSA F280_Weather.xlsm exported to CSV
+# CSA F280_Weather.xlsm exported to CSV, ISO-8859-1 encoding
 # http://www.csagroup.org/documents/CSA_F280-12.zip
-f = open("F280_Weather.csv")
+f = open("F280_Weather.csv", encoding='ISO-8859-1')
 
 wd = csv.DictReader(f)
 # wd.fieldnames == ['Seq', 'City', 'Region', 'DegDay', 'DHDBT', 'DCDBT', 'Strange', 'OHR', 'DGTEMP', 'JanWind', 'JulWind', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Latidude', 'Longitude', '']
