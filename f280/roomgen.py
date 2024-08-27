@@ -2,7 +2,7 @@
 # Ralph Doncaster 2024 open source MIT licence
 # generate h2k room definitions from csv input
 
-import csv, sys
+import csv, math, sys
 import xml.etree.ElementTree as ET
 
 FTPERM = 3.28084
@@ -20,7 +20,7 @@ roomxml = """
                     </Floor>
                     <FoundationBelow code="0">None</FoundationBelow>
                 </Construction>
-                <Measurements isRectangular="true" height="2.43" width="{width}" depth="{depth}" />
+                <Measurements isRectangular="true" height="2.43" width="{side}" depth="{side}" />
                 <Components>
                     <Wall adjacentEnclosedSpace="false" id="{wallid}">
                         <Label>{label} wall</Label>
@@ -46,7 +46,7 @@ if len(sys.argv) < 2:
 
 f = open("rooms.csv", encoding='ISO-8859-1')
 rd = csv.DictReader(f)
-# rd.fieldnames == ['room', 'depth', 'width', 'rmtype', 'wall perim', 'floor']
+# rd.fieldnames == ['room', 'area', 'rmtype', 'wall perim', 'floor']
 
 # h2k room codes
 # 1 = kitchen
@@ -62,7 +62,8 @@ t = ET.parse(H2K)
 hc = t.find("House/Components")
 
 for row in rd:
-    rmxml = roomxml.format(rmid=rmid, label=row["room"], rmtype=row["rmtype"], floor=row["floor"], width=fttom(row["width"]), depth=fttom(row["depth"]), wallid=(rmid + WALLBASE))
+    side = fttom(math.sqrt(row["area"]))
+    rmxml = roomxml.format(rmid=rmid, label=row["room"], rmtype=row["rmtype"], floor=row["floor"], width=side, depth=side, wallid=(rmid + WALLBASE))
     root = ET.fromstring(rmxml)
     hc.append(root)
     #print(ET.tostring(root))
