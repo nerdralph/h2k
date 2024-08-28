@@ -63,7 +63,7 @@ hc = t.find("House/Components")
 
 for row in rd:
     side = fttom(math.sqrt(float(row["area"])))
-    rmxml = roomxml.format(rmid=rmid, label=row["room"], rmtype=row["rmtype"], floor=row["floor"], side=side, wperim=ftom(row["wperim"]), wallid=(rmid + WALLBASE))
+    rmxml = roomxml.format(rmid=rmid, label=row["room"], rmtype=row["rmtype"], floor=row["floor"], side=side, wperim=fttom(row["wperim"]), wallid=(rmid + WALLBASE))
     root = ET.fromstring(rmxml)
     hc.append(root)
     #print(ET.tostring(root))
