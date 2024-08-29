@@ -27,7 +27,7 @@ roomxml = """
                         <Construction corners="1" intersections="1">
                             <Type idref="Code 1" rValue="3.0379" nominalInsulation="3.34">RBR wall</Type>
                         </Construction>
-                        <Measurements height="2.4384" perimeter="wperim" />
+                        <Measurements height="2.4384" perimeter="{wperim}" />
                         <FacingDirection code="1">
                         </FacingDirection>
                     </Wall>
