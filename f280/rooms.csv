@@ -1,8 +1,9 @@
-room,depth,width,rmtype,wall perim,floor
-A br1,12,10,4,12,1
-B br2,10,7,4,17,1
-C br3,10,7,4,17,1
-D bath,10,8,5,8,1
-E hall,14,13.4,7,32,1
-F kitchen,14,14,1,28,1
-G living,14,14,2,42,1
+room,area,rmtype,wall perim,floor
+A br1,80,4,32,2
+B br2,120,11,4,17,2
+C hall,60,7,16,2
+D bath,40,5,11,1
+E entry,70,7,17,1
+F kitchen,140,1,34,1
+G living,192,2,32,1
+H dining,144,3,24,1

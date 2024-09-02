@@ -1,8 +1,8 @@
             <Type2 shadingInF280Cooling="AccountedFor">
                 <AirHeatPump>
                     <EquipmentInformation energystar="false" CCASHP="true" AHRI="0">
-                        <Manufacturer>Greener Homes Wizard</Manufacturer>
-                        <Model>GHWiz</Model>
+                        <Manufacturer>H2K builder</Manufacturer>
+                        <Model>out;in</Model>
                     </EquipmentInformation>
                     <Equipment crankcaseHeater="0" numberOfHeads="2">
                         <Type code="3">
