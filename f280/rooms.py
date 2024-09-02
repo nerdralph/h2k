@@ -28,22 +28,15 @@ TREE = ET.parse(sys.argv[1])
 HC = TREE.find("House/Components")
 
 dhl = 0 
-ROOMS = HC.findall("Room/Label")
-for r in ROOMS:
+# above & below grade rooms
+AGROOMS = HC.findall("Room/Label")
+BGROOMS = HC.findall("Basement/Label")
+for r in AGROOMS + BGROOMS:
     print(r.text, "BTU/h")
     RHL = wb(roomloads[r.text[0]][1])
     dhl += RHL
     print("Heat:", RHL)
     print("Cool:", wb(roomloads[r.text[0]][2]))
     print()
-
-for k in roomloads.keys():
-    if roomloads[k][0] == 'B':
-        print("Basement room", k)
-        RHL = wb(roomloads[k][1])
-        dhl += RHL
-        print("Heat:", RHL)
-        print("Cool:", wb(roomloads[k][2]))
-        print()
 
 print("House DHL:", dhl)
