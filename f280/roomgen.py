@@ -41,7 +41,7 @@ rmid = 100
 WALLBASE= 50
 
 if len(sys.argv) < 2:
-    print(sys.argv[0], "file.h2k [wallht-m]")
+    print(sys.argv[0], "file.h2k [wallht]")
     sys.exit()
 
 f = open("rooms.csv", encoding='ISO-8859-1')
@@ -60,7 +60,7 @@ rd = csv.DictReader(f)
 H2K = sys.argv[1]
 
 # 8' default wall height = 2.384m
-WALLHT = 2.384 if (len(sys.argv) < 3) else sys.argv[2]
+WALLHT = 2.384 if (len(sys.argv) < 3) else fttom(sys.argv[2])
 
 t = ET.parse(H2K)
 hc = t.find("House/Components")
