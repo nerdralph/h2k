@@ -1,0 +1,34 @@
+    <div v-scope="{type1: 'electric'}">
+      <br>Mechanicals needed for ERS<br>
+      <!--
+      <a href="https://oee.nrcan.gc.ca/pml-lmp/index.cfm?action=app.search-recherche&appliance=HP_SS" target="_blank">NRCan ASHP lookup</a><br>
+      <a href="http://ahridirectory.org" target="_blank">AHRI Directory</a><br>
+      -->
+      <label>Heat
+        <select name="_Heat" v-model="type1">
+          <option>electric</option>
+          <option>boiler</option>
+          <option>furnace</option>
+        </select>
+      </label>
+      <label>HP AHRI#<input inputmode=numeric pattern="[\d]{6,9}" name="AHRI" size=7></label>
+      <label>Note<input size=8></label>
+      <label>Supplemental heat<input size=25></label>
+      <p>
+      <label>DHW
+        <select name="_DHWtype">
+          <option>electric</option>
+          <option>oil</option>
+          <option>gas</option>
+          <option v-if="type1 == 'boiler'">coil</option>
+        </select>
+      </label>
+      <label>Litres<input inputmode=numeric pattern="[\d]*" name="_DHWL" value="182" required style="width: 3ch"></label>
+      <label>Note<input size=7></label>
+      <label>R5 wrap<input type="checkbox"></label>
+      <p>
+      <label>HRV make<input name="_HRVmake" size=7></label>
+      <label>model<input name="_HRVmodel" size=6></label> 
+      <label>fans<input name="_fans" inputmode=numeric pattern="[012]" style="width: 3ch"></label> 
+      <label>hood<input type="checkbox"></label>
+    </div>
