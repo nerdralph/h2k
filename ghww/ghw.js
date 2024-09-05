@@ -13,13 +13,13 @@ const DCFFIELDS = window.aanq.elements;
 
 // convert form inputs to metric
 function convert() {
-    let inputs = document.querySelectorAll("[data-units");
+    let inputs = document.querySelectorAll("[data-units]");
     inputs.forEach(e => {if (e.value) e.value /= CONVERSION[e.dataset.units]});
 }
 
-// calculate basement depth below grade in metres
+// calculate basement depth below grade
 function calcBsmtDepth() {
-    aanq._BDBG.value = (~~aanq._BHt.value - ~~aanq.HAG.value)/IN_PER_M;
+    aanq._BDBG.value = aanq._BHt.value - aanq.HAG.value;
 }
 
 const TAXREGISTRY = {
@@ -114,6 +114,7 @@ function nextFile() {
 function checkDCF() {
     if (! window.aanq.checkValidity()) return;
     convert();
+    calcBsmtDepth();
     setFID(DCFFIELDS["_FileID"].value);
 }
 
