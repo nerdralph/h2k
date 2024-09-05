@@ -20,14 +20,14 @@ roomxml = """
                     </Floor>
                     <FoundationBelow code="0">None</FoundationBelow>
                 </Construction>
-                <Measurements isRectangular="true" height="2.43" width="{side}" depth="{side}" />
+                <Measurements isRectangular="true" height="{wallht}" width="{side}" depth="{side}" />
                 <Components>
                     <Wall adjacentEnclosedSpace="false" id="{wallid}">
                         <Label>{label} wall</Label>
                         <Construction corners="1" intersections="1">
                             <Type idref="Code 1" rValue="3.0379" nominalInsulation="3.34">RBR wall</Type>
                         </Construction>
-                        <Measurements height="2.4384" perimeter="{wperim}" />
+                        <Measurements height="{wallht}" perimeter="{wperim}" />
                         <FacingDirection code="1">
                         </FacingDirection>
                     </Wall>
@@ -41,7 +41,7 @@ rmid = 100
 WALLBASE= 50
 
 if len(sys.argv) < 2:
-    print(sys.argv[0], "file.h2k")
+    print(sys.argv[0], "file.h2k [wallht]")
     sys.exit()
 
 f = open("rooms.csv", encoding='ISO-8859-1')
@@ -58,12 +58,25 @@ rd = csv.DictReader(f)
 # 7 = other
 
 H2K = sys.argv[1]
+
+# 8' default wall height = 2.384m
+WALLHT = 2.384 if (len(sys.argv) < 3) else fttom(sys.argv[2])
+
 t = ET.parse(H2K)
 hc = t.find("House/Components")
 
 for row in rd:
     side = fttom(math.sqrt(float(row["area"])))
-    rmxml = roomxml.format(rmid=rmid, label=row["room"], rmtype=row["rmtype"], floor=row["floor"], side=side, wperim=fttom(row["wperim"]), wallid=(rmid + WALLBASE))
+    rmxml = roomxml.format(
+        rmid=rmid,
+        label=row["room"],
+        rmtype=row["rmtype"],
+        wallht=WALLHT,
+        floor=row["floor"],
+        side=side,
+        wperim=fttom(row["wperim"]),
+        wallid=(rmid + WALLBASE)
+        )
     root = ET.fromstring(rmxml)
     hc.append(root)
     #print(ET.tostring(root))
