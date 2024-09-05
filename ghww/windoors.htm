@@ -1,0 +1,71 @@
+    <div v-scope="{counts: {WndwF: 8, WndwL: 8, WndwB: 8, WndwR: 8}}">
+      <template id="H2KWindow-tmpl">
+        <td>
+          <select :name="'_T' + wname + c">
+            <option value="Code 100012">100012</option>
+            <option value="Code 200004">200004</option>
+            <option value="Code 200024" selected>200024</option>
+            <option value="Code 233214">233214</option>
+            <option value="Code 233224">233224</option>
+            <option value="Code 233204">233204</option>
+            <option value="Code 200045">200045</option>
+            <option value="Code 233245">233245</option>
+            <option value="Code 200052">200052</option>
+          </select>
+        </td>
+        <td><input inputmode=numeric :name="'_C' + wname + c" value="1" maxlength="1" pattern="[\d]" style="width: 2ch"></td>
+        <td><input inputmode=numeric :name="'W' + wname + c" style="width: 3ch"></td>
+        <td><input inputmode=numeric :name="'H' + wname + c" style="width: 3ch"></td>
+        <td><input :name="'_N' + wname + c" style="width: 10ch"></td>
+      </template>
+      <br>
+          Windows: <a href="/WindowCodes.txt" target="_blank">H2K window codes</a>
+        <table>
+          <tr><th>L</th><th>Type</th><th>#</th><th>W-d</th><th>Hgt</th><th>Note</th></tr>
+          <template v-for="c in counts['WndwF']">
+            <tr v-scope="H2KWindow({wname: 'WndwF'})"><td>fr{{c}}</td></tr>
+          </template>
+          <template v-for="c in counts['WndwL']">
+            <tr v-scope="H2KWindow({wname: 'WndwL'})"><td>lf{{c}}</td></tr>
+          </template>
+          <template v-for="c in counts['WndwB']">
+            <tr v-scope="H2KWindow({wname: 'WndwB'})"><td>bk{{c}}</td></tr>
+          </template>
+          <template v-for="c in counts['WndwR']">
+            <tr v-scope="H2KWindow({wname: 'WndwR'})"><td>rt{{c}}</td></tr>
+          </template>
+        </table>
+    </div>
+    <div v-scope="{doors: 5}" >
+    <br>
+    <label style="display:inline"> Doors:
+      <!-- <input inputmode=numeric size=2 pattern="[1-9]" v-model.number="doors"> -->
+    </label>
+    <table>
+      <tr><th>Type</th><th>W-d</th><th>Hgt</th><th>lite/note</th></tr>
+      <tr v-for="i in doors">
+        <td>
+          <label>d{{i}}</label>
+          <select :name="'_CodeDoor' +i">
+            <option value="5">steel</option>
+            <option value="2">wood</option>
+            <option value="7">fglass</option>
+          </select>
+        </td>
+        <td>
+          <input inputmode=numeric data-units="inm" :name="'_WDoor' + i" style="width: 4ch">
+        </td>
+        <td>
+          <input inputmode=numeric data-units="inm" :name="'_HDoor' + i" style="width: 4ch">
+        </td>
+        <td><input size=11></td>
+      </tr>
+    </table>
+    </div>
+    <div>
+      <br>
+      <label>extra notes
+        <textarea style="width: 45ch"></textarea>
+      </label>
+    </div>
+    <br>

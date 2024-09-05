@@ -2,16 +2,20 @@
 
 CGIDIR := /usr/lib/cgi-bin/
 CGIFILES := $(wildcard *.xt) $(wildcard *.xml) *.py
-#TARGETS := $(TEMPLATES:%.xt=%.xml)
+# ERS mechanicals and air leaks are not needed for F280
+HTM = head.htm main.htm $(MECH) windoors.htm $(LEAKS) tail.htm
 
+#TARGETS := $(TEMPLATES:%.xt=%.xml)
 #all: d-b-e.xml d-b-b.xml d-s-b.xml
 #all: $(TARGETS)
 
 dcf.html: *.htm
-	cat head.htm main.htm airleaks.htm tail.htm > $@
+	$(eval MECH = ersmech.htm)
+	$(eval LEAKS = airleaks.htm)
+	cat $(HTM) > $@
 
 f280.html: *.htm
-	cat head.htm main.htm tail.htm > $@
+	cat $(HTM) > $@
 
 hp.db: hp.db.zst
 	zstd -d $<
