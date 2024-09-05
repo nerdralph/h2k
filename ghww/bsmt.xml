@@ -37,7 +37,7 @@
                             </Composite>
                         </PonyWallType>
                     </Construction>
-                    <Measurements height="_BHt" depth="0.9144" ponyWallHeight="_PonyHt" />
+                    <Measurements height="_BHt" depth="_BDBG" ponyWallHeight="_PonyHt" />
                 </Wall>
                 <Components>
                     <FloorHeader adjacentEnclosedSpace="false" id="3">

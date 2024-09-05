@@ -12,10 +12,14 @@ const CONVERSION = {
 const DCFFIELDS = window.aanq.elements;
 
 // convert form inputs to metric
-function convert()
-{
+function convert() {
     let inputs = document.querySelectorAll("[data-units");
     inputs.forEach(e => {if (e.value) e.value /= CONVERSION[e.dataset.units]});
+}
+
+// calculate basement depth below grade in metres
+function calcBsmtDepth() {
+    aanq._BDBG.value = (~~aanq._BHt.value - ~~aanq.HAG.value)/IN_PER_M;
 }
 
 const TAXREGISTRY = {
