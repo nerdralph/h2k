@@ -272,7 +272,7 @@
         <!--
         <a href="http://ahridirectory.org" target="_blank">AHRI Directory</a><br>
         -->
-        <label>Heat
+        <label>Heating
           <select name="_Heat" v-model="type1">
             <option>electric</option>
             <option>boiler</option>
@@ -283,8 +283,9 @@
         <label>Note<input size=8></label>
         <label>Supplemental heat<input size=25></label>
         <p>
-        <label>DHW
+        <label>DHW type
           <select name="_DHWtype">
+            <option value="" disabled selected>choose</option>
             <option>electric</option>
             <option>oil</option>
             <option>gas</option>
