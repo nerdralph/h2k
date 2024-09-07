@@ -23,7 +23,7 @@
     <title>EA DCF</title>
   </head>
   <body> 
-    <h1 style="color:DarkGreen;">H2K Builder v1.6.2</h1>
+    <h1 style="color:DarkGreen;">H2K Builder v1.6.3</h1>
     <!--
     <a href="/GHWizDefaults.txt" target="_blank">house defaults</a>
     -->
@@ -268,7 +268,7 @@
     <details>
       <summary>ERS inputs</summary>
       <div v-scope="{type1: 'electric'}">
-        <br>Mechanicals<br>
+        <p>
         <!--
         <a href="http://ahridirectory.org" target="_blank">AHRI Directory</a><br>
         -->
@@ -295,10 +295,8 @@
         <label>Note<input size=7></label>
         <label>R5 wrap<input type="checkbox"></label>
         <p>
-        <label>HRV make<input name="_HRVmake" size=7></label>
-        <label>model<input name="_HRVmodel" size=6></label> 
-        <label>fans<input name="_fans" inputmode=numeric pattern="[012]" style="width: 3ch"></label> 
-        <label>hood<input type="checkbox"></label>
+        <label>#fans<input name="_fans" inputmode=numeric pattern="[012]" style="width: 3ch"></label> 
+        <label>range hood<input type="checkbox"></label>
       </div>
       <br>Air Leaks
       <air-leaks v-scope="">
