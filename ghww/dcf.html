@@ -23,7 +23,7 @@
     <title>EA DCF</title>
   </head>
   <body> 
-    <h1 style="color:DarkGreen;">H2K Builder v1.5.8</h1>
+    <h1 style="color:DarkGreen;">H2K Builder v1.6.2</h1>
     <!--
     <a href="/GHWizDefaults.txt" target="_blank">house defaults</a>
     -->
@@ -175,12 +175,13 @@
           </select>
         </label>
         <label title="average foundation height above ground">HAG
-          <input name="HAG" inputmode=numeric pattern="[\d]+" size=2 required placeholder="inch">
+          <input name="HAG" inputmode=numeric data-units="inm" size=2 required placeholder="inch">
         </label>
-        <label title="height in inches">pony
+        <label title="pony wall height">pony
           <! input name="_PonyHt" inputmode=numeric pattern="[\d\.]+" data-units="inm" size=2 required placeholder="inch">
           <input name="_PonyHt" inputmode=numeric data-units="inm" size=2 required placeholder="inch">
         </label>
+        <input name="_BDBG" type=hidden>
       </span>
       <span v-if="fnd == 'slab'">
         <label>R-value
@@ -188,39 +189,10 @@
         </label>
       </span>
     </div>
-    <div v-scope="{type1: 'electric'}">
-      <br>Mechanicals needed for ERS<br>
-      <!--
-      <a href="https://oee.nrcan.gc.ca/pml-lmp/index.cfm?action=app.search-recherche&appliance=HP_SS" target="_blank">NRCan ASHP lookup</a><br>
-      <a href="http://ahridirectory.org" target="_blank">AHRI Directory</a><br>
-      -->
-      <label>Heat
-        <select name="_Heat" v-model="type1">
-          <option>electric</option>
-          <option>boiler</option>
-          <option>furnace</option>
-        </select>
-      </label>
-      <label>HP AHRI#<input inputmode=numeric pattern="[\d]{6,9}" name="AHRI" size=7></label>
-      <label>Note<input size=8></label>
-      <label>Supplemental heat<input size=25></label>
-      <p>
-      <label>DHW
-        <select name="_DHWtype">
-          <option>electric</option>
-          <option>oil</option>
-          <option>gas</option>
-          <option v-if="type1 == 'boiler'">coil</option>
-        </select>
-      </label>
-      <label>Litres<input inputmode=numeric pattern="[\d]*" name="_DHWL" value="182" required style="width: 3ch"></label>
-      <label>Note<input size=7></label>
-      <label>R5 wrap<input type="checkbox"></label>
+    <div>
       <p>
       <label>HRV make<input name="_HRVmake" size=7></label>
-      <label>model<input name="_HRVmodel" size=6></label> 
-      <label>fans<input name="_fans" inputmode=numeric pattern="[012]" style="width: 3ch"></label> 
-      <label>hood<input type="checkbox"></label>
+      <label>model<input name="_HRVmodel" size=6></label>
     </div>
     <div v-scope="{counts: {WndwF: 8, WndwL: 8, WndwB: 8, WndwR: 8}}">
       <template id="H2KWindow-tmpl">
@@ -288,14 +260,48 @@
     </div>
     <div>
       <br>
-      <label>extra notes
-        <textarea style="width: 45ch"></textarea>
+      <label>general notes
+        <textarea style="width: 42ch"></textarea>
       </label>
     </div>
     <br>
-    <div v-scope="">
-      <details>
-        <summary>Air leakage sources:</summary>
+    <details>
+      <summary>ERS inputs</summary>
+      <div v-scope="{type1: 'electric'}">
+        <br>Mechanicals<br>
+        <!--
+        <a href="http://ahridirectory.org" target="_blank">AHRI Directory</a><br>
+        -->
+        <label>Heat
+          <select name="_Heat" v-model="type1">
+            <option>electric</option>
+            <option>boiler</option>
+            <option>furnace</option>
+          </select>
+        </label>
+        <label>HP AHRI#<input inputmode=numeric pattern="[\d]{6,9}" name="AHRI" size=7></label>
+        <label>Note<input size=8></label>
+        <label>Supplemental heat<input size=25></label>
+        <p>
+        <label>DHW
+          <select name="_DHWtype">
+            <option>electric</option>
+            <option>oil</option>
+            <option>gas</option>
+            <option v-if="type1 == 'boiler'">coil</option>
+          </select>
+        </label>
+        <label>Litres<input inputmode=numeric pattern="[\d]*" name="_DHWL" value="182" required style="width: 3ch"></label>
+        <label>Note<input size=7></label>
+        <label>R5 wrap<input type="checkbox"></label>
+        <p>
+        <label>HRV make<input name="_HRVmake" size=7></label>
+        <label>model<input name="_HRVmodel" size=6></label> 
+        <label>fans<input name="_fans" inputmode=numeric pattern="[012]" style="width: 3ch"></label> 
+        <label>hood<input type="checkbox"></label>
+      </div>
+      <br>Air Leaks
+      <air-leaks v-scope="">
         <table>
           <tr v-for="s in ['attic hatch', 'upper lights', 'panelboard', 'receptacles', 'switches', 'pipe holes', 'windows', 'doors', 'baseboard']">
             <td><label style="display:inline"><input type="checkbox" style="width:1ch">{{s}}</label></td>
@@ -305,8 +311,8 @@
             <td><label style="display:inline"><input type="checkbox" sytle="width:1ch">other</label></td>
             <td><textarea style="width: 100%"></textarea></td>
         </table>
-      </details>
-    </div>
+      </air-leaks>
+    </details>
     <br>
     <input type="submit" value="make H2K file" onclick="checkDCF()">
     </form>
