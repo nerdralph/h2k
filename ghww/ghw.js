@@ -87,7 +87,6 @@ function setWeather(WKID4326) {
 }
 
 // get property data for roll number
-// todo: write parseTaxData to check null & call ROLLFN
 function findAAN(aan) {
     const region = location.hash.slice(1) || "NS";
     fetchJd(TAXREGISTRY[region] + aan, d => ROLLFN[region](d[0]));
@@ -111,10 +110,11 @@ function nextFile() {
     return fid;
 }
 
-function checkDCF() {
-    if (! window.aanq.checkValidity()) return;
+
+// process DCF before submit
+function preSubmit() {
     convert();
-    calcBsmtDepth();
+    if (aanq._Foundation != "slab") calcBsmtDepth();
     setFID(DCFFIELDS["_FileID"].value);
 }
 
@@ -143,5 +143,4 @@ function setTestVals() {
 }
 
 // global form init todo: write dcfInit including ?dbg 
-// window.onload = () => aanq.elements._FileID.value = location.search.slice(1);
 window.onload = () => DCFFIELDS._FileID.value = nextFile();
