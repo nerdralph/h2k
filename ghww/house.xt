@@ -8,9 +8,9 @@
     </Version>
     <Application>
         <Name>HOT2000</Name>
-        <Version major="11" minor="12" build="44">
+        <Version major="11" minor="13" build="43">
             <Labels>
-                <English>11.12b44</English>
+                <English>11.13b43</English>
             </Labels>
         </Version>
     </Application>
