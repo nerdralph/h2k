@@ -1,3 +1,8 @@
+#if _PonyHt > 0
+#define HASPONYWALL "true"
+#else
+#define HASPONYWALL "false"
+#endif
             <Basement isExposedSurface="true" exposedSurfacePerimeter="39.624" id="1">
                 <Label>1 Basement</Label>
                 <Configuration type="BCCB" subtype="4" overlap="0.5">BCCB_4</Configuration>
@@ -15,7 +20,7 @@
                     </Construction>
                     <Measurements isRectangular="false" area="92.903" perimeter="39.624" />
                 </Floor>
-                <Wall hasPonyWall="true">
+                <Wall hasPonyWall=HASPONYWALL>
                     <Construction corners="4">
                         <InteriorAddedInsulation idref="Code 8" nominalInsulation="2.11">
                             <Description>230201</Description>
