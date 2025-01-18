@@ -59,8 +59,8 @@ rd = csv.DictReader(f)
 
 H2K = sys.argv[1]
 
-# 8' default wall height = 2.384m
-WALLHT = 2.384 if (len(sys.argv) < 3) else fttom(sys.argv[2])
+# 8' default wall height = 2.4384m
+WALLHT = 2.4384 if (len(sys.argv) < 3) else fttom(sys.argv[2])
 
 t = ET.parse(H2K)
 hc = t.find("House/Components")
