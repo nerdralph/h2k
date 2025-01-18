@@ -16,7 +16,7 @@ if len(sys.argv) < 2:
     sys.exit()
 
 #RLF = open("H2KRoomLoads.txt")
-RLF = open("C:/HOT2000 v11.12b12/H2KRoomLoads.txt")
+RLF = open("C:/HOT2000 v11.13b13/H2KRoomLoads.txt")
 
 roomloads = {}
 for line in RLF.readlines():
