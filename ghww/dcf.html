@@ -109,6 +109,7 @@
     <label>+foam
       <select name="foam">
         <option>none</option>
+        <option>0.5 EPS</option>
         <option>1" EPS</option>
         <option>1" XPS</option>
         <option>1.5 EPS</option>
@@ -159,7 +160,7 @@
         </select>
       </label>
       <span v-if="fnd == 'bsmt'">
-        <label title="bsmt wall height">height
+        <label>height
           <! input name="_BHt" inputmode=numeric pattern="[\d]{2,3}" data-units="inm" size=2 required placeholder="inch">
           <input name="_BHt" inputmode=numeric data-units="inm" size=2 required placeholder="inch">
         </label>
