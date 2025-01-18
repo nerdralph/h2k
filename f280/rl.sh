@@ -8,3 +8,5 @@ DEST=($EA/$FID*)
 echo dest = "$DEST"
 
 ./rooms.py $EA/$FID*/$FID-rooms.h2k > $DEST/$FID-room-loads.txt
+
+tail -1 $DEST/$FID-room-loads.txt
