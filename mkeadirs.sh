@@ -11,10 +11,10 @@ for file in `find $EASOURCE -name "*.pdf"`; do
     # see bash manual ${parameter%word} in trailing portion match section
     match=${file%.pdf}
     id=${match##*/}
-    if [ -e $EADEST/$id* ]
+    if [ ! -e $EADEST/$id* ]
     then
-        echo $id exists
-    else
+        # todo: add verbose option
+        # echo $id exists
         echo create $id
         mkdir $EADEST/$id
         cp $EASOURCE/$id* $EADEST/$id
