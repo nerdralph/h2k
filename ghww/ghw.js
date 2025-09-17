@@ -93,7 +93,8 @@ function findAAN(aan) {
 }
 
 function setFID(fid) {
-    document.cookie = `_FileID=${fid}; SameSite=Strict; max-age=86400*99`;
+    const seconds_per_year = 86400 * 366;
+    document.cookie = `_FileID=${fid}; SameSite=Strict; max-age=${seconds_per_year}`;
 }
 
 function getCookie(name) {
@@ -114,7 +115,7 @@ function nextFile() {
 // process DCF before submit
 function preSubmit() {
     convert();
-    if (aanq._Foundation != "slab") calcBsmtDepth();
+    if (aanq._Foundation.value != "slab") calcBsmtDepth();
     setFID(DCFFIELDS["_FileID"].value);
 }
 
